@@ -1013,239 +1013,162 @@
 		$(this).addClass('')
 	})
 </script>
-<div class="site-footer">
-	<div class="footer-service">
-		<div class="w1210">
-			<ul class="list-service clearfix">
-				<li><a class="ic1" rel="nofollow" href="#"><i></i><strong>1小时快修服务</strong></a>
-				</li>
-				<li><a class="ic2" rel="nofollow" href="#"><i></i><strong>7天无理由退货</strong></a>
-				</li>
-				<li><a class="ic3" rel="nofollow" href="#"><i></i><strong>15天免费换货</strong></a>
-				</li>
-				<li><a class="ic4" rel="nofollow" href="#"><i></i><strong>满150元包邮</strong></a>
-				</li>
-				<li><a class="ic5" rel="nofollow" href="#"><i></i><strong>460余家售后网点</strong></a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="footer-related">
-		<div class="footer-article w1210">
-			<dl class="col-article col-article-first">
-				<dt>新手上路</dt>
-				<dd>
-					<a rel="nofollow" href="#">售后流程</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">购物流程</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">订购方式</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">在线支付</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">公司转账</a>
-				</dd>
-			</dl>
-			<dl class="col-article ">
-				<dt>配送方式</dt>
-				<dd>
-					<a rel="nofollow" href="#">货到付款区域</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">配送支付查询</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">支付方式说明</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">如何送礼</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">Global Shipping</a>
-				</dd>
-			</dl>
-			<dl class="col-article ">
-				<dt>购物指南</dt>
-				<dd>
-					<a rel="nofollow" href="#">常见问题</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">订购流程</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">注册新会员</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">团购/机票</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">联系客服</a>
-				</dd>
-			</dl>
-			<dl class="col-article ">
-				<dt>售后服务</dt>
-				<dd>
-					<a rel="nofollow" href="#">退换货原则</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">售后服务保证</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">换货流程</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">退款说明</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">返修/退换货</a>
-				</dd>
-			</dl>
-			<dl class="col-article ">
-				<dt>关于我们</dt>
-				<dd>
-					<a rel="nofollow" href="#">网站故障报告</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">选机咨询</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">投诉与建议</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">节能补贴</a>
-				</dd>
-				<dd>
-					<a rel="nofollow" href="#">关于我们</a>
-				</dd>
-			</dl>
-			<dl class="col-article">
-				<dt>服务支持</dt>
-				<dd>售前咨询 020-34506590</dd>
-				<dd>售后咨询 020-34506590</dd>
-				<dd>客服 QQ 38306293</dd>
-				<dd>工作时间 9：00-17：30</dd>
-			</dl>
-		</div>
-		<div class="footer-info clearfix">
-			<div class="info-text">
 
-				<p>
-					友情链接： <a href="#">网软志成</a><span class="sep">|</span> <a href="#">阿里巴巴</a><span
-						class="sep">|</span> <a href="#">百度</a><span class="sep">|</span>
-					<a href="#">腾讯</a><span class="sep">|</span> <a href="#">网易</a><span
-						class="sep">|</span> <a href="#">京东商城</a><span class="sep">|</span>
-					<a href="#">天猫商城</a><span class="sep">|</span> <a href="#">支付宝</a><span
-						class="sep">|</span> <a href="#">搜狐</a><span class="sep">|</span>
-					<a href="#">优酷网</a><span class="sep">|</span> <a href="#">新浪</a><span
-						class="sep">|</span> <a href="#">凤凰网</a><span class="sep">|</span>
-					<a href="#">58同城</a><span class="sep">|</span> <a href="#">搜房网</a><span
-						class="sep">|</span> <a href="#">世纪佳缘</a><span class="sep">|</span>
-					<a href="#">央视网</a><span class="sep">|</span> <a href="#">新华网</a><span
-						class="sep">|</span> <a href="#">苏宁易购</a>
-				</p>
-				<p class="nav_bottom">
-					<a href="#">关于我们</a><em>|</em> <a href="#">联系我们</a><em>|</em> <a
-						href="#">商家入驻</a><em>|</em> <a href="#">版权证书</a><em>|</em> <a
-						href="#">手机商城</a><em>|</em> <a href="#">销售联盟</a><em>|</em> <a
-						href="#">商城社区</a><em>|</em> <a href="#">企业文化</a><em>|</em> <a
-						href="#">帮助中心</a><em>|</em> <a href="#">留言板</a><em
-						style="display: none">|</em> ICP备案证书号: <a href="#">粤ICP备06122404号</a>
-				</p>
-				<p>
-					<a href="#">© 2005-2018 网软志成B2B2C电商平台系统多用户商城系统模板 版权所有，并保留所有权利。</a>
-					<a href="#">广州市天河区国家软件园产业基地8栋502 </a> <a href="#"> Tel:
-						020-34506590 </a> <a href="#"> E-mail: 38306293@qq.com </a>
-				</p>
-				<p>
-					<script type="text/javascript">
-						var cnzz_protocol = (("https:" == document.location.protocol) ? " https://"
-								: " http://");
-						document
-								.write(unescape("%3Cspan id='cnzz_stat_icon_1000200717'%3E%3C/span%3E%3Cscript src='"
-										+ cnzz_protocol
-										+ "s22.cnzz.com/z_stat.php%3Fid%3D1000200717%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-					</script>
-					<span id="cnzz_stat_icon_1000200717"><a href="#"><img
-							border="0" hspace="0" vspace="0"
-							src="${ctx}/statics/images/pic1.gif"></a></span>
-					<script src="${ctx}/statics/images/z_stat.php"
-						type="text/javascript"></script>
-					<script src="${ctx}/statics/images/core.php" charset="utf-8"
-						type="text/javascript"></script>
-					<a href="#"><img src="${ctx}/statics/images/pa" height="16"
-						border="0" alt="QQ" /> 394223545</a> <a href="#"><img
-						src="${ctx}/statics/images/online.ww" width="16" height="16"
-						border="0" alt="淘宝旺旺" />38306293</a>
-				</p>
+<div class="w1210 floor-list">
+	<div class="floor" floor="1" color="#e31939">
+		<div class="floor-layout">
+			<a href="##">
+				<img src="${ctx}/statics/images/1453619944293013871.jpg" alt="" height="100" width="1210">
+			</a>
+			<div class="floor-con">
+				<div class="floor-title">
+					<h2>
+						<span> 1F </span> <a href="#">家用电器</a>
+					</h2>
+					<ul class="floor-tabs-nav">
+						<li class="floor-tabs-selected">
+							<h3 style="border-color: #e31939 #e31939 #fff; color: #e31939;">精挑细选</h3>
+						</li>
+						<li class="">
+							<h3>大家电</h3>
+						</li>
+						<li class="">
+							<h3>生活电器</h3>
+						</li>
+						<li class="">
+							<h3>厨房电器</h3>
+						</li>
+					</ul>
+				</div>
+				<script type="text/javascript">
+					$(function() {
+						var sWidth = $("#focus_5").width(); //获取焦点图的宽度（显示面积）
+						var len = $("#focus_5 ul li").length; //获取焦点图个数
+						var index = 0;
+						var picTimer;
+						//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+						var btn = "<div class='btn'>";
+
+						for (var i = 0; i < len; i++) {
+							btn += "<span></span>";
+						}
+						btn += "</div>";
+						$("#focus_5").append(btn);
+						$("#focus_5 .btnBg").css("opacity", 0.5);
+
+						//为小按钮添加鼠标滑入事件，以显示相应的内容
+						$("#focus_5 .btn span").css("opacity", 0.3)
+								.mouseover(
+										function() {
+											index = $("#focus_5 .btn span")
+													.index(this);
+											showPics(index);
+										}).eq(0).trigger("mouseover");
+
+						//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+						$("#focus_5 ul").css("width", sWidth * (len));
+
+						//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+						$("#focus_5").hover(function() {
+							clearInterval(picTimer);
+						}, function() {
+							picTimer = setInterval(function() {
+								showPics(index);
+								index++;
+								if (index == len) {
+									index = 0;
+								}
+							}, 3000); //此4000代表自动播放的间隔，单位：毫秒
+						}).trigger("mouseleave");
+
+						//显示图片函数，根据接收的index值显示相应的内容
+						function showPics(index) { //普通切换
+							var nowLeft = -index * sWidth; //根据index值计算ul元素的left值
+							$("#focus_5 ul").stop(true, false).animate({
+								"left" : nowLeft
+							}, 300);
+							$("#focus_5 .btn span").stop(true, false).animate({
+								"opacity" : "0.3"
+							}, 300).eq(index).stop(true, false).animate({
+								"opacity" : "0.7"
+							}, 300); //为当前的按钮切换到选中的效果
+						}
+					});
+				</script>
+				<div class="floor-content">
+					<div class="floor-left" style="border-top: 1px #e31939 solid;">
+						<div id="focus_5" class="floor-banner">
+							<ul style="left: -540px; width: 810px;">
+								<li><a href="##"><img
+										data-original="${ctx}/statics/images/1453623806780579842.jpg"
+										src="${ctx}/statics/images/1453623806780579842.jpg"
+										width="270" height="475" style="display: inline;"></a></li>
+								<li><a href="##"><img
+										data-original="${ctx}/statics/images/1453699763740711815.jpg"
+										src="${ctx}/statics/images/1453699763740711815.jpg"
+										width="270" height="475" style="display: inline;"></a></li>
+								<li><a href="##"><img
+										data-original="${ctx}/statics/images/1453699795448891382.jpg"
+										src="${ctx}/statics/images/1453699795448891382.jpg"
+										width="270" height="475" style="display: inline;"></a></li>
+							</ul>
+							<div class="btn">
+								<span style="opacity: 0.3;"></span><span style="opacity: 0.3;"></span><span
+									style="opacity: 0.7;"></span>
+							</div>
+						</div>
+
+						<ul class="floor-words">
+							<li><a href="##"> 家具五金 </a></li>
+							<li><a href="##"> 电工钻头 </a></li>
+							<li><a href="##"> 电风扇 </a></li>
+							<li><a href="##"> 净化器 </a></li>
+							<li><a href="##"> 加湿器 </a></li>
+							<li><a href="##"> 吸尘器 </a></li>
+							<li><a href="##"> 取暖电器 </a></li>
+							<li><a href="##"> 饮水机 </a></li>
+						</ul>
+					</div>
+					<!-- 重要重要重要重要重要重要重要重要重要重要重要重要重要重要重要重要重要 -->
+					<div class="floor-right">
+						<!-- 商品开始 -->
+						<div class="floor-tabs-panel"
+							style="border-top: 1px #e31939 solid;">
+							<!-- 商品遍历 -->
+							<div class="goods" id="li_283">
+								<div class="wrap">
+									<a target="_blank" href="##"> <img
+										data-original="images/201603/thumb_img/_thumb_P_1457590880591.jpg"
+										src="${ctx}/statics/images/_thumb_P_1457590880591.jpg"
+										alt="好事达家用梯子四步梯加厚梯子折叠梯移动扶梯人字梯2766" height="140" width="140"
+										class="pic_img_283" style="display: block;">
+									</a>
+									<p class="title">
+										<a target="_blank" href="##">好事达家用梯子四步梯加厚梯子折叠梯移动扶梯人字梯...</a>
+									</p>
+									<p class="price">
+										<span> ¥10.0 </span>
+									</p>
+									<a class="add-cart" onclick="addToCart(283)" title="加入购物车"></a>
+								</div>
+							</div>
+							<!-- 商品遍历。。。。。 -->
+						</div>
+						<!-- 商品结束 -->
+					</div>
+
+				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
-<table cellspacing="0" cellpadding="0" width="100%" align="center"
-	border="0">
-	<tbody>
 
-		<tr>
-			<td bgcolor="#555555">
-				<table cellspacing="0" cellpadding="0" width="100%" align="center"
-					border="0">
-					<tbody>
-						<tr>
-							<td align="middle" height="22"><font color="#ffffff"><span>电话：020-34506590
-										34700400 34709708 13719472523 13527894748</span> </font></td>
-						</tr>
-						<tr>
-							<td align="middle" height="22"><font color="#ffffff">微信号：13719472523&nbsp;&nbsp;13527894748&nbsp;&nbsp;
-									联系邮箱：38306293@qq.com</font></td>
-						</tr>
-						<tr>
-							<td align="middle" height="22"><font color="#ffffff">公司地址：广州市天河区国家软件园产业基地8栋502
-									软著登字第0830353号 登记号 2014SR161116 </font></td>
-						</tr>
-						<tr>
-							<td align="middle" height="22"><font color="#ffffff"><span
-									class="css2">客服QQ:290116505</span> <a target="blank" href="#"><img
-										border="0" src="${ctx}/statics/images/qqonline.gif"
-										alt="网软志成客服为你服务"></a> <span class="css2">38306293<a
-										target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>417586492
-								</span> <font face="Verdana"> <a target="blank" href="#"><img
-											border="0" src="${ctx}/statics/images/qqonline.gif"
-											alt="网软志成客服为你服务"></a>
-								</font><span class="css2">657248708</span> <font face="Verdana">
-										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
-								</font><br> <span class="css2">客服QQ:454882888</span> <font
-									face="Verdana"> <a target="blank" href="#"><img
-											border="0" src="${ctx}/statics/images/qqonline.gif"
-											alt="网软志成客服为你服务"></a>
-								</font><span class="css2">394223545</span> <font face="Verdana">
-										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
-								</font><span class="css2">469648611</span> <font face="Verdana">
-										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
-								</font><span class="css2">314730679</span> <font face="Verdana">
-										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
-								</font> </font></td>
-						</tr>
-						<tr>
-							<td height="22" align="middle"><font color="#ffffff">Copyright(c)2000-2030
-									www.wrzc.net <span>广州网软志成信息科技有限公司</span> 版权所有
-							</font> <a href="#"> <font color="#FF0000">进入后台管理</font>
-							</a></td>
-						</tr>
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<!--尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾-->
+
+<%@include file="foot.jsp"%>
+
+<!--尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾-->
 <img src="${ctx}/statics/images/cron.php" alt=""
 	style="width: 0px; height: 0px;" />
 <script type="text/javascript">
