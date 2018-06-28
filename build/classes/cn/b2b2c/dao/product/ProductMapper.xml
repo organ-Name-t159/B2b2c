@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.b2b2c.dao.product.ProductMapper">
+	<select id="getProductList" resultType="product">
+		SELECT p.* FROM `product` p WHERE 1=1
+		<if test="proName !=null and proName !=''">
+			and p.name like CONCAT('%',#{proName},'%')
+		</if>
+		<if test="level ==1 and categoryId !=null">
+			and p.categoryLevel1Id=#{categoryId}
+		</if>
+		<if test="level ==2 and categoryId !=null">
+			and p.categoryLevel2Id=#{categoryId}
+		</if>
+		<if test="level ==3 and categoryId !=null">
+			and p.categoryLevel3Id=#{categoryId}
+		</if>
+		limit #{from},#{pageSize}
+	</select>
+</mapper>

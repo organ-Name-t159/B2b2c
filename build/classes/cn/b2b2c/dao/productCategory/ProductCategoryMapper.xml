@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.b2b2c.dao.productCategory.ProductCategoryMapper">
+	<select id="queryProductCategorylist" parameterType="ProductCategory" resultType="ProductCategory">
+		select pc1.*,pc2.name as parentName from product_category pc1 LEFT JOIN product_category pc2 ON pc1.parentId=pc2.id where 1 = 1 
+		<if test="name != null and name != ''">
+			and pc1.name like CONCAT ('%',#{name},'%')
+		</if>
+		<if test="parentId != null">
+			and pc1.parentId=#{parentId}
+		</if>
+		<if test="type != '' and type != null">
+			and pc1.type=#{type}
+		</if>
+		<if test="isPage == true">
+			limit #{startIndex},#{pageSize}
+		</if>
+	</select>
+
+
+</mapper>
