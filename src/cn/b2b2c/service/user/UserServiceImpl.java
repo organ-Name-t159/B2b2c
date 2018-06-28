@@ -3,10 +3,12 @@ package cn.b2b2c.service.user;
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public void sss() {
+	public int geiId() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
+
+	
 
 	
 
