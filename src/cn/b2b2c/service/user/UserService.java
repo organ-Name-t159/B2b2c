@@ -1,7 +1,6 @@
 package cn.b2b2c.service.user;
 
 public interface UserService {
-	//功能定义
-	public void gitAll();
+	
 
 }
