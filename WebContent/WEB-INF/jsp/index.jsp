@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <script type="text/javascript">
@@ -1015,6 +1016,7 @@
 </script>
 
 <div class="w1210 floor-list">
+	<c:forEach items="${productCategoryVoList}" var="temp" end="${fn:length(productCategoryVoList)}" varStatus="status" >
 	<div class="floor" floor="1" color="#e31939">
 		<div class="floor-layout">
 			<a href="##">
@@ -1023,21 +1025,18 @@
 			<div class="floor-con">
 				<div class="floor-title">
 					<h2>
-						<span> 1F </span> <a href="#">家用电器</a>
+						<span> ${status.index+1}F </span> <a href="#" target="_blank">${temp.productCategory.name}</a>
 					</h2>
 					<ul class="floor-tabs-nav">
 						<li class="floor-tabs-selected">
 							<h3 style="border-color: #e31939 #e31939 #fff; color: #e31939;">精挑细选</h3>
 						</li>
+						<c:forEach items="${temp.productCategoryVoList}" var="vo2">
 						<li class="">
-							<h3>大家电</h3>
+							<h3>${vo2.productCategory.name }</h3>
 						</li>
-						<li class="">
-							<h3>生活电器</h3>
-						</li>
-						<li class="">
-							<h3>厨房电器</h3>
-						</li>
+						</c:forEach>
+												
 					</ul>
 				</div>
 				<script type="text/javascript">
@@ -1135,23 +1134,26 @@
 						<div class="floor-tabs-panel"
 							style="border-top: 1px #e31939 solid;">
 							<!-- 商品遍历 -->
+							<c:forEach items="${temp.productList}" var="productVo">
 							<div class="goods" id="li_283">
 								<div class="wrap">
 									<a target="_blank" href="##"> <img
 										data-original="images/201603/thumb_img/_thumb_P_1457590880591.jpg"
-										src="${ctx}/statics/images/_thumb_P_1457590880591.jpg"
-										alt="好事达家用梯子四步梯加厚梯子折叠梯移动扶梯人字梯2766" height="140" width="140"
+										src="${ctx}/statics/images/${productVo.fileName}"
+										alt="${productVo.name }" height="140" width="140"
 										class="pic_img_283" style="display: block;">
 									</a>
 									<p class="title">
-										<a target="_blank" href="##">好事达家用梯子四步梯加厚梯子折叠梯移动扶梯人字梯...</a>
+										<a target="_blank" href="##">${productVo.name }</a>
 									</p>
 									<p class="price">
-										<span> ¥10.0 </span>
+										<span> ¥${productVo.price } </span>
 									</p>
 									<a class="add-cart" onclick="addToCart(283)" title="加入购物车"></a>
 								</div>
 							</div>
+							</c:forEach>
+							
 							<!-- 商品遍历。。。。。 -->
 						</div>
 						<!-- 商品结束 -->
@@ -1161,7 +1163,9 @@
 
 			</div>
 		</div>
-	</div>
+	</div>	
+	</c:forEach>
+	
 </div>
 
 <!--尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾尾-->

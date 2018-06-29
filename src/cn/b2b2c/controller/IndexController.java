@@ -30,6 +30,7 @@ public class IndexController {
 		//商品分类
 		List<ProductCategoryVo> productCategoryVoList=productCategoryService.queryAllProductCategoryList();
 		for (ProductCategoryVo vo : productCategoryVoList) {
+			System.out.println(vo.getProductCategory().getId());
 			List<Product> productList=productService.getProductList(1, 8, null, vo.getProductCategory().getId(),1);
 			vo.setProductList(productList);
 		}		
