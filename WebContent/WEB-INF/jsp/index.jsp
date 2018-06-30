@@ -1016,9 +1016,9 @@
 </script>
 
 <div class="w1210 floor-list">
-
+	<div class="floor"></div>
 	<c:forEach items="${productCategoryVoList}" var="temp" end="${fn:length(productCategoryVoList)}" varStatus="status" >
-	<c:if test="${temp.productCategoryVoList[status.index].productCategory.name!=null }">
+	<c:if test="${temp.productCategoryVoList[0].productCategory.name!=null }">
 	<div class="floor" floor="1" color="#e31939">
 		<div class="floor-layout">
 			<a href="##">
@@ -1163,7 +1163,7 @@
 					</div>
 
 				</div>
-
+				
 			</div>
 		</div>
 	</div>		
@@ -1351,21 +1351,21 @@
 </div>
 <div class="elevator" style="visibility: visible;">
 	<div class="elevator-floor" style="transform: scale(1); opacity: 1;">
-		<a class="smooth" href="#"> <b class="fs">1F</b> <em
+		<a class="smooth" href="javascript:;"> <b class="fs">1F</b> <em
 			class="fs-name">家电</em> <i class="fs-line"></i>
-		</a> <a class="smooth active" href="#"> <b class="fs">2F</b> <em
+		</a> <a class="smooth active" href="javascript:;"> <b class="fs">2F</b> <em
 			class="fs-name">数码</em> <i class="fs-line"></i>
-		</a> <a class="smooth" href="#"> <b class="fs">3F</b> <em
+		</a> <a class="smooth" href="javascript:;"> <b class="fs">3F</b> <em
 			class="fs-name">家居</em> <i class="fs-line"></i>
-		</a> <a class="smooth" href="#"> <b class="fs">4F</b> <em
+		</a> <a class="smooth" href="javascript:;"> <b class="fs">4F</b> <em
 			class="fs-name">服饰</em> <i class="fs-line"></i>
-		</a> <a class="smooth" href="#"> <b class="fs">5F</b> <em
+		</a> <a class="smooth" href="javascript:;"> <b class="fs">5F</b> <em
 			class="fs-name">个护</em> <i class="fs-line"></i>
-		</a> <a class="smooth" href="#"> <b class="fs">6F</b> <em
+		</a> <a class="smooth" href="javascript:;"> <b class="fs">6F</b> <em
 			class="fs-name">酒饮</em> <i class="fs-line"></i>
-		</a> <a class="smooth" href="#"> <b class="fs">7F</b> <em
+		</a> <a class="smooth" href="javascript:;"> <b class="fs">7F</b> <em
 			class="fs-name">母婴</em> <i class="fs-line"></i>
-		</a> <a class="smooth" href="#"> <b class="fs">8F</b> <em
+		</a> <a class="smooth" href="javascript:;"> <b class="fs">8F</b> <em
 			class="fs-name">食品</em>
 		</a>
 	</div>
