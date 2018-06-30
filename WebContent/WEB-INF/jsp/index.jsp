@@ -1016,7 +1016,9 @@
 </script>
 
 <div class="w1210 floor-list">
+
 	<c:forEach items="${productCategoryVoList}" var="temp" end="${fn:length(productCategoryVoList)}" varStatus="status" >
+	<c:if test="${temp.productCategoryVoList[status.index].productCategory.name!=null }">
 	<div class="floor" floor="1" color="#e31939">
 		<div class="floor-layout">
 			<a href="##">
@@ -1024,8 +1026,9 @@
 			</a>
 			<div class="floor-con">
 				<div class="floor-title">
+				<c:set value="${number+1}" var="number"></c:set>
 					<h2>
-						<span> ${status.index+1}F </span> <a href="#" target="_blank">${temp.productCategory.name}</a>
+						<span> ${number}F </span> <a href="#" target="_blank">${temp.productCategory.name}</a>
 					</h2>
 					<ul class="floor-tabs-nav">
 						<li class="floor-tabs-selected">
@@ -1163,7 +1166,9 @@
 
 			</div>
 		</div>
-	</div>	
+	</div>		
+	</c:if>
+	
 	</c:forEach>
 	
 </div>
