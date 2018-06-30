@@ -69,7 +69,7 @@
 	<ul id="fullScreenSlides" class="full-screen-slides">
 
 		<li
-			style="background: url(${ctx}/statics/images/20150722zsmllz.jpg) center center no-repeat; display: none;">
+			style="background: url(${ctx}/statics/images/20150722zsmllz.jpg) center center no-repeat; display: list-item;">
 			<a href="#">&nbsp;</a>
 		</li>
 		<li
