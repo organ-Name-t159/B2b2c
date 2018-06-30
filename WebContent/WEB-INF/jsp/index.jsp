@@ -587,8 +587,6 @@
 
 </div>
 
-<script type="text/javascript"
-	src="${ctx}/statics/js/indexPrivate.min.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 <div class="right-sidebar-con">
 	<div class="right-sidebar-main">
@@ -1350,7 +1348,7 @@
 	</div>
 </div>
 <div class="elevator" style="visibility: visible;">
-	<div class="elevator-floor" style="transform: scale(1); opacity: 1;">
+	<div class="elevator-floor" style="transform: scale(1.2); opacity: 0;">
 		<a class="smooth" href="javascript:;"> <b class="fs">1F</b> <em
 			class="fs-name">家电</em> <i class="fs-line"></i>
 		</a> <a class="smooth active" href="javascript:;"> <b class="fs">2F</b> <em
