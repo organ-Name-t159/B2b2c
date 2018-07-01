@@ -66,7 +66,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 			params.setParentId(0);
 		}
 		productCategoryList=productCategoryMapper.queryProductCategorylist(params);	
-		System.out.println("size: " + productCategoryList.size());
+		//System.out.println("size: " + productCategoryList.size());
 		return productCategoryList;
 	}
 	
