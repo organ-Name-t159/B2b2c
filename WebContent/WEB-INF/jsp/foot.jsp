@@ -164,9 +164,8 @@
 						type="text/javascript"></script>
 					<script src="${ctx}/statics/images/core.php" charset="utf-8"
 						type="text/javascript"></script>
-					<a href="#"><img src="${ctx}/statics/images/pa" height="16"
-						border="0" alt="QQ" /> 394223545</a> <a href="#"><img
-						src="${ctx}/statics/images/online.ww" width="16" height="16"
+					<a href="#">394223545</a> <a href="#"><img
+						src="${ctx}/statics/images/pic1.gif" width="16" height="16"
 						border="0" alt="淘宝旺旺" />38306293</a>
 				</p>
 			</div>
@@ -200,23 +199,23 @@
 										border="0" src="${ctx}/statics/images/qqonline.gif"
 										alt="网软志成客服为你服务"></a> <span class="css2">38306293<a
 										target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>417586492
+											src="${ctx}/statics/images/qqonline.gif" ></a>417586492
 								</span> <font face="Verdana"> <a target="blank" href="#"><img
 											border="0" src="${ctx}/statics/images/qqonline.gif"
 											alt="网软志成客服为你服务"></a>
 								</font><span class="css2">657248708</span> <font face="Verdana">
 										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
+											src="${ctx}/statics/images/qqonline.gif" ></a>
 								</font><br> <span class="css2">客服QQ:454882888</span> <font
 									face="Verdana"> <a target="blank" href="#"><img
 											border="0" src="${ctx}/statics/images/qqonline.gif"
 											alt="网软志成客服为你服务"></a>
 								</font><span class="css2">394223545</span> <font face="Verdana">
 										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
+											src="${ctx}/statics/images/qqonline.gif" ></a>
 								</font><span class="css2">469648611</span> <font face="Verdana">
 										<a target="blank" href="#"><img border="0"
-											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>
+											src="${ctx}/statics/images/qqonline.gif" ></a>
 								</font><span class="css2">314730679</span> <font face="Verdana">
 										<a target="blank" href="#"><img border="0"
 											src="${ctx}/statics/images/qqonline.gif" alt="网软志成客服为你服务"></a>

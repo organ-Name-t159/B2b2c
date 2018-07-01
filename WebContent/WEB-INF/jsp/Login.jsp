@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "##">
@@ -40,7 +40,7 @@
 	<script type="text/javascript" src="${ctx}/statics/js/common.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 		function erweima1(obj, sType) {
 			var oDiv = document.getElementById(obj);
 			if (sType == 'show') {
@@ -50,10 +50,11 @@
 				oDiv.style.display = 'none';
 			}
 		}
-		$(function() {
-			/*生成验证码*/
-			create_code();
-		});
+$(function() {
+	/*生成验证码*/
+create_code();
+});
+		
 		function create_code() {
 			function shuffle() {
 				var arr = [ '1', 'r', 'Q', '4', 'S', '6', 'w', 'u', 'D', 'I',
@@ -85,6 +86,16 @@
 				show_code();
 			});
 		}
+		$(function() {
+			var loginsubmit=$("loginsubmit");
+			loginsubmitbind("click",fnuction(){
+				var yanzheng=$("#authcode").html();
+				var phoKey=$("#phoKey").html();
+				if (phoKey.equals(yanzheng)) {
+				$("#loginForm").submit();
+				}
+			})
+		});
 	</script>
 	<div class="logo-r">
 		<div class="logo-info-r">
@@ -110,7 +121,7 @@
 						src="${ctx}/statics/images/login-banner.jpg" /></a>
 
 					<div class="login-form">
-						<form name="formLogin" action="" method="post" onsubmit="">
+						<form id="loginForm" name="formLogin" action="${ctx}/loginSuccess" method="post" onsubmit="">
 							<div class="login-tit">
 								用户登录 <a class="regist-link main-color" href="#">立即注册 <i>&gt;</i></a>
 							</div>
@@ -122,7 +133,7 @@
 									</div>
 								</div>
 								<div class="item item-name">
-									<i class="icon"></i> <input name="username" type="text"
+									<i class="icon"></i> <input name="userName" type="text"
 										class="text" id="username" placeholder="手机号/用户名/邮箱"
 										tabindex="1" value="" />
 								</div>
@@ -136,8 +147,10 @@
 										<i class="icon"></i> <input type="text" id="authcode"
 											name="captcha" class="text text-1" tabindex="3" />
 									</div>
-									<span class="add phoKey"></span>
+									<span id="phoKey" class="add phoKey"></span>
 								</div>
+								
+							
 								<div class="safety" id="autoentry">
 									<label for="remember" class="mar-b"><input
 										type="checkbox" value="1" name="remember" id="remember"
@@ -147,7 +160,7 @@
 								<div class="login-btn">
 									<input type="hidden" name="act" value="act_login" /> <input
 										type="hidden" name="back_act" value="##" /> <input
-										type="submit" name="submit" class="btn-img btn-entry"
+										type="button" name="submit" class="btn-img btn-entry"
 										id="loginsubmit" value="立即登录" />
 								</div>
 								<div class="item-coagent">
