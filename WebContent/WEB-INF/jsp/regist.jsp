@@ -110,10 +110,63 @@
 										<div> <span class="label" id="conform_password_notice"></span> </div>
 									</div>
 								</div>
+<script type="text/javascript">
+$(function() {
+	/*生成验证码*/
+create_code();
+});
+		
+		function create_code() {
+			function shuffle() {
+				var arr = [ '1', 'r', 'Q', '4', 'S', '6', 'w', 'u', 'D', 'I',
+						'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+						'l', 'm', 'n', 'o', 'p', 'q', '2', 's', 't', '8', 'v',
+						'7', 'x', 'y', 'z', 'A', 'B', 'C', '9', 'E', 'F', 'G',
+						'H', '0', 'J', 'K', 'L', 'M', 'N', 'O', 'P', '3', 'R',
+						'5', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
+				return arr.sort(function() {
+					return (Math.random() - .5);
+				});
+			}
+			;
+			shuffle();
 
-						<!-- <div class="item">
+			function show_code() {
+				var ar1 = '';
+				var code = shuffle();
+				for (var i = 0; i < 4; i++) {
+					ar1 += code[i];
+				}
+				;
+
+				$(".img").text(ar1);
+			}
+			;
+			show_code();
+			$(".img").click(function() {
+				show_code();
+			});
+		}
+</script>
+<style>
+.phoKeys {
+	background: #C81623;
+	text-align: center;
+	line-height: 38px;
+	color: #fff;
+	border-radius: 3px;
+	width: 103.56px;
+	margin-left: 11px;
+}
+
+.phoKeys {
+	letter-spacing: 3px;
+	font-size: 20px;
+}
+</style>
+					 <div class="item">
 									<input type="text" id="captcha" size="8" name="captcha" class="text text-te" placeholder="验证码" style="ime-mode: disabled" autocomplete="off" maxlength="6">
-									<label class="img" style="margin-left: 5px"> <img id="captcha_img" src="#" alt="captcha" style="vertical-align: middle; cursor: pointer;" onclick="this.src=&#39;captcha.php?&#39;+Math.random()"> </label>
+									<label class="img phoKeys"> </label>
 									<i class="i-captcha"></i>
 									<div style="clear:both"> <span class="label" id="captcha_notice"></span> </div>
 								</div>
@@ -123,7 +176,7 @@
 									<i class="i-phone"></i>
 									<input id="zphone" class="zphone" type="button" value="获取手机验证码 ">
 									<div> <span id="extend_field5i" class="label"></span> </div>
-								</div> -->
+								</div> 
 								<div class="safety">
 									<input name="agreement" type="checkbox" value="1" checked="checked" class="checkbox">
 									<label for="remember" class="mar-b">我已看过并接受《<a href="##">用户协议</a>》</label>
