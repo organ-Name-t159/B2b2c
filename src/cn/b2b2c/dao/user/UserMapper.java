@@ -9,13 +9,13 @@ import cn.b2b2c.pojo.User;
 public interface UserMapper {
 	
 	/**
-	 * 登录
+	 * 登录验证
 	 * @param loginName
 	 * @return
 	 * @throws Exception
 	 */
-	User userLogin(@Param("loginName")String loginName);
+	public User userLogin(@Param("userName")String userName);
 	
-	
+	public int regist(User user);
 
 }

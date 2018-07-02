@@ -60,7 +60,7 @@
 			<font id="login-info" class="sn-login-info"> <em>欢迎光临本店!</em>
 				<a class="sn-login main-color" href="${ctx}/register/login.html">请登录</a>
 				<a class="sn-login main-color" href="#">微信登陆</a> <a
-				class="sn-register" href="#">免费注册</a>
+				class="sn-register" href="regist.jsp">免费注册</a>
 			</font>
 			<ul class="sn-quick-menu">
 				<li class="sn-mytaobao menu-item">
