@@ -652,7 +652,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="span">购物车</div>
 							<span class="ECS_CARTINFO"><form id="formCart"
 									name="formCart" method="post"
-									action="http://b2b2c.wygk.cn/flow.php">
+									action="#">
 									<span class="cart_num">0</span>
 									<div class="sidebar-cart-box">
 										<h3 class="sidebar-panel-header">
@@ -1185,7 +1185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<p class="price">
 										<span> ¥${productVo.price } </span>
 									</p>
-									<a class="add-cart" onclick="addToCart(283)" title="加入购物车"></a>
+									<a class="add-cart" onclick="addToCart('${productVo.id}')" title="加入购物车"></a>
 								</div>
 							</div>
 							</c:forEach>
@@ -1253,67 +1253,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 }
 /**/
 </style>
-<%-- 		<div id="kfoutbox" class="kfoutbox" style="top: 2193px;">
-			<div id="kfinbox" class="kfbox">
-				<div class="kf54kefuqqtop"><img src="${ctx}/statics/images/top.gif">
-					<div id="kfboxclose" class="kfboxclose">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				</div>
-				<div class="kf54kefuqqbg">
-					<div class="kefu54kefunetgroup">
-						<div style="text-align:center;"> <span style="line-height:1.5;"><strong>QQ咨询销售</strong></span> </div>
-					</div>
-					<div class="kefu54kefunetli">
-						<div class="kefu54kefunetpicimgcenter">
-							<a target="_blank"  href="#"><img src="${ctx}/statics/images/101.gif" vspace="4" border="0" align="absmiddle" title="咨询QQ:394223545"></a>
-						</div>
-					</div>
-					<div class="kefu54kefunetli">
-						<div class="kefu54kefunetpicimgcenter">
-							<a target="_blank"href="#"><img src="${ctx}/statics/images/101.gif" vspace="4" border="0" align="absmiddle" title="咨询QQ:38306293"></a>
-						</div>
-					</div>
-					<div class="kefu54kefunetli">
-						<div class="kefu54kefunetpicimgcenter">
-							<a target="_blank" href="#"><img src="${ctx}/statics/images/101.gif" vspace="4" border="0" align="absmiddle" title="咨询QQ:469648611"></a>
-						</div>
-					</div>
-					<div class="kefu54kefunetli">
-						<div class="kefu54kefunetpicimgcenter">
-							<a target="_blank"href="#"><img src="${ctx}/statics/images/101.gif" vspace="4" border="0" align="absmiddle" title="咨询QQ:454882888"></a>
-						</div>
-					</div>
-					<div class="kefu54kefunetgroup">
-						<div style="text-align:center;"> <span style="line-height:1.5;color:#E56600;"><strong>售前咨询热线</strong></span></div>
-					</div>
-					<div class="kefu54kefunetgroup">
-						<p style="text-align:center;"> 020-34506590</p>
-					</div>
-					<div class="kefu54kefunetgroup">
-						<div style="text-align:center;"> <span style="line-height:1.5;">020-34709708</span></div>
-					</div>
-					<div class="kefu54kefunetgroup">
-						<div style="text-align:center;"> <span style="line-height:1.5;color:#E56600;"><strong>售后咨询热线</strong></span></div>
-					</div>
-					<div class="kefu54kefunetgroup">
-						<div style="text-align:center;"> 020-34700400</div>
-					</div>
-					<div class="kefu54kefunetli">
-						<div class="kefu54kefunetmycode" align="center">src="${ctx}/statics/images/3082681_pic.jpg"></div>
-					</div>
-					<div class="kefu54kefunetgroup">
-						<div style="text-align:center;"> <span style="line-height:1.5;color:#E56600;"><span style="color:#000000;">扫一扫二维码</span><br></span>
-							<p> <span style="line-height:1.5;color:#000000;">与我微信畅聊</span> </p>
-						</div>
-					</div>
-					<div style="clear: both;"></div>
-				</div>
-				<div style="clear: both;"></div>
-				<div class="kf54kefuqqbottom">
-					<a href="#"><img src="${ctx}/statics/images/bottom.gif"></a>
-				</div>
-			</div>
-			<div id="kfboxmenu" class="kfboxmenu kfboxmenuright"></div>
-		</div> --%>
+
 
 <style type="text/css">
 .kfpopupdiv {

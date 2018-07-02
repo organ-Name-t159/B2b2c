@@ -1,23 +1,26 @@
 package cn.b2b2c.controller;
 
+<<<<<<< HEAD
 
 import javax.annotation.Resource;
 
+=======
+>>>>>>> 9a1d20ae20ba586ac1570d743ea8a8510c50ebc8
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD
 
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+=======
+import org.springframework.ui.Model;
+>>>>>>> 9a1d20ae20ba586ac1570d743ea8a8510c50ebc8
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import cn.b2b2c.pojo.User;
-import cn.b2b2c.service.user.UserService;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.service.user.UserService;
@@ -32,6 +35,7 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
+<<<<<<< HEAD
 
 	@Autowired
 	private UserService userSerivce;
@@ -57,6 +61,8 @@ public class LoginController {
 			return "index";
 		}
 
+=======
+>>>>>>> 9a1d20ae20ba586ac1570d743ea8a8510c50ebc8
 	@RequestMapping("/login.html")
 	public String login()throws Exception{
 		return "Login";
@@ -80,14 +86,8 @@ public class LoginController {
 		  return "error";
 		
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9a1d20ae20ba586ac1570d743ea8a8510c50ebc8
 }
-
-
-	
-	
-	
-	
-	
-	
-

@@ -116,44 +116,61 @@ function isSelectAttr(spec_arr) {
  * @param extCode 扩展代码，可以自定义一些扩展属性，例如：'pre_sale'
  */
 
-function addToCart(goodsId, parentId, isnowbuy, extCode) {
-
-	var goods = new Object();
-	var spec_arr = new Array();
-	var fittings_arr = new Array();
-	var number = 1;
-	var formBuy = document.forms['ECS_FORMBUY'];
-	var quick = 0;
-
-	var one_buy = (typeof (isnowbuy) == "undefined") ? 0 : parseInt(isnowbuy);
-	document.cookie = "one_step_buy=" + one_buy + ";path=/";// 打标识
-
-	// 检查是否有商品规格
-	if (formBuy) {
-		spec_arr = getSelectedAttributes(formBuy);
-
-		if (formBuy.elements['number']) {
-			number = formBuy.elements['number'].value;
+function addToCart(goodsId) {
+	alert(goodsId)
+	$.ajax({
+		url:contextPath+"/car/addCar.html",
+		method:"post",
+		data:{
+			productsId:goodsId
+		},
+		success:function(jsonStr){
+			var result=eval("(+jsonStr+)");
+			if(result.status==1){
+				alert("ok")
+			}else{
+				alert("no")
+			}
 		}
-		quick = 1;
-	}else{
-            var arrChk = $("#spe_radio"+goodsId+" input[type='radio']:checked");
-             $(arrChk).each(function(){     
-                spec_arr.push(this.value);
-            }); 
-            //quick = 1;
-        }
-	if (isSelectAttr(spec_arr)) {
-		// 判断商品详情页面，加购物车时，商品是否选择规格
-		goods.quick = quick;
-		goods.spec = spec_arr;
-		goods.goods_id = goodsId;
-		goods.number = number;
-		goods.parent = (typeof (parentId) == "undefined") ? 0 : parseInt(parentId);
-		goods.extCode = extCode;
-		//Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
-        Ajax.call('flow.php?step=add_to_cart', 'goods=' + JSON.stringify(goods), addToCartResponse, 'POST', 'JSON');
-	}
+		
+	})
+
+//	var goods = new Object();
+//	var spec_arr = new Array();
+//	var fittings_arr = new Array();
+//	var number = 1;
+//	var formBuy = document.forms['ECS_FORMBUY'];
+//	var quick = 0;
+//
+//	var one_buy = (typeof (isnowbuy) == "undefined") ? 0 : parseInt(isnowbuy);
+//	document.cookie = "one_step_buy=" + one_buy + ";path=/";// 打标识
+//
+//	// 检查是否有商品规格
+//	if (formBuy) {
+//		spec_arr = getSelectedAttributes(formBuy);
+//
+//		if (formBuy.elements['number']) {
+//			number = formBuy.elements['number'].value;
+//		}
+//		quick = 1;
+//	}else{
+//            var arrChk = $("#spe_radio"+goodsId+" input[type='radio']:checked");
+//             $(arrChk).each(function(){     
+//                spec_arr.push(this.value);
+//            }); 
+//            //quick = 1;
+//        }
+//	if (isSelectAttr(spec_arr)) {
+//		// 判断商品详情页面，加购物车时，商品是否选择规格
+//		goods.quick = quick;
+//		goods.spec = spec_arr;
+//		goods.goods_id = goodsId;
+//		goods.number = number;
+//		goods.parent = (typeof (parentId) == "undefined") ? 0 : parseInt(parentId);
+//		goods.extCode = extCode;
+//		//Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
+//        Ajax.call('flow.php?step=add_to_cart', 'goods=' + JSON.stringify(goods), addToCartResponse, 'POST', 'JSON');
+//	}
 
 }
 
