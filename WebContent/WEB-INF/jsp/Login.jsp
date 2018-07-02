@@ -86,21 +86,11 @@ create_code();
 				show_code();
 			});
 		}
-		$(function() {
-			var loginsubmit=$("loginsubmit");
-			loginsubmitbind("click",fnuction(){
-				var yanzheng=$("#authcode").html();
-				var phoKey=$("#phoKey").html();
-				if (phoKey.equals(yanzheng)) {
-				$("#loginForm").submit();
-				}
-			})
-		});
 	</script>
 	<div class="logo-r">
 		<div class="logo-info-r">
-			<a href="#"></a><span class="findpw">欢迎登录</span> <a href="#"></a> <a
-				href="#"></a>
+			<a href="${ctx}/product/index.html" class="logo"></a><span class="findpw">欢迎登录</span> <a href="#" class="qq"></a> <a
+				href="#" class="sina"></a>
 			<div class="user-weixin weixin">
 				<span></span>
 				<div class="erweima">
@@ -123,7 +113,7 @@ create_code();
 					<div class="login-form">
 						<form id="loginForm" name="formLogin" action="${ctx}/loginSuccess" method="post" onsubmit="">
 							<div class="login-tit">
-								用户登录 <a class="regist-link main-color" href="regist.jsp">立即注册 <i>&gt;</i></a>
+								用户登录 <a class="regist-link main-color" href="${ctx}/register/regist">立即注册 <i>&gt;</i></a>
 							</div>
 							<div class="form">
 								<div class="msg-wrap">

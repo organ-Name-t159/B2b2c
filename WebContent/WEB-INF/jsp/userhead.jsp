@@ -60,7 +60,7 @@
 			<font id="login-info" class="sn-login-info"> <em>欢迎光临本店!</em>
 				<a class="sn-login main-color" href="${ctx}/register/login.html">请登录</a>
 				<a class="sn-login main-color" href="#">微信登陆</a> <a
-				class="sn-register" href="regist.jsp">免费注册</a>
+				class="sn-register" href="${ctx}/register/regist">免费注册</a>
 			</font>
 			<ul class="sn-quick-menu">
 				<li class="sn-mytaobao menu-item">
@@ -140,7 +140,7 @@
 	<div class="header">
 		<div class="w1210">
 			<div class="mall-logo">
-				<a href="#"><img src="${ctx}/statics/images/logo.gif"
+				<a href="${ctx}/product/index.html"><img src="${ctx}/statics/images/logo.gif"
 					width="250"></a>
 			</div>
 			<div class="mall-logo-right">
