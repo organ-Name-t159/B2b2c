@@ -48,9 +48,9 @@
 
 <div class="logo-r">
 			<div class="logo-info-r">
-				<a href="##"></a> <span class="findpw">欢迎注册</span>
-				<a href="##"></a>
-				<a href="##"></a>
+				<a href="${ctx}/product/index.html" class="logo"></a> <span class="findpw">欢迎注册</span>
+				<a href="#" class="qq"></a>
+				<a href="#" class="sina"></a>
 				<div class="user-weixin weixin">
 					<span></span>
 					<div class="erweima">
