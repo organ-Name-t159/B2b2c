@@ -34,6 +34,7 @@ public class LoginController {
 	 */
 	@RequestMapping("/loginSuccess")
 	public String loginSuccess(String userName,String password, Model model,HttpSession session) {
+	
 		User user=new User();
 		user=userService.userLogin(userName);
 		if (password.equals(user.getPassword())) {

@@ -86,16 +86,6 @@ create_code();
 				show_code();
 			});
 		}
-		$(function() {
-			var loginsubmit=$("loginsubmit");
-			loginsubmitbind("click",fnuction(){
-				var yanzheng=$("#authcode").html();
-				var phoKey=$("#phoKey").html();
-				if (phoKey.equals(yanzheng)) {
-				$("#loginForm").submit();
-				}
-			})
-		});
 	</script>
 	<div class="logo-r">
 		<div class="logo-info-r">
