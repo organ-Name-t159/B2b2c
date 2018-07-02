@@ -10,7 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and `userName`=#{userName}
 			</if>			
 		</trim>
-		 
 	</select>
+	<!-- 注册 -->
+	<insert id="regist" parameterType="User">
+	INSERT INTO user(phone,password)VALUES(#{phone},#{password})
+	</insert>
 	
 </mapper>

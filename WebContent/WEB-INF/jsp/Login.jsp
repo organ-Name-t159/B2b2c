@@ -112,7 +112,7 @@
 					<div class="login-form">
 						<form name="formLogin" action="" method="post" onsubmit="">
 							<div class="login-tit">
-								用户登录 <a class="regist-link main-color" href="#">立即注册 <i>&gt;</i></a>
+								用户登录 <a class="regist-link main-color" href="regist.jsp">立即注册 <i>&gt;</i></a>
 							</div>
 							<div class="form">
 								<div class="msg-wrap">

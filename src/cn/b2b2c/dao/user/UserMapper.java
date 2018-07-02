@@ -16,6 +16,6 @@ public interface UserMapper {
 	 */
 	User userLogin(@Param("loginName")String loginName);
 	
-	
+	public int regist(User user);
 
 }
