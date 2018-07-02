@@ -15,7 +15,11 @@ public interface UserMapper {
 	 * @throws Exception
 	 */
 	public User userLogin(@Param("userName")String userName);
-	
+	/**
+	 * 注册
+	 * @param user
+	 * @return
+	 */
 	public int regist(User user);
 
 }

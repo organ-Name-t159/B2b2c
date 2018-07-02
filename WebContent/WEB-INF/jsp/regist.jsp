@@ -77,7 +77,7 @@
 								<li id="li-register-type-mobile" class="tab-item fl cur" register_type="mobile">手机注册<span class="bg-ff"></span></li>
 								<li id="li-register-type-email" class="tab-item fl" register_type="email">邮箱注册<span class="bg-ff"></span></li>
 								<li class="have-account fr">已有账号！
-									<a href="##">登录</a>
+									<a href="${ctx}/register/login.html">登录</a>
 								</li>
 							</ul>
 						</form>

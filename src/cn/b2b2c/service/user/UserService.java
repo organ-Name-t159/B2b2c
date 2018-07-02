@@ -7,4 +7,7 @@ public interface UserService {
 	public int geiId();
 	
 	public User userLogin(String userName);
+	
+	public int regist(User user);
+	
 }
