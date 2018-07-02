@@ -31,7 +31,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     This is my JSP page. <br>
   </body>
 </html>
-=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -1356,4 +1355,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </body>
 
 </html>
->>>>>>> 72c243937b5709dc81affef9a223fbab73a26cce
