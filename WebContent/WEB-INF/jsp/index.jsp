@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <script type="text/javascript">
 	var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
 	var btn_buy = "购买";
@@ -22,11 +21,9 @@
 			return false;
 		}
 	}
-
 	function myValue1() {
 		document.getElementById('keyword').value = "请输入商品名称或编号...";
 	}
-
 	function myValue2() {
 		document.getElementById('keyword').value = "";
 	}
@@ -40,7 +37,6 @@
 		$(".header-right img").bubbleup({
 			scale : 70
 		});
-
 		//头部搜索
 		$('.search-type').hover(function() {
 			$(this).css({
@@ -53,7 +49,6 @@
 				"overflow" : "hidden"
 			});
 		});
-
 	});
 </script>
 
@@ -588,233 +583,12 @@
 
 <script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 <div class="right-sidebar-con">
-	<div class="right-sidebar-main">
-		<div class="right-sidebar-panel">
-			<div id="quick-links" class="quick-links">
-				<ul>
-					<li class="quick-area quick-login"><a href="#"><i
-							class="setting"></i></a>
-						<div class="sidebar-user quick-sidebar">
-							<i class="arrow-right"></i>
-							<div class="sidebar-user-info">
-								<div class="user-pic">
-									<div class="user-pic-mask"></div>
-									<img src="${ctx}/statics/images/people.gif" />
-								</div>
-								<p>
-									你好！请 <a href="#">登录</a>| <a href="#">注册</a>
-								</p>
-							</div>
-						</div></li>
-					<li class="sidebar-tabs"><a href="#"><i class="bonus"></i></a>
-						<div class="popup">
-							<font>领红包再购物</font> <i class="arrow-right"></i>
-						</div></li>
-					<li class="sidebar-tabs">
-						<div class="cart-list quick-links-a" id="collectBox">
-							<i class="cart"></i>
-							<div class="span">购物车</div>
-							<span class="ECS_CARTINFO"><form id="formCart"
-									name="formCart" method="post"
-									action="#">
-									<span class="cart_num">0</span>
-									<div class="sidebar-cart-box">
-										<h3 class="sidebar-panel-header">
-											<a href="#"><i class="cart-icon"></i><em class="title">购物车</em></a>
-											<span class="close-panel"></span>
-										</h3>
-										<div class="cart-panel-main">
-											<div class="cart-panel-content" style="height: 883px;">
-												<div class="tip-box">
-													<i class="tip-icon"></i>
-													<div class="tip-text">
-														您的购物车里什么都没有哦<br> <a class="main-color" href="#">再去看看吧</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<script type="text/javascript">
-										function deleteCartGoods(rec_id) {
-											Ajax.call('delete_cart_goods.php',
-													'id=' + rec_id,
-													deleteCartGoodsResponse,
-													'POST', 'JSON');
-										}
-
-										/**
-										 * 接收返回的信息
-										 */
-										function deleteCartGoodsResponse(res) {
-											if (res.error) {
-												alert(res.err_msg);
-											} else {
-												$('.ECS_CARTINFO').html(
-														res.content);
-												$('.cart-panel-content')
-														.height(
-																$(window)
-																		.height() - 90);
-											}
-										}
-									</script>
-								</form> </span>
-						</div>
-					</li>
-					<li class="sidebar-tabs"><a href="#"><i class="history"></i></a>
-						<div class="popup">
-							<font id="mpbtn_histroy">我看过的</font> <i class="arrow-right"></i>
-						</div></li>
-					<li><a href="#"><i class="stores"></i></a>
-						<div class="popup">
-							我关注的店铺 <i class="arrow-right"></i>
-						</div></li>
-					<li id="collectGoods"><a href="#"><i class="collect"></i></a>
-						<div class="popup">
-							我的收藏 <i class="arrow-right"></i>
-						</div></li>
-				</ul>
-			</div>
-			<div class="quick-toggle">
-				<ul>
-					<li class="quick-area"><a class="quick-links-a" href="#"><i
-							class="customer-service"></i></a>
-						<div class="sidebar-service quick-sidebar">
-							<i class="arrow-right"></i>
-
-							<div class="customer-service customer-service-online">
-								<a target="_self" href="#"><span class="icon-online"></span>在线客服</a>
-							</div>
-							<div class="customer-service">
-								<a target="_blank" href="#"><span class="icon-qq"></span>在线客服</a>
-							</div>
-							<div class="customer-service">
-								<a target="_blank" href="#"><span class="icon-ww"></span>在线客服</a>
-							</div>
-						</div></li>
-					<li class="quick-area"><a class="quick-links-a" href="#"><i
-							class="qr-code"></i></a>
-						<div class="sidebar-code quick-sidebar">
-							<i class="arrow-right"></i> <img
-								src="${ctx}/statics/images/weixin.jpg">
-						</div></li>
-					<li class="returnTop" style="display: list-item;"><a href="#"><i
-							class="top"></i></a>
-						<div class="popup">
-							返回顶部 <i class="arrow-right"></i>
-						</div></li>
-				</ul>
-			</div>
-		</div>
-		<div class="">
-
-			<div class="right-sidebar-panels animate-out" style="z-index: 1;">
-				<h3 class="sidebar-panel-header">
-					<a href="#"><i class="bonus-icon"></i><em class="title">红包</em></a>
-					<span class="close-panel"></span>
-				</h3>
-				<div class="bonus-panel-main">
-					<div class="bonus-panel-content" style="height: 933px;">
-						<script type="text/javascript">
-							function fun(type_id, no_have_val) {
-								no_have = (typeof (no_have_val) == "undefined" ? 0
-										: no_have_val)
-								Ajax.call('user.php?act=user_bonus', 'id='
-										+ type_id + '&no_have=' + no_have,
-										bounsResponse, 'GET', 'JSON');
-							}
-
-							function bounsResponse(result) {
-								$('.pop-compare,.pop-mask').show();
-								$('.pop-compare .pop-text')
-										.html(result.message);
-								$('.pop-compare')
-										.css(
-												{
-													'top' : ($(window).height() - $(
-															'.pop-compare')
-															.height()) / 2
-												});
-							}
-						</script>
-						<div class="bonus-list"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="ECS_CARTINFO right-sidebar-panels animate-out"
-				style="z-index: 1;">
-				<form id="formCart" name="formCart" method="post" action="">
-					<span class="cart_num">0</span>
-					<div class="sidebar-cart-box">
-						<h3 class="sidebar-panel-header">
-							<a href="#"><i class="cart-icon"></i><em class="title">购物车</em></a>
-							<span class="close-panel"></span>
-						</h3>
-						<div class="cart-panel-main">
-							<div class="cart-panel-content" style="height: 883px;">
-								<div class="tip-box">
-									<i class="tip-icon"></i>
-									<div class="tip-text">
-										您的购物车里什么都没有哦<br> <a class="main-color" href="#">再去看看吧</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<script type="text/javascript">
-						function deleteCartGoods(rec_id) {
-							Ajax.call('delete_cart_goods.php', 'id=' + rec_id,
-									deleteCartGoodsResponse, 'POST', 'JSON');
-						}
-
-						/**
-						 * 接收返回的信息
-						 */
-						function deleteCartGoodsResponse(res) {
-							if (res.error) {
-								alert(res.err_msg);
-							} else {
-								$('.ECS_CARTINFO').html(res.content);
-								$('.cart-panel-content').height(
-										$(window).height() - 90);
-							}
-						}
-					</script>
-				</form>
-			</div>
-
-			<div class="right-sidebar-panels animate-out" style="z-index: 1;">
-				<h3 class="sidebar-panel-header">
-					<a href="#"><i></i><em class="title">我的足迹</em></a> <span
-						class="close-panel"></span>
-				</h3>
-				<div class="sidebar-panel-main">
-					<div class="sidebar-panel-content">
-						<div class="history-panel">
-							<ul>
-								<li>
-									<div class="p-img">
-										<a target="_blank" href="#"><img
-											src="${ctx}/statics/images/49_thumb_G_1437517210470.jpg"
-											alt="安琦诺 夏装新品孕妇装 韩版休闲外出服喂奶衣套装"></a>
-									</div>
-									<div class="p-name">
-										<a target="_blank" href="#">安琦诺 夏装新品孕妇装 韩版休闲外出服喂奶衣套装</a>
-									</div>
-									<div class="p-comm">
-										<span class="p-price main-color">¥128.0</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
+	<!-- 刷新购物车================================================================= -->
+	<%@include file="/WEB-INF/jsp/common/shoppingCar.jsp" %>
+	<!-- 刷新购物车=================================================================结算 -->
 </div>
+
+
 <div class="pop-main pop-compare">
 	<div class="pop-header">
 		<span>温馨提示</span> <a class="pop-close" href="#"></a>
@@ -913,104 +687,7 @@
 		</form>
 	</div>
 </div>
-<script type="text/javascript">
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > $(window).height()) {
-			$('.returnTop').show();
-		} else {
-			$('.returnTop').hide();
-		}
-	})
-	$('.cart-panel-content').height($(window).height() - 90);
-	$('.bonus-panel-content').height($(window).height() - 40);
-	$(".returnTop").click(function() {
-		$('body,html').animate({
-			scrollTop : 0
-		}, 800);
-		return false;
-	});
-	//点击用户图标弹出登录框
-	$(
-			'.quick-login .quick-links-a,.quick-login .quick-login-a,.customer-service-online a')
-			.click(function() {
-				$('.pop-login,.pop-mask').show();
-			})
-	$('.quick-area').hover(function() {
-		$(this).find('.quick-sidebar').toggle();
-	})
-	//移动图标出现文字
-	$(".right-sidebar-panel li").mouseenter(function() {
-		$(this).children(".popup").stop().animate({
-			left : -92,
-			queue : true
-		});
-		$(this).children(".popup").css("visibility", "visible");
-		$(this).children(".ibar_login_box").css("display", "block");
-	});
-	$(".right-sidebar-panel li").mouseleave(function() {
-		$(this).children(".popup").css("visibility", "hidden");
-		$(this).children(".popup").stop().animate({
-			left : -121,
-			queue : true
-		});
-		$(this).children(".ibar_login_box").css("display", "none");
-	});
-	//点击购物车、用户信息以及浏览历史事件
-	$('.sidebar-tabs').click(
-			function() {
-				if ($('.right-sidebar-main')
-						.hasClass('right-sidebar-main-open')
-						&& $(this).hasClass('current')) {
-					$('.right-sidebar-main').removeClass(
-							'right-sidebar-main-open');
-					$(this).removeClass('current');
-					$('.right-sidebar-panels').eq($(this).index() - 1)
-							.removeClass('animate-in').addClass('animate-out')
-							.css('z-index', 1);
-				} else {
-					$(this).addClass('current').siblings('.sidebar-tabs')
-							.removeClass('current');
-					$('.right-sidebar-main')
-							.addClass('right-sidebar-main-open');
-					$('.right-sidebar-panels').eq($(this).index() - 1)
-							.addClass('animate-in').removeClass('animate-out')
-							.css('z-index', 2)
-							.siblings('.right-sidebar-panels').removeClass(
-									'animate-in').addClass('animate-out').css(
-									'z-index', 1);
-				}
-			});
-	$(".right-sidebar-panels").on('click', '.close-panel', function() {
-		$('.sidebar-tabs').removeClass('current');
-		$('.right-sidebar-main').removeClass('right-sidebar-main-open');
-		$('.right-sidebar-panels').removeClass('animate-out');
-	});
-	$(document).click(
-			function(e) {
-				var target = $(e.target);
-				if (target.closest('.right-sidebar-con').length == 0) {
-					$('.right-sidebar-main').removeClass(
-							'right-sidebar-main-open');
-					$('.sidebar-tabs').removeClass('current');
-					$('.right-sidebar-panels').removeClass('animate-in')
-							.addClass('animate-out').css('z-index', 1);
-				}
-			})
-	$('.pop-login').css('top',
-			($(window).height() - $('.pop-login').height()) / 2);
-	$('.pop-close').click(
-			function() {
-				$('.pop-main,.pop-mask').hide();
-				$('form[name="formLogin"]').find('.msg-wrap').css('visibility',
-						'hidden');
-				$('.pop-login .item,.pop-login .item-detail').removeClass(
-						'item-error');
-				$('.pop-login .text').val('');
-			})
-	$('.pop-login .item .text').focus(function() {
-		$(this).addClass('')
-	})
-</script>
+
 
 <div class="w1210 floor-list">
 	<div class="floor"></div>
@@ -1047,14 +724,12 @@
 						var picTimer;
 						//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 						var btn = "<div class='btn'>";
-
 						for (var i = 0; i < len; i++) {
 							btn += "<span></span>";
 						}
 						btn += "</div>";
 						$("#focus_5").append(btn);
 						$("#focus_5 .btnBg").css("opacity", 0.5);
-
 						//为小按钮添加鼠标滑入事件，以显示相应的内容
 						$("#focus_5 .btn span").css("opacity", 0.3)
 								.mouseover(
@@ -1063,10 +738,8 @@
 													.index(this);
 											showPics(index);
 										}).eq(0).trigger("mouseover");
-
 						//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 						$("#focus_5 ul").css("width", sWidth * (len));
-
 						//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 						$("#focus_5").hover(function() {
 							clearInterval(picTimer);
@@ -1079,7 +752,6 @@
 								}
 							}, 3000); //此4000代表自动播放的间隔，单位：毫秒
 						}).trigger("mouseleave");
-
 						//显示图片函数，根据接收的index值显示相应的内容
 						function showPics(index) { //普通切换
 							var nowLeft = -index * sWidth; //根据index值计算ul元素的left值
@@ -1196,7 +868,6 @@
 .kfpopupdiv img {
 	display: inline;
 }
-
 .kfoutbox .kfbox .kf54kefuqqbottom img {
 	margin: 0px;
 	padding: 0px;
@@ -1211,7 +882,6 @@
 	right: 42px;
 	kf54kefuqqtop: 0px;
 }
-
 .kfboxmenu {;
 	display: none;
 }

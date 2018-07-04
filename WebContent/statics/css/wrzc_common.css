@@ -1573,7 +1573,7 @@ transform:scale(0.7) translateX(270px)
 	background: #eceaea
 }
 .sidebar-panel-header i {
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
 	margin-right: 4px;
 	margin-left: 10px;
 	vertical-align: top;
@@ -1602,7 +1602,7 @@ transform:scale(0.7) translateX(270px)
 .sidebar-panel-header .close-panel {
 	width: 12px;
 	height: 12px;
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
 	background-position: -429px -40px;
 	position: absolute;
 	right: 8px;
