@@ -31,9 +31,9 @@
 <script type="text/javascript" src="${ctx}/statics/js/placeholder.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script>
-
+			
 </head>
-
+	
 <body onclick="wygk_onclick();" style="cursor: auto;">
 	<div></div>
 
@@ -41,56 +41,86 @@
 	<script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 
 <script type="text/javascript">
-		function erweima1(obj, sType) {
-			var oDiv = document.getElementById(obj);
-			if (sType == 'show') {
-				oDiv.style.display = 'block';
-			}
-			if (sType == 'hide') {
-				oDiv.style.display = 'none';
-			}
-		}
+function erweima1(obj, sType) {
+	var oDiv = document.getElementById(obj);
+	if (sType == 'show') {
+		oDiv.style.display = 'block';
+	}
+	if (sType == 'hide') {
+		oDiv.style.display = 'none';
+	}
+}
+var ar1 = '';
 $(function() {
-	/*生成验证码*/
+/*生成验证码*/
 create_code();
 });
-		
-		function create_code() {
-			function shuffle() {
-				var arr = [ '1', 'r', 'Q', '4', 'S', '6', 'w', 'u', 'D', 'I',
-						'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-						'l', 'm', 'n', 'o', 'p', 'q', '2', 's', 't', '8', 'v',
-						'7', 'x', 'y', 'z', 'A', 'B', 'C', '9', 'E', 'F', 'G',
-						'H', '0', 'J', 'K', 'L', 'M', 'N', 'O', 'P', '3', 'R',
-						'5', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
-				return arr.sort(function() {
-					return (Math.random() - .5);
-				});
-			}
-			;
-			shuffle();
 
-			function show_code() {
-				var ar1 = '';
-				var code = shuffle();
-				for (var i = 0; i < 4; i++) {
-					ar1 += code[i];
-				}
-				;
 
-				$(".phoKey").text(ar1);
-			}
-			;
-			show_code();
-			$(".phoKey").click(function() {
-				show_code();
-			});
+function checkUser(){
+	var result = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var authcode =document.getElementById("authcode").value;
+	if(result == ""  ){
+	     alert("用户名不能为空");
+	     return false;
+	   }
+	   if(password == ""  ){
+	    alert("密码不能为空");
+	     return false;
+	   }
+	   if(authcode==""){
+		   alert("验证码不能为空！");
+		     return false;
+	   }
+	if(ar1!=authcode){
+		alert("验证码错误！");
+		create_code();
+		return false;
+	}
+		//获取表单 ，提交 表单
+	 document.getElementById("formId").submit(); 
+		return true;
+			
+}
+function create_code() {
+	function shuffle() {
+		var arr = [ '1', 'r', 'Q', '4', 'S', '6', 'w', 'u', 'D', 'I',
+				'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+				'l', 'm', 'n', 'o', 'p', 'q', '2', 's', 't', '8', 'v',
+				'7', 'x', 'y', 'z', 'A', 'B', 'C', '9', 'E', 'F', 'G',
+				'H', '0', 'J', 'K', 'L', 'M', 'N', 'O', 'P', '3', 'R',
+				'5', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
+		return arr.sort(function() {
+			return (Math.random() - .5);
+		});
+	}
+	;
+	shuffle();
+	function show_code() {
+		if(ar1!=""){
+			ar1="";
 		}
+		var code = shuffle();
+		for (var i = 0; i < 4; i++) {
+			ar1 += code[i];
+		}
+		;
+		$(".phoKey").text(ar1);
+	}
+	;
+	show_code();
+	$(".phoKey").click(function() {
+		show_code();
+	});
+}
+
+
 	</script>
 	<div class="logo-r">
 		<div class="logo-info-r">
-			<a href="${ctx}/product/index.html" class="logo"></a><span class="findpw">欢迎登录</span> <a href="#" class="qq"></a> <a
-				href="#" class="sina"></a>
+			<a href="#"></a><span class="findpw">欢迎登录</span> <a href="#"></a> <a
+				href="#"></a>
 			<div class="user-weixin weixin">
 				<span></span>
 				<div class="erweima">
@@ -111,7 +141,7 @@ create_code();
 						src="${ctx}/statics/images/login-banner.jpg" /></a>
 
 					<div class="login-form">
-						<form id="loginForm" name="formLogin" action="${ctx}/loginSuccess" method="post" onsubmit="">
+						<form id="formId" name="formLogin" action="${ctx}/register/loginSuccess" method="post">
 							<div class="login-tit">
 								用户登录 <a class="regist-link main-color" href="${ctx}/register/regist">立即注册 <i>&gt;</i></a>
 							</div>
@@ -137,10 +167,9 @@ create_code();
 										<i class="icon"></i> <input type="text" id="authcode"
 											name="captcha" class="text text-1" tabindex="3" />
 									</div>
-									<span id="phoKey" class="add phoKey"></span>
+									<span id="aa" name="phoKeys" class="add phoKey"></span>
 								</div>
-								
-							
+						
 								<div class="safety" id="autoentry">
 									<label for="remember" class="mar-b"><input
 										type="checkbox" value="1" name="remember" id="remember"
@@ -148,10 +177,8 @@ create_code();
 										href="#">忘记密码？</a>
 								</div>
 								<div class="login-btn">
-									<input type="hidden" name="act" value="act_login" /> <input
-										type="hidden" name="back_act" value="##" /> <input
-										type="button" name="submit" class="btn-img btn-entry"
-										id="loginsubmit" value="立即登录" />
+									<input type="submit" name="submit" class="btn-img btn-entry"
+										id="loginsubmit" value="立即登录" onclick="return checkUser();" />
 								</div>
 								<div class="item-coagent">
 									<a href="#"><i class="weixin"></i>微信</a> <a href="#"><i
