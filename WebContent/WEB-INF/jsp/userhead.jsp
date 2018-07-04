@@ -94,7 +94,6 @@
 							var qs = document.getElementById('sn-qrcode');
 							qs.style.display = "block";
 						}
-
 						function hide_qcord() {
 							var qs = document.getElementById('sn-qrcode');
 							qs.style.display = "none";
@@ -127,11 +126,9 @@
 	</div>
 	<script>
 			header_login();
-
 			function header_login() {
 				Ajax.call('login_act_ajax.php', '', loginactResponse, 'GET', 'JSON', '1', '1');
 			}
-
 			function loginactResponse(result) {
 				var MEMBERZONE = document.getElementById('login-info');
 				MEMBERZONE.innerHTML = result.memberinfo;
@@ -271,7 +268,6 @@
 	</div>
 	<script type="text/javascript">
 			//<![CDATA[
-
 			function checkSearchForm() {
 				if(document.getElementById('keyword').value) {
 					var frm = document.getElementById('searchForm');
@@ -283,15 +279,12 @@
 					return false;
 				}
 			}
-
 			function myValue1() {
 				document.getElementById('keyword').value = "请输入商品名称或编号...";
 			}
-
 			function myValue2() {
 				document.getElementById('keyword').value = "";
 			}
-
 			//]]>
 			$('.search-type li').click(function() {
 				$(this).addClass('cur').siblings().removeClass('cur');
@@ -302,7 +295,6 @@
 				$(".header-right img").bubbleup({
 					scale: 100
 				});
-
 				//头部搜索
 				$('.search-type').hover(function() {
 					$(this).css({
@@ -315,9 +307,7 @@
 						"overflow": "hidden"
 					});
 				});
-
 			});
-
 			function _show_(h, b) {
 				if(!h) {
 					return
@@ -347,7 +337,6 @@
 					h.isDone = true
 				}
 			}
-
 			function _hide_(a) {
 				if(!a) {
 					return

@@ -19,4 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		limit #{from},#{pageSize}
 	</select>
+	<select id="getProduct" resultType="product">
+		SELECT p1.* FROM `product` p1 WHERE `id`=#{pId}
+	</select>
 </mapper>

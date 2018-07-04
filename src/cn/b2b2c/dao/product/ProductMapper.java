@@ -23,5 +23,11 @@ public interface ProductMapper {
 			@Param("categoryId")Integer categoryId,
 			@Param("level")Integer level);
 	
+	/**
+	 * 根据商品id查询详情
+	 * @param id
+	 * @return
+	 */
+	public Product getProduct(@Param("pId")Integer id);
 
 }

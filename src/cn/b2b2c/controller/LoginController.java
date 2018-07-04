@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.service.user.UserService;
+import cn.b2b2c.tools.SecurityUtils;
 /**
  * 登陆控制
  * @author surface
@@ -35,12 +36,11 @@ public class LoginController {
 	 * @param session
 	 * @return
 	 */
-	@RequestMapping("/loginSuccess")
+	@RequestMapping(value="/loginSuccess",method=RequestMethod.POST)
 	public String loginSuccess(String userName,String password, Model model,HttpSession session) {
-	
 		User user=new User();
 		user=userService.userLogin(userName);
-		if (password.equals(user.getPassword())) {
+		if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
 			return "index";
 		}
 		 model.addAttribute("error", "用户名或者密码错误"); 

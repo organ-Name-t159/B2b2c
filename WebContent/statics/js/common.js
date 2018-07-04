@@ -110,26 +110,39 @@ function isSelectAttr(spec_arr) {
 	return ret;
 }
 
+//弹出窗
+function showMessage(content){
+	ShowDiv_1('MyDiv1','fade1');
+	$("#showMessage").html(content);
+}
+
+
 /* JS代码增加_end By www.wygk.cn */
 /*******************************************************************************
  * 添加商品到购物车
  * @param extCode 扩展代码，可以自定义一些扩展属性，例如：'pre_sale'
  */
 
-function addToCart(goodsId) {
-	alert(goodsId)
+function addToCart(goodsId,number) {
+	/*alert(goodsId)
+	alert(number)*/
 	$.ajax({
 		url:contextPath+"/car/addCar.html",
 		method:"post",
 		data:{
-			productsId:goodsId
+			productsId:goodsId,
+			number:number
 		},
 		success:function(jsonStr){
-			var result=eval("(+jsonStr+)");
+			
+			var result=eval("("+jsonStr+")");
+			/*alert(result.status)*/
 			if(result.status==1){
-				alert("ok")
+				alert("操作成功")
+				/*showMessage("操作成功")*/
+				refreshCart();
 			}else{
-				alert("no")
+				showMessage(result.message);
 			}
 		}
 		
@@ -173,6 +186,25 @@ function addToCart(goodsId) {
 //	}
 
 }
+
+/**
+ * 刷新购物车 searchBar DIV
+ */
+function refreshCart(){	
+	$.ajax({
+		url:contextPath+"/car/refresh.html",
+		method:"post",
+		data:{
+			
+		},
+		success:function(jsonStr){
+			$(".right-sidebar-con").html(jsonStr);
+		}
+	})
+	
+	
+}
+
 
 /* 组合购买__添加商品到购物车__Start By www.wrzc.net */
 function addToCartNums(goodsId, parentId) {
