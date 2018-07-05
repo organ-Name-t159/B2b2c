@@ -130,7 +130,7 @@
 													<strong>￥${temp.product.price}</strong>x${temp.quantity}
 												</div>
 												<a href="#" class="p-del"
-													onclick="deleteCartGoods('${temp.product.id}')">删除</a>
+													onclick="deleteCar('${temp.product.id}')">删除</a>
 											</div>
 										</div>
 									</c:forEach>
@@ -149,7 +149,12 @@
 								<div class="sum">
 									共计：<strong class="total">${sessionScope.cart.sum }</strong>
 								</div>
-								<a class="btn" href="#" target="_blank">去购物车结算</a>
+								<c:if test="${sessionScope.user==null || sessionScope.user=='' }">
+									<a class="btn" href="${ctx}/register/login.html" target="_blank">去登录</a>
+								</c:if>
+								<c:if test="${sessionScope.user!=null && sessionScope.user!='' }">
+									<a class="btn" href="#" target="_blank">去购物车结算</a>
+								</c:if>
 							</div>
 						</div>
 					</c:if>

@@ -39,5 +39,17 @@ public interface ProductService {
 	 * @throws Exception
 	 */
 	public ShoppingCart calculate(ShoppingCart cart)throws Exception;
+	
+	
+	/**
+	 * 修改/删除购物车
+	 * @param productId
+	 * @param quantityStr
+	 * @param cart
+	 * @return
+	 * @throws Exception
+	 */
+	public ShoppingCart modifyShoppingCart(String productId,String quantityStr,ShoppingCart cart) throws Exception;
+
 
 }

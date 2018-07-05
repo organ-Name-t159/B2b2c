@@ -27,6 +27,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.regist(user);
 	}
 
+	@Override
+	public User phoneLogin(String phone) {
+		// TODO Auto-generated method stub
+		return userMapper.phoneLogin(phone);
+	}
+
 	
 
 	
