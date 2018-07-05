@@ -80,7 +80,21 @@ public class CarController {
 	}
 	
 	
-	
+	@RequestMapping(value="/deleteCart.html",method=RequestMethod.POST)
+	@ResponseBody
+	public ReturnResult deleteCart(HttpServletRequest request)throws Exception {
+		ReturnResult result = new ReturnResult();
+		HttpSession session=request.getSession();		
+		String number=request.getParameter("number");
+		String quantityStr=request.getParameter("quantity");
+		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
+		Product product=productService.getProduct(Integer.parseInt(number));
+		if(Integer.parseInt(quantityStr)>product.getStock()){
+			return result.returnFail("商品数量不足");
+    	}
+		 cart = productService.modifyShoppingCart(number, quantityStr, cart);
+		return result.returnSuccess();
+	}
 	
 	
 	

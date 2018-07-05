@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import cn.b2b2c.dao.product.ProductMapper;
 import cn.b2b2c.pojo.Product;
+import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.ShoppingCart;
 import cn.b2b2c.tools.ShoppingCartItem;
 
@@ -47,6 +48,30 @@ public class ProductServiceImpl implements ProductService {
 			item.setCost(item.getQuantity()*item.getProduct().getPrice());
 		}
 		cart.setSum(sum);		
+		return cart;
+	}
+
+
+
+	@Override
+	public ShoppingCart modifyShoppingCart(String productId, String quantityStr, ShoppingCart cart) throws Exception {
+		Integer quantity = 0;
+		if (!EmptyUtils.isEmpty(quantityStr))
+            quantity = Integer.parseInt(quantityStr);
+		//便利购物车寻找该商品 修改其数量
+		for (ShoppingCartItem item : cart.getItems()) {
+			if(item.getProduct().getId().toString().equals(productId)) {
+				if(quantity==0 || quantity<0) {
+					cart.getItems().remove(item);
+					break;
+				}else {
+					item.setQuantity(quantity);
+				}
+			}
+			
+		}
+		//重新计算金额
+		calculate(cart);		
 		return cart;
 	}
 
