@@ -57,10 +57,18 @@
 <body>
 	<div id="site-nav">
 		<div class="sn-container w1210">
-			<font id="login-info" class="sn-login-info"> <em>欢迎光临本店!</em>
+			<font id="login-info" class="sn-login-info"> 
+			<c:if test="${sessionScope.user==null || sessionScope.user==''}">
+				<em>欢迎光临本店!</em>
 				<a class="sn-login main-color" href="${ctx}/register/login.html">请登录</a>
 				<a class="sn-login main-color" href="#">微信登陆</a> <a
 				class="sn-register" href="${ctx}/register/regist">免费注册</a>
+			</c:if>
+			<c:if test="${sessionScope.user!=null && sessionScope.user!=''}">
+			<a class="sn-login main-color">${sessionScope.user.userName}</a>
+			<em>欢迎你回来</em>
+			<a class="sn-registre" href="${ctx}/register/outLogin">退出</a>
+			</c:if>
 			</font>
 			<ul class="sn-quick-menu">
 				<li class="sn-mytaobao menu-item">

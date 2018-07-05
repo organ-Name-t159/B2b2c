@@ -15,6 +15,7 @@ public interface UserMapper {
 	 * @throws Exception
 	 */
 	public User userLogin(@Param("userName")String userName);
+	public User phoneLogin(@Param("phone")String phone);
 	/**
 	 * 注册
 	 * @param user

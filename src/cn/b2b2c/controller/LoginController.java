@@ -39,14 +39,26 @@ public class LoginController {
 	@RequestMapping(value="/loginSuccess",method=RequestMethod.POST)
 	public String loginSuccess(String userName,String password, Model model,HttpSession session) {
 		User user=new User();
-		user=userService.userLogin(userName);
-		if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
-			return "index";
+		if (userName.length()==11) {
+			user=userService.phoneLogin(userName);
+		}else{
+			user=userService.userLogin(userName);
 		}
-		 model.addAttribute("error", "用户名或者密码错误"); 
+		//Md5加密
+		//if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
+		if(password.equals(user.getPassword())){
+			session.setAttribute("user", user);
+		return "redirect:/product/index.html";
+		}
+		
 		  return "error";
 	}
-	
+	//退出登陆 跳转
+	@RequestMapping(value="/outLogin")
+	public String outLogin(HttpSession session){
+		session.removeAttribute("user");
+		return "Login";
+	}
 
 	//跳转到注册页面
 	@RequestMapping("/regist")
