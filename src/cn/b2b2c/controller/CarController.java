@@ -97,8 +97,11 @@ public class CarController {
 	}
 	
 	
-	
-	
+	@RequestMapping(value="/closeCart.html")
+	public String closeCart(HttpServletRequest request) {
+		System.out.println("进入购物车结算页面");
+		return "";
+	}
 	
 	
 	

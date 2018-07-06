@@ -153,7 +153,7 @@
 									<a class="btn" href="${ctx}/register/login.html" target="_blank">去登录</a>
 								</c:if>
 								<c:if test="${sessionScope.user!=null && sessionScope.user!='' }">
-									<a class="btn" href="#" target="_blank">去购物车结算</a>
+									<a class="btn" href="${ctx}/car/closeCart.html" target="_blank">去购物车结算</a>
 								</c:if>
 							</div>
 						</div>
