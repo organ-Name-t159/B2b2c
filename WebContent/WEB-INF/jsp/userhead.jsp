@@ -10,12 +10,10 @@
 <link rel="stylesheet" href="${ctx}/statics/css/index.css" />
 <link rel="stylesheet" href="${ctx}/statics/css/skin.css" />
 <link rel="stylesheet" href="${ctx}/statics/css/style2015.css" />
-<link rel="stylesheet" type="text/css"
-	href="${ctx}/statics/css/user.css" />
-<link rel="stylesheet" type="text/css"
-	href="${ctx}/statics/css/wrzc_common.css" />
-<link rel="stylesheet" type="text/css"
-	href="${ctx}/statics/css/category.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/user.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/wrzc_common.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/flow.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/category.css">
 <script type="text/javascript" src="${ctx}/stiatics/js/global.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
