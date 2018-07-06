@@ -47,6 +47,17 @@
 </script>
 </head>
 <body>
+<script type="text/javascript">
+function outUser(){
+	var msg=confirm("确定退出吗？")
+	if (msg==true) {
+		return true;
+	} else {
+		return false;
+	}
+	
+}
+</script>
 	<div id="site-nav">
 		<div class="sn-container w1210">
 			<font id="login-info" class="sn-login-info"> 
@@ -59,7 +70,7 @@
 			<c:if test="${sessionScope.user!=null && sessionScope.user!=''}">
 			<a class="sn-login main-color">${sessionScope.user.userName}</a>
 			<em>欢迎你回来</em>
-			<a class="sn-registre" href="${ctx}/register/outLogin">退出</a>
+			<a class="sn-registre" href="${ctx}/register/outLogin" onclick="return outUser();">退出</a>
 			</c:if>
 			</font>
 			<ul class="sn-quick-menu">
