@@ -74,9 +74,8 @@ function checkUser(){
 		     return false;
 	   }
 	   //验证码转换小写
-	  toLowerCase(authcode);
-	  toLowerCase(ar1);
-	if(ar1!=authcode){
+	 
+	if(ar1.toLowerCase()!=authcode.toLowerCase()){
 		alert("验证码错误！");
 		create_code();
 		return false;
@@ -84,8 +83,8 @@ function checkUser(){
 	
 	
 		//获取表单 ，提交 表单
-	 document.getElementById("formId").submit(); 
-		return true;
+	 //document.getElementById("formId").submit(); 
+		
 			
 }
 function create_code() {

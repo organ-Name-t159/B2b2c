@@ -63,7 +63,7 @@
 	background-position: 50% -34px
 }
 .flowstep .step-no, .flowstep .step-sub-box .step-sub {
-	background: url(../images/jmpic/flow-icon.png) no-repeat scroll 50% -102px;
+	background: url(../images/flow-icon.png) no-repeat scroll 50% -102px;
 }
 .flowstep li {
 	text-align: center;
