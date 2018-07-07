@@ -84,7 +84,7 @@ public class CarController {
 	@ResponseBody
 	public ReturnResult deleteCart(HttpServletRequest request)throws Exception {
 		ReturnResult result = new ReturnResult();
-		HttpSession session=request.getSession();		
+		//HttpSession session=request.getSession();		
 		String number=request.getParameter("number");
 		String quantityStr=request.getParameter("quantity");
 		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
@@ -98,9 +98,13 @@ public class CarController {
 	
 	
 	@RequestMapping(value="/closeCart.html")
-	public String closeCart(HttpServletRequest request) {
+	public String closeCart(HttpServletRequest request)throws Exception {
 		System.out.println("进入购物车结算页面");
-		return "ShoppingCart";
+		HttpSession session=request.getSession();
+		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
+		cart=productService.calculate(cart);
+		session.setAttribute("cart", cart);				
+		return "ShoppingCart1";
 	}
 	
 	
