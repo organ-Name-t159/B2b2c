@@ -107,8 +107,11 @@ public class CarController {
 		return "ShoppingCart1";
 	}
 	
-	
-	
+	@RequestMapping(value="/getCart2.html")
+	public String getCart2(HttpServletRequest request) {
+		System.out.println("进入购物车结算页面==具体选择");
+		return "common/cartFlow2";
+	}
 	
 	
 	

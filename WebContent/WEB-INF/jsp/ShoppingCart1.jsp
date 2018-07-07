@@ -25,11 +25,12 @@
 				onclick="cancel_input_surplus()" value="取消" class="btn_pay2">
 		</div>
 	</div>
-
+	<div id="">
 	<!-- 流程---------------------------------- -->
-	<%@include file="common/cartFlow1.jsp" %>
+	<%-- <%@include file="common/cartFlow1.jsp" %> --%>
+	<%@include file="common/cartFlow2.jsp" %>
 	<!-- 流程---------------------------------- -->
-	
+	</div>
 	
 	<div class="tell-me-form"
 		style="display: none; left: 424.5px; top: 140px;" id="tell-me-table">
@@ -97,7 +98,7 @@
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/statics/images/order_pickpoint.js"></script>
 	<div class="choose" id="choose" style="display: none"></div>
-	<script type="text/javascript">
+<script type="text/javascript">
 function closeCustomer(){
 	$("#choose,#bg").hide();
 }
@@ -111,7 +112,7 @@ function choose_gift(suppid){
 			j++;
 		}
 	}
-	Ajax.call('flow.php', 'is_ajax=1&suppid=' + suppid + '&sel_goods='+sel_goods, selgiftResponse, 'GET', 'JSON');
+	Ajax.call('', 'is_ajax=1&suppid=' + suppid + '&sel_goods='+sel_goods, selgiftResponse, 'GET', 'JSON');
 }
 function selgiftResponse(res){
 	$('#choose').html(res.result).show();
