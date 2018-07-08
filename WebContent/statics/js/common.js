@@ -169,6 +169,11 @@ function refreshCart(){
 	
 }
 
+/**
+ * 删除购物车
+ * @param cartId
+ * @returns
+ */
 function deleteCar(cartId){
 	$.ajax({
 		url:contextPath+"/car/deleteCart.html",
@@ -184,6 +189,19 @@ function deleteCar(cartId){
 			}else{
 				alert("错误")
 			}
+		}
+	})
+}
+
+function cartFlow2(){
+	$.ajax({
+		url:contextPath+"/car/getCart2.html",
+		method:"post",
+		data:{
+			
+		},
+		success:function(jsonStr){
+			$("#cartFlow").html(jsonStr);
 		}
 	})
 }

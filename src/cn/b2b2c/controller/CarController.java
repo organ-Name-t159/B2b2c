@@ -1,17 +1,22 @@
 package cn.b2b2c.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.Product;
+import cn.b2b2c.pojo.User;
+import cn.b2b2c.pojo.UserAddress;
 import cn.b2b2c.service.product.ProductService;
+import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.Constants;
 import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.ReturnResult;
@@ -24,6 +29,9 @@ public class CarController {
 	
 	@Resource
 	private ProductService productService;
+	
+	@Resource
+	private UserService userService;
 	
 	@RequestMapping(value="/addCar.html",method=RequestMethod.POST)
 	@ResponseBody
@@ -107,9 +115,16 @@ public class CarController {
 		return "ShoppingCart1";
 	}
 	
-	@RequestMapping(value="/getCart2.html")
-	public String getCart2(HttpServletRequest request) {
+	@RequestMapping(value="/getCart2.html",method=RequestMethod.POST)
+	public String getCart2(HttpServletRequest request)throws Exception {
 		System.out.println("进入购物车结算页面==具体选择");
+		HttpSession session=request.getSession();
+		User user=(User)session.getAttribute("user");
+		List<UserAddress> uAddress=userService.getAll(user.getId());
+		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
+		cart=productService.calculate(cart);
+		session.setAttribute("cart", cart);
+		request.setAttribute("uAddress", uAddress);
 		return "common/cartFlow2";
 	}
 	

@@ -71,40 +71,26 @@ function del_address_comfirm(comfirmId) {
 	<div class="title">1 地址选择</div>
 	<div class="address_jm" id="AddressList">
 		<ul>
-			<li class="curr" onmouseover="showAddressEdit(this);"
+		<c:forEach items="${requestScope.uAddress}" var="temp">
+			<li onmouseover="showAddressEdit(this);"
 				onmouseout="showAddressEdit(this);">
 				<div style="width: 100%; height: 100%;"
 					onclick="selAddress(this, 63);">
 					<table cellpadding="0" cellspacing="0" width="100%">
 						<tbody>
 							<tr>
-								<td>哈哈<br>北京-北京-东城区&nbsp;东城区,1726475673@qq.com<br>18234256475
+								<td>${temp.consignee}<br>${temp.address}&nbsp;${temp.postcode},${temp.addressPhone}<br>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<div class="edit_addr" id="address_edit_0">
+				<div class="edit_addr" id="address_edit_${temp.id-1}">
 					<a href="#">修改</a> <a onclick="del_address_comfirm(63)">删除</a>
 				</div>
 			</li>
-			<li onmouseover="showAddressEdit(this);"
-				onmouseout="showAddressEdit(this);" class="xxxxxx">
-				<div style="width: 100%; height: 100%;"
-					onclick="selAddress(this, 64);">
-					<table cellpadding="0" cellspacing="0" width="100%">
-						<tbody>
-							<tr>
-								<td>哦他太<br>安徽-安庆-大观区&nbsp;哦啊放入汤<br>15582412512
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="edit_addr" id="address_edit_1">
-					<a href="#">修改</a> <a onclick="del_address_comfirm(64)">删除</a>
-				</div>
-			</li>
+		</c:forEach>
+			
 		</ul>
 		<div class="blank10"></div>
 		<div class="address_jm_add" onclick="AddressEdit(0);">使用新地址</div>
@@ -391,61 +377,42 @@ $(function() {
 					style="background: #FAFAFA; border-top: 1px solid #eee; font-weight: bold; padding: 5px 10px;">
 				网站自营</td>
 		</tr>
-		<tr>
-			<td width="50%" style="border-top: none;">
-				<div class="thumb_name">
-					<dl>
-						<dt>
-							<a href="#"><img
-								src="${ctx}/statics/images/200_thumb_G_1437534571298.jpg"
-								style="border: 1px solid #eeeeee;"
-								title="爱度AY800蓝牙音箱手机电脑迷你音响无线便携插卡低音炮 带蓝牙自拍 土豪金"></a>
-						</dt>
-						<dd>
-							<a href="#">爱度AY800蓝牙音箱手机电脑迷你音响无线便携插卡低音炮 带蓝牙自拍 土豪金</a> <br>
-							<font class="attrname"></font>
+			
+			<c:forEach items="${sessionScope.cart.items}" var="car">
+			<tr>
+				<td width="50%" style="border-top: none;">
+					<div class="thumb_name">
+						<dl>
+							<dt>
+								<a href="#"><img
+									src="${ctx}/statics/images/${car.product.fileName}"
+									style="border: 1px solid #eeeeee;"
+									title="${car.product.name}"></a>
+							</dt>
+							<dd>
+								<a href="#">${car.product.name}</a> <br>
+								<font class="attrname"></font>
+		
+							</dd>
+						</dl>
+					</div>
+		
+				</td>
+				<td align="center" style="border-top: none;">${car.quantity}</td>
+				<td align="center" class="price_font" style="border-top: none;">¥${car.product.price}</td>
+				<td align="center" class="price_font" style="border-top: none;">¥${car.cost}</td>
+			</tr>	
+			</c:forEach>
+			
+		
 
-						</dd>
-					</dl>
-				</div>
-
-			</td>
-			<td align="center" style="border-top: none;">1</td>
-			<td align="center" class="price_font" style="border-top: none;">¥83.30</td>
-			<td align="center" class="price_font" style="border-top: none;">¥83.30</td>
-		</tr>
-		<tr>
-			<td width="50%">
-				<div class="thumb_name">
-					<dl>
-						<dt>
-							<a href="#"><img
-								src="${ctx}/statics/images/51_thumb_G_1437519866381.jpg"
-								style="border: 1px solid #eeeeee;"
-								title="高端2015夏装新款修身淑坊女女装蕾丝短袖复女连衣裙装"></a>
-						</dt>
-						<dd>
-							<a href="#">高端2015夏装新款修身淑坊女女装蕾丝短袖复女连衣裙装</a> <br> <font
-								class="attrname">尺码:XL <br> 颜色:棕色 <br>
-							</font>
-
-						</dd>
-					</dl>
-				</div>
-
-			</td>
-			<td align="center">1</td>
-			<td align="center" class="price_font">¥169.15</td>
-			<td align="center" class="price_font">¥169.15</td>
-		</tr>
-
-		<tr>
-			<td colspan="4" bgcolor="#ffffff" align="right"
-				style="padding: 12px 15px 12px 0;">根据优惠活动 <a href="#"> <font
-					color="red">满199元减99元</font>
-			</a>，您可以享受折扣 ¥99.0
-			</td>
-		</tr>
+			<tr>
+				<td colspan="4" bgcolor="#ffffff" align="right"
+					style="padding: 12px 15px 12px 0;">根据优惠活动 <a href="#"> <font
+						color="red">满199元减99元</font>
+				</a>，您可以享受折扣 ¥99.0
+				</td>
+			</tr>
 
 		<tr>
 			<td colspan="4" bgcolor="#ffffff" align="left"
@@ -790,7 +757,7 @@ $(function() {
 									</tr>
 									<tr>
 										<td align="right" bgcolor="#ffffff">商品总价: <font
-										class="main-color">¥252.45</font> - 折扣: <font
+										class="main-color">¥${sessionScope.cart.sum}</font> - 折扣: <font
 										class="main-color">¥99.00</font> + 配送费用: <font
 										class="main-color">¥15.00</font>
 										</td>
@@ -798,7 +765,7 @@ $(function() {
 									<tr>
 										<td align="right" bgcolor="#ffffff">应付款金额： <font
 										class="main-color"
-										style="font-size: 18px; font-family: 微软雅黑;">¥168.45</font>
+										style="font-size: 18px; font-family: 微软雅黑;">¥${sessionScope.cart.sum-99.0-15.0}</font>
 										</td>
 									</tr>
 								</tbody>

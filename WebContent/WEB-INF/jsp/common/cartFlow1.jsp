@@ -179,7 +179,7 @@
 						¥${sessionScope.cart.sum} 节省了 ¥716.70 (26%)
 					</td>
 					<td align="right" width="150"><a href="javascript:void(0);"
-						onclick="return selcart_submit();" class="jmcheckout"
+						onclick="cartFlow2()" class="jmcheckout"
 						style="color: #ffffff">去结算</a></td>
 				</tr>
 			</tbody>

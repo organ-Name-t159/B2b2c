@@ -25,10 +25,10 @@
 				onclick="cancel_input_surplus()" value="取消" class="btn_pay2">
 		</div>
 	</div>
-	<div id="">
+	<div id="cartFlow">
 	<!-- 流程---------------------------------- -->
-	<%-- <%@include file="common/cartFlow1.jsp" %> --%>
-	<%@include file="common/cartFlow2.jsp" %>
+	 <%@include file="common/cartFlow1.jsp" %> 
+	<%-- <%@include file="common/cartFlow2.jsp" %> --%>
 	<!-- 流程---------------------------------- -->
 	</div>
 	
