@@ -262,7 +262,7 @@ i, cite,em, strong, th {
 }
 /*头部*/
 .sn-container .sn-quick-menu .sn-stores i, .sn-container .sn-quick-menu .sn-cart i, .sn-quick-menu .sn-site, .sn-quick-menu .sn-mobile, .breadcrumb i, .nav .allGoodsCat .menuEvent i, .sn-container .sn-quick-menu .menu-hd b, .sn-container .sn-all-msg b,.noresult-con .noresult-icon,.sidebar-user .arrow-right,#historyList .scroll-btn,#historyList .compare-btn,.pop-header .tell-me-close{
-	background: transparent url(../images/common/common-icon.png) no-repeat;
+	background: transparent url(../images/common-icon.png) no-repeat;
 	font-size: 12px;
 	font-style: normal;
 }
@@ -680,7 +680,7 @@ i, cite,em, strong, th {
 	color: #666;
 }
 .header .mall-search .mallSearch-form .mallSearch-input .search-type li i.icon-down {
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
 	background-position: 0px -80px;
 	width: 12px;
 	height: 8px;
@@ -1127,7 +1127,7 @@ i, cite,em, strong, th {
 }
 .site-footer .footer-service .list-service li a i {
 	display: block;
-	background: url(../images/common/common-icon.png) no-repeat center 0px;
+	background: url(../images/common-icon.png) no-repeat center 0px;
 	height: 35px;
 	line-height: 35px;
 	float: left;
@@ -1289,7 +1289,7 @@ i, cite,em, strong, th {
 }
 .right-sidebar-panel i{
 	display: inline-block;
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
 	cursor: pointer;
 	height: 19px;
 	width: 18px;
@@ -2087,7 +2087,7 @@ transform:scale(0.7) translateX(270px)
     margin-top: 10px;
     line-height: 15px;
     margin-right: 10px;
-    background: url(../images/common/common-icon.png) no-repeat -41px -44px;
+    background: url(../images/common-icon.png) no-repeat -41px -44px;
     width: 16px;
 }
 #compareList {
@@ -2280,7 +2280,7 @@ transform:scale(0.7) translateX(270px)
 
 /********弹框提示信息********/
 .pop-header .pop-close,.pop-con .pop-icon{
-	background:url(../images/common/common-icon.png) no-repeat;
+	background:url(../images/common-icon.png) no-repeat;
 }
 .pop-mask{
 	position:fixed;
@@ -2394,7 +2394,7 @@ transform:scale(0.7) translateX(270px)
 	display:inline-block;	
 }
 .page-num .prev .icon,.page-num .next .icon{
-	background:url(../images/common/common-icon.png) no-repeat;	
+	background:url(../images/common-icon.png) no-repeat;	
 	display:inline-block;
 	width:6px;
 	height:9px;
@@ -2519,7 +2519,7 @@ transform:scale(0.7) translateX(270px)
 	float:left;
 	width:6px;
 	height:9px;
-	background:url(../images/common/common-icon.png) no-repeat;
+	background:url(../images/common-icon.png) no-repeat;
 	background-position:-90px 0;
 	margin:9px 0 0 4px;
 }
@@ -2866,7 +2866,7 @@ transform:scale(0.7) translateX(270px)
 #speDiv .spe-close{
 	width: 13px;
     height: 13px;
-    background: url(../images/common/common-icon.png) no-repeat;
+    background: url(../images/common-icon.png) no-repeat;
     background-position: -41px -44px;
     position: absolute;
     right: 13px;
