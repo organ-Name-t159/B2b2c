@@ -215,7 +215,7 @@
 			}
 	      }
 	      document.getElementById('chkAll').checked = c;
-	      Ajax.call('flow.php', 'act=selcart&sel_goods=' + sel_goods + '&suppid=' + suppid, selcartResponse, 'GET', 'JSON');
+	      Ajax.call('', 'act=selcart&sel_goods=' + sel_goods + '&suppid=' + suppid, selcartResponse, 'GET', 'JSON');
 	}
 	function selcartResponse(res){
 	  if (res.err_msg.length > 0){

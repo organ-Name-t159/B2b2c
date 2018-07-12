@@ -9,10 +9,10 @@ var pay_balance_id = 4; //保存余额支付的id做为js全局变量
 
 <script type="text/javascript" src="${ctx}/statics/js/shopping_flow.js"></script>
 
-
 <div class="header w990">
 	<div class="mall-logo">
-		<a href="#"><img src="${ctx}/statics/images/logo.gif"></a>
+		<a href="${ctx}/product/index.html"><img
+			src="${ctx}/statics/images/logo.gif"></a>
 	</div>
 </div>
 <div class="blank15"></div>
@@ -69,11 +69,11 @@ function del_address_comfirm(comfirmId) {
 	<div class="blank15"></div>
 <div class="checkBox_jm clearfix">
 	<div class="title">1 地址选择</div>
-	<div class="address_jm" id="AddressList">
+	<div class="address_jm" id="AddressList" >
 		<ul>
 		<c:forEach items="${requestScope.uAddress}" var="temp">
 			<li onmouseover="showAddressEdit(this);"
-				onmouseout="showAddressEdit(this);">
+				onmouseout="showAddressEdit(this);" onclick="Uaddress(${temp.id})">
 				<div style="width: 100%; height: 100%;"
 					onclick="selAddress(this, 63);">
 					<table cellpadding="0" cellspacing="0" width="100%">
@@ -86,7 +86,7 @@ function del_address_comfirm(comfirmId) {
 					</table>
 				</div>
 				<div class="edit_addr" id="address_edit_${temp.id-1}">
-					<a href="#">修改</a> <a onclick="del_address_comfirm(63)">删除</a>
+					<a href="javascript:void(0);" onclick="AddressEdit(${temp.id});">修改</a> <a onclick="del_address_comfirm(${temp.id})">删除</a>
 				</div>
 			</li>
 		</c:forEach>
@@ -96,19 +96,139 @@ function del_address_comfirm(comfirmId) {
 		<div class="address_jm_add" onclick="AddressEdit(0);">使用新地址</div>
 	</div>
 	<div id="popDiv" class="mydiv" style="display: none;">
-		<div class="mydiv-l" id="PopAddressTitle">使用新地址</div>
-		<div class="mydiv-r" onclick="javascript:closePopDiv()"></div>
-		<div id="PopAddressCon"></div>
+			<div class="mydiv-l" id="PopAddressTitle">使用新地址</div>
+			<div class="mydiv-r" onclick="javascript:closePopDiv()"></div>
+			<div id="PopAddressCon">
+				<table cellpadding="4" cellspacing="4" width="100%"
+					style="clear: both;">
+					<tbody>
+						<tr>
+							<td style="text-align: right; width: 13%"><font
+								class="main-color">*</font>收件人</td>
+							<td><input type="text" name="consignee" value=""
+								class="input_addr2">
+								<div class="required-notice fl">
+									<i class="notice-icon"></i><span
+										class="notice-text reciever-notice"></span>
+								</div></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;"><font class="main-color">*</font>所在地区</td>
+							<td><input type="hidden" name="country" value="1"> <select
+								name="province" id="selProvinces"
+								onchange="region.changed(this, 2, 'selCities');"
+								class="select_addr">
+									<option value="0">请选择</option>
+									<option value="2">北京</option>
+									<option value="3">安徽</option>
+									<option value="4">福建</option>
+									<option value="5">甘肃</option>
+									<option value="6">广东</option>
+									<option value="7">广西</option>
+									<option value="8">贵州</option>
+									<option value="9">海南</option>
+									<option value="10">河北</option>
+									<option value="11">河南</option>
+									<option value="12">黑龙江</option>
+									<option value="13">湖北</option>
+									<option value="14">湖南</option>
+									<option value="15">吉林</option>
+									<option value="16">江苏</option>
+									<option value="17">江西</option>
+									<option value="18">辽宁</option>
+									<option value="19">内蒙古</option>
+									<option value="20">宁夏</option>
+									<option value="21">青海</option>
+									<option value="22">山东</option>
+									<option value="23">山西</option>
+									<option value="24">陕西</option>
+									<option value="25">上海</option>
+									<option value="26">四川</option>
+									<option value="27">天津</option>
+									<option value="28">西藏</option>
+									<option value="29">新疆</option>
+									<option value="30">云南</option>
+									<option value="31">浙江</option>
+									<option value="32">重庆</option>
+									<option value="33">香港</option>
+									<option value="34">澳门</option>
+									<option value="35">台湾</option>
+							</select> <select name="city" id="selCities"
+								onchange="region.changed(this, 3, 'selDistricts');"
+								class="select_addr">
+									<option value="0">请选择</option>
+							</select> <select name="district" id="selDistricts" class="select_addr"
+								style="display: none;">
+									<option value="0">请选择</option>
+							</select>
+								<div class="required-notice fl">
+									<i class="notice-icon"></i><span
+										class="notice-text address-notice"></span>
+								</div></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;"><font class="main-color">*</font>街道地址</td>
+							<td><input type="text" name="address"
+								class="input_addr1 inputMiddle" value="">
+								<div class="required-notice">
+									<i class="notice-icon"></i><span
+										class="notice-text detail-address-notice"></span>
+								</div></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">电子邮箱</td>
+							<td><input type="text" name="email"
+								class="input_addr1 inputMiddle" value=""></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">邮编</td>
+							<td><input type="text" name="zipcode" class="input_addr3"
+								value=""></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;"><font class="main-color">*</font>手机号码</td>
+							<td><input type="text" name="mobile"
+								class="input_addr2 input_addr2_t" value="">
+								&nbsp;&nbsp;&nbsp;&nbsp;或固定电话 <input type="text" name="tel_01"
+								class="input_addr4" value=""> - <input type="text"
+								name="tel_02" class="input_addr3" value=""> - <input
+								type="text" name="tel_03" class="input_addr4" value=""></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><font color="#cccccc"
+								style="height: 30px; line-height: 30px; display: inline-block;">两者至少填写一项</font>
+							<div class="required-notice">
+									<i class="notice-icon"></i><span
+										class="notice-text phone-notice"></span>
+								</div></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td style="padding-top: 10px;"><input type="hidden"
+								name="address_id" value=""> <input type="hidden"
+								name="shipping_bian" value="0"> <input type="hidden"
+								name="closediv" value="1"> <input type="button"
+								class="BonusButton" value=" 确定 " onclick="submitAddress()">&nbsp;&nbsp;<input
+								type="button" class="Button_reset" value=" 取消 "
+								onclick="closePopDiv()"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-</div>
+	
 <script type="text/javascript">
 	function AddressEdit(aid) {
 		if(aid) {
 			document.getElementById('PopAddressTitle').innerHTML = '修改地址';
+			document.getElementById('popDiv').style.display = 'block';
 		} else {
 			document.getElementById('PopAddressTitle').innerHTML = '使用新地址';
+			document.getElementById('popDiv').style.display = 'block';
 		}
-		Ajax.call('', 'address_id=' + aid, AddressEdit_Response, 'GET', 'JSON');
+		
 	}
 
 	function AddressEdit_Response(result) {
@@ -276,78 +396,13 @@ function del_address_comfirm(comfirmId) {
 	</div>
 	<div class="timebox">
 		<ul>
-			<li class="curr" id="time_id_1"
+		<c:forEach items="${deliveryTime}" var="add" varStatus="status">
+			<li class="curr" id="time_id_${status.index+1}"
 				onclick="javascript:setTimeSh(&#39;1&#39;);"><input
-				id="time_delivery1" type="radio" name="best_time" value="仅工作日送货"
-				checked="checked"> <label for="time_delivery1">仅工作日送货</label>
+				id="time_delivery${status.index+1}" type="radio" name="best_time" value="${add.id}"
+				checked="checked"> <label for="time_delivery${status.index+1}">${add.timeName}</label>
 			</li>
-			<li id="time_id_2" onclick="javascript:setTimeSh(&#39;2&#39;);">
-				<input id="time_delivery2" type="radio" name="best_time"
-				value="仅周末送货"> <label for="time_delivery2">仅周末送货</label>
-			</li>
-			<li id="time_id_3" onclick="javascript:setTimeSh(&#39;3&#39;)">
-				<input id="time_delivery3" type="radio" name="best_time"
-				value="工作日/周末/假日均可"> <label for="time_delivery3">工作日/周末/假日均可</label>
-			</li>
-			<li id="time_id_4" style="position: relative;"
-				onmouseover="if(this.className==&#39;curr&#39; || this.className==&#39;curr2&#39;){this.className=&#39;curr&#39;;}else{this.className=&#39;cur2&#39;;}"
-				onmouseout="if(this.className==&#39;curr&#39;){this.className=&#39;curr2&#39;;}else{this.className=&#39;cur&#39;;}"
-				onclick="javascript:setTimeSh(&#39;4&#39;)"><input
-				type="radio" name="best_time" value="" id="definetime_input">
-				<label for="definetime_input" id="definetime">指定送货时间</label>
-				<div class="seltimebox" id="seltimebox">
-					<table cellpadding="0" cellspacing="0" width="100%">
-						<tbody>
-							<tr bgcolor="#ffffff">
-								<td><span>时间段</span></td>
-								<td align="center"><span>06-04<br>今天
-								</span></td>
-								<td align="center"><span>06-05<br>周二
-								</span></td>
-								<td align="center"><span>06-06<br>周三
-								</span></td>
-								<td align="center"><span>06-07<br>周四
-								</span></td>
-								<td align="center"><span>06-08<br>周五
-								</span></td>
-								<td align="center"><span>06-09<br>周六
-								</span></td>
-								<td align="center"><span>06-10<br>周日
-								</span></td>
-							</tr>
-							<tr bgcolor="#ffffff">
-								<td><span>9:00--15:00</span></td>
-								<td align="center">&nbsp;</td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-							</tr>
-							<tr bgcolor="#ffffff">
-								<td><span>15:00--19:00</span></td>
-								<td align="center">&nbsp;</td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-							</tr>
-							<tr bgcolor="#ffffff">
-								<td><span>19:00--22:00</span></td>
-								<td align="center">&nbsp;</td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-								<td align="center"><a href="#">可选</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div></li>
+		</c:forEach>						
 		</ul>
 	</div>
 	<div class="blank"></div>
@@ -408,9 +463,7 @@ $(function() {
 
 			<tr>
 				<td colspan="4" bgcolor="#ffffff" align="right"
-					style="padding: 12px 15px 12px 0;">根据优惠活动 <a href="#"> <font
-						color="red">满199元减99元</font>
-				</a>，您可以享受折扣 ¥99.0
+					style="padding: 12px 15px 12px 0;">
 				</td>
 			</tr>
 
@@ -422,7 +475,7 @@ $(function() {
 						class="shipping" value="3"> <a id="ship_0_3"
 						title="江、浙、沪地区首重15元/KG，续重2元/KG，其余城市首重20元/KG 运费¥15.00 "
 						class="shipping_type shipping_type_curr pay_ship0"
-						onclick="$(&#39;#pay_ship_0&#39;).val(3);selectShipping(3,0);$(&#39;.pay_ship0&#39;).removeClass(&#39;shipping_type_curr&#39;);$(this).addClass(&#39;shipping_type_curr&#39;);">
+						onclick="">
 							<!--注意：如果选中的是当前的配送，注意a标签的变化，变化为<a class="shipping_type shipping_type_curr">-->
 							<label> 普通快递 </label>
 					</a></li>
@@ -438,25 +491,18 @@ $(function() {
 			<td colspan="4" bgcolor="#ffffff" align="left"
 				style="padding: 12px 0 12px 30px;">
 				<div class="checkout_other">
-					<a class="jmbag" href="#"><span>+</span>使用店铺优惠券</a>
+					<a class="jmbag" href="javascript:void(0);" onclick="showCheckoutOther(this);"><span>+</span>使用店铺优惠券</a>
 					<table class="subbox_other sub_bonus" width="100%">
 						<tbody>
 							<tr>
 								<td align="right" width="120">使用店铺优惠券：</td>
 								<td><select name="bonus[0]"
-									onchange="changeBonus(this.value,0)" id="ECS_BONUS_0"
+									onchange="TiscountCoupon(${sessionScope.cart.sum})" id="ECS_BONUS_0"
 									class="otherinput">
 										<option value="0" selected="">请选择</option>
-										<option value="383">线上领取红包2222[¥19.00]</option>
-										<option value="384">线上领取红包2222[¥19.00]</option>
-										<option value="385">线上领取红包2222[¥19.00]</option>
-										<option value="386">线上领取红包2222[¥19.00]</option>
-										<option value="387">线上领取红包2222[¥19.00]</option>
-										<option value="388">线上领取红包2222[¥19.00]</option>
-										<option value="389">线上领取红包2222[¥19.00]</option>
-										<option value="390">线上领取红包2222[¥19.00]</option>
-										<option value="391">线上领取红包2222[¥19.00]</option>
-										<option value="392">线上领取红包2222[¥19.00]</option>
+										<c:forEach items="${lCoupons}" var="lc">
+										<option value="${lc.id}">店铺：${lc.issue}|满${lc.use}可用|优惠:[¥${lc.money}]</option>
+										</c:forEach>										
 
 								</select></td>
 								<td>&nbsp; 或 &nbsp; <a href="#">直接输入优惠券号</a>
@@ -487,30 +533,28 @@ $(function() {
 		<tr>
 			<td colspan="4" class="tdother2">
 				<div class="checkout_other">
-					<a class="jmbag" href="#"><span>+</span>开发票</a>
+					<a class="jmbag" href="javascript:void(0);" onclick="showCheckoutOther(this);"><span>+</span>开发票</a>
 
 					<table class="subbox_other" width="100%">
 						<tbody width="100%" cellpadding="5" cellspacing="0">
 							<tr>
 								<td align="right"><label class="mar-b" for="ECS_NEEDINV"><input
 										name="need_inv" type="checkbox" id="ECS_NEEDINV"
-										onclick="changeNeedInv()" value="1" class="checkbox">开发票：</label></td>
+										onclick="changeNeedInv()" value="1" class="checkbox">开发票：</label>
+								</td>
 								<td align="left" colspan="2"><select name="inv_type"
-									id="ECS_INVTYPE" disabled="true" onchange="changeNeedInv()"
-									class="select fl">
+									id="ECS_INVTYPE"  onchange="changeNeedInv()"
+									class="select fl" >
 										<option value="0">请选择发票类型</option>
-
-										<option value="normal_invoice">普通发票 [1%]</option>
-										<option value="vat_invoice">增值税发票 [1.5%]</option>
+										<c:forEach items="${lTypes}" var="lts">
+											<option value="${lts.id}">${lts.invoiceType}</option>
+										</c:forEach>										
 								</select> &nbsp;&nbsp; <select name="inv_content" id="ECS_INVCONTENT"
-									disabled="true" onchange="changeNeedInv()" class="select fl">
+									 onchange="changeNeedInv()" class="select fl" >
 										<option value="0">请选择发票内容</option>
-
-										<option value="明细">明细</option>
-										<option value="办公用品">办公用品</option>
-										<option value="电脑配件">电脑配件</option>
-										<option value="耗材">耗材</option>
-										<option value="其他">其他</option>
+										<c:forEach items="${lContents}" var="lcs">
+											<option value="${lcs.id}">${lcs.content}</option>
+										</c:forEach>										
 
 								</select></td>
 							</tr>
@@ -654,33 +698,11 @@ $(function() {
 				</div>
 			</td>
 		</tr>
+		
 		<tr>
 			<td colspan="4" class="tdother2">
 				<div class="checkout_other">
-					<a class="jmbag" href="#"><span>+</span>缺货处理</a>
-					<table class="subbox_other" width="100%">
-
-						<tbody width="100%" cellpadding="5" cellspacing="0">
-							<tr>
-								<td align="right" width="100">缺货处理：</td>
-								<td colspan="4"><label> <input name="how_oos"
-										type="radio" value="0" checked="" onclick="changeOOS(this)">
-										等待所有商品备齐后再发
-								</label> <label> <input name="how_oos" type="radio" value="1"
-										onclick="changeOOS(this)"> 取消订单
-								</label> <label> <input name="how_oos" type="radio" value="2"
-										onclick="changeOOS(this)"> 与店主协商
-								</label></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="4" class="tdother2">
-				<div class="checkout_other">
-					<a class="jmbag" href="#"><span>+</span>订单留言</a>
+					<a class="jmbag" href="javascript:void(0);" onclick="showCheckoutOther(this);"><span>+</span>订单留言</a>
 					<table class="subbox_other" width="100%">
 						<tbody width="100%" cellpadding="5" cellspacing="0">
 							<tr>
@@ -752,20 +774,20 @@ $(function() {
 								<tbody>
 									<tr>
 										<td align="right" bgcolor="#ffffff">该订单完成后，您将获得 <font
-										class="main-color">¥0.00</font>的红包。
+										class="main-color">${sessionScope.cart.sum}</font>积分。
 										</td>
 									</tr>
 									<tr>
 										<td align="right" bgcolor="#ffffff">商品总价: <font
-										class="main-color">¥${sessionScope.cart.sum}</font> - 折扣: <font
-										class="main-color">¥99.00</font> + 配送费用: <font
+										class="main-color">¥${sessionScope.cart.sum}</font> - 优惠: <font
+										class="main-color" id="TiscountMoney">¥0.0</font> + 配送费用: <font
 										class="main-color">¥15.00</font>
 										</td>
 									</tr>
 									<tr>
 										<td align="right" bgcolor="#ffffff">应付款金额： <font
 										class="main-color"
-										style="font-size: 18px; font-family: 微软雅黑;">¥${sessionScope.cart.sum-99.0-15.0}</font>
+										style="font-size: 18px; font-family: 微软雅黑;" id="moneyAll">¥${sessionScope.cart.sum-dCoupon.money-15.0}</font>
 										</td>
 									</tr>
 								</tbody>
@@ -777,26 +799,16 @@ $(function() {
 		</tbody>
 	</table>
 </div>
-<script type="text/javascript">
-function showCheckoutOther(obj) {
-	var otherParent = obj.parentNode;
-	otherParent.className = (otherParent.className == 'checkout_other') ? 'checkout_other2' : 'checkout_other';
-	var spanzi = obj.getElementsByTagName('span')[0];
-	spanzi.innerHTML = spanzi.innerHTML == '+' ? '-' : '+';
-}
-</script>
+
 
 <div class="checkBox_jm" id="pay_div">
 	<div class="title">4 支付方式</div>
 	<ul class="payment_tab_jm" id="payment_tab">
-
-		<li onclick="selPayment(this)"><input type="radio" iscod="1"
-		 onclick="selectPayment(this)" name="payment" value="6">
-			<strong></strong> 货到付款</li>
-
-		<li onclick="selPayment(this)"><input type="radio"
-		onclick="selectPayment(this)" iscod="0" name="payment"
-		id="payment_other_input" value="0"> &nbsp;支付宝
+	<c:forEach items="${lWays}" var="lw">
+	<li onclick="selPayment(this)"><input type="radio" iscod="${lw.id}"
+		 onclick="selectPayment(this)" name="payment" value="${lw.id}">
+			<strong></strong> ${lw.wayName}</li>	
+	</c:forEach>	
 			
 	<div class="payment_subbox">
 				<ul>
@@ -854,12 +866,12 @@ function showCheckoutOther(obj) {
 style="border: none; padding-bottom: 20px;">
 	<div
 	style="float: left; width: 40%; padding: 8px 0; padding-left: 5px;">
-		<a href="#" class="continue_buy" style="padding: 0;">返回修改购物车</a>
+		<a href="${ctx}/car/closeCart.html" class="continue_buy" style="padding: 0;">返回修改购物车</a>
 	</div>
 	<div
 	style="float: right; width: 55%; text-align: right; padding: 8px 20px;">
 
-		<input onclick="return check_before_submit()" type="image"
+		<input onclick="cartSumit(${user.id})" type="image"
 		src="${ctx}/statics/images/btn_done.png" align="absmiddle">
 
 		<input name="need_inv" style="display: none;" type="checkbox"
@@ -871,10 +883,8 @@ style="border: none; padding-bottom: 20px;">
 </div>
 <div class="blank10"></div>
 <!-- </form> -->
-		
-		
-		
-<script>
+	
+<script >
 		if(document.getElementById('shipping_3')) {
 			document.getElementById('shipping_3').click();
 		}
