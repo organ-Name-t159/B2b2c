@@ -14,7 +14,7 @@
 			<div class="mall-search">
 				<div id="search-tips" style="display: none;"></div>
 				<form class="mallSearch-form" method="get" name="searchForm"
-					id="searchForm" action="http://b2b2c.wygk.cn/search.php"
+					id="searchForm" action=""
 					onsubmit="return checkSearchForm()">
 					<input type="hidden" name="type" id="searchtype" value="0">
 					<div class="mallSearch-input">
@@ -60,7 +60,7 @@
 	<div class="all-nav all-nav-border">
 		<div class="w1210">
 			<div class="home-category fl hover">
-				<a href="catalog.php" class="menu-event main-bg-color"
+				<a href="" class="menu-event main-bg-color"
 					title="查看全部商品分类">全部商品分类<i></i></a>
 
 				<div class="expand-menu all-cat main-bg-color" id="xz">
@@ -79,7 +79,7 @@
 									<c:forEach items="${temp.productCategoryVoList}" var="vo1">
 										<div class="item-channels">
 											<div class="channels">
-												<a href="category.php?id=197" target="_blank"
+												<a href="" target="_blank"
 													title="${vo1.productCategory.name}">${vo1.productCategory.name}<i>&gt;</i></a>
 											</div>
 										</div>
@@ -93,7 +93,7 @@
 												</dt>
 												<dd>
 													<c:forEach items="${vo.productCategoryVoList}" var="vo2">
-														<a href="category.php?id=183" target="_blank"
+														<a href="#" target="_blank"
 															title="${vo2.productCategory.name}">${vo2.productCategory.name}</a>
 
 													</c:forEach>
@@ -113,22 +113,22 @@
 			</div>
 			<div class="allnav fl" id="nav">
 				<ul>
-					<li><a class="nav" href="index.php" title="首页">首页</a></li>
-					<li><a class="nav " href="category.php?id=1" title="食品生鲜">食品生鲜</a>
+					<li><a class="nav" href="#" title="首页">首页</a></li>
+					<li><a class="nav " href="#" title="食品生鲜">食品生鲜</a>
 					</li>
-					<li><a class="nav " href="stores.php" title="店铺街">店铺街</a></li>
-					<li><a class="nav " href="pro_search.php?intro=promotion"
+					<li><a class="nav " href="#" title="店铺街">店铺街</a></li>
+					<li><a class="nav " href="#"
 						title="团购">团购</a></li>
-					<li><a class="nav " href="pre_sale.php" title="预售">预售</a></li>
-					<li><a class="nav " href="auction.php" title="拍卖">拍卖</a></li>
-					<li><a class="nav " href="package.php" title="礼包">礼包</a></li>
-					<li><a class="nav " href="exchange.php" title="积分商城">积分商城</a>
+					<li><a class="nav " href="#" title="预售">预售</a></li>
+					<li><a class="nav " href="#" title="拍卖">拍卖</a></li>
+					<li><a class="nav " href="#" title="礼包">礼包</a></li>
+					<li><a class="nav " href="#" title="积分商城">积分商城</a>
 					</li>
-					<li><a class="nav " href="activity.php" title="优惠活动">优惠活动</a>
+					<li><a class="nav " href="#" title="优惠活动">优惠活动</a>
 					</li>
-					<li><a class="nav " href="article_list.php" title="电商资讯">电商资讯</a>
+					<li><a class="nav " href="#" title="电商资讯">电商资讯</a>
 					</li>
-					<li><a class="nav " href="category.php?id=5" title="家用电器">家用电器</a>
+					<li><a class="nav " href="#" title="家用电器">家用电器</a>
 					</li>
 				</ul>
 			</div>

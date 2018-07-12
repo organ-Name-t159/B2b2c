@@ -25,11 +25,12 @@
 				onclick="cancel_input_surplus()" value="取消" class="btn_pay2">
 		</div>
 	</div>
-
+	<div id="cartFlow">
 	<!-- 流程---------------------------------- -->
-	<%@include file="common/cartFlow1.jsp" %>
+	 <%@include file="common/cartFlow1.jsp" %> 
+	<%-- <%@include file="common/cartFlow2.jsp" %> --%>
 	<!-- 流程---------------------------------- -->
-	
+	</div>
 	
 	<div class="tell-me-form"
 		style="display: none; left: 424.5px; top: 140px;" id="tell-me-table">
@@ -97,7 +98,9 @@
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/statics/images/order_pickpoint.js"></script>
 	<div class="choose" id="choose" style="display: none"></div>
-	<script type="text/javascript">
+	
+
+<script type="text/javascript">
 function closeCustomer(){
 	$("#choose,#bg").hide();
 }
@@ -111,7 +114,7 @@ function choose_gift(suppid){
 			j++;
 		}
 	}
-	Ajax.call('flow.php', 'is_ajax=1&suppid=' + suppid + '&sel_goods='+sel_goods, selgiftResponse, 'GET', 'JSON');
+	Ajax.call('', 'is_ajax=1&suppid=' + suppid + '&sel_goods='+sel_goods, selgiftResponse, 'GET', 'JSON');
 }
 function selgiftResponse(res){
 	$('#choose').html(res.result).show();
@@ -160,6 +163,93 @@ var compare_no_goods = "您没有选定任何需要比较的商品或者比较�
 var btn_buy = "购买";
 var is_cancel = "取消";
 var select_spe = "请选择商品属性";
+</script>
+<script lang="javascript" type="text/javascript">
+$(document).click(function(e){ 
+	var target = $(e.target); 
+	if(target.closest('.right-sidebar-con').length == 0){ 
+		$('.right-sidebar-main').removeClass('right-sidebar-main-open');
+		$('.sidebar-tabs').removeClass('current');
+		$('.right-sidebar-panels').removeClass('animate-in').addClass('animate-out').css('z-index',1);
+	} 
+}); 
+function showCheckoutOther(obj) {
+	var otherParent = obj.parentNode;
+	otherParent.className = (otherParent.className == 'checkout_other') ? 'checkout_other2' : 'checkout_other';
+	var spanzi = obj.getElementsByTagName('span')[0];
+	spanzi.innerHTML = spanzi.innerHTML == '+' ? '-' : '+';
+}
+
+//地址
+var UaddressIdN="";
+//总金额
+var monetAll="";
+
+
+function Uaddress(UaddressId){
+	UaddressIdN=UaddressId;
+}
+
+function TiscountCoupon(money){
+	
+	var uTiscountCouponId=$("#ECS_BONUS_0").val();	
+	 $.ajax({
+		url:contextPath+"/car/TiscountCouponMoney.html",
+		method:"post",
+		data:{
+			tId:uTiscountCouponId
+		},
+		success:function(jsonStr){
+			var result=eval("("+jsonStr+")");
+			$("#TiscountMoney").html("¥"+result.money);
+			monetAll=money-result.money-15;
+			$("#moneyAll").html("¥"+monetAll);
+		}
+		
+	}) 
+}
+
+
+
+function cartSumit(userId){
+	//var uAddressId=$("li[name='Uaddress']:checked").attr("value");
+	var uTime=$("input[name='best_time']:checked").val();
+	var uTiscountCouponId=$("#ECS_BONUS_0").val();
+	var invoiceTypeId=$("#ECS_INVTYPE").val();
+	var invoiceContentId=$("#ECS_INVCONTENT").val();
+	var leaveWord=$("#postscript").val()
+	var paymentWayId=$("input[name='payment']:checked").val()
+	alert("用户id："+userId);
+	alert("地址id:"+UaddressIdN);
+	alert("时间id:"+uTime);
+	alert("优惠券id:"+uTiscountCouponId)
+	alert("发票类型:"+invoiceTypeId)
+	alert("发票内容:"+invoiceContentId)
+	alert("留言:"+leaveWord)
+	alert("总金额:"+monetAll)
+	alert("支付方式:"+paymentWayId)
+	
+		$.ajax({
+			url:contextPath+"/car/orderAll.html",
+			method:"post",
+			data:{
+				userId:userId,
+				UaddressIdN:UaddressIdN,
+				uTime:uTime,
+				uTiscountCouponId:uTiscountCouponId,
+				invoiceTypeId:invoiceTypeId,
+				invoiceContentId:invoiceContentId,
+				leaveWord:leaveWord,
+				monetAll:monetAll,
+				paymentWayId:paymentWayId
+				
+			},
+			success:function(jsonStr){
+				$("#cartFlow").html(jsonStr);
+			}
+		}); 
+	
+}
 </script>
 </body>
 </html>

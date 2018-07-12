@@ -179,7 +179,7 @@
 						¥${sessionScope.cart.sum} 节省了 ¥716.70 (26%)
 					</td>
 					<td align="right" width="150"><a href="javascript:void(0);"
-						onclick="return selcart_submit();" class="jmcheckout"
+						onclick="cartFlow2()" class="jmcheckout"
 						style="color: #ffffff">去结算</a></td>
 				</tr>
 			</tbody>
@@ -215,7 +215,7 @@
 			}
 	      }
 	      document.getElementById('chkAll').checked = c;
-	      Ajax.call('flow.php', 'act=selcart&sel_goods=' + sel_goods + '&suppid=' + suppid, selcartResponse, 'GET', 'JSON');
+	      Ajax.call('', 'act=selcart&sel_goods=' + sel_goods + '&suppid=' + suppid, selcartResponse, 'GET', 'JSON');
 	}
 	function selcartResponse(res){
 	  if (res.err_msg.length > 0){

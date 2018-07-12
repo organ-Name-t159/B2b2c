@@ -1,5 +1,7 @@
 package cn.b2b2c.controller;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.service.user.UserService;
+import cn.b2b2c.tools.GetMessageCode;
+import cn.b2b2c.tools.ReturnContant;
 import cn.b2b2c.tools.SecurityUtils;
 /**
  * 登陆控制
@@ -45,8 +51,8 @@ public class LoginController {
 			user=userService.userLogin(userName);
 		}
 		//Md5加密
-		//if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
-		if(password.equals(user.getPassword())){
+		if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
+		/*if(password.equals(user.getPassword())){*/
 			session.setAttribute("user", user);
 		return "redirect:/product/index.html";
 		}
@@ -59,20 +65,33 @@ public class LoginController {
 		session.removeAttribute("user");
 		return "Login";
 	}
-
 	//跳转到注册页面
-	@RequestMapping("/regist")
-	public String regist(@ModelAttribute("user") User user){
-		return "regist";
-	}
+		@RequestMapping("/regist")
+		public String regist(@ModelAttribute("user") User user){
+			return "regist";
+		}
+	
 	
 	//添加用户信息
 		@RequestMapping(value="/regist",method=RequestMethod.POST)
 		public String regist(User user,BindingResult bindingresult,HttpSession session){
+			user.setPassword(SecurityUtils.md5Hex(user.getPassword()));
 			int result=userService.regist(user);
 					if(result>0){
 				return "Login";
 			}
 			return "regist";
 		}
+		
+		@RequestMapping("/")
+		public String showIndex() {
+			return "show";
+		}
+		@RequestMapping("/{page}")
+		public String showpage(@PathVariable String page) {
+			return page;
+		}
+		  
+		
+		    
 }

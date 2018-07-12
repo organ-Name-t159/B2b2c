@@ -22,7 +22,7 @@
 		if (document.getElementById('keyword').value) {
 			var frm = document.getElementById('searchForm');
 			var type = parseInt(document.getElementById('searchtype').value);
-			frm.action = type == 0 ? 'search.php' : 'stores.php';
+			frm.action = type == 0 ? '' : '';
 			return true;
 		} else {
 			alert("请输入关键词！");
@@ -36,17 +36,17 @@
 		document.getElementById('keyword').value = "";
 	}
 	//]]>
-	$('.search-type li').click(function() {
+	/* $('.search-type li').click(function() {
 		$(this).addClass('cur').siblings().removeClass('cur');
 		$('#searchtype').val($(this).attr('num'));
-	});
+	}); */
 	$(function() {
 		//图片放大效果
 		$(".header-right img").bubbleup({
 			scale : 70
 		});
 		//头部搜索
-		$('.search-type').hover(function() {
+		/* $('.search-type').hover(function() {
 			$(this).css({
 				"height" : "auto",
 				"overflow" : "visible"
@@ -56,7 +56,7 @@
 				"height" : 32,
 				"overflow" : "hidden"
 			});
-		});
+		}); */
 	});
 </script>
 
@@ -67,7 +67,7 @@
 		$("#xz").show();
 		document.getElementById("xx").style.display = "none";
 	});
-</script>
+</script> 
 <div class="banner">
 	<ul id="fullScreenSlides" class="full-screen-slides">
 
@@ -640,7 +640,7 @@
 		<span>您尚未登录</span> <a class="pop-close" href="#"></a>
 	</div>
 	<div class="pop-con">
-		<form name="formLogin" action="http://b2b2c.wygk.cn/user.php"
+		<form name="formLogin" action=""
 			method="post" onsubmit="return user_login();">
 			<div class="form">
 				<div class="mt">
@@ -672,7 +672,7 @@
 						<label class="img fl">
 							src="${ctx}/statics/images/captcha.php" alt="captcha"
 							style="vertical-align: middle;cursor: pointer;"
-							onclick="this.src=&#39;captcha.php?is_login=1&amp;&#39;+Math.random()">
+							onclick="">
 						</label>
 					</div>
 					<div class="safety" id="autoentry">
@@ -859,7 +859,7 @@
 <img src="${ctx}/statics/images/cron.php" alt=""
 	style="width: 0px; height: 0px;" />
 <script type="text/javascript">
-	Ajax.call('api/okgoods.php', '', '', 'GET', 'JSON');
+	Ajax.call('', '', '', 'GET', 'JSON');
 	$("img").lazyload({
 		effect : "fadeIn",
 		skip_invisible : true,

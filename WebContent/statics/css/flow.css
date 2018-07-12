@@ -284,7 +284,7 @@ a.jmclear:hover {
 	right: 0px;
 	width: 32px;
 	height: 32px;
-	background:url(../images/common/common-icon.png) no-repeat -165px 0;
+	background:url(../images/common-icon.png) no-repeat -165px 0;
 	cursor: pointer;
 }
 .flowHot ul li p .price {
@@ -340,12 +340,12 @@ a.jmclear:hover {
 	width: 225px;
 	margin: 0 4px 4px 0;
 	height: 130px;
-	background: url(../images/jmpic/flow-bg.png) no-repeat 0 -144px;
+	background: url(../images/flow-bg.png) no-repeat 0 -144px;
 	cursor: pointer;
 	position: relative;
 }
 .address_jm ul li.curr {
-	background: url(../images/jmpic/flow-bg.png) no-repeat 0 0;
+	background: url(../images/flow-bg.png) no-repeat 0 0;
 }
 .address_jm ul li .edit_addr {
 	position: absolute;
@@ -371,7 +371,7 @@ a.jmclear:hover {
 	width: 93px;
 	height: 27px;
 	line-height: 28px;
-	background: url(../images/jmpic/flow-bg.png) no-repeat 0 -373px;
+	background: url(../images/flow-bg.png) no-repeat 0 -373px;
 	cursor: pointer;
 }
 .address_jm ul li table {
@@ -470,7 +470,7 @@ a.jmclear:hover {
 .mydiv-r {
     width: 13px;
     height: 13px;
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
     background-position: -41px -44px;
     position: absolute;
     right: 13px;
@@ -874,7 +874,7 @@ a.choose_gift:hover {
 .choose .choose-r {
 	width: 13px;
     height: 13px;
-    background: url(../images/common/common-icon.png) no-repeat;
+    background: url(../images/common-icon.png) no-repeat;
     background-position: -41px -44px;
     position: absolute;
     right: 13px;
@@ -1000,7 +1000,7 @@ a.choose_gift:hover {
 a.pop_head_r {
 	width: 13px;
     height: 13px;
-    background: url(../images/common/common-icon.png) no-repeat;
+    background: url(../images/common-icon.png) no-repeat;
     background-position: -41px -44px;
     position: absolute;
     right: 13px;

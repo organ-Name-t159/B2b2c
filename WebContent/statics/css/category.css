@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 .more-wrzc-1, .more-wrzc-2,.box-attr-wygk .selected-attr li i,.box-attr-wygk .brand-abox-imgul .brand-seled i,.sanjiao-red,#filter .order b,#filter .pagin .icon,.filter-tag .icon,.filter-tag-radio .icon,.filter-type .filter-type-icon,.list-grid .operate-btn i,.list-grid .add-cart,.category .item h3 i,.browse-history-other .icon,.crumbs-nav .crumbs-title .icon,#historyList .scroll-btn,#historyList .compare-btn{
-	background:url(../images/common/common-icon.png) no-repeat;	
+	background:url(../images/common-icon.png) no-repeat;	
 }
 /*热卖推荐*/
 #hotsale{
@@ -363,7 +363,7 @@
 	border:1px solid #C81623	
 }
 .box-attr-wygk .selected-attr li a:hover i{
-	background:url(../images/common/common-icon.png) no-repeat -424px -12px #C81623;	
+	background:url(../images/common-icon.png) no-repeat -424px -12px #C81623;	
 }
 .box-attr-wygk .brand-abox-imgul {
 	float: left;

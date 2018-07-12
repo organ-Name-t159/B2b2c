@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.b2b2c.dao.discountcoupon.DiscountCouponMapper">
+	<select id="getDiscountCoupon" resultType="DiscountCoupon">
+		SELECT dc.* FROM `user_discount_coupon` udc INNER JOIN `discount_coupon` dc ON udc.`dcId`=dc.`id`WHERE 
+		udc.`dcsId`=#{sId} AND udc.userId=#{uId}		
+	</select>
+	
+	<select id="getAll" resultType="DiscountCoupon">
+		SELECT dc.* FROM `discount_coupon` dc WHERE `id`=#{dcId}
+	</select>
+</mapper>

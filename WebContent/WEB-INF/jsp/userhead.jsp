@@ -135,16 +135,16 @@ function outUser(){
 			</ul>
 		</div>
 	</div>
-	<script>
+	<!-- <script>
 			header_login();
 			function header_login() {
-				Ajax.call('login_act_ajax.php', '', loginactResponse, 'GET', 'JSON', '1', '1');
+				Ajax.call('', '', loginactResponse, 'GET', 'JSON', '1', '1');
 			}
 			function loginactResponse(result) {
 				var MEMBERZONE = document.getElementById('login-info');
 				MEMBERZONE.innerHTML = result.memberinfo;
 			}
-		</script>
+		</script> -->
 		
 	
 

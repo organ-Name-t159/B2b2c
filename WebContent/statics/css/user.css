@@ -1875,7 +1875,7 @@ h5.user-title-t span i.validated5{
 	display:block;
 	width:13px;
 	height:13px;
-	background:url(../images/common/common-icon.png) no-repeat -431px 0;
+	background:url(../images/common-icon.png) no-repeat -431px 0;
 	text-indent:-99px;
 	position:absolute;
 	top:9px;
@@ -2203,7 +2203,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=
 	cursor:pointer;	
 	width: 13px;
     height: 13px;
-    background: url(../images/common/common-icon.png) no-repeat;
+    background: url(../images/common-icon.png) no-repeat;
     background-position: -41px -44px;
 }	
 .wuliu .rec-nav{

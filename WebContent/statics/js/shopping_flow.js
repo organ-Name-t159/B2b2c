@@ -18,7 +18,7 @@ var selected_pay_code = null;
 
 function selectShipping(recid, suppid) {
 	$('#desc_'+suppid).html($('#ship_'+suppid+'_'+recid).attr('title'));//显示配送描述的地方
-	Ajax.call('flow.php?step=select_shipping', 'recid=' + recid + '&suppid=' + suppid, orderShipping, 'GET', 'JSON');
+	Ajax.call('', 'recid=' + recid + '&suppid=' + suppid, orderShipping, 'GET', 'JSON');
 
 }
 function orderShipping(result) {
@@ -95,7 +95,7 @@ function selectShipping_old(obj) {
 	}
 
 	var now = new Date();
-	Ajax.call('flow.php?step=select_shipping', 'shipping=' + obj.value + '&pickup=' + supportPickup, orderShippingSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'shipping=' + obj.value + '&pickup=' + supportPickup, orderShippingSelectedResponse, 'GET', 'JSON');
 }
 
 /**
@@ -154,7 +154,7 @@ function selectVirtualGroupPayment(obj) {
 		selectedPayment = obj;
 	}
 
-	Ajax.call('flow.php?step=select_payment', 'payment=' + obj.value, orderSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'payment=' + obj.value, orderSelectedResponse, 'GET', 'JSON');
 }
 /*******************************************************************************
  * 改变支付方式
@@ -175,7 +175,7 @@ function selectPayment(obj) {
 		selectedPayment = obj;
 	}
 
-	Ajax.call('flow.php?step=select_payment', 'payment=' + obj.value, orderSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'payment=' + obj.value, orderSelectedResponse, 'GET', 'JSON');
 }
 /**
  * 团购购物流程 --> 改变配送方式
@@ -209,7 +209,7 @@ function handleGroupBuyShipping(obj) {
 		document.getElementById('ECS_NEEDINSURE').disabled = false;
 	}
 
-	Ajax.call('group_buy.php?act=select_shipping', 'shipping=' + obj.value, orderSelectedResponse, 'GET');
+	Ajax.call('', 'shipping=' + obj.value, orderSelectedResponse, 'GET');
 }
 
 /**
@@ -222,7 +222,7 @@ function handleGroupBuyPayment(obj) {
 		groupBuyPayment = obj;
 	}
 
-	Ajax.call('group_buy.php?act=select_payment', 'payment=' + obj.value, orderSelectedResponse, 'GET');
+	Ajax.call('', 'payment=' + obj.value, orderSelectedResponse, 'GET');
 }
 
 /**
@@ -240,7 +240,7 @@ function selectPack(obj) {
 	var aaa = obj.options[obj.selectedIndex].value;
 	document.getElementById('packimage').href = packimage[aaa];
 
-	Ajax.call('flow.php?step=select_pack', 'pack=' + aaa, orderSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'pack=' + aaa, orderSelectedResponse, 'GET', 'JSON');
 	/* 代码修改_end By www.wrzc.net */
 }
 
@@ -253,7 +253,7 @@ function selectCard(obj) {
 	var aaa = obj.options[obj.selectedIndex].value;
 	document.getElementById('cardimage').href = cardimage[aaa];
 	document.getElementById('card_message').disabled = (aaa > 0) ? false : true;
-	Ajax.call('flow.php?step=select_card', 'card=' + aaa, orderSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'card=' + aaa, orderSelectedResponse, 'GET', 'JSON');
 	/* 代码修改_end By www.wrzc.net */
 }
 
@@ -263,7 +263,7 @@ function selectCard(obj) {
 function selectInsure(needInsure) {
 	needInsure = needInsure ? 1 : 0;
 
-	Ajax.call('flow.php?step=select_insure', 'insure=' + needInsure, orderSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'insure=' + needInsure, orderSelectedResponse, 'GET', 'JSON');
 }
 
 /**
@@ -272,7 +272,7 @@ function selectInsure(needInsure) {
 function handleGroupBuyInsure(needInsure) {
 	needInsure = needInsure ? 1 : 0;
 
-	Ajax.call('group_buy.php?act=select_insure', 'insure=' + needInsure, orderSelectedResponse, 'GET', 'JSON');
+	Ajax.call('', 'insure=' + needInsure, orderSelectedResponse, 'GET', 'JSON');
 }
 
 /**
@@ -322,7 +322,7 @@ function changeSurplus(val) {
 		// selectedSurplus = val;
 	}
 
-	Ajax.call('flow.php?step=change_surplus', 'surplus=' + val, changeSurplusResponse, 'GET', 'JSON');
+	Ajax.call('', 'surplus=' + val, changeSurplusResponse, 'GET', 'JSON');
 }
 
 /*******************************************************************************
@@ -344,7 +344,7 @@ function changeSurplusVir(val) {
 		// selectedSurplus = val;
 	}
 
-	Ajax.call('flow.php?step=change_surplus', 'surplus=' + val, changeSurplusResponse, 'GET', 'JSON');
+	Ajax.call('', 'surplus=' + val, changeSurplusResponse, 'GET', 'JSON');
 }
 
 /**
@@ -394,7 +394,7 @@ function changeIntegral(val, suppid) {
 		selectedIntegral = val;
 	}
 
-	Ajax.call('flow.php?step=change_integral', 'points=' + val + '&suppid=' + suppid, changeIntegralResponse, 'GET', 'JSON');
+	Ajax.call('', 'points=' + val + '&suppid=' + suppid, changeIntegralResponse, 'GET', 'JSON');
 }
 
 /**
@@ -435,7 +435,7 @@ function changeBonus(val, suppid) {
 		// selectedBonus = val;
 	}
 
-	Ajax.call('flow.php?step=change_bonus', 'bonus=' + val + '&suppid=' + suppid, changeBonusResponse, 'GET', 'JSON');
+	Ajax.call('', 'bonus=' + val + '&suppid=' + suppid, changeBonusResponse, 'GET', 'JSON');
 }
 
 /**
@@ -476,7 +476,7 @@ function validateBonus(val, suppid) {
 		val = 0;
 	}
 
-	Ajax.call('flow.php?step=validate_bonus', 'bonus_sn=' + val + '&suppid=' + suppid, validateBonusResponse, 'GET', 'JSON');
+	Ajax.call('', 'bonus_sn=' + val + '&suppid=' + suppid, validateBonusResponse, 'GET', 'JSON');
 }
 
 function validateBonusResponse(obj) {
@@ -547,7 +547,7 @@ function changeNeedInv() {
 	}
 	// 增值税发票_添加_END_www.wrzc.net
 
-	Ajax.call('flow.php?step=change_needinv', 'need_inv=' + needInv + '&inv_type=' + encodeURIComponent(invType) + '&inv_payee=' + encodeURIComponent(invPayee) + '&inv_content=' + encodeURIComponent(invContent), changeNeedInvResponse, 'GET');
+	Ajax.call('', 'need_inv=' + needInv + '&inv_type=' + encodeURIComponent(invType) + '&inv_payee=' + encodeURIComponent(invPayee) + '&inv_content=' + encodeURIComponent(invContent), changeNeedInvResponse, 'GET');
 }
 
 function changeNeedInvResponse(obj) {
@@ -571,7 +571,7 @@ function groupBuyChangeNeedInv() {
 	var invContent = obj.checked ? objContent.value : '';
 	objPayee.disabled = objContent.disabled = !obj.checked;
 
-	Ajax.call('group_buy.php?act=change_needinv', 'need_idv=' + needInv + '&amp;payee=' + invPayee + '&amp;content=' + invContent, null, 'GET');
+	Ajax.call('', 'need_idv=' + needInv + '&amp;payee=' + invPayee + '&amp;content=' + invContent, null, 'GET');
 }
 
 /*******************************************************************************
@@ -584,20 +584,20 @@ function changeOOS(obj) {
 		selectedOOS = obj;
 	}
 
-	Ajax.call('flow.php?step=change_oos', 'oos=' + obj.value, null, 'GET');
+	Ajax.call('', 'oos=' + obj.value, null, 'GET');
 }
 
 /* 余额额支付密码_添加_START_www.wrzc.net */
 function check_before_submit() {
 	var the_form = document.getElementById("theForm");
 	if (checkOrderForm(the_form)) {
-		Ajax.call('flow.php?step=check_surplus_open', '', is_surplus_open, 'GET', 'TEXT', true, true);
+		Ajax.call('', '', is_surplus_open, 'GET', 'TEXT', true, true);
 	}
 	return false;
 }
 
 function check_before_submit_vir() {   
-	Ajax.call('flow.php?step=check_surplus_open', '', is_surplus_open, 'GET', 'TEXT', true, true);
+	Ajax.call('', '', is_surplus_open, 'GET', 'TEXT', true, true);
         return false;
 }
 
@@ -617,7 +617,7 @@ function open_surplus_window() {
 
 function end_input_surplus() {
 	var surplus_password = document.getElementById("surplus_password_input").value;
-	Ajax.call('flow.php?step=verify_surplus_password', 'surplus_password=' + surplus_password, check_surplus_response, 'GET', 'TEXT', true, true);
+	Ajax.call('', 'surplus_password=' + surplus_password, check_surplus_response, 'GET', 'TEXT', true, true);
 }
 
 function check_surplus_response(result) {

@@ -237,7 +237,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr
 	font-family:"Microsoft YaHei";
 }
 .right-sidebar .sale-discount .arrow {
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
 	width: 15px;
 	height: 29px;
 	margin-top: -20px;
@@ -336,7 +336,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr
 	text-align: center;
 }
 .tabs-panel .store-join-help i.icon-cog {
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(../images/common-icon.png) no-repeat;
 	background-position: -294px -66px;
 	font-size: 14px;
 	width: 14px;
@@ -435,7 +435,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr
 	display: inline-block;
 	width: 10px;
     height: 6px;
-    background:url(../images/common/common-icon.png) no-repeat;
+    background:url(../images/common-icon.png) no-repeat;
 	background-position: -295px -80px;
 }
 .store-rec-slide .store-con {

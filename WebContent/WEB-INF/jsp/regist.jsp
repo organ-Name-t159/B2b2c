@@ -56,7 +56,7 @@
 					<div class="erweima">
 						<div class="erweima-inner">
 							<i><s>◇</s></i>
-							<img alt="微信" src="imgweixin.jpg" width="130" height="130">
+<!-- 							<img alt="微信" src="imgweixin.jpg" width="130" height="130"> -->
 						</div>
 					</div>
 				</div>
@@ -71,7 +71,7 @@
 				<div class="register-con" style="height: 479px;">
 					<div class="box-pic-reg"><img src="${ctx}/statics/images/registerPic.jpg"/></div>
 					<div class="uc-box-reg">
-						<form action="#" method="post" id="formRegister" name="formRegister">
+						<form action="${ctx}/register/regist" method="post" id="formRegister" name="formRegister">
 							<input type="hidden" id="register_type" name="register_type" value="${register_type}">
 							<ul class="register-tab">
 								<li id="li-register-type-mobile" class="tab-item fl cur" register_type="mobile">手机注册<span class="bg-ff"></span></li>
@@ -158,6 +158,15 @@ create_code();
 	width: 103.56px;
 	margin-left: 11px;
 }
+.zphone {
+	background: #C81623;
+	text-align: center;
+	line-height: 38px;
+	color: #fff;
+	border-radius: 3px;
+	width: 103.56px;
+	margin-left: 11px;
+}
 
 .phoKeys {
 	letter-spacing: 3px;
@@ -166,7 +175,7 @@ create_code();
 </style>
 					 <div class="item">
 									<input type="text" id="captcha" size="8" name="captcha" class="text text-te" placeholder="验证码" style="ime-mode: disabled" autocomplete="off" maxlength="6">
-									<label class="img phoKeys"> </label>
+									<label class="img phoKeys" id="captcha2"> </label>
 									<i class="i-captcha"></i>
 									<div style="clear:both"> <span class="label" id="captcha_notice"></span> </div>
 								</div>
@@ -174,7 +183,8 @@ create_code();
 								<div class="item">
 									<input id="mobile_code" class="text text-te fl" type="text" placeholder="手机验证码" name="mobile_code">
 									<i class="i-phone"></i>
-									<input id="zphone" class="zphone" type="button" value="获取手机验证码 ">
+									<input id="zphone" class="zphone" type="button" value="获取手机验证码 " disabled="disabled">
+									<input id="validate" type="button" value="验证">
 									<div> <span id="extend_field5i" class="label"></span> </div>
 								</div> 
 								<div class="safety">
@@ -383,7 +393,103 @@ create_code();
 					$("#formRegister").submit();
 				});
 			});
+			
+		
 		</script>
+		
+		<script type="text/javascript">
+		$(function(){
+			
+		
+		$("#captcha").blur(function(){
+			var mm  = $("#captcha").val().toUpperCase();
+			var mm1 = $("#captcha2").text().toUpperCase();
+			
+			
+			if(mm==mm1){
+				alert("正确");
+				
+				 $("#zphone").removeAttr("disabled");  
+				
+				
+				
+			}else{
+				alert("错误");
+			} 
+			
+			
+			});
+		})
+		</script>
+		
+		    <script type="text/javascript">  
+        $(function(){  
+           // $("#zphone").removeAttr("disabled");  
+            //发送验证码  
+            $("#zphone").click(function(){   
+                $.ajax({  
+                    url:"${ctx}/messageServlet",  
+                    data:{  
+                        "phone":$("#mobile_phone").val()  
+                    },  
+                    type:"post",  
+                    async:false,  
+                    dataType:"text",  
+                    success : function(data) {  
+                        if(data=='true'){  
+                            alert("验证码发送成功，收到后请输入验证码");  
+                            time(this);  
+                        } else {  
+                            alert("验证码发送失败");  
+                        }  
+                    },  
+                    error : function() {  
+                        alert("error");  
+                    }  
+                });  
+            });  
+            //验证  
+            $("#validate").click(function(){      
+                $.ajax({  
+                    url:"${ctx}/codeServlet",  
+                    data:{  
+                        "code":$("#mobile_code").val()  
+                    },  
+                    type:"post",  
+                    async:false,  
+                    dataType:"text",  
+                    success : function(data) {  
+                        if(data=='true'){  
+                            alert("恭喜您，验证成功");  
+                        } else {  
+                            alert("验证失败");  
+                        }  
+                    },  
+                    error : function() {  
+                        alert("error");  
+                    }  
+                });  
+            });  
+        })  
+          
+        //验证码倒计时  
+        var wait = 60;  
+        function time(obj) {  
+            if(wait==0) {  
+                $("#zphone").removeAttr("disabled");  
+                $("#zphone").val("获取验证码");  
+                wait = 60;  
+            }else {  
+                $("#zphone").attr("disabled","true");  
+                $("#zphone").val(wait+"秒后重试");  
+                wait--;  
+                setTimeout(function() {     //倒计时方法  
+                    time(obj);  
+                },1000);    //间隔为1s  
+            }  
+        }
+		
+    </script>  
 
 
 </body>

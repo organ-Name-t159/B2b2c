@@ -24,4 +24,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT INTO user(phone,password)VALUES(#{phone},#{password})
 	</insert>
 	
+	
+	<select id="getAll" resultType="UserAddress">
+		SELECT ua.* FROM `user_address` ua  
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="uId !=null and uId !=''">
+				`userId`=#{uId}
+			</if>
+		</trim>
+	</select>
 </mapper>

@@ -155,7 +155,7 @@
 						document
 								.write(unescape("%3Cspan id='cnzz_stat_icon_1000200717'%3E%3C/span%3E%3Cscript src='"
 										+ cnzz_protocol
-										+ "s22.cnzz.com/z_stat.php%3Fid%3D1000200717%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+										+ ""));
 					</script>
 					<span id="cnzz_stat_icon_1000200717"><a href="#"><img
 							border="0" hspace="0" vspace="0"
@@ -240,7 +240,7 @@
 			$("#ul_i").children("li").removeClass();
 			document.getElementById("div_i_" + div_id).className = 'selected';
 			Ajax.call(
-				'plugins/kuaidi100/kuaidi100_post.php?com=' + expressid + '&nu=' + expressno,
+				'' + expressid + '&nu=' + expressno,
 				'showtest=showtest',
 				function(data) {
 					document.getElementById("retData").innerHTML = '快递公司：' + expressid + ' &nbsp; 运单号：' + expressno + '<br>';
@@ -256,7 +256,7 @@
 			$("#ul_i_" + order_id).children("li").removeClass();
 			document.getElementById("div_i_" + order_id + "_" + div_id).className = 'selected';
 			Ajax.call(
-				'plugins/kuaidi100/kuaidi100_post.php?com=' + expressid + '&nu=' + expressno,
+				'' + expressid + '&nu=' + expressno,
 				'showtest=showtest',
 				function(data) {
 					document.getElementById("retData_" + order_id).innerHTML = '快递公司：' + expressid + ' &nbsp; 运单号：' + expressno + '<br>';
