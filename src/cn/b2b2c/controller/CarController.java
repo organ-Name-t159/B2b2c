@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,7 +69,7 @@ public class CarController {
 	@RequestMapping(value="/addCar.html",method=RequestMethod.POST)
 	@ResponseBody
 	public Object addCar(HttpServletRequest request)throws Exception {
-		System.out.println("添加购物车中");
+		//System.out.println("添加购物车中");
 		ReturnResult result=new ReturnResult();
 		String pId=request.getParameter("productsId");
 		String quantityStr=request.getParameter("number");
@@ -121,11 +121,13 @@ public class CarController {
 	}
 	
 	
+	
+	
 	@RequestMapping(value="/deleteCart.html",method=RequestMethod.POST)
 	@ResponseBody
-	public ReturnResult deleteCart(HttpServletRequest request)throws Exception {
+	public Object deleteCart(HttpServletRequest request)throws Exception {
 		ReturnResult result = new ReturnResult();
-		//HttpSession session=request.getSession();		
+		HttpSession session=request.getSession();		
 		String number=request.getParameter("number");
 		String quantityStr=request.getParameter("quantity");
 		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
@@ -134,13 +136,24 @@ public class CarController {
 			return result.returnFail("商品数量不足");
     	}
 		 cart = productService.modifyShoppingCart(number, quantityStr, cart);
+		 session.setAttribute("cart", cart);
+		return result.returnSuccess();
+	}
+	
+	
+	@RequestMapping(value="/deleteCartAll.html",method=RequestMethod.POST)
+	@ResponseBody
+	public Object deleteCartAll(HttpServletRequest request)throws Exception {
+		ReturnResult result = new ReturnResult();
+		HttpSession session=request.getSession();		
+		session.removeAttribute("cart");						 		
 		return result.returnSuccess();
 	}
 	
 	
 	@RequestMapping(value="/closeCart.html")
 	public String closeCart(HttpServletRequest request)throws Exception {
-		System.out.println("进入购物车结算页面");
+		//System.out.println("进入购物车结算页面");
 		HttpSession session=request.getSession();
 		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
 		cart=productService.calculate(cart);
@@ -148,9 +161,23 @@ public class CarController {
 		return "ShoppingCart1";
 	}
 	
+	@RequestMapping(value="/getCart1.html",method=RequestMethod.POST)
+	public Object getCart1(HttpServletRequest request)throws Exception {
+		HttpSession session=request.getSession();
+		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
+		cart=productService.calculate(cart);
+		session.setAttribute("cart", cart);
+		return "common/cartFlow1";
+	}
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value="/getCart2.html",method=RequestMethod.POST)
 	public String getCart2(HttpServletRequest request)throws Exception {
-		System.out.println("进入购物车结算页面==具体选择");
+		//System.out.println("进入购物车结算页面==具体选择");
 		HttpSession session=request.getSession();
 		User user=(User)session.getAttribute("user");
 		if(user==null) {
@@ -224,7 +251,7 @@ public class CarController {
 							, Integer.parseInt(invoiceTypeId)
 							, Integer.parseInt(invoiceContentId)
 							, leaveWord);
-		System.out.println(num);
+		//System.out.println(num);
 		Integer orderId=orderService.getId(serialNumber);
 		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
 		for (ShoppingCartItem car : cart.items) {

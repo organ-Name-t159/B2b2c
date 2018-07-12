@@ -186,12 +186,113 @@ function deleteCar(cartId){
 			var result=eval("("+jsonStr+")");
 			if(result.status==1){
 				refreshCart();
+				cartFlow1();
 			}else{
 				alert("错误")
 			}
 		}
-	})
+	});
 }
+
+/**
+ * 清空购物车
+ * @param cartId
+ * @returns
+ */
+function deleteCarAll(){
+	$.ajax({
+		url:contextPath+"/car/deleteCartAll.html",
+		method:"post",
+		data:{
+			
+		},
+		success:function(jsonStr){
+			var result=eval("("+jsonStr+")");
+			if(result.status==1){
+				refreshCart();
+				cartFlow1();
+			}else{
+				alert("错误")
+			}
+		}
+	});
+}
+
+
+/**
+ * 修改购物车
+ * @param cartId
+ * @param number
+ * @returns
+ */
+function updateCar(cartId,number){	
+	if(number>0){
+		
+		$.ajax({
+			url:contextPath+"/car/deleteCart.html",
+			method:"post",
+			data:{
+				number:cartId,
+				quantity:number
+			},
+			success:function(jsonStr){
+				//$("#cartFlow").html(jsonStr);
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){					
+					refreshCart();
+					cartFlow1();					
+				}else{
+					alert("失败")
+				}
+			}
+		});
+	}else{
+		alert("不能再减了")
+	}
+		
+}
+
+function updateCarS(cartId){
+	var number=$("#goods_number_"+cartId).val();	
+	if(number>0){
+		
+		$.ajax({
+			url:contextPath+"/car/deleteCart.html",
+			method:"post",
+			data:{
+				number:cartId,
+				quantity:number
+			},
+			success:function(jsonStr){
+				//$("#cartFlow").html(jsonStr);
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){					
+					refreshCart();
+					cartFlow1();					
+				}else{
+					alert("失败")
+				}
+			}
+		});
+	}else{
+		alert("不能再减了")
+	}
+		
+}
+
+function cartFlow1(){
+	$.ajax({
+		url:contextPath+"/car/getCart1.html",
+		method:"post",
+		data:{
+			
+		},
+		success:function(jsonStr){
+			$("#cartFlow").html(jsonStr);
+		}
+	});
+}
+
 
 function cartFlow2(){
 	$.ajax({
@@ -203,7 +304,7 @@ function cartFlow2(){
 		success:function(jsonStr){
 			$("#cartFlow").html(jsonStr);
 		}
-	})
+	});
 }
 
 

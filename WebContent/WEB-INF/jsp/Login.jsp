@@ -30,7 +30,7 @@
 <script type="text/javascript" src="${ctx}/statics/js/jquery_email.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/placeholder.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/transport.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%>
 			
 </head>
 	

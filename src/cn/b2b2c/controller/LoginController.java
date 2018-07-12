@@ -51,8 +51,8 @@ public class LoginController {
 			user=userService.userLogin(userName);
 		}
 		//Md5加密
-		if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
-		/*if(password.equals(user.getPassword())){*/
+		/*if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {*/
+		if(password.equals(user.getPassword())){
 			session.setAttribute("user", user);
 		return "redirect:/product/index.html";
 		}
