@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<script type="text/javascript">
+	var contextPath = "${ctx}";
+</script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "##">
 <!-- saved from url=(0039)http://b2b2c.wygk.cn/user.php?act=login -->
 <html xmlns="##">
@@ -61,14 +64,17 @@ function checkUser(){
 	var result = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 	var authcode =document.getElementById("authcode").value;
+
 	if(result == ""  ){
 	     alert("用户名不能为空");
 	     return false;
 	   }
+	
 	   if(password == ""  ){
 	    alert("密码不能为空");
 	     return false;
 	   }
+	
 	   if(authcode==""){
 		   alert("验证码不能为空！");
 		     return false;
@@ -120,6 +126,62 @@ function create_code() {
 }
 
 
+function login() {
+	var result = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var authcode =document.getElementById("authcode").value;
+	
+	if(result == ""  ){
+	     alert("用户名不能为空");
+	     return false;
+	   }
+	
+	   if(password == ""  ){
+	    alert("密码不能为空");
+	     return false;
+	   }
+	
+	   if(authcode==""){
+		   alert("验证码不能为空！");
+		     return false;
+	   }
+	   //验证码转换小写
+	 
+	if(ar1.toLowerCase()!=authcode.toLowerCase()){
+		alert("验证码错误！");
+		create_code();
+		$("#authcode").val("").focus();
+		return false;
+	}
+	
+	
+    $.ajax({
+    //几个参数需要注意一下
+        
+        //dataType: "json",//预期服务器返回的数据类型
+        url: contextPath+"/register/loginSuccess",//url
+        method: "POST",//方法类型
+        data: {
+        	userName:result,
+        	password:password
+        },
+        success: function (date) {
+        	if (date==200) {
+        		window.location.href=contextPath+"/product/index.html";
+			}
+          
+        },
+        error : function() {
+        	
+        alert("账号或密码错误,请重新输入！");
+        $("#username").val("").focus();
+        $("#password").val("");
+        $("#authcode").val("");
+         
+        }
+    });
+}
+
 	</script>
 	<div class="logo-r">
 		<div class="logo-info-r">
@@ -145,7 +207,7 @@ function create_code() {
 						src="${ctx}/statics/images/login-banner.jpg" /></a>
 
 					<div class="login-form">
-						<form id="formId" name="formLogin" action="${ctx}/register/loginSuccess" method="post">
+						<form id="formId" name="formLogin" method="post" action="">
 							<div class="login-tit">
 								用户登录 <a class="regist-link main-color" href="${ctx}/register/regist">立即注册 <i>&gt;</i></a>
 							</div>
@@ -157,19 +219,19 @@ function create_code() {
 									</div>
 								</div>
 								<div class="item item-name">
-									<i class="icon"></i> <input name="userName" type="text"
+									<i class="icon"></i> <input name="username" type="text"
 										class="text" id="username" placeholder="手机号/用户名/邮箱"
-										tabindex="1" value="" />
+										tabindex="1" onkeyup="value=value.replace(/[\W]/g,'') " style="margin-top: 10px" />
 								</div>
 								<div class="item item-password">
 									<i class="icon"></i> <input name="password" type="password"
 										class="text" id="password" placeholder="密码" tabindex="2"
-										value="" />
+										value="" style="margin-top: 10px"/>
 								</div>
 								<div class="item item-authcode clearfix" id="o-authcode">
 									<div class="item-detail fl">
 										<i class="icon"></i> <input type="text" id="authcode"
-											name="captcha" class="text text-1" tabindex="3" />
+											name="captcha" class="" tabindex="3" style="width:100; height: 38px;padding-left: 41px;font-size: 14px;" />
 									</div>
 									<span id="aa" name="phoKeys" class="add phoKey"></span>
 								</div>
@@ -181,8 +243,8 @@ function create_code() {
 										href="#">忘记密码？</a>
 								</div>
 								<div class="login-btn">
-									<input type="submit" name="submit" class="btn-img btn-entry"
-										id="loginsubmit" value="立即登录" onclick="return checkUser();" />
+									<input type="button" name="submit" class="btn-img btn-entry"
+										id="loginsubmit" value="立即登录" onclick="login()" />
 								</div>
 								<div class="item-coagent">
 									<a href="#"><i class="weixin"></i>微信</a> <a href="#"><i
@@ -190,7 +252,7 @@ function create_code() {
 										href="#"><i class="alipay"></i>支付宝</a>
 								</div>
 							</div>
-						</form>
+						 </form>
 					</div>
 				</div>
 			</div>
