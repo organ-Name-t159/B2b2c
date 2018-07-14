@@ -26,7 +26,7 @@
 		<li>
 			<div class="step-done">
 				<div class="step-name">付款</div>
-				<div class="step-no">3</div>
+				<div class="step-no"></div>
 			</div>
 		</li>
 		<li>
@@ -57,24 +57,39 @@
 										style="border-bottom: 1px solid #eeeeee; padding-left: 15px; background: #FAFAFA; width: 445px;"
 										height="30">订单号：${serialNumber}</td>
 									<td
-										style="border-bottom: 1px solid #eeeeee; background: #FAFAFA">支付宝：¥${monetAll}</td>
+										style="border-bottom: 1px solid #eeeeee; background: #FAFAFA">${pWay.wayName}：¥${monetAll}</td>
 									<td
-										style="border-bottom: 1px solid #eeeeee; background: #FAFAFA">顺丰速运&nbsp;&nbsp;&nbsp;仅工作日送货</td>
+										style="border-bottom: 1px solid #eeeeee; background: #FAFAFA">${dWay.dbtName}&nbsp;&nbsp;&nbsp;${dTime.timeName}</td>
 								</tr>
 							</tbody>
 						</table>
 					</td>
 				</tr>
-
+				<c:if test="${pWay.id==1}">
+				<tr>
+					<td align="center" style="padding-bottom: 30px;">
+						<div style="text-align: center">
+						<a href="${ctx}/car/jieKou.html?WIDout_trade_no=${serialNumber}&WIDtotal_amount=${monetAll}&WIDsubject=${serialNumber}&WIDbody=${dTime.timeName}" 
+						class="main-btn main-btn-large">去支付</a>
+							<!-- <input type="button"
+								onclick=""
+								value="去支付" class="main-btn main-btn-large"> -->
+						</div>
+					</td>
+				</tr>	
+				</c:if>
+				<c:if test="${pWay.id==2}">
 				<tr>
 					<td align="center" style="padding-bottom: 30px;">
 						<div style="text-align: center">
 							<input type="button"
 								onclick=""
-								value="去支付" class="main-btn main-btn-large">
+								value="完成" class="main-btn main-btn-large">
 						</div>
 					</td>
-				</tr>
+				</tr>	
+				</c:if>
+				
 			</tbody>
 		</table>
 		<style>

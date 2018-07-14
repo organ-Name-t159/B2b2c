@@ -6,4 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="getAll" resultType="DeliveryTime">
 	SELECT * FROM `delivery_time` 
 </select>
+
+<select id="getId" resultType="DeliveryTime">
+	SELECT dt.* FROM `delivery_time` dt WHERE dt.id=#{dId}
+</select>
 </mapper>

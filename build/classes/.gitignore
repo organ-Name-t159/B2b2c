@@ -1,1 +1,10 @@
+<<<<<<< HEAD
+/com/
+=======
+/applicationContext-mybatis.xml
+>>>>>>> 956672f4f01032f531e3ab42d02e1b43358ee4df
 /cn/
+/database.properties
+/log4j.properties
+/mybatis-config.xml
+/springmvc-servlet.xml

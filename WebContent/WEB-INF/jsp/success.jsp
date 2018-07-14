@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-用户名或者密码错误
+支付成功，
 </body>
 </html>

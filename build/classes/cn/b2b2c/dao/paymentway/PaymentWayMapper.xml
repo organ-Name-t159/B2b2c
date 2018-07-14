@@ -6,4 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAll" resultType="PaymentWay">
 		SELECT pw.* FROM `payment_way` pw
 	</select>
+	
+	<select id="getId" resultType="PaymentWay">
+		SELECT pw.* FROM `payment_way` pw WHERE `id`=#{pId}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

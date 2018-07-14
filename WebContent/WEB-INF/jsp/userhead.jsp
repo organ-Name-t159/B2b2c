@@ -21,7 +21,7 @@
 	src="${ctx}/statics/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/messages_zh.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
-<%-- <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%>
+<%--  <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%> 
 <script type="text/javascript" src="${ctx}/statics/js/common.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/bubbleup.js"></script>

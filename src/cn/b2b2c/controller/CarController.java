@@ -1,10 +1,14 @@
 package cn.b2b2c.controller;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
@@ -13,8 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.internal.util.AlipaySignature;
+import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.config.AlipayConfig;
+
 import cn.b2b2c.pojo.DeliveryTime;
 import cn.b2b2c.pojo.DiscountCoupon;
+import cn.b2b2c.pojo.DistributionWay;
 import cn.b2b2c.pojo.InvoiceContent;
 import cn.b2b2c.pojo.InvoiceType;
 import cn.b2b2c.pojo.PaymentWay;
@@ -64,6 +75,58 @@ public class CarController {
 	
 	@Resource
 	private OrderDetailService orderDetailService;
+	
+	
+	
+	@RequestMapping(value="/jieKou.html")
+	public void jieKou(HttpServletRequest request,HttpServletResponse response)throws Exception {
+		
+		
+		//获得初始化的AlipayClient
+        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
+
+        //设置请求参数
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+        alipayRequest.setReturnUrl(AlipayConfig.return_url);
+        alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
+
+        //商户订单号，商户网站订单系统中唯一订单号，必填
+        String out_trade_no = request.getParameter("WIDout_trade_no");
+        //付款金额，必填
+        String total_amount = request.getParameter("WIDtotal_amount");
+        //订单名称，必填
+        String subject = request.getParameter("WIDsubject");
+        //商品描述，可空
+        String body = request.getParameter("WIDbody");
+
+        alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\"," 
+                + "\"total_amount\":\""+ total_amount +"\"," 
+                + "\"subject\":\""+ subject +"\"," 
+                + "\"body\":\""+ body +"\"," 
+                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+        //请求
+        String result = alipayClient.pageExecute(alipayRequest).getBody();
+
+        response.setContentType("text/html;charset=" + AlipayConfig.charset);
+        response.getWriter().write(result);//直接将完整的表单html输出到页面
+        response.getWriter().flush();
+        response.getWriter().close();
+		
+	}
+	
+	@RequestMapping(value="/return_url.view")
+	public String returnUrl(HttpServletRequest request,HttpServletResponse response)throws Exception {
+		HttpSession session=request.getSession();
+		String number=(String)session.getAttribute("serialNumber");
+		System.out.println(number);
+		if(orderService.updateOrder(number)==1) {
+			return "success";
+		}
+		
+		return "error";
+	}
+	
 	
 	
 	@RequestMapping(value="/addCar.html",method=RequestMethod.POST)
@@ -217,6 +280,7 @@ public class CarController {
 	
 	@RequestMapping(value="/orderAll.html",method=RequestMethod.POST)
 	public Object orderAll(HttpServletRequest request)throws Exception {
+		HttpSession session=request.getSession();
 		String userId=request.getParameter("userId");
 		String UaddressIdN=request.getParameter("UaddressIdN");
 		String uTime=request.getParameter("uTime");
@@ -257,8 +321,16 @@ public class CarController {
 		for (ShoppingCartItem car : cart.items) {
 			orderDetailService.addOrderDetail(orderId, car.getProduct().getId(), car.getQuantity(), car.getCost());			
 		}
-		request.setAttribute("serialNumber", serialNumber);
+		DistributionWay dWay= orderService.getDistributionWayId(distributionWayId);
+		PaymentWay pWay=paymentWaySerivce.getId(Integer.parseInt(paymentWayId));
+		DeliveryTime dTime =deliveryTimeService.getId(Integer.parseInt(uTime));
+		session.setAttribute("serialNumber", serialNumber);
+		//request.setAttribute("serialNumber", serialNumber);
 		request.setAttribute("monetAll", monetAll);
+		request.setAttribute("paymentWayId", paymentWayId);
+		request.setAttribute("dWay", dWay);
+		request.setAttribute("pWay", pWay);
+		request.setAttribute("dTime", dTime);
 		return "common/cartFlow3";
 	}
 	

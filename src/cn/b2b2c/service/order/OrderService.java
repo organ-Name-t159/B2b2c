@@ -2,6 +2,10 @@ package cn.b2b2c.service.order;
 
 import java.util.Date;
 
+import org.apache.ibatis.annotations.Param;
+
+import cn.b2b2c.pojo.DistributionWay;
+
 public interface OrderService {
 	
 	/**
@@ -45,6 +49,23 @@ public interface OrderService {
 	 * @throws Exception
 	 */
 	public Integer getId(String serialNumber)throws Exception;
+	
+	
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public DistributionWay getDistributionWayId(Integer id);
+	
+	
+	/**
+	 * 根据订单号修改付款状态
+	 * @param serialNumber
+	 * @return
+	 */
+	public int updateOrder(String serialNumber)throws Exception;
+	
 	
 	
 
