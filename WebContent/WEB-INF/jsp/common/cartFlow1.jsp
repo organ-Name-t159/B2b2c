@@ -5,7 +5,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <div class="header w990">
 	<div class="mall-logo">
-		<a href="${ctx}/product/index.html"><img
+		<a href="${ctx}/product/indexStatus.html"><img
 			src="${ctx}/statics/images/logo.gif"></a>
 	</div>
 </div>

@@ -82,9 +82,8 @@
 				<tr>
 					<td align="center" style="padding-bottom: 30px;">
 						<div style="text-align: center">
-							<input type="button"
-								onclick=""
-								value="完成" class="main-btn main-btn-large">
+						<a href="${ctx}/product/indexStatus.html" class="main-btn main-btn-large">完成</a>
+							
 						</div>
 					</td>
 				</tr>	

@@ -175,23 +175,29 @@ function refreshCart(){
  * @returns
  */
 function deleteCar(cartId){
-	$.ajax({
-		url:contextPath+"/car/deleteCart.html",
-		method:"post",
-		data:{
-			number:cartId,
-			quantity:0
-		},
-		success:function(jsonStr){
-			var result=eval("("+jsonStr+")");
-			if(result.status==1){
-				refreshCart();
-				cartFlow1();
-			}else{
-				alert("错误")
+	if(confirm("确定删除商品吗")){
+		$.ajax({
+			url:contextPath+"/car/deleteCart.html",
+			method:"post",
+			data:{
+				number:cartId,
+				quantity:0
+			},
+			success:function(jsonStr){
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){
+					refreshCart();
+					cartFlow1();
+				}else{
+					alert("错误")
+				}
 			}
-		}
-	});
+		});
+	}else{
+		
+	}
+	
+	
 }
 
 /**
@@ -200,22 +206,27 @@ function deleteCar(cartId){
  * @returns
  */
 function deleteCarAll(){
-	$.ajax({
-		url:contextPath+"/car/deleteCartAll.html",
-		method:"post",
-		data:{
-			
-		},
-		success:function(jsonStr){
-			var result=eval("("+jsonStr+")");
-			if(result.status==1){
-				refreshCart();
-				cartFlow1();
-			}else{
-				alert("错误")
+	if(confirm("确定清空购物车吗")){
+		$.ajax({
+			url:contextPath+"/car/deleteCartAll.html",
+			method:"post",
+			data:{
+				
+			},
+			success:function(jsonStr){
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){
+					refreshCart();
+					cartFlow1();
+				}else{
+					alert("错误")
+				}
 			}
-		}
-	});
+		});
+	}else{}
+	
+	
+	
 }
 
 
@@ -377,22 +388,27 @@ function submitAddress() {
  * @returns
  */
 function del_address_comfirm(comfirmId) {
-	
-	$.ajax({
-		url:contextPath+"/address/deleteAddress.html",
-		method:"post",
-		data:{
-			comfirmId:comfirmId
-		},
-		success:function(jsonStr){
-			if(jsonStr==1){
-				cartFlow2();
-			}else{
-				alert("删除失败")
+	if(confirm("确定删除地址吗")){
+		$.ajax({
+			url:contextPath+"/address/deleteAddress.html",
+			method:"post",
+			data:{
+				comfirmId:comfirmId
+			},
+			success:function(jsonStr){
+				if(jsonStr==1){
+					cartFlow2();
+				}else{
+					alert("删除失败")
+				}
+				
 			}
-			
-		}
-	});
+		});
+	}else{
+		
+	}
+	
+	
 	
 }
 

@@ -11,7 +11,7 @@ var pay_balance_id = 4; //保存余额支付的id做为js全局变量
 
 <div class="header w990">
 	<div class="mall-logo">
-		<a href="${ctx}/product/index.html"><img
+		<a href="${ctx}/product/indexStatus.html"><img
 			src="${ctx}/statics/images/logo.gif"></a>
 	</div>
 </div>
