@@ -61,7 +61,7 @@
 
 <%@include file="userhead.jsp"%>
 <%@include file="common/classify.jsp" %>
-<script type="text/javascript">
+<script>
 	$(function() {
 		$("#xz").show();
 		document.getElementById("xx").style.display = "none";

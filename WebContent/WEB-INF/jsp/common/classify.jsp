@@ -63,7 +63,7 @@
 				<a href="" id="quanbu" class="menu-event main-bg-color"
 					title="查看全部商品分类">全部商品分类<i></i></a>
 
-				<div class="expand-menu all-cat main-bg-color" id="xz">
+				<div class="all-cat main-bg-color" id="xz">
 					<!-- 商品分类开始 -->
 					<c:forEach items="${productCategoryVoList}" var="temp">
 						<div class="list">

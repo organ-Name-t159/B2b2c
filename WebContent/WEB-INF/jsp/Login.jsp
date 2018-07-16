@@ -6,10 +6,10 @@
 	var contextPath = "${ctx}";
 </script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "##">
-<!-- saved from url=(0039)http://b2b2c.wygk.cn/user.php?act=login -->
-<html xmlns="##">
+<html>
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <style>
 ::-webkit-input-placeholder {
@@ -174,9 +174,9 @@ function login() {
         error : function() {
         	
         alert("账号或密码错误,请重新输入！");
-        $("#username").val("").focus();
+       // $("#username").val("").focus();
         $("#password").val("");
-        $("#authcode").val("");
+        //$("#authcode").val("");
          
         }
     });
@@ -243,7 +243,7 @@ function login() {
 										href="#">忘记密码？</a>
 								</div>
 								<div class="login-btn">
-									<input type="button" name="submit" class="btn-img btn-entry"
+									<input type="submit" name="submit" class="btn-img btn-entry"
 										id="loginsubmit" value="立即登录" onclick="login()" />
 								</div>
 								<div class="item-coagent">

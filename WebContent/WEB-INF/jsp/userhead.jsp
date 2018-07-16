@@ -81,7 +81,7 @@ function outUser(){
 			<ul class="sn-quick-menu">
 				<li class="sn-mytaobao menu-item">
 					<div class="sn-menu">
-						<a class="menu-hd" href="#">我的信息<b></b></a>
+						<a class="menu-hd" href="${ctx}/user/welocome.html">我的信息<b></b></a>
 						<div id="menu-2" class="menu-bd">
 							<div class="menu-bd-panel">
 								<a href="#">已买到的宝贝</a> <a href="#">我的地址管理</a>
