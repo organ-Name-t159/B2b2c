@@ -183,7 +183,7 @@ function showCheckoutOther(obj) {
 //地址
 var UaddressIdN="";
 //总金额
-var monetAll="";
+var moneyAll="";
 
 
 function Uaddress(UaddressId){
@@ -192,26 +192,33 @@ function Uaddress(UaddressId){
 
 function TiscountCoupon(money){
 	
-	var uTiscountCouponId=$("#ECS_BONUS_0").val();	
-	 $.ajax({
-		url:contextPath+"/car/TiscountCouponMoney.html",
-		method:"post",
-		data:{
-			tId:uTiscountCouponId
-		},
-		success:function(jsonStr){
-			var result=eval("("+jsonStr+")");
-			$("#TiscountMoney").html("¥"+result.money);
-			monetAll=money-result.money-15;
-			$("#moneyAll").html("¥"+monetAll);
-		}
-		
-	}) 
+	var uTiscountCouponId=$("#ECS_BONUS_0").val();
+	if(uTiscountCouponId>0){
+		$.ajax({
+			url:contextPath+"/car/TiscountCouponMoney.html",
+			method:"post",
+			data:{
+				tId:uTiscountCouponId
+			},
+			success:function(jsonStr){
+				var result=eval("("+jsonStr+")");
+				$("#TiscountMoney").html("¥"+result.money);
+				moneyAll=money-result.money-15;
+				$("#moneyAll").html("¥"+moneyAll);
+			}
+			
+		});
+	}else{
+		$("#TiscountMoney").html("¥0");
+		$("#moneyAll").html("¥"+money);
+	}
+	
+	  
 }
 
 
 
-function cartSumit(userId){
+function cartSumit(userId,moneyS){
 	//var uAddressId=$("li[name='Uaddress']:checked").attr("value");
 	var uTime=$("input[name='best_time']:checked").val();
 	var uTiscountCouponId=$("#ECS_BONUS_0").val();
@@ -219,15 +226,16 @@ function cartSumit(userId){
 	var invoiceContentId=$("#ECS_INVCONTENT").val();
 	var leaveWord=$("#postscript").val()
 	var paymentWayId=$("input[name='payment']:checked").val()
-	alert("用户id："+userId);
+	moneyAll=moneyS;
+	/* alert("用户id："+userId);
 	alert("地址id:"+UaddressIdN);
 	alert("时间id:"+uTime);
 	alert("优惠券id:"+uTiscountCouponId)
 	alert("发票类型:"+invoiceTypeId)
 	alert("发票内容:"+invoiceContentId)
 	alert("留言:"+leaveWord)
-	alert("总金额:"+monetAll)
-	alert("支付方式:"+paymentWayId)
+	alert("总金额:"+moneyAll)
+	alert("支付方式:"+paymentWayId) */
 	
 		$.ajax({
 			url:contextPath+"/car/orderAll.html",
@@ -240,7 +248,7 @@ function cartSumit(userId){
 				invoiceTypeId:invoiceTypeId,
 				invoiceContentId:invoiceContentId,
 				leaveWord:leaveWord,
-				monetAll:monetAll,
+				monetAll:moneyAll,
 				paymentWayId:paymentWayId
 				
 			},

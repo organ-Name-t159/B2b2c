@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-服务器繁忙
+支付成功，
 </body>
 </html>

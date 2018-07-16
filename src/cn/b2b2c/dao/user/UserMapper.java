@@ -33,5 +33,29 @@ public interface UserMapper {
 	 * @return
 	 */
 	public List<UserAddress> getAll(@Param("uId")Integer userId);
+	
+	
+	/**
+	 * 修改用户地址
+	 * @param uAddress
+	 * @return
+	 */
+	public int update(UserAddress uAddress);
+	
+	/**
+	 * 新增用户地址
+	 * @param uAddress
+	 * @return
+	 */
+	public int addAddress(UserAddress uAddress);
+	
+	/**
+	 * 删除用户地址
+	 * @param userId
+	 * @param id
+	 * @return
+	 */
+	public int deleteAddress(@Param("uId")Integer userId,@Param("aId")Integer id);
+	
 
 }

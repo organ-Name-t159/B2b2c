@@ -9,4 +9,7 @@ import cn.b2b2c.pojo.DeliveryTime;
 public interface DeliveryTimeMapper {
 	
 	public List<DeliveryTime> getAll();
+	
+	
+	public DeliveryTime getId(@Param("dId")Integer id);
 }

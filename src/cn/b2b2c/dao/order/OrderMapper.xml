@@ -10,4 +10,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getId" resultType="int">
 		SELECT `id` FROM `order` WHERE `serialNumber`=#{number}
 	</select>
+	
+	<select id="getDistributionWayId" resultType="DistributionWay">
+		SELECT dw.* FROM `distribution_way` dw WHERE `id`=#{dId}
+	</select>
+	
+	<update id="updateOrder">
+		UPDATE `order` SET `paymentStatusId`=2 where `serialNumber`=#{su}
+	</update>
+	
+	
 </mapper>

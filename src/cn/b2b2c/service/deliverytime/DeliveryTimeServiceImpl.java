@@ -21,4 +21,11 @@ public class DeliveryTimeServiceImpl implements DeliveryTimeService {
 		return deliveryTimeMapper.getAll();
 	}
 
+
+	@Override
+	public DeliveryTime getId(Integer id) throws Exception {
+		
+		return deliveryTimeMapper.getId(id);
+	}
+
 }
