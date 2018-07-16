@@ -5,6 +5,7 @@
 <configuration>
 	<settings>
 		<setting name="lazyLoadingEnabled" value="false"/>
+		<setting name="logImpl" value="LOG4J"/>
 	</settings>
 	<typeAliases>
 		<package name="cn.b2b2c.pojo"/>
