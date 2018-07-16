@@ -9,7 +9,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-20160810.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aopalliance-1.0.jar"/>
@@ -45,5 +44,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/alipay-sdk-java20170324180803-source.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/alipay-sdk-java20170324180803.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_172"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
