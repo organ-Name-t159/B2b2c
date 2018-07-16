@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>家家商城</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
 	var btn_buy = "购买";

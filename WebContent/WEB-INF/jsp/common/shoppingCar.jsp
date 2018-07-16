@@ -57,7 +57,23 @@
 					</div></li>
 			</ul>
 		</div>
-
+		<div class="quick-toggle">
+					<ul>
+						
+						<li class="quick-area"><a class="quick-links-a"
+							href="javascript:;"><i class="qr-code"></i></a>
+							<div class="sidebar-code quick-sidebar">
+								<i class="arrow-right"></i> <img
+									src="${ctx}/statics/images/weixin.jpg" />
+							</div></li>
+						<li class="returnTop"><a href="javascript:;"
+							class="return_top quick-links-a"><i class="top"></i></a>
+							<div class="popup">
+								返回顶部 <i class="arrow-right"></i>
+							</div></li>
+					</ul>
+				</div>
+		
 	</div>
 	<div class="">
 		<div class="right-sidebar-panels animate-out" style="z-index: 1;">
