@@ -8,7 +8,6 @@
 <title>家家商城</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <script type="text/javascript">
 	var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
 	var btn_buy = "购买";
@@ -818,7 +817,7 @@
 							<c:forEach items="${temp.productList}" var="productVo">
 							<div class="goods" id="li_283">
 								<div class="wrap">
-									<a target="_blank" href="##"> <img
+									<a target="_blank" href="${ctx}/details/ProductDeatil.html?id=${productVo.id}"> <img
 										data-original="images/201603/thumb_img/_thumb_P_1457590880591.jpg"
 										src="${ctx}/statics/images/${productVo.fileName}"
 										alt="${productVo.name }" height="140" width="140"

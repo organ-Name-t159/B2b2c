@@ -60,7 +60,7 @@
 	<div class="all-nav all-nav-border">
 		<div class="w1210">
 			<div class="home-category fl hover">
-				<a href="" class="menu-event main-bg-color"
+				<a href="" id="quanbu" class="menu-event main-bg-color"
 					title="查看全部商品分类">全部商品分类<i></i></a>
 
 				<div class="expand-menu all-cat main-bg-color" id="xz">

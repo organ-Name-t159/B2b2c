@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/wrzc_common.css" />
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/flow.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/category.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/goods.css">
 <script type="text/javascript" src="${ctx}/stiatics/js/global.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
@@ -31,6 +32,11 @@
 <script type="text/javascript" src="${ctx}/statics/js/bubbleup.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jump.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/tab.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/magiczomm_plus.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/magiczoom.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/compare.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/gw_totop.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/scrollpic.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statics/js/jquery-lazyload.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
