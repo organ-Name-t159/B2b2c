@@ -28,8 +28,8 @@
 									class="s-combobox-input" name="keywords" id="keyword"
 									tabindex="9" accesskey="s" onkeyup="STip(this.value, event);"
 									autocomplete="off" value="请输入关键词"
-									onfocus="if(this.value==&#39;请输入关键词&#39;){this.value=&#39;&#39;;}else{this.value=this.value;}"
-									onblur="if(this.value==&#39;&#39;)this.value=&#39;请输入关键词&#39;"
+									onfocus="if(this.value==请输入关键词){this.value=;}else{this.value=this.value;}"
+									onblur="if(this.value==)this.value=请输入关键词"
 									type="text">
 							</div>
 						</div>

@@ -818,7 +818,7 @@
 							<div class="goods" id="li_283">
 								<div class="wrap">
 									<a target="_blank" href="${ctx}/details/ProductDeatil.html?id=${productVo.id}"> <img
-										data-original="images/201603/thumb_img/_thumb_P_1457590880591.jpg"
+										data-original="${ctx}/statics/images/_thumb_P_1457590880591.jpg"
 										src="${ctx}/statics/images/${productVo.fileName}"
 										alt="${productVo.name }" height="140" width="140"
 										class="pic_img_283" style="display: block;">

@@ -243,7 +243,7 @@ var pay_balance_id = 4; //保存余额支付的id做为js全局变量
 		<ul>
 		<c:forEach items="${deliveryTime}" var="add" varStatus="status">
 			<li class="curr" id="time_id_${status.index+1}"
-				onclick="javascript:setTimeSh(&#39;1&#39;);"><input
+				onclick="javascript:setTimeSh(1);"><input
 				id="time_delivery${status.index+1}" type="radio" name="best_time" value="${add.id}"
 				checked="checked"> <label for="time_delivery${status.index+1}">${add.timeName}</label>
 			</li>
@@ -355,11 +355,11 @@ $(function() {
 								<td><label id="Bonus_span_0" style="display: none;">
 										<input name="bonus_sn[0]" id="bonus_sn_0" type="text"
 										size="15" value="输入优惠券"
-										onfocus="if (value ==&#39;输入优惠券&#39;){value =&#39;&#39;}"
-										onblur="if (value ==&#39;&#39;){value=&#39;输入优惠券&#39;}"
+										onfocus="if (value ==输入优惠券){value =}"
+										onblur="if (value ==){value=输入优惠券}"
 										class="input_addr2"> <input name="validate_bonus"
 										type="button" value="使用"
-										onclick="validateBonus(document.getElementById(&#39;bonus_sn_0&#39;).value,0)"
+										onclick="validateBonus(document.getElementById(bonus_sn_0).value,0)"
 										class="BonusButton">
 								</label></td>
 							</tr>
@@ -527,7 +527,7 @@ $(function() {
 
 					<li><label for="payment_other1"> <input
 						id="payment_other1" type="radio" name="payment_other"
-						onclick="selectPayment(this);document.getElementById(&#39;payment_other_input&#39;).value=this.value;"
+						onclick="selectPayment(this);document.getElementById(payment_other_input).value=this.value;"
 						value="1"> <img align="absmiddle"
 						src="${ctx}/statics/images/pay_alipay.gif" alt="支付宝">
 					</label></li>

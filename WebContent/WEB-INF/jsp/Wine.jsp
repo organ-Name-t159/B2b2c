@@ -401,9 +401,9 @@ $(function(){
                             <li> 
                 
                 
-                <input type="text" name="price_min" id="price_min" value="0" class="price-wrzc" onkeyup="this.value=this.value.replace(/\D/g,&#39;&#39;)" onafterpaste="this.value=this.value.replace(/\D/g,&#39;&#39;)" autocomplete="off">
+                <input type="text" name="price_min" id="price_min" value="0" class="price-wrzc"   autocomplete="off">
                 <i></i>
-                <input type="text" name="price_max" id="price_max" value="0" class="price-wrzc" onkeyup="this.value=this.value.replace(/\D/g,&#39;&#39;)" onafterpaste="this.value=this.value.replace(/\D/g,&#39;&#39;)" autocomplete="off">
+                <input type="text" name="price_max" id="price_max" value="0" class="price-wrzc"   autocomplete="off">
                 
                  
                 <a class="select-button" href="##">确定</a> </li>
@@ -451,7 +451,7 @@ $(function(){
                          
                                                 <li>
                             <div class="p-img">
-                                <a target="_blank" title="江口醇 方形蓝色马六甲 52度500ml*2瓶装 高度浓香型国产白酒 纯粮酒水特价包邮" href="##"><img alt="江口醇 方形蓝色马六甲 52度500ml*2瓶装 高度浓香型国产白酒 纯粮酒水特价包邮" data-original="images/201602/thumb_img/271_thumb_G_1456452775873.jpg" src="${ctx}/statics/images/271_thumb_G_1456452775873.jpg" style="display: inline;"></a> 
+                                <a target="_blank" title="江口醇 方形蓝色马六甲 52度500ml*2瓶装 高度浓香型国产白酒 纯粮酒水特价包邮" href="##"><img alt="江口醇 方形蓝色马六甲 52度500ml*2瓶装 高度浓香型国产白酒 纯粮酒水特价包邮" data-original="${ctx}/statics/images/271_thumb_G_1456452775873.jpg" src="${ctx}/statics/images/271_thumb_G_1456452775873.jpg" style="display: inline;"></a> 
                             </div>
                             <div class="p-name">
                                 <a target="_blank" title="江口醇 方形蓝色马六甲 52度500ml*2瓶装 高度浓香型国产白酒 纯粮酒水特价包邮" href="##">江口醇 方形蓝色马六甲 52度500ml*2瓶装 高度浓香型国产白酒 纯粮酒水特价包邮</a>
@@ -464,7 +464,7 @@ $(function(){
                                                  
                                                 <li>
                             <div class="p-img">
-                                <a target="_blank" title="五粮液 45度小酒版 水晶礼盒装 浓香型白酒 官方授权 酒厂直供 中国名酒 250ML" href="##"><img alt="五粮液 45度小酒版 水晶礼盒装 浓香型白酒 官方授权 酒厂直供 中国名酒 250ML" data-original="images/201602/thumb_img/270_thumb_G_1456452662995.jpg" src="${ctx}/statics/images/270_thumb_G_1456452662995.jpg" style="display: inline;"></a> 
+                                <a target="_blank" title="五粮液 45度小酒版 水晶礼盒装 浓香型白酒 官方授权 酒厂直供 中国名酒 250ML" href="##"><img alt="五粮液 45度小酒版 水晶礼盒装 浓香型白酒 官方授权 酒厂直供 中国名酒 250ML" data-original="${ctx}/statics/images/270_thumb_G_1456452662995.jpg" src="${ctx}/statics/images/270_thumb_G_1456452662995.jpg" style="display: inline;"></a> 
                             </div>
                             <div class="p-name">
                                 <a target="_blank" title="五粮液 45度小酒版 水晶礼盒装 浓香型白酒 官方授权 酒厂直供 中国名酒 250ML" href="##">五粮液 45度小酒版 水晶礼盒装 浓香型白酒 官方授权 酒厂直供 中国名酒 250ML</a>
@@ -477,7 +477,7 @@ $(function(){
                                                  
                                                 <li>
                             <div class="p-img">
-                                <a target="_blank" title="韩国原装进口lotte乐天 2%富足水蜜桃果汁饮料240ml听装 夏季饮料" href="##"><img alt="韩国原装进口lotte乐天 2%富足水蜜桃果汁饮料240ml听装 夏季饮料" data-original="images/201603/thumb_img/287_thumb_G_1457592139010.jpg" src="${ctx}/statics/images/287_thumb_G_1457592139010.jpg" style="display: inline;"></a> 
+                                <a target="_blank" title="韩国原装进口lotte乐天 2%富足水蜜桃果汁饮料240ml听装 夏季饮料" href="##"><img alt="韩国原装进口lotte乐天 2%富足水蜜桃果汁饮料240ml听装 夏季饮料" data-original="${ctx}/statics/images/287_thumb_G_1457592139010.jpg" src="${ctx}/statics/images/287_thumb_G_1457592139010.jpg" style="display: inline;"></a> 
                             </div>
                             <div class="p-name">
                                 <a target="_blank" title="韩国原装进口lotte乐天 2%富足水蜜桃果汁饮料240ml听装 夏季饮料" href="##">韩国原装进口lotte乐天 2%富足水蜜桃果汁饮料240ml听装 夏季饮料</a>
@@ -490,7 +490,7 @@ $(function(){
                                                  
                                                 <li>
                             <div class="p-img">
-                                <a target="_blank" title="江鼎 白酒衡水老白干大青花50度高度白酒500ML" href="##"><img alt="江鼎 白酒衡水老白干大青花50度高度白酒500ML" data-original="images/201602/thumb_img/272_thumb_G_1456452879681.jpg" src="${ctx}/statics/images/272_thumb_G_1456452879681.jpg" style="display: inline;"></a> 
+                                <a target="_blank" title="江鼎 白酒衡水老白干大青花50度高度白酒500ML" href="##"><img alt="江鼎 白酒衡水老白干大青花50度高度白酒500ML" data-original="${ctx}/statics/images/272_thumb_G_1456452879681.jpg" src="${ctx}/statics/images/272_thumb_G_1456452879681.jpg" style="display: inline;"></a> 
                             </div>
                             <div class="p-name">
                                 <a target="_blank" title="江鼎 白酒衡水老白干大青花50度高度白酒500ML" href="##">江鼎 白酒衡水老白干大青花50度高度白酒500ML</a>
@@ -503,7 +503,7 @@ $(function(){
                                                  
                                                 <li>
                             <div class="p-img">
-                                <a target="_blank" title="康师傅优悦水550ml*24瓶（整箱）" href="##"><img alt="康师傅优悦水550ml*24瓶（整箱）" data-original="images/201602/thumb_img/273_thumb_G_1456452987184.jpg" src="${ctx}/statics/images/273_thumb_G_1456452987184.jpg" style="display: inline;"></a> 
+                                <a target="_blank" title="康师傅优悦水550ml*24瓶（整箱）" href="##"><img alt="康师傅优悦水550ml*24瓶（整箱）" data-original="${ctx}/statics/images/273_thumb_G_1456452987184.jpg" src="${ctx}/statics/images/273_thumb_G_1456452987184.jpg" style="display: inline;"></a> 
                             </div>
                             <div class="p-name">
                                 <a target="_blank" title="康师傅优悦水550ml*24瓶（整箱）" href="##">康师傅优悦水550ml*24瓶（整箱）</a>
@@ -527,7 +527,7 @@ $(function(){
     <ul class="aside-list">
 				<li>
         	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="苹果（Apple）iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机" data-original="images/201507/thumb_img/100_thumb_G_1437523484060.jpg" src="${ctx}/statics/images/100_thumb_G_1437523484060.jpg" style="display: inline;"></a> 
+            	<a target="_blank" title="" href="##"><img alt="苹果（Apple）iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机" data-original="${ctx}/statics/images/100_thumb_G_1437523484060.jpg" src="${ctx}/statics/images/100_thumb_G_1437523484060.jpg" style="display: inline;"></a> 
             </div>
             <div class="p-name">
                 <a target="_blank" title="" href="##">苹果（Apple）iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机</a>
@@ -537,91 +537,7 @@ $(function(){
                 <span class="sale-num">销量: 9</span>
             </div>
       </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="高端2015夏装新款修身淑坊女女装蕾丝短袖复女连衣裙装" data-original="images/201507/thumb_img/51_thumb_G_1437519866381.jpg" src="${ctx}/statics/images/51_thumb_G_1437519866381.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">高端2015夏装新款修身淑坊女女装蕾丝短袖复女连衣裙装</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥199.0</span>
-                <span class="sale-num">销量: 9</span>
-            </div>
-      </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="爱度AY800蓝牙音箱手机电脑迷你音响无线便携插卡低音炮 带蓝牙自拍 土豪金" data-original="images/201507/thumb_img/200_thumb_G_1437534571298.jpg" src="${ctx}/statics/images/200_thumb_G_1437534571298.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">爱度AY800蓝牙音箱手机电脑迷你音响无线便携插卡低音炮 带蓝牙自拍 土豪金</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥98.0</span>
-                <span class="sale-num">销量: 13</span>
-            </div>
-      </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="家用静音办公室空调加湿器 香薰迷你大容量净化特价" data-original="images/201507/thumb_img/88_thumb_G_1437522788663.jpg" src="${ctx}/statics/images/88_thumb_G_1437522788663.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">家用静音办公室空调加湿器 香薰迷你大容量净化特价</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥100.0</span>
-                <span class="sale-num">销量: 5</span>
-            </div>
-      </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="包邮 新款户外军迷阿帕奇T恤 纯棉男款短袖半袖特价宽松" data-original="images/201507/thumb_img/_thumb_P_1438047501681.jpg" src="${ctx}/statics/images/_thumb_P_1438047501681.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">包邮 新款户外军迷阿帕奇T恤 纯棉男款短袖半袖特价宽松</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥274.0</span>
-                <span class="sale-num">销量: 10</span>
-            </div>
-      </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="二级大2P智能云定频冷暖柜机空调" data-original="images/201507/thumb_img/122_thumb_G_1437525597541.jpg" src="${ctx}/statics/images/122_thumb_G_1437525597541.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">二级大2P智能云定频冷暖柜机空调</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥2245.0</span>
-                <span class="sale-num">销量: 4</span>
-            </div>
-      </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="可爱卡通餐盘水果盘点心盘 盘子儿童托盘餐具6件套" data-original="images/201507/thumb_img/231_thumb_G_1437587773545.jpg" src="${ctx}/statics/images/231_thumb_G_1437587773545.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">可爱卡通餐盘水果盘点心盘 盘子儿童托盘餐具6件套</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥99.0</span>
-                <span class="sale-num">销量: 10</span>
-            </div>
-      </li>
-      		<li>
-        	<div class="p-img">
-            	<a target="_blank" title="" href="##"><img alt="幻响（i-mu）百变羊 创意指环扣 手机支架 双指环 360度旋转 防止手机滑落 金属材质 强力粘胶" data-original="images/201507/thumb_img/183_thumb_G_1437532716802.jpg" src="${ctx}/statics/images/183_thumb_G_1437532716802.jpg" style="display: inline;"></a> 
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="##">幻响（i-mu）百变羊 创意指环扣 手机支架 双指环 360度旋转 防止手机滑落 金属材质 强力粘胶</a>
-            </div>
-            <div class="p-price">
-                <span class="sale-price main-color">¥19.9</span>
-                <span class="sale-num">销量: 1</span>
-            </div>
-      </li>
-      	</ul>
+  </ul>
 </div>
  
             </div>
@@ -650,11 +566,11 @@ $(function(){
     </div>
     <div class="fore2">
       <div class="filter-btn"> <a class="filter-tag " href="##"><i class="icon"></i><span class="text">仅显示有货</span></a>          
-        <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href="##"> <i class="icon"></i> <span class="text">全部</span> </a> 
+        <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href='#'"> <i class="icon"></i> <span class="text">全部</span> </a> 
          
-        <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href="##"> <i class="icon"></i> <span class="text">网站自营</span> </a> 
+        <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href='#'"> <i class="icon"></i> <span class="text">网站自营</span> </a> 
          
-        <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href="##"> <i class="icon"></i> <span class="text">入驻商店铺</span> </a> 
+        <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href='#'"> <i class="icon"></i> <span class="text">入驻商店铺</span> </a> 
          
       </div>
       <div class="filter-mod"> <a href="##"><span class="filter-type-icon"></span></a> <a href="##"><span class="filter-type-icon"></span></a> <a href="##"><span class="filter-type-icon"></span></a> </div>
@@ -680,7 +596,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/250_thumb_G_1456450428826.jpg" src="${ctx}/statics/images/250_thumb_G_1456450428826.jpg" title="怡宝 纯净水 4.5L*4 箱装" class="pic_img_250" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/250_thumb_G_1456450428826.jpg" src="${ctx}/statics/images/250_thumb_G_1456450428826.jpg" title="怡宝 纯净水 4.5L*4 箱装" class="pic_img_250" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -692,23 +608,23 @@ $(function(){
             	<a href="##">怡宝 纯净水 4.5L*4 箱装</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="250" data-type="0" onclick="Compare.add(250,&#39;怡宝 纯净水 4.5L*4 箱装&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/250_thumb_G_1456450428826.jpg&#39;, &#39;¥29.9&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="250" data-type="0" onclick="Compare.add(250,怡宝 纯净水 4.5L*4 箱装,0, ${ctx}/statics/images/250_thumb_G_1456450428826.jpg, ¥29.9)"><i></i>对比</a>
             	<a id="collect_250" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
+                <a href="javascript:addToCart(86);" class="add-cart" title="加入购物车"></a>
                             </div>
           </div>
         </div>
       </li>
        
        
-            <li class="item" id="li_253">
+       <li class="item" id="li_253">
         <div class="item-con"> 
           <div class="item-tag-box">
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/253_thumb_G_1456450820776.jpg" src="${ctx}/statics/images/253_thumb_G_1456450820776.jpg" title="七喜冰爽柠檬汽水330ml*24（整箱）" class="pic_img_253" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/253_thumb_G_1456450820776.jpg" src="${ctx}/statics/images/253_thumb_G_1456450820776.jpg" title="七喜冰爽柠檬汽水330ml*24（整箱）" class="pic_img_253" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -720,7 +636,7 @@ $(function(){
             	<a href="##">七喜冰爽柠檬汽水330ml*24（整箱）</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="253" data-type="0" onclick="Compare.add(253,&#39;七喜冰爽柠檬汽水330ml*24（整箱）&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/253_thumb_G_1456450820776.jpg&#39;, &#39;¥43.7&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="253" data-type="0" onclick="Compare.add(253,七喜冰爽柠檬汽水330ml*24（整箱）,0, ${ctx}/statics/images/253_thumb_G_1456450820776.jpg, ¥43.7)"><i></i>对比</a>
             	<a id="collect_253" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -736,7 +652,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/252_thumb_G_1456450660879.jpg" src="${ctx}/statics/images/252_thumb_G_1456450660879.jpg" title="1.25L雪碧+1.25L美汁源果粒橙" class="pic_img_252" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/252_thumb_G_1456450660879.jpg" src="${ctx}/statics/images/252_thumb_G_1456450660879.jpg" title="1.25L雪碧+1.25L美汁源果粒橙" class="pic_img_252" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -748,7 +664,7 @@ $(function(){
             	<a href="##">1.25L雪碧+1.25L美汁源果粒橙</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="252" data-type="0" onclick="Compare.add(252,&#39;1.25L雪碧+1.25L美汁源果粒橙&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/252_thumb_G_1456450660879.jpg&#39;, &#39;¥9.9&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="252" data-type="0" onclick="Compare.add(252,1.25L雪碧+1.25L美汁源果粒橙,0, ${ctx}/statics/images/252_thumb_G_1456450660879.jpg, ¥9.9)"><i></i>对比</a>
             	<a id="collect_252" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -764,7 +680,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/254_thumb_G_1456451004329.jpg" src="${ctx}/statics/images/254_thumb_G_1456451004329.jpg" title="洋河海之蓝42度480ml" class="pic_img_254" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/254_thumb_G_1456451004329.jpg" src="${ctx}/statics/images/254_thumb_G_1456451004329.jpg" title="洋河海之蓝42度480ml" class="pic_img_254" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -776,7 +692,7 @@ $(function(){
             	<a href="##">洋河海之蓝42度480ml</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="254" data-type="0" onclick="Compare.add(254,&#39;洋河海之蓝42度480ml&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/254_thumb_G_1456451004329.jpg&#39;, &#39;¥129.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="254" data-type="0" onclick="Compare.add(254,洋河海之蓝42度480ml,0, ${ctx}/statics/images/254_thumb_G_1456451004329.jpg, ¥129.0)"><i></i>对比</a>
             	<a id="collect_254" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -792,7 +708,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/255_thumb_G_1456451111974.jpg" src="${ctx}/statics/images/255_thumb_G_1456451111974.jpg" title="ROM威士忌鸡尾酒青柠味预调酒275ml" class="pic_img_255" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/255_thumb_G_1456451111974.jpg" src="${ctx}/statics/images/255_thumb_G_1456451111974.jpg" title="ROM威士忌鸡尾酒青柠味预调酒275ml" class="pic_img_255" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -804,7 +720,7 @@ $(function(){
             	<a href="##">ROM威士忌鸡尾酒青柠味预调酒275ml</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="255" data-type="0" onclick="Compare.add(255,&#39;ROM威士忌鸡尾酒青柠味预调酒275ml&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/255_thumb_G_1456451111974.jpg&#39;, &#39;¥12.9&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="255" data-type="0" onclick="Compare.add(255,ROM威士忌鸡尾酒青柠味预调酒275ml,0, ${ctx}/statics/images/255_thumb_G_1456451111974.jpg, ¥12.9)"><i></i>对比</a>
             	<a id="collect_255" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -820,7 +736,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/258_thumb_G_1456451394456.jpg" src="${ctx}/statics/images/258_thumb_G_1456451394456.jpg" title="汇源 100%苹果果汁 1L/盒" class="pic_img_258" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/258_thumb_G_1456451394456.jpg" src="${ctx}/statics/images/258_thumb_G_1456451394456.jpg" title="汇源 100%苹果果汁 1L/盒" class="pic_img_258" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -832,7 +748,7 @@ $(function(){
             	<a href="##">汇源 100%苹果果汁 1L/盒</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="258" data-type="0" onclick="Compare.add(258,&#39;汇源 100%苹果果汁 1L/盒&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/258_thumb_G_1456451394456.jpg&#39;, &#39;¥15.9&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="258" data-type="0" onclick="Compare.add(258,汇源 100%苹果果汁 1L/盒,0, ${ctx}/statics/images/258_thumb_G_1456451394456.jpg, ¥15.9)"><i></i>对比</a>
             	<a id="collect_258" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -848,7 +764,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/257_thumb_G_1456451288943.jpg" src="${ctx}/statics/images/257_thumb_G_1456451288943.jpg" title="汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包" class="pic_img_257" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/257_thumb_G_1456451288943.jpg" src="${ctx}/statics/images/257_thumb_G_1456451288943.jpg" title="汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包" class="pic_img_257" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -860,7 +776,7 @@ $(function(){
             	<a href="##">汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="257" data-type="0" onclick="Compare.add(257,&#39;汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/257_thumb_G_1456451288943.jpg&#39;, &#39;¥29.9&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="257" data-type="0" onclick="Compare.add(257,汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包,0, ${ctx}/statics/images/257_thumb_G_1456451288943.jpg, ¥29.9)"><i></i>对比</a>
             	<a id="collect_257" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -876,7 +792,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/256_thumb_G_1456451184573.jpg" src="${ctx}/statics/images/256_thumb_G_1456451184573.jpg" title="女儿红6年陈350ML 整箱6瓶装" class="pic_img_256" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/256_thumb_G_1456451184573.jpg" src="${ctx}/statics/images/256_thumb_G_1456451184573.jpg" title="女儿红6年陈350ML 整箱6瓶装" class="pic_img_256" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -888,7 +804,7 @@ $(function(){
             	<a href="##">女儿红6年陈350ML 整箱6瓶装</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="256" data-type="0" onclick="Compare.add(256,&#39;女儿红6年陈350ML 整箱6瓶装&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/256_thumb_G_1456451184573.jpg&#39;, &#39;¥159.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="256" data-type="0" onclick="Compare.add(256,女儿红6年陈350ML 整箱6瓶装,0, ${ctx}/statics/images/256_thumb_G_1456451184573.jpg, ¥159.0)"><i></i>对比</a>
             	<a id="collect_256" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -904,7 +820,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/262_thumb_G_1456451850522.jpg" src="${ctx}/statics/images/262_thumb_G_1456451850522.jpg" title="雀巢 中老年奶粉 850g雀巢" class="pic_img_262" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/262_thumb_G_1456451850522.jpg" src="${ctx}/statics/images/262_thumb_G_1456451850522.jpg" title="雀巢 中老年奶粉 850g雀巢" class="pic_img_262" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -916,7 +832,7 @@ $(function(){
             	<a href="##">雀巢 中老年奶粉 850g雀巢</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="262" data-type="0" onclick="Compare.add(262,&#39;雀巢 中老年奶粉 850g雀巢&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/262_thumb_G_1456451850522.jpg&#39;, &#39;¥75.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="262" data-type="0" onclick="Compare.add(262,雀巢 中老年奶粉 850g雀巢,0, ${ctx}/statics/images/262_thumb_G_1456451850522.jpg, ¥75.0)"><i></i>对比</a>
             	<a id="collect_262" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -932,7 +848,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/261_thumb_G_1456451756248.jpg" src="${ctx}/statics/images/261_thumb_G_1456451756248.jpg" title="维维 维他型豆奶粉 560g" class="pic_img_261" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/261_thumb_G_1456451756248.jpg" src="${ctx}/statics/images/261_thumb_G_1456451756248.jpg" title="维维 维他型豆奶粉 560g" class="pic_img_261" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -944,7 +860,7 @@ $(function(){
             	<a href="##">维维 维他型豆奶粉 560g</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="261" data-type="0" onclick="Compare.add(261,&#39;维维 维他型豆奶粉 560g&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/261_thumb_G_1456451756248.jpg&#39;, &#39;¥15.9&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="261" data-type="0" onclick="Compare.add(261,维维 维他型豆奶粉 560g,0, ${ctx}/statics/images/261_thumb_G_1456451756248.jpg, ¥15.9)"><i></i>对比</a>
             	<a id="collect_261" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -960,7 +876,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/260_thumb_G_1456451682591.jpg" src="${ctx}/statics/images/260_thumb_G_1456451682591.jpg" title="伊利 女士高铁高钙奶粉 400g" class="pic_img_260" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/260_thumb_G_1456451682591.jpg" src="${ctx}/statics/images/260_thumb_G_1456451682591.jpg" title="伊利 女士高铁高钙奶粉 400g" class="pic_img_260" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -972,7 +888,7 @@ $(function(){
             	<a href="##">伊利 女士高铁高钙奶粉 400g</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="260" data-type="0" onclick="Compare.add(260,&#39;伊利 女士高铁高钙奶粉 400g&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/260_thumb_G_1456451682591.jpg&#39;, &#39;¥32.8&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="260" data-type="0" onclick="Compare.add(260,伊利 女士高铁高钙奶粉 400g,0, ${ctx}/statics/images/260_thumb_G_1456451682591.jpg, ¥32.8)"><i></i>对比</a>
             	<a id="collect_260" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -988,7 +904,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/259_thumb_G_1456451555948.jpg" src="${ctx}/statics/images/259_thumb_G_1456451555948.jpg" title="舒达源天然苏打水400ml*24" class="pic_img_259" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/259_thumb_G_1456451555948.jpg" src="${ctx}/statics/images/259_thumb_G_1456451555948.jpg" title="舒达源天然苏打水400ml*24" class="pic_img_259" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -1000,7 +916,7 @@ $(function(){
             	<a href="##">舒达源天然苏打水400ml*24</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="259" data-type="0" onclick="Compare.add(259,&#39;舒达源天然苏打水400ml*24&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/259_thumb_G_1456451555948.jpg&#39;, &#39;¥209.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="259" data-type="0" onclick="Compare.add(259,舒达源天然苏打水400ml*24,0, ${ctx}/statics/images/259_thumb_G_1456451555948.jpg, ¥209.0)"><i></i>对比</a>
             	<a id="collect_259" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -1016,7 +932,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/263_thumb_G_1456451965817.jpg" src="${ctx}/statics/images/263_thumb_G_1456451965817.jpg" title="伊利 学生高锌高钙奶粉400g" class="pic_img_263" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/263_thumb_G_1456451965817.jpg" src="${ctx}/statics/images/263_thumb_G_1456451965817.jpg" title="伊利 学生高锌高钙奶粉400g" class="pic_img_263" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -1028,7 +944,7 @@ $(function(){
             	<a href="##">伊利 学生高锌高钙奶粉400g</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="263" data-type="0" onclick="Compare.add(263,&#39;伊利 学生高锌高钙奶粉400g&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/263_thumb_G_1456451965817.jpg&#39;, &#39;¥32.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="263" data-type="0" onclick="Compare.add(263,伊利 学生高锌高钙奶粉400g,0, ${ctx}/statics/images/263_thumb_G_1456451965817.jpg, ¥32.0)"><i></i>对比</a>
             	<a id="collect_263" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -1044,7 +960,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/264_thumb_G_1456452043487.jpg" src="${ctx}/statics/images/264_thumb_G_1456452043487.jpg" title="藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加" class="pic_img_264" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/264_thumb_G_1456452043487.jpg" src="${ctx}/statics/images/264_thumb_G_1456452043487.jpg" title="藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加" class="pic_img_264" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -1056,7 +972,7 @@ $(function(){
             	<a href="##">藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="264" data-type="0" onclick="Compare.add(264,&#39;藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/264_thumb_G_1456452043487.jpg&#39;, &#39;¥49.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="264" data-type="0" onclick="Compare.add(264,藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加,0, ${ctx}/statics/images/264_thumb_G_1456452043487.jpg, ¥49.0)"><i></i>对比</a>
             	<a id="collect_264" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -1072,7 +988,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/265_thumb_G_1456452231528.jpg" src="${ctx}/statics/images/265_thumb_G_1456452231528.jpg" title="恒寿堂 蜜炼柠檬茶大瓶装850g/瓶" class="pic_img_265" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/265_thumb_G_1456452231528.jpg" src="${ctx}/statics/images/265_thumb_G_1456452231528.jpg" title="恒寿堂 蜜炼柠檬茶大瓶装850g/瓶" class="pic_img_265" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -1084,7 +1000,7 @@ $(function(){
             	<a href="##">恒寿堂 蜜炼柠檬茶大瓶装850g/瓶</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="265" data-type="0" onclick="Compare.add(265,&#39;恒寿堂 蜜炼柠檬茶大瓶装850g/瓶&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/265_thumb_G_1456452231528.jpg&#39;, &#39;¥32.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="265" data-type="0" onclick="Compare.add(265,恒寿堂 蜜炼柠檬茶大瓶装850g/瓶,0, ${ctx}/statics/images/265_thumb_G_1456452231528.jpg, ¥32.0)"><i></i>对比</a>
             	<a id="collect_265" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -1100,7 +1016,7 @@ $(function(){
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
           	<a href="##">
-            	<img data-original="images/201602/thumb_img/267_thumb_G_1456452393137.jpg" src="${ctx}/statics/images/267_thumb_G_1456452393137.jpg" title="艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2" class="pic_img_267" style="display: inline;">
+            	<img data-original="${ctx}/statics/images/267_thumb_G_1456452393137.jpg" src="${ctx}/statics/images/267_thumb_G_1456452393137.jpg" title="艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2" class="pic_img_267" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
@@ -1112,7 +1028,7 @@ $(function(){
             	<a href="##">艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="267" data-type="0" onclick="Compare.add(267,&#39;艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2&#39;,&#39;0&#39;, &#39;images/201602/thumb_img/267_thumb_G_1456452393137.jpg&#39;, &#39;¥29.0&#39;)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="267" data-type="0" onclick="Compare.add(267,艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2,0, ${ctx}/statics/images/267_thumb_G_1456452393137.jpg, ¥29.0)"><i></i>对比</a>
             	<a id="collect_267" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                                 <a href="##"></a>
@@ -1125,7 +1041,6 @@ $(function(){
    
 </form>
 <script type="Text/Javascript" language="JavaScript">
-<!--
 re_collect();
 function re_collect(id){
   goods_id = (typeof(id) == "undefined" ? 0 : id);
@@ -1144,7 +1059,7 @@ function re_collectResponse(result){
 function selectPage(sel){
   sel.form.submit();
 }
-//-->
+
 </script> 
 <script type="text/javascript">
 window.onload = function(){
@@ -1226,11 +1141,10 @@ $(function(){
   </div>
     </form>
 <script type="Text/Javascript" language="JavaScript">
-<!--
 function selectPage(sel){
   sel.form.submit();
 }
-//-->
+
 </script>         </div>
     </div>
     <div class="browse-history none">
@@ -1305,7 +1219,8 @@ $('.browse-history .history-recommend-change').click(function(){
                         <div class="cart-list quick-links-a" id="collectBox">
                             <i class="cart"></i>
                             <div class="span">购物车</div>
-                            <span class="ECS_CARTINFO"><form id="formCart" name="formCart" method="post" action=##">
+                            <span class="ECS_CARTINFO">
+<form id="formCart" name="formCart" method="post" action=##">
 	<span class="cart_num">0</span>
 	<div class="sidebar-cart-box">
         <h3 class="sidebar-panel-header">
@@ -1427,21 +1342,15 @@ function deleteCartGoodsResponse(res){
 							$('.pop-compare').css({'top':($(window).height()-$('.pop-compare').height())/2});
 						}
 						</script>
-												<div class="bonus-list">
-							 
-														 
-														 
-														 
-														 
-														 
-														 
-																				</div>
-						                    </div>
+							<div class="bonus-list">
+						</div>
+					</div>
                 </div>
             </div>
             
         	
-        	<div class="ECS_CARTINFO right-sidebar-panels"><form id="formCart" name="formCart" method="post" action="##">
+        	<div class="ECS_CARTINFO right-sidebar-panels">
+        	<form id="formCart" name="formCart" method="post" action="##">
 	<span class="cart_num">0</span>
 	<div class="sidebar-cart-box">
         <h3 class="sidebar-panel-header">
@@ -1561,7 +1470,7 @@ function deleteCartGoodsResponse(res){
                     <input type="text" id="authcode" name="captcha" class="text text-1" tabindex="3" placeholder="验证码">
                 </div>
                 <label class="img fl">
-                    <img src="${ctx}/statics/images/captcha.php" alt="captcha" style="vertical-align: middle;cursor: pointer;" onclick="this.src=&#39;captcha.php?is_login=1&amp;&#39;+Math.random()">
+                    <img src="" alt="captcha" style="vertical-align: middle;cursor: pointer;" onclick="this.src=captcha.php?is_login=1&amp;+Math.random()">
                 </label>
             </div>
                         <div class="safety" id="autoentry">
@@ -1724,7 +1633,7 @@ $("img").lazyload({
 	 failure_limit : 20
 });
 </script> 
-<script type="text/javascript" src="${ctx}/statics/js/compare(1).js"></script> 
+<script type="text/javascript" src="${ctx}/statics/js/compare.js"></script> 
 
 
 </body></html>

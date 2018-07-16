@@ -22,4 +22,10 @@ public class DetailsController {
         request.setAttribute("product", product);
         return "ProductDeatil";
     }
+	@RequestMapping(value="/Wine.html")
+	public String ProductWine(HttpServletRequest request) {
+		
+		
+		return "Wine";
+	}
 }
