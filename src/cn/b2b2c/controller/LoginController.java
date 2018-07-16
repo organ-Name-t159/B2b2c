@@ -61,7 +61,7 @@ public class LoginController {
 		//Md5加密
 		/*if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {*/
 		if (user!=null) {
-			if((password).equals(user.getPassword())){
+			if(SecurityUtils.md5Hex(password).equals(user.getPassword())){
 				System.out.println(userName+"  "+user.getPassword());
 				session.setAttribute("user", user);
 			return 200;
