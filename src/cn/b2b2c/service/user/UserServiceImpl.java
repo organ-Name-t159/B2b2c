@@ -44,6 +44,40 @@ public class UserServiceImpl implements UserService {
 		return uList;
 	}
 
+	@Override
+	public int update(Integer id, Integer userId, String consignee, String address, String addressPhone,
+			Integer postcode) throws Exception {
+		UserAddress uAddress=new UserAddress();
+		uAddress.setId(id);
+		uAddress.setUserId(userId);
+		uAddress.setConsignee(consignee);
+		uAddress.setAddress(address);
+		uAddress.setAddressPhone(addressPhone);
+		uAddress.setPostcode(postcode);
+		
+		return userMapper.update(uAddress);
+	}
+
+	@Override
+	public int addAddress(Integer userId, String consignee, String address, String addressPhone, Integer postcode)
+			throws Exception {
+		
+		UserAddress uAddress=new UserAddress();		
+		uAddress.setUserId(userId);
+		uAddress.setConsignee(consignee);
+		uAddress.setAddress(address);
+		uAddress.setAddressPhone(addressPhone);
+		uAddress.setPostcode(postcode);
+		
+		return userMapper.addAddress(uAddress);
+	}
+
+	@Override
+	public int deleteAddress(Integer userId, Integer id) throws Exception {
+		
+		return userMapper.deleteAddress(userId, id);
+	}
+
 	
 
 	

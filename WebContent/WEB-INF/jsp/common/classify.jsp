@@ -28,8 +28,8 @@
 									class="s-combobox-input" name="keywords" id="keyword"
 									tabindex="9" accesskey="s" onkeyup="STip(this.value, event);"
 									autocomplete="off" value="请输入关键词"
-									onfocus="if(this.value==&#39;请输入关键词&#39;){this.value=&#39;&#39;;}else{this.value=this.value;}"
-									onblur="if(this.value==&#39;&#39;)this.value=&#39;请输入关键词&#39;"
+									onfocus="if(this.value==请输入关键词){this.value=;}else{this.value=this.value;}"
+									onblur="if(this.value==)this.value=请输入关键词"
 									type="text">
 							</div>
 						</div>
@@ -60,10 +60,10 @@
 	<div class="all-nav all-nav-border">
 		<div class="w1210">
 			<div class="home-category fl hover">
-				<a href="" class="menu-event main-bg-color"
+				<a href="" id="quanbu" class="menu-event main-bg-color"
 					title="查看全部商品分类">全部商品分类<i></i></a>
 
-				<div class="expand-menu all-cat main-bg-color" id="xz">
+				<div class="all-cat main-bg-color" id="xz">
 					<!-- 商品分类开始 -->
 					<c:forEach items="${productCategoryVoList}" var="temp">
 						<div class="list">

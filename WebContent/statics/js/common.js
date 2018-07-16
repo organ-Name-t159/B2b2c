@@ -175,23 +175,140 @@ function refreshCart(){
  * @returns
  */
 function deleteCar(cartId){
+	if(confirm("确定删除商品吗")){
+		$.ajax({
+			url:contextPath+"/car/deleteCart.html",
+			method:"post",
+			data:{
+				number:cartId,
+				quantity:0
+			},
+			success:function(jsonStr){
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){
+					refreshCart();
+					cartFlow1();
+				}else{
+					alert("错误")
+				}
+			}
+		});
+	}else{
+		
+	}
+	
+	
+}
+
+/**
+ * 清空购物车
+ * @param cartId
+ * @returns
+ */
+function deleteCarAll(){
+	if(confirm("确定清空购物车吗")){
+		$.ajax({
+			url:contextPath+"/car/deleteCartAll.html",
+			method:"post",
+			data:{
+				
+			},
+			success:function(jsonStr){
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){
+					refreshCart();
+					cartFlow1();
+				}else{
+					alert("错误")
+				}
+			}
+		});
+	}else{}
+	
+	
+	
+}
+
+
+/**
+ * 修改购物车
+ * @param cartId
+ * @param number
+ * @returns
+ */
+function updateCar(cartId,number){	
+	if(number>0){
+		
+		$.ajax({
+			url:contextPath+"/car/deleteCart.html",
+			method:"post",
+			data:{
+				number:cartId,
+				quantity:number
+			},
+			success:function(jsonStr){
+				//$("#cartFlow").html(jsonStr);
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){					
+					refreshCart();
+					cartFlow1();					
+				}else{
+					alert("失败")
+				}
+			}
+		});
+	}else{
+		alert("不能再减了")
+	}
+		
+}
+
+/**
+ * 清空购物车
+ * @param cartId
+ * @returns
+ */
+function updateCarS(cartId){
+	var number=$("#goods_number_"+cartId).val();	
+	if(number>0){
+		
+		$.ajax({
+			url:contextPath+"/car/deleteCart.html",
+			method:"post",
+			data:{
+				number:cartId,
+				quantity:number
+			},
+			success:function(jsonStr){
+				//$("#cartFlow").html(jsonStr);
+				var result=eval("("+jsonStr+")");
+				if(result.status==1){					
+					refreshCart();
+					cartFlow1();					
+				}else{
+					alert("失败")
+				}
+			}
+		});
+	}else{
+		alert("不能再减了")
+	}
+		
+}
+
+function cartFlow1(){
 	$.ajax({
-		url:contextPath+"/car/deleteCart.html",
+		url:contextPath+"/car/getCart1.html",
 		method:"post",
 		data:{
-			number:cartId,
-			quantity:0
+			
 		},
 		success:function(jsonStr){
-			var result=eval("("+jsonStr+")");
-			if(result.status==1){
-				refreshCart();
-			}else{
-				alert("错误")
-			}
+			$("#cartFlow").html(jsonStr);
 		}
-	})
+	});
 }
+
 
 function cartFlow2(){
 	$.ajax({
@@ -203,8 +320,106 @@ function cartFlow2(){
 		success:function(jsonStr){
 			$("#cartFlow").html(jsonStr);
 		}
-	})
+	});
 }
+
+/**
+ * 提交地址信息
+ */
+function submitAddress() {
+	var address=$("#PopAddressTitle").html();
+	var consignee=$("input[name='consignee']").val();
+	var addressT=$("input[name='address']").val();	
+	var zipcode=$("input[name='zipcode']").val();
+	var mobile=$("input[name='mobile']").val();
+	var addressId=$("input[name='address_id']").val();
+	if(address=="使用新地址"){
+		/*alert("收件人:"+consignee)
+		alert("地址:"+addressT)		
+		alert("邮编:"+zipcode)
+		alert("手机号码:"+mobile)	*/	
+		$.ajax({
+			url:contextPath+"/address/addAddress.html",
+			method:"post",
+			data:{
+				consignee:consignee,
+				addressT:addressT,
+				zipcode:zipcode,
+				mobile:mobile
+			},
+			success:function(jsonStr){
+				if(jsonStr==1){
+					cartFlow2();
+				}else{
+					alert("新增失败")
+				}
+			}
+		
+		});
+		
+	}else{
+		
+		$.ajax({
+			url:contextPath+"/address/updateAddress.html",
+			method:"post",
+			data:{
+				addressId:addressId,
+				consignee:consignee,
+				addressT:addressT,
+				zipcode:zipcode,
+				mobile:mobile
+			},
+			success:function(jsonStr){
+				if(jsonStr==1){
+					cartFlow2();
+				}else{
+					alert("修改失败")
+				}
+				
+			}
+		});
+	}
+	
+}
+
+/**
+ * 删除用户地址
+ * @param comfirmId
+ * @returns
+ */
+function del_address_comfirm(comfirmId) {
+	if(confirm("确定删除地址吗")){
+		$.ajax({
+			url:contextPath+"/address/deleteAddress.html",
+			method:"post",
+			data:{
+				comfirmId:comfirmId
+			},
+			success:function(jsonStr){
+				if(jsonStr==1){
+					cartFlow2();
+				}else{
+					alert("删除失败")
+				}
+				
+			}
+		});
+	}else{
+		
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
 
 
 /* 组合购买__添加商品到购物车__Start By www.wrzc.net */

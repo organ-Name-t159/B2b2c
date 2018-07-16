@@ -11,26 +11,13 @@ var pay_balance_id = 4; //保存余额支付的id做为js全局变量
 
 <div class="header w990">
 	<div class="mall-logo">
-		<a href="${ctx}/product/index.html"><img
+		<a href="${ctx}/product/indexStatus.html"><img
 			src="${ctx}/statics/images/logo.gif"></a>
 	</div>
 </div>
 <div class="blank15"></div>
 <div class="block_jm">
 
-<script>
-function del_address_comfirm(comfirmId) {
-	$('.pop-compare,.pop-mask').show();
-	$('.pop-compare .pop-text').html('您确认要删除吗？');
-	$('.pop-compare').css({
-		'top': ($(window).height() - $('.pop-compare').outerHeight()) / 2
-	});
-	$('.cancel-btn').removeClass('none');
-	$('.pop-sure').click(function() {
-		del_Address(comfirmId);
-	})
-}
-</script>
 <div class="flowstep">
 	<ol class="flowstep-5">
 		<li class="step-first">
@@ -86,7 +73,7 @@ function del_address_comfirm(comfirmId) {
 					</table>
 				</div>
 				<div class="edit_addr" id="address_edit_${temp.id-1}">
-					<a href="javascript:void(0);" onclick="AddressEdit(${temp.id});">修改</a> <a onclick="del_address_comfirm(${temp.id})">删除</a>
+					<a href="javascript:void(0);" onclick="addressUpdate(${temp.id},'${temp.consignee}','${temp.address}',${temp.postcode},'${temp.addressPhone}')">修改</a> <a onclick="del_address_comfirm(${temp.id})">删除</a>
 				</div>
 			</li>
 		</c:forEach>
@@ -112,74 +99,16 @@ function del_address_comfirm(comfirmId) {
 										class="notice-text reciever-notice"></span>
 								</div></td>
 						</tr>
+						
 						<tr>
-							<td style="text-align: right;"><font class="main-color">*</font>所在地区</td>
-							<td><input type="hidden" name="country" value="1"> <select
-								name="province" id="selProvinces"
-								onchange="region.changed(this, 2, 'selCities');"
-								class="select_addr">
-									<option value="0">请选择</option>
-									<option value="2">北京</option>
-									<option value="3">安徽</option>
-									<option value="4">福建</option>
-									<option value="5">甘肃</option>
-									<option value="6">广东</option>
-									<option value="7">广西</option>
-									<option value="8">贵州</option>
-									<option value="9">海南</option>
-									<option value="10">河北</option>
-									<option value="11">河南</option>
-									<option value="12">黑龙江</option>
-									<option value="13">湖北</option>
-									<option value="14">湖南</option>
-									<option value="15">吉林</option>
-									<option value="16">江苏</option>
-									<option value="17">江西</option>
-									<option value="18">辽宁</option>
-									<option value="19">内蒙古</option>
-									<option value="20">宁夏</option>
-									<option value="21">青海</option>
-									<option value="22">山东</option>
-									<option value="23">山西</option>
-									<option value="24">陕西</option>
-									<option value="25">上海</option>
-									<option value="26">四川</option>
-									<option value="27">天津</option>
-									<option value="28">西藏</option>
-									<option value="29">新疆</option>
-									<option value="30">云南</option>
-									<option value="31">浙江</option>
-									<option value="32">重庆</option>
-									<option value="33">香港</option>
-									<option value="34">澳门</option>
-									<option value="35">台湾</option>
-							</select> <select name="city" id="selCities"
-								onchange="region.changed(this, 3, 'selDistricts');"
-								class="select_addr">
-									<option value="0">请选择</option>
-							</select> <select name="district" id="selDistricts" class="select_addr"
-								style="display: none;">
-									<option value="0">请选择</option>
-							</select>
-								<div class="required-notice fl">
-									<i class="notice-icon"></i><span
-										class="notice-text address-notice"></span>
-								</div></td>
-						</tr>
-						<tr>
-							<td style="text-align: right;"><font class="main-color">*</font>街道地址</td>
+							<td style="text-align: right;"><font class="main-color">*</font>地址</td>
 							<td><input type="text" name="address"
 								class="input_addr1 inputMiddle" value="">
 								<div class="required-notice">
 									<i class="notice-icon"></i><span
 										class="notice-text detail-address-notice"></span>
 								</div></td>
-						</tr>
-						<tr>
-							<td style="text-align: right;">电子邮箱</td>
-							<td><input type="text" name="email"
-								class="input_addr1 inputMiddle" value=""></td>
-						</tr>
+						</tr>						
 						<tr>
 							<td style="text-align: right;">邮编</td>
 							<td><input type="text" name="zipcode" class="input_addr3"
@@ -189,19 +118,10 @@ function del_address_comfirm(comfirmId) {
 							<td style="text-align: right;"><font class="main-color">*</font>手机号码</td>
 							<td><input type="text" name="mobile"
 								class="input_addr2 input_addr2_t" value="">
-								&nbsp;&nbsp;&nbsp;&nbsp;或固定电话 <input type="text" name="tel_01"
-								class="input_addr4" value=""> - <input type="text"
-								name="tel_02" class="input_addr3" value=""> - <input
-								type="text" name="tel_03" class="input_addr4" value=""></td>
+							</td>
 						</tr>
 						<tr>
-							<td></td>
-							<td><font color="#cccccc"
-								style="height: 30px; line-height: 30px; display: inline-block;">两者至少填写一项</font>
-							<div class="required-notice">
-									<i class="notice-icon"></i><span
-										class="notice-text phone-notice"></span>
-								</div></td>
+							<td></td>							
 						</tr>
 						<tr>
 							<td></td>
@@ -224,12 +144,23 @@ function del_address_comfirm(comfirmId) {
 		if(aid) {
 			document.getElementById('PopAddressTitle').innerHTML = '修改地址';
 			document.getElementById('popDiv').style.display = 'block';
+			
 		} else {
 			document.getElementById('PopAddressTitle').innerHTML = '使用新地址';
 			document.getElementById('popDiv').style.display = 'block';
 		}
 		
 	}
+	
+	function addressUpdate(aid,consignee,address,postcode,addressPhone){
+		$("input[name='consignee']").val(consignee);
+		$("input[name='address']").val(address);		
+		$("input[name='zipcode']").val(postcode);
+		$("input[name='mobile']").val(addressPhone);
+		$("input[name='address_id']").val(aid);
+		AddressEdit(aid);
+	}
+	
 
 	function AddressEdit_Response(result) {
 		var PopAddressCon = document.getElementById('PopAddressCon');
@@ -292,93 +223,7 @@ function del_address_comfirm(comfirmId) {
 		}
 	}
 
-	/**
-	 * 提交地址信息
-	 */
-	function submitAddress() {
-		var frm = document.forms['theForm'];
-		var cmt = new Object;
-		cmt.address_id = frm.elements['address_id'].value;
-		cmt.consignee = frm.elements['consignee'].value;
-		cmt.address = frm.elements['address'].value;
-		cmt.email = frm.elements['email'].value;
-		cmt.zipcode = frm.elements['zipcode'].value;
-		cmt.country = 1; //frm.elements['country'].value;
-		cmt.province = frm.elements['province'].value;
-		cmt.city = frm.elements['city'].value;
-		cmt.district = frm.elements['district'].value;
-		cmt.tel = frm.elements['tel_01'].value + "-" + frm.elements['tel_02'].value + (Utils.isEmpty(frm.elements['tel_03'].value) ? "" : "-" + frm.elements['tel_03'].value);
-		cmt.mobile = frm.elements['mobile'].value;
-		cmt.closediv = frm.elements['closediv'].value;
-		cmt.shipping_bian = frm.elements['shipping_bian'].value;
-		cmt.optionlength = frm.elements['district'].length;
-
-		if(cmt.consignee.length == 0) {
-			$('form[name=theForm]').find('.reciever-notice').html('收件人不能为空').parents('.required-notice').css('visibility', 'visible');
-			//alert('收件人不能为空！');
-			return false;
-		} else {
-			$('form[name=theForm]').find('.reciever-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-		}
-		if(cmt.optionlength > 1) {
-			if(cmt.province == '0' || cmt.city == '0' || cmt.district == '0') {
-				$('form[name=theForm]').find('.address-notice').html('所在地区不完整').parents('.required-notice').css('visibility', 'visible');
-				//alert('所在地区不完整！');
-				return false;
-			} else {
-				$('form[name=theForm]').find('.address-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-			}
-		} else {
-			if(cmt.province == '0' || cmt.city == '0') {
-				$('form[name=theForm]').find('.address-notice').html('所在地区不完整').parents('.required-notice').css('visibility', 'visible');
-				//alert('所在地区不完整！');
-				return false;
-			} else {
-				$('form[name=theForm]').find('.address-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-			}
-
-		}
-		if(cmt.email.length > 0 && (!Utils.isEmail(cmt.email))) {
-			alert('邮箱地址不正确');
-			return false;
-		}
-		if(cmt.address.length == 0) {
-			$('form[name=theForm]').find('.detail-address-notice').html('街道地址不能为空').parents('.required-notice').css('visibility', 'visible');
-			//alert('街道地址不能为空！');
-			return false;
-		} else {
-			$('form[name=theForm]').find('.detail-address-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-		}
-
-		if(cmt.mobile.length == 0 && (cmt.tel.length == 0 || cmt.tel == '--' || cmt.tel == '-')) {
-			$('form[name=theForm]').find('.phone-notice').html('手机号码和固定电话必须填写至少一项').parents('.required-notice').css('visibility', 'visible');
-			//alert('手机号码和固定电话必须填写至少一项！');
-			return false;
-		} else {
-			$('form[name=theForm]').find('.phone-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-		}
-		if(cmt.mobile.length > 0) {
-			var reg = /^1[34578][0-9]\d{8}$/;
-			if(!Utils.isMobile(cmt.mobile)) {
-				$('form[name=theForm]').find('.phone-notice').html('手机号码格式不正确').parents('.required-notice').css('visibility', 'visible');
-				//alert('手机号码格式不正确！');
-				return false;
-			} else {
-				$('form[name=theForm]').find('.phone-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-			}
-		}
-		if(cmt.tel.length > 0 && cmt.tel != '--' && cmt.tel != '-') {
-			var reg = /^[\d|\-|\s]+$/;
-			if(!Utils.isTel(cmt.tel)) {
-				$('form[name=theForm]').find('.phone-notice').html('固定电话格式不正确').parents('.required-notice').css('visibility', 'visible');
-				//alert('固定电话格式不正确！');
-				return false;
-			} else {
-				$('form[name=theForm]').find('.phone-notice').html('').parents('.required-notice').css('visibility', 'hidden');
-			}
-		}
-		Ajax.call('', 'address=' + $.toJSON(cmt), addressResponse, 'POST', 'JSON');
-	}
+	
 
 	/* 处理提交地址的反馈信息  */
 	function addressResponse(result) {
@@ -398,7 +243,7 @@ function del_address_comfirm(comfirmId) {
 		<ul>
 		<c:forEach items="${deliveryTime}" var="add" varStatus="status">
 			<li class="curr" id="time_id_${status.index+1}"
-				onclick="javascript:setTimeSh(&#39;1&#39;);"><input
+				onclick="javascript:setTimeSh(1);"><input
 				id="time_delivery${status.index+1}" type="radio" name="best_time" value="${add.id}"
 				checked="checked"> <label for="time_delivery${status.index+1}">${add.timeName}</label>
 			</li>
@@ -499,7 +344,7 @@ $(function() {
 								<td><select name="bonus[0]"
 									onchange="TiscountCoupon(${sessionScope.cart.sum})" id="ECS_BONUS_0"
 									class="otherinput">
-										<option value="0" selected="">请选择</option>
+										<option value="0" selected="selected">请选择</option>
 										<c:forEach items="${lCoupons}" var="lc">
 										<option value="${lc.id}">店铺：${lc.issue}|满${lc.use}可用|优惠:[¥${lc.money}]</option>
 										</c:forEach>										
@@ -510,11 +355,11 @@ $(function() {
 								<td><label id="Bonus_span_0" style="display: none;">
 										<input name="bonus_sn[0]" id="bonus_sn_0" type="text"
 										size="15" value="输入优惠券"
-										onfocus="if (value ==&#39;输入优惠券&#39;){value =&#39;&#39;}"
-										onblur="if (value ==&#39;&#39;){value=&#39;输入优惠券&#39;}"
+										onfocus="if (value ==输入优惠券){value =}"
+										onblur="if (value ==){value=输入优惠券}"
 										class="input_addr2"> <input name="validate_bonus"
 										type="button" value="使用"
-										onclick="validateBonus(document.getElementById(&#39;bonus_sn_0&#39;).value,0)"
+										onclick="validateBonus(document.getElementById(bonus_sn_0).value,0)"
 										class="BonusButton">
 								</label></td>
 							</tr>
@@ -560,140 +405,7 @@ $(function() {
 							</tr>
 						</tbody>
 
-						<tbody id="vat_invoice_tbody" style="display: none;"
-							width="100%" cellpadding="5" cellspacing="0">
-							<tr>
-								<td colspan="3" align="left"><strong
-									style="font-size: 16px;">公司信息</strong></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>单位名称：</td>
-								<td colspan="2"><input name="vat_inv_company_name"
-									type="text" class="otherinput2"></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>纳税人识别号：</td>
-								<td width="300" style="width: 300px;"><input
-									name="vat_inv_taxpayer_id" type="text"
-									onblur="javascript:check_taxpayer_id(this,&quot;taxpayer_notice&quot;)"
-									class="otherinput2"></td>
-								<td>&nbsp;<span id="taxpayer_notice"
-									style="font-size: 12px; color: #f00;"></span></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>注册地址：</td>
-								<td colspan="2"><input
-									name="vat_inv_registration_address" type="text"
-									class="otherinput2"></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>注册电话：</td>
-								<td colspan="2"><input name="vat_inv_registration_phone"
-									type="text" class="otherinput2"></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>开户银行：</td>
-								<td colspan="2"><input name="vat_inv_deposit_bank"
-									type="text" class="otherinput2"></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>银行账户：</td>
-								<td><input name="vat_inv_bank_account" type="text"
-									onblur="javascript:check_bank_account(this,&quot;bank_account_notice&quot;)"
-									class="otherinput2"></td>
-								<td>&nbsp;<span id="bank_account_notice"
-									style="font-size: 12px; color: #f00;"></span></td>
-							</tr>
-							<tr>
-								<td colspan="3" align="left" style="padding: 10px 0px"><strong
-									style="font-size: 16px;">收票人信息</strong></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>收票人姓名：</td>
-								<td colspan="2"><input name="inv_consignee_name"
-									type="text" class="otherinput2"></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>收票人手机：</td>
-								<td><input name="inv_consignee_phone" type="text"
-									onblur="javascript:check_phone_number(this,&quot;phone_number_notice&quot;)"
-									class="otherinput2"></td>
-								<td>&nbsp;<span id="phone_number_notice"
-									style="font-size: 12px; color: #f00;"></span></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>收票人省份：</td>
-								<td colspan="2"><input type="hidden" name="country"
-									value="1"> <select name="inv_consignee_province"
-									id="selProvinces"
-									onchange="region.changed(this, 2, &#39;selCities&#39;);">
-										<option value="0">请选择省</option>
-										<option value="2">北京</option>
-										<option value="3">安徽</option>
-										<option value="4">福建</option>
-										<option value="5">甘肃</option>
-										<option value="6">广东</option>
-										<option value="7">广西</option>
-										<option value="8">贵州</option>
-										<option value="9">海南</option>
-										<option value="10">河北</option>
-										<option value="11">河南</option>
-										<option value="12">黑龙江</option>
-										<option value="13">湖北</option>
-										<option value="14">湖南</option>
-										<option value="15">吉林</option>
-										<option value="16">江苏</option>
-										<option value="17">江西</option>
-										<option value="18">辽宁</option>
-										<option value="19">内蒙古</option>
-										<option value="20">宁夏</option>
-										<option value="21">青海</option>
-										<option value="22">山东</option>
-										<option value="23">山西</option>
-										<option value="24">陕西</option>
-										<option value="25">上海</option>
-										<option value="26">四川</option>
-										<option value="27">天津</option>
-										<option value="28">西藏</option>
-										<option value="29">新疆</option>
-										<option value="30">云南</option>
-										<option value="31">浙江</option>
-										<option value="32">重庆</option>
-										<option value="33">香港</option>
-										<option value="34">澳门</option>
-										<option value="35">台湾</option>
-								</select> <select name="inv_consignee_city" id="selCities"
-									onchange="region.changed(this, 3, &#39;selDistricts&#39;);">
-										<option value="0">请选择</option>
-								</select> <select name="inv_consignee_district" id="selDistricts"
-									style="display: none;">
-										<option value="0">请选择</option>
-								</select></td>
-							</tr>
-							<tr>
-								<td align="right"><em style="color: #e4393c">*</em>详细地址：</td>
-								<td colspan="2"><input name="inv_consignee_address"
-									type="text" class="otherinput2"></td>
-							</tr>
-						</tbody>
-
-						<tbody id="normal_invoice_tbody" style="display: none">
-							<tr>
-								<td align="right">发票抬头：</td>
-								<td colspan="2"><input id="individual_inv" type="radio"
-									onclick="changeNeedInv()" name="inv_payee_type"
-									value="individual" checked="true"
-									style="vertical-align: middle"> <label
-									for="individual_inv" style="vertical-align: middle">个人</label>
-									<input id="unit_inv" type="radio" onclick="changeNeedInv()"
-									name="inv_payee_type" value="unit"
-									style="vertical-align: middle"> <label
-									for="unit_inv" style="vertical-align: middle">单位</label>
-									&nbsp;&nbsp; <input id="ECS_INVPAYEE" name="inv_payee"
-									class="otherinput2"
-									style="display: none; vertical-align: middle" disabled=""></td>
-							</tr>
-						</tbody>
+						
 					</table>
 				</div>
 			</td>
@@ -787,7 +499,7 @@ $(function() {
 									<tr>
 										<td align="right" bgcolor="#ffffff">应付款金额： <font
 										class="main-color"
-										style="font-size: 18px; font-family: 微软雅黑;" id="moneyAll">¥${sessionScope.cart.sum-dCoupon.money-15.0}</font>
+										style="font-size: 18px; font-family: 微软雅黑;" id="moneyAll" >¥${sessionScope.cart.sum-dCoupon.money-15.0}</font>
 										</td>
 									</tr>
 								</tbody>
@@ -815,7 +527,7 @@ $(function() {
 
 					<li><label for="payment_other1"> <input
 						id="payment_other1" type="radio" name="payment_other"
-						onclick="selectPayment(this);document.getElementById(&#39;payment_other_input&#39;).value=this.value;"
+						onclick="selectPayment(this);document.getElementById(payment_other_input).value=this.value;"
 						value="1"> <img align="absmiddle"
 						src="${ctx}/statics/images/pay_alipay.gif" alt="支付宝">
 					</label></li>
@@ -871,7 +583,7 @@ style="border: none; padding-bottom: 20px;">
 	<div
 	style="float: right; width: 55%; text-align: right; padding: 8px 20px;">
 
-		<input onclick="cartSumit(${user.id})" type="image"
+		<input onclick="cartSumit(${user.id},${sessionScope.cart.sum-15.0})" type="image"
 		src="${ctx}/statics/images/btn_done.png" align="absmiddle">
 
 		<input name="need_inv" style="display: none;" type="checkbox"

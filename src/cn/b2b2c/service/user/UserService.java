@@ -22,4 +22,55 @@ public interface UserService {
 	 */
 	public List<UserAddress> getAll(Integer userId)throws Exception;
 	
+	
+	/**
+	 * 修改用户地址
+	 * @param id
+	 * @param userId
+	 * @param consignee
+	 * @param address
+	 * @param addressPhone
+	 * @param postcode
+	 * @return
+	 * @throws Exception
+	 */
+	public int update(Integer id
+					,Integer userId
+					,String consignee
+					,String address
+					,String addressPhone
+					,Integer postcode)throws Exception;
+	
+	
+	
+	/**
+	 * 新增用户地址
+	 * @param userId
+	 * @param consignee
+	 * @param address
+	 * @param addressPhone
+	 * @param postcode
+	 * @return
+	 * @throws Exception
+	 */
+	public int addAddress(
+					Integer userId
+					,String consignee
+					,String address
+					,String addressPhone
+					,Integer postcode)throws Exception;
+	
+	
+	/**
+	 * 删除用户地址
+	 * @param userId
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	public int deleteAddress(Integer userId,Integer id)throws Exception;
+	
+	
+	
+	
 }

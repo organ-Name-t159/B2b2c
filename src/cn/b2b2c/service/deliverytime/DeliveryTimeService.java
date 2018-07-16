@@ -8,5 +8,8 @@ public interface DeliveryTimeService {
 	
 	
 	public List<DeliveryTime> getAll()throws Exception;
+	
+	
+	public DeliveryTime getId(Integer id)throws Exception;
 
 }

@@ -8,7 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<!--<style>
 			::-webkit-input-placeholder {
 				text-overflow: ellipsis;
@@ -39,7 +38,7 @@
 		<script type="text/javascript" src="${ctx}/statics/js/messages_zh.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/placeholder.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
-		<script type="text/javascript" src="${ctx}/statics/js/transport.js"></script>
+		<%-- <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%>
 		<script type="text/javascript" src="${ctx}/statics/js/common.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/register.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/zz.js"></script>

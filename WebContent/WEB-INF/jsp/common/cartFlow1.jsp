@@ -5,7 +5,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <div class="header w990">
 	<div class="mall-logo">
-		<a href="${ctx}/product/index.html"><img
+		<a href="${ctx}/product/indexStatus.html"><img
 			src="${ctx}/statics/images/logo.gif"></a>
 	</div>
 </div>
@@ -43,11 +43,11 @@
 	<script type="text/javascript" src="${ctx}/statics/js/showdiv.js">
   </script>
 	<div>
-		<script>document.write(unescape('%3Cscript id="_ju_" src="#js/showdiv.js?_t=1527673572045" %3E%3C/script%3E') );
-  </script>
+		<!-- <script>document.write(unescape('%3Cscript id="_ju_" src="#js/showdiv.js?_t=1527673572045" %3E%3C/script%3E') );
+  </script> -->
 		<script id="_ju_" src="${ctx}/statics/images/showdiv1.js"></script>
 	</div>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
       var user_name_empty = "请输入您的用户名！";
       var email_address_empty = "请输入您的电子邮件地址！";
       var email_address_error = "您输入的电子邮件地址格式不正确！";
@@ -56,7 +56,7 @@
       var both_password_error = "您两次输入的密码不一致！";
       var show_div_text = "请点击更新购物车按钮";
       var show_div_exit = "关闭";
-    </script>
+    </script> -->
 	<div class="blank15"></div>
 
 	<div class="flowBox_jm">
@@ -78,7 +78,7 @@
 				</tbody>
 			</table>
 		</div>
-		<form id="formCart1" name="formCart" method="post" action="">
+		<!-- <form id="formCart1" name="formCart" method="post" action=""> -->
 			<table align="center" cellpadding="0" cellspacing="0"
 				style="height: auto; width: 100%;">
 				<tbody>
@@ -125,13 +125,13 @@
 										</td>
 										<td align="center" width="15%">
 											<div class="jm_cartnum">
-												<span class="jmminu" onclick="minus_num(${temp.product.id},143,0,0);">-</span>
+												<span class="jmminu" onclick="updateCar(${temp.product.id},${temp.quantity-1})">-</span>
 												<input type="text" name="goods_number[${temp.product.id}]"
 													id="goods_number_${temp.product.id}" value="${temp.quantity}" size="4" class="jminputBg"
-													onkeydown="if(event.keyCode == 13) event.returnValue = false"
-													onblur="change_price('${temp.product.id}',143,0)"> <input
+													onkeydown=""
+													onblur="updateCarS(${temp.product.id})"> <input
 													type="hidden" id="hidden_936" value="${temp.quantity}"> <span
-													class="jmadd" onclick="javascript:add_num(${temp.product.id},143,0,0)">+</span>
+													class="jmadd" onclick="updateCar(${temp.product.id},${temp.quantity+1})">+</span>
 											</div>
 										</td>
 										<td align="center" width="15%"><font class="cart_jmprice"
@@ -166,14 +166,14 @@
 			</table>
 
 			<input type="hidden" name="step" id="actname" value="update_cart">
-		</form>
+		<!-- </form> -->
 		<table width="100%" align="center" border="0" cellpadding="5"
 			cellspacing="6" style="border-top: 1px solid #eee;">
 			<tbody>
 				<tr>
 					<td width="150"><a href="${ctx}/product/index.html"
 						class="continue_buy">继续购物</a></td>
-					<td align="right" width="80"><a href="" class="jmclear"><font
+					<td align="right" width="80"><a href="javascript:void(0);" class="jmclear" onclick="deleteCarAll()"><font
 							color="#aaaaaa">清空购物车 </font></a></td>
 					<td align="right" id="cart_money_info">应付总额： <span>¥${sessionScope.cart.sum}</span>，比市场价
 						¥${sessionScope.cart.sum} 节省了 ¥716.70 (26%)
@@ -186,7 +186,7 @@
 		</table>
 
 		<script type="text/javascript" charset="utf-8">
-	function chkAll_onclick(){
+	/* function chkAll_onclick(){
 		var obj = document.getElementById('chkAll');
 		var obj_cartgoods = document.getElementsByName("sel_cartgoods[]");
 		for (var i=0;i<obj_cartgoods.length;i++){
@@ -226,8 +226,8 @@
 	     	document.getElementById('zk_'+res.suppid).innerHTML = res.your_discount;
 		 }
 	  }
-	}
-	function selcart_submit(){
+	} */
+	/* function selcart_submit(){
 	      var obj_cartgoods = document.getElementsByName("sel_cartgoods[]");
 	      var formobj = document.getElementById('formCart1');
 	      var j=0;
@@ -248,11 +248,11 @@
 			$('.pop-compare').css({'top':($(window).height()-$('.pop-compare').outerHeight())/2});	
 			return false;
 	     }
-	}
+	} */
 	</script>
 
 
-		<script>
+		<!-- <script>
 	function add_num(rec_id,goods_id,supp_id,is_package){
 		document.getElementById("goods_number_"+rec_id+"").value++;
 		var sel_goods = new Array();
@@ -337,11 +337,11 @@ if(result.error == 1){
 }
 
 }
-</script>
+</script> -->
 
 
 
-		<script type="text/javascript" charset="utf-8">
+		<!-- <script type="text/javascript" charset="utf-8">
         function collect_to_flow(goodsId){
           var goods        = new Object();
           var spec_arr     = new Array();
@@ -369,13 +369,13 @@ if(result.error == 1){
             location.href = 'flow.php';
           }
         }
-      </script>
+      </script> -->
 
 	</div>
 	<div class="blank15"></div>
 
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	var hotboxtit = document.getElementById("HotBoxTit");
 	var hotbox = document.getElementById("HotBox");
 	var hottlist = hotboxtit.getElementsByTagName("li");
@@ -393,7 +393,7 @@ if(result.error == 1){
 		}
 		}
 	}
-	</script>
+	</script> -->
 
 
 

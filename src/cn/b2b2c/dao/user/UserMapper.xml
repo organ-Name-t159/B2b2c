@@ -33,4 +33,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</select>
+	
+	<insert id="addAddress" parameterType="UserAddress">
+		INSERT INTO `user_address`(`userId`,`consignee`,`address`,`addressPhone`,`postcode`)
+		VALUES(#{userId},#{consignee},#{address},#{addressPhone},#{postcode})
+	</insert>
+	
+	<update id="update" parameterType="UserAddress">
+		UPDATE `user_address` ua
+		<trim prefix="set" suffixOverrides=",">
+			<if test="consignee !=null">ua.`consignee`=#{consignee},</if>
+			<if test="address !=null">ua.`address`=#{address},</if>
+			<if test="addressPhone !=null">ua.`addressPhone`=#{addressPhone},</if>
+			<if test="postcode !=null">ua.`postcode`=#{postcode},</if>
+		</trim>
+		WHERE ua.`userId`=#{userId} AND ua.`id`=#{id}
+	</update>
+	
+	<delete id="deleteAddress">
+		DELETE FROM `user_address` WHERE `userId`=#{uId} AND `id`=#{aId}
+	</delete>
+	
+	
+	
 </mapper>

@@ -24,6 +24,12 @@ public class IndexController {
 	@Resource
 	private ProductService productService;
 	
+	@RequestMapping(value="/indexStatus.html")
+	public String indexStatus()throws Exception {
+				
+		return "index";
+	}
+	
 	
 	@RequestMapping(value="/index.html")
 	public String index(Model model,HttpSession session)throws Exception {

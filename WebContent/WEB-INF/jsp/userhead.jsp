@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/wrzc_common.css" />
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/flow.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/category.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/goods.css">
 <script type="text/javascript" src="${ctx}/stiatics/js/global.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
@@ -21,7 +22,7 @@
 	src="${ctx}/statics/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/messages_zh.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/transport.js"></script>
+<%--  <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%> 
 <script type="text/javascript" src="${ctx}/statics/js/common.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/bubbleup.js"></script>
@@ -29,16 +30,20 @@
 <script type="text/javascript" src="${ctx}/statics/js/common.min.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/page.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/bubbleup.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/nav.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jump.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/tab.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/magiczomm_plus.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/magiczoom.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/compare.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/gw_totop.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/scrollpic.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statics/js/jquery-lazyload.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/index.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/arrive_notice.js"></script>
-<script type="text/javascript"
-	src="${ctx}/statics/js/indexPrivate.min.js"></script>
+<%-- <script type="text/javascript"
+	src="${ctx}/statics/js/indexPrivate.min.js"></script> --%>
 <script type="text/javascript">
 	var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
 	var btn_buy = "购买";
@@ -76,7 +81,7 @@ function outUser(){
 			<ul class="sn-quick-menu">
 				<li class="sn-mytaobao menu-item">
 					<div class="sn-menu">
-						<a class="menu-hd" href="#">我的信息<b></b></a>
+						<a class="menu-hd" href="${ctx}/user/welocome.html">我的信息<b></b></a>
 						<div id="menu-2" class="menu-bd">
 							<div class="menu-bd-panel">
 								<a href="#">已买到的宝贝</a> <a href="#">我的地址管理</a>

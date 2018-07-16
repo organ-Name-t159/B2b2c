@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import cn.b2b2c.dao.order.OrderMapper;
+import cn.b2b2c.pojo.DistributionWay;
 import cn.b2b2c.pojo.Order;
 
 @Service
@@ -42,6 +43,18 @@ public class OrderServiceImpl implements OrderService {
 	public Integer getId(String serialNumber) throws Exception {
 		
 		return orderMapper.getId(serialNumber);
+	}
+
+	@Override
+	public DistributionWay getDistributionWayId(Integer id) {
+		
+		return orderMapper.getDistributionWayId(id);
+	}
+
+	@Override
+	public int updateOrder(String serialNumber) throws Exception {
+		
+		return orderMapper.updateOrder(serialNumber);
 	}
 
 	

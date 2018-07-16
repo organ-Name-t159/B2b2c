@@ -20,5 +20,11 @@ public class PaymentWaySerivceImpl implements PaymentWaySerivce {
 		
 		return paymentWayMapper.getAll();
 	}
+
+	@Override
+	public PaymentWay getId(Integer id) throws Exception {
+		
+		return paymentWayMapper.getId(id);
+	}
 	
 }

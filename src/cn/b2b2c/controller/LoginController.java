@@ -1,5 +1,7 @@
 package cn.b2b2c.controller;
 
+import java.util.regex.Pattern;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,21 +45,29 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping(value="/loginSuccess",method=RequestMethod.POST)
-	public String loginSuccess(String userName,String password, Model model,HttpSession session) {
+	@ResponseBody
+	public Object loginSuccess(HttpServletRequest request, Model model,HttpSession session) {
 		User user=new User();
-		if (userName.length()==11) {
+		String userName=request.getParameter("userName");
+		String password=request.getParameter("password");
+		Pattern pattern = Pattern.compile("[0-9]*");
+		if (pattern.matcher(userName).matches()&&userName.length()==11) {
 			user=userService.phoneLogin(userName);
 		}else{
 			user=userService.userLogin(userName);
-		}
-		//Md5加密
-		if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {
-		/*if(password.equals(user.getPassword())){*/
-			session.setAttribute("user", user);
-		return "redirect:/product/index.html";
+		
 		}
 		
-		  return "error";
+		//Md5加密
+		/*if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {*/
+		if (user!=null) {
+			if((password).equals(user.getPassword())){
+				System.out.println(userName+"  "+user.getPassword());
+				session.setAttribute("user", user);
+			return 200;
+			}
+		}	
+		 return "error";
 	}
 	//退出登陆 跳转
 	@RequestMapping(value="/outLogin")
