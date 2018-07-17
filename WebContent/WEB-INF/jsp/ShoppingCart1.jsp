@@ -187,7 +187,7 @@ var moneyAll="";
 
 
 function Uaddress(UaddressId){
-	UaddressIdN=UaddressId;
+	UaddressIdN=UaddressId;	
 }
 
 function TiscountCoupon(money){
@@ -236,6 +236,18 @@ function cartSumit(userId,moneyS){
 	alert("留言:"+leaveWord)
 	alert("总金额:"+moneyAll)
 	alert("支付方式:"+paymentWayId) */
+	
+	if(UaddressIdN==""||UaddressIdN==null){
+		alert("请选择地址")
+		return false;
+	}else if(uTime==""||uTime==null){
+		alert("请选择送货时间")
+		return false;
+	}else if(paymentWayId==""||paymentWayId==null){
+		alert("请选择支付方式")
+		return false;
+	}	
+	
 	if(paymentWayId==2){
 		$.ajax({
 			url:contextPath+"/car/orderAll.html",
