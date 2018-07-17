@@ -49,25 +49,28 @@ public class LoginController {
 	public Object loginSuccess(HttpServletRequest request, Model model,HttpSession session) {
 		User user=new User();
 		String userName=request.getParameter("userName");
+		System.out.println(userName);
 		String password=request.getParameter("password");
 		Pattern pattern = Pattern.compile("[0-9]*");
 		if (pattern.matcher(userName).matches()&&userName.length()==11) {
 			user=userService.phoneLogin(userName);
+			System.out.println(userName+"1");
 		}else{
 			user=userService.userLogin(userName);
-		
+			System.out.println(userName+"2");
 		}
 		
 		//Md5加密
 		/*if (SecurityUtils.md5Hex(password).equals(user.getPassword())) {*/
 		if (user!=null) {
+			System.out.println(userName+"3");
 			if(SecurityUtils.md5Hex(password).equals(user.getPassword())){
-				System.out.println(userName+"  "+user.getPassword());
+				System.out.println(userName+"  "+user.getPassword()+" "+SecurityUtils.md5Hex(password));
 				session.setAttribute("user", user);
 			return 200;
 			}
 		}	
-		 return "error";
+		 return "404";
 	}
 	//退出登陆 跳转
 	@RequestMapping(value="/outLogin")
