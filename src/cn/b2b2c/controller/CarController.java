@@ -86,7 +86,7 @@ public class CarController {
 
         //设置请求参数
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
-        alipayRequest.setReturnUrl(AlipayConfig.return_url);
+        alipayRequest.setReturnUrl(AlipayConfig.return_url2);
         alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 
         //商户订单号，商户网站订单系统中唯一订单号，必填
@@ -105,8 +105,7 @@ public class CarController {
                 + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
 
         //请求
-        String result = alipayClient.pageExecute(alipayRequest).getBody();
-
+        String result = alipayClient.pageExecute(alipayRequest).getBody();        
         response.setContentType("text/html;charset=" + AlipayConfig.charset);
         response.getWriter().write(result);//直接将完整的表单html输出到页面
         response.getWriter().flush();
@@ -118,12 +117,15 @@ public class CarController {
 	public String returnUrl(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		HttpSession session=request.getSession();
 		String number=(String)session.getAttribute("serialNumber");
-		System.out.println(number);
+		String pId=(String)session.getAttribute("paymentWayId");
+		//System.out.println(number);
 		if(orderService.updateOrder(number)==1) {
-			return "success";
+			System.out.println("改变状态成功");
 		}
-		
-		return "error";
+		if(Integer.parseInt(pId)==1) {
+			return "common/ShoppingOrder";
+		}
+		return "index";
 	}
 	
 	
@@ -278,7 +280,7 @@ public class CarController {
 	
 	
 	@RequestMapping(value="/orderAll.html",method=RequestMethod.POST)
-	public Object orderAll(HttpServletRequest request)throws Exception {
+	public Object orderAll(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		HttpSession session=request.getSession();
 		String userId=request.getParameter("userId");
 		String UaddressIdN=request.getParameter("UaddressIdN");
@@ -325,16 +327,55 @@ public class CarController {
 		DeliveryTime dTime =deliveryTimeService.getId(Integer.parseInt(uTime));
 		session.setAttribute("serialNumber", serialNumber);
 		//request.setAttribute("serialNumber", serialNumber);
-		request.setAttribute("monetAll", monetAll);
-		request.setAttribute("paymentWayId", paymentWayId);
-		request.setAttribute("dWay", dWay);
-		request.setAttribute("pWay", pWay);
-		request.setAttribute("dTime", dTime);
+		//session.setAttribute(arg0, arg1);
+		session.setAttribute("monetAll", monetAll);
+		session.setAttribute("paymentWayId", paymentWayId);
+		session.setAttribute("dWay", dWay);
+		session.setAttribute("pWay", pWay);
+		session.setAttribute("dTime", dTime);
+		session.removeAttribute("cart");
+		if(Integer.parseInt(paymentWayId)==1) {
+			//获得初始化的AlipayClient
+	        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
+
+	        //设置请求参数
+	        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+	        alipayRequest.setReturnUrl(AlipayConfig.return_url2);
+	        alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
+
+	        //商户订单号，商户网站订单系统中唯一订单号，必填
+	        String out_trade_no = serialNumber;
+	        //付款金额，必填
+	        String total_amount = monetAll;
+	        //订单名称，必填
+	        String subject = serialNumber;
+	        //商品描述，可空
+	        String body = "";
+
+	        alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\"," 
+	                + "\"total_amount\":\""+ total_amount +"\"," 
+	                + "\"subject\":\""+ subject +"\"," 
+	                + "\"body\":\""+ body +"\"," 
+	                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+	        //请求
+	        String result = alipayClient.pageExecute(alipayRequest).getBody();
+
+	        response.setContentType("text/html;charset=" + AlipayConfig.charset);
+	        response.getWriter().write(result);//直接将完整的表单html输出到页面
+	        response.getWriter().flush();
+	        response.getWriter().close();
+			
+		}
+		
 		return "common/cartFlow3";
 	}
 	
 	
-	
+	@RequestMapping(value="/cartFlow3.html")
+	public String cartFlow3() {
+		return "common/cartFlow3";
+	}
 	
 	
 	

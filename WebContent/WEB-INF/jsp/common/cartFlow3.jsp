@@ -65,7 +65,7 @@
 						</table>
 					</td>
 				</tr>
-				<c:if test="${pWay.id==1}">
+				<c:if test="${pWay.id==2}">
 				<tr>
 					<td align="center" style="padding-bottom: 30px;">
 						<div style="text-align: center">
@@ -78,7 +78,7 @@
 					</td>
 				</tr>	
 				</c:if>
-				<c:if test="${pWay.id==2}">
+				<c:if test="${pWay.id==1}">
 				<tr>
 					<td align="center" style="padding-bottom: 30px;">
 						<div style="text-align: center">
