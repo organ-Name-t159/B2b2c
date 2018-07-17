@@ -73,7 +73,7 @@ function outUser(){
 				class="sn-register" href="${ctx}/register/regist">免费注册</a>
 			</c:if>
 			<c:if test="${sessionScope.user!=null && sessionScope.user!=''}">
-			<a class="sn-login main-color">${sessionScope.user.userName}</a>
+			<a class="sn-login main-color">${sessionScope.user.phone}</a>
 			<em>欢迎你回来</em>
 			<a class="sn-registre" href="${ctx}/register/outLogin" onclick="return outUser();">退出</a>
 			</c:if>

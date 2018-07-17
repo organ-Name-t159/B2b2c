@@ -176,7 +176,7 @@
 					<td align="right" width="80"><a href="javascript:void(0);" class="jmclear" onclick="deleteCarAll()"><font
 							color="#aaaaaa">清空购物车 </font></a></td>
 					<td align="right" id="cart_money_info">应付总额： <span>¥${sessionScope.cart.sum}</span>，比市场价
-						¥${sessionScope.cart.sum} 节省了 ¥716.70 (26%)
+						¥${sessionScope.cart.sum*1.26} 节省了 ¥${sessionScope.cart.sum*0.26} (26%)
 					</td>
 					<td align="right" width="150"><a href="javascript:void(0);"
 						onclick="cartFlow2()" class="jmcheckout"

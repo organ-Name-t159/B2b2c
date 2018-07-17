@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>购物车</title>
-<%@include file="userhead.jsp"%>
+<%@include file="/WEB-INF/jsp/userhead.jsp"%>
 <body style="cursor: auto;">
 	<div id="popup_window" style="display: none;">
 		<div class="pop_head">请输入余额支付密码</div>
@@ -27,7 +27,7 @@
 	</div>
 	<div id="cartFlow">
 	<!-- 流程---------------------------------- -->
-	 <%@include file="common/cartFlow1.jsp" %> 
+	 <%@include file="/WEB-INF/jsp/common/cartFlow3.jsp" %> 
 	<%-- <%@include file="common/cartFlow2.jsp" %> --%>
 	<!-- 流程---------------------------------- -->
 	</div>
@@ -94,7 +94,7 @@
 	</div>
 
 	
-	<%@include file="foot.jsp"%>
+	<%@include file="/WEB-INF/jsp/foot.jsp"%>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/statics/images/order_pickpoint.js"></script>
 	<div class="choose" id="choose" style="display: none"></div>
@@ -187,7 +187,7 @@ var moneyAll="";
 
 
 function Uaddress(UaddressId){
-	UaddressIdN=UaddressId;	
+	UaddressIdN=UaddressId;
 }
 
 function TiscountCoupon(money){
@@ -236,18 +236,6 @@ function cartSumit(userId,moneyS){
 	alert("留言:"+leaveWord)
 	alert("总金额:"+moneyAll)
 	alert("支付方式:"+paymentWayId) */
-	
-	if(UaddressIdN==""||UaddressIdN==null){
-		alert("请选择地址")
-		return false;
-	}else if(uTime==""||uTime==null){
-		alert("请选择送货时间")
-		return false;
-	}else if(paymentWayId==""||paymentWayId==null){
-		alert("请选择支付方式")
-		return false;
-	}	
-	
 	if(paymentWayId==2){
 		$.ajax({
 			url:contextPath+"/car/orderAll.html",

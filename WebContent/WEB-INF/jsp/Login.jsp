@@ -171,12 +171,13 @@ function login() {
 			}
           
         },
-        error : function() {
-        	
-        alert("账号或密码错误,请重新输入！");
-       // $("#username").val("").focus();
-        $("#password").val("");
-        //$("#authcode").val("");
+        error : function(date) {
+        	if(date==404){
+        		 alert("账号或密码错误,请重新输入！");
+        		 $("#password").val("").focus()
+        		 $("#authcode").val("");
+        	}
+       
          
         }
     });
@@ -243,7 +244,7 @@ function login() {
 										href="#">忘记密码？</a>
 								</div>
 								<div class="login-btn">
-									<input type="submit" name="submit" class="btn-img btn-entry"
+									<input type="button" name="submit" class="btn-img btn-entry"
 										id="loginsubmit" value="立即登录" onclick="login()" />
 								</div>
 								<div class="item-coagent">

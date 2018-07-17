@@ -27,10 +27,12 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuM9jDHGGyRgoVcaronh09wVTfXgDrZGF1bDccnKsfkVvhn3oPekXdQUjCj44cQpdt9JYtXDahCPViwXpT4/zIKUptM4JNJYCcHSEUVIw6zs8VaaWF0mzn9OPfkiOP6rH2jJF7wteQBSeB73pJAoqBi7RbD3Er5OuVYjHI2pi9CbD0jT3xzykowS2/sXcPnmy8UuiQMJ7Rp7vNQgb/r7wt9DLEseWgV/J5igL5Myuz9c6QcKmmybr5zJ0Z+SFHaznw3J6nzX/gnXcM8BuytACOft+8VqGw5f2lcBUWCbyVMaIeWyOgJGa045qHlvIfQ6TJ57ymoMFLMGjmZvzFVjH0QIDAQAB";
 
 	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://localhost:8080/B2b2c/notify_url.jsp";
+	public static String notify_url = "http://localhost:8080/B2b2c/car/return_url.view";
 
 	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String return_url = "http://localhost:8080/B2b2c/car/return_url.view";
+	public static String return_url = "http://localhost:8080/B2b2c/product/indexStatus.html";
+	
+	public static String return_url2="http://localhost:8080/B2b2c/car/return_url.view";
 
 	// 签名方式
 	public static String sign_type = "RSA2";
