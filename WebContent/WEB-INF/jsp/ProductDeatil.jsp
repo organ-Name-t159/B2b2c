@@ -263,7 +263,7 @@ $('.search-type li').click(function() {
 });
 $(function(){
 	//图片放大效果
-    $(".header-right img").bubbleup({scale:100});
+    $(".header-right img").bubbleup({scale:200});
 	
 	//头部搜索
 	$('.search-type').hover(function(){
@@ -390,7 +390,7 @@ $(function(){
 			<div id="preview">
 				<div class="goods-img" id="li_125"
 					style="position: relative; z-index: 3;">
-					<a href="${ctx}/statics/images/${product.fileName}"
+					<a href="${ctx}/statics/images/125_P_1437525897393.jpg"
 						class="MagicZoom" id="zoom" rel="zoom-position: right;}"> 
 						<img src="${ctx}/statics/images/${product.fileName}"
 						class="goodsimg pic_img_125" id="goods_bimg" width="400"
@@ -398,8 +398,7 @@ $(function(){
 					</a>
 				</div>
 				<div style="height: 10px; line-height: 10px; clear: both;"></div>
-
-				<div class="clearfix" class="goods_picture">
+					<div class="clearfix" class="goods_picture">
 					<span class="scrleft" onmouseover="moveLeft()"
 						onmousedown="clickLeft()" onmouseup="moveLeft()"
 						onmouseout="scrollStop()"></span>
@@ -758,11 +757,11 @@ $(function(){
 								<a class="btn-customer"
 									href="#"
 									target="_blank" title="点击这里联系我"> <i>
-									<img src="${ctx }/statics/images/"
+									<img src="${ctx }/statics/images/button_old_41.gif"
 										height="16" border="0" alt="QQ" /></i>联系QQ
 								</a> <a class="btn-customer btn-customer-ww"
 									href="#"
-									target="_blank"> <i><img src="" width="16" height="16"
+									target="_blank"> <i><img src="${ctx}/statics/images/T1tm9.XdRnXXaHNz_X-16-16.gif" width="16" height="16"
 										border="0" alt="淘宝旺旺" /></i>联系旺旺
 								</a>
 							</div>
@@ -1145,13 +1144,10 @@ reg_package();
 				<div id="main_widget_1">
 					<div class="mc" id="os_canshu">
 						<ul class="detail-list">
-							<li>商品名称：Haier/海尔 XQG70-B12866电商/7公斤 全自动 变频滚筒 洗衣机</li>
-							<li>商品编号：WRZ000125</li>
-							<li>品牌：<a href=""></a></li>
-							<li>上架时间：2015-07-22</li>
-							<li>商品毛重：0克</li>
-							<li>库存： 1999</li>
-						</ul>
+							<li>商品名称：${product.name }</li>
+							<li>编号：${product.id}</li>
+							<li>库存：${product.stock}</li>
+					</ul>
 					</div>
 					<div class="mc" id="os_jieshao">
 						<div class="blank20"></div>
@@ -1178,6 +1174,7 @@ reg_package();
 						<div class="my-comment-pre">
 							<div class="tab-title">
 								<span>商品评价</span>
+								
 							</div>
 							<div class="goods-content">
 								<ul>
@@ -1214,56 +1211,69 @@ reg_package();
 						</div>
 						<div class="my-comment-tab">
 							<ul>
-								<li id="mct_0" onClick="ShowMyComments(125,0,1)" class="cur">全部评价<span>(0)</span></li>
+								<li id="mct_0" onClick="ShowMyComments(125,0,1)" class="cur">全部评价<span>(3)</span></li>
 								<li id="mct_1" onClick="ShowMyComments(125,1,1)">好评<span>(0)</span></li>
 								<li id="mct_2" onClick="ShowMyComments(125,2,1)">中评<span>(0)</span></li>
 								<li id="mct_3" onClick="ShowMyComments(125,3,1)">差评<span>(0)</span></li>
 								<li id="mct_4" onClick="ShowMyComments(125,4,1)">用户晒单<span>(0)</span></li>
+								<br><br>
 							</ul>
+						<ul id="evaluate">
+						<li><img src="${ctx}/statics/images/b105.gif"></li><br><br>
+						<li>晨******行 </li><br>
+						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li><br><br>
+						<li><img src="${ctx}/statics/images/b56.gif"></li><br><br>
+						<li>jk*******e</li><br>
+						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li><br><br>
+						<li><img src="${ctx}/statics/images/b61.gif"></li><br><br>
+						<li>bo******o</li><br>
+						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li>
+						</ul>
 						</div>
 						<div class="my-comment-list" id="ECS_MYCOMMENTS"></div>
 						<script language="javascript">
-function ShowMyComments(goods_id, type, page)
-{
-	for (var i = 0; i <= 4 ; i ++)
-	{
-		document.getElementById("mct_"+i).className = (type == i) ? 'cur' : '';
-	}
-	Ajax.call('', 'goods_id=' + goods_id + '&type=' + type + '&page='+page, ShowMyCommentsResponse, 'GET', 'JSON');
-}
-function ShowMyCommentsResponse(result)
-{
-  if (result.error)
-  {
-  }
-  try
-  {
-    var layer = document.getElementById("ECS_MYCOMMENTS");
-    layer.innerHTML = result.content;
-  }
-  catch (ex) {}
-}
-function show_good(comment_id)
-{
-	Ajax.call('', 'comment_id=' + comment_id, show_goodResponse, 'GET', 'JSON');
-}
-function show_goodResponse(result)
-{
-	if (result.error == 1)
-	{
-		alert("您已经评过分了哦！");
-	}
-	else
-	{
-		var layer = document.getElementById("good_num_"+result.comment_id);
-		layer.innerHTML = result.good_num;
-	}
-}
-document.getElementById('mct_0').click();
+				function ShowMyComments(goods_id, type, page)
+				{
+					for (var i = 0; i <= 4 ; i ++)
+					{
+						document.getElementById("mct_"+i).className = (type == i) ? 'cur' : '';
+					}
+					Ajax.call('', 'goods_id=' + goods_id + '&type=' + type + '&page='+page, ShowMyCommentsResponse, 'GET', 'JSON');
+				}
+				function ShowMyCommentsResponse(result)
+				{
+				  if (result.error)
+				  {
+				  }
+				  try
+				  {
+				    var layer = document.getElementById("ECS_MYCOMMENTS");
+				    layer.innerHTML = result.content;
+				  }
+				  catch (ex) {}
+				}
+				function show_good(comment_id)
+				{
+					Ajax.call('', 'comment_id=' + comment_id, show_goodResponse, 'GET', 'JSON');
+				}
+				function show_goodResponse(result)
+				{
+					if (result.error == 1)
+					{
+						alert("您已经评过分了哦！");
+					}
+					else
+					{
+						var layer = document.getElementById("good_num_"+result.comment_id);
+						layer.innerHTML = result.good_num;
+					}
+				}
+				document.getElementById('mct_0').click();
 </script>
 					</div>
 					<div class="mc" id="os_advantage">
-						<div class="blank20"></div>
+						<div class="blank20">
+						</div>
 						<div class="my-comment-pre">
 							<div class="tab-title">
 								<span>包装清单</span>
