@@ -1481,11 +1481,16 @@
 	line-height: 40px;
 	font-size: 12px;
 }
+.blank20{
+	width: 100px;
+	
+}
 #wrapper .mc {
 	width: 820px;
 	overflow: hidden;
 	clear: both;
 }
+
 #wrapper .mc .detail-list {
 	border-width: 0px 1px 1px 1px;
 	border-style: solid;
