@@ -390,7 +390,7 @@ $(function(){
 			<div id="preview">
 				<div class="goods-img" id="li_125"
 					style="position: relative; z-index: 3;">
-					<a href="${ctx}/statics/images/125_P_1437525897393.jpg"
+					<a href="${ctx}/statics/images/${product.fileName}"
 						class="MagicZoom" id="zoom" rel="zoom-position: right;}"> 
 						<img src="${ctx}/statics/images/${product.fileName}"
 						class="goodsimg pic_img_125" id="goods_bimg" width="400"
