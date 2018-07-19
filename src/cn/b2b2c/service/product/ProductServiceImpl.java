@@ -75,4 +75,20 @@ public class ProductServiceImpl implements ProductService {
 		return cart;
 	}
 
+
+
+	@Override
+	public List<Product> getProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return productMapper.getProductById(id);
+	}
+
+
+
+	@Override
+	public int getCount(Integer id) {
+		// TODO Auto-generated method stub
+		return productMapper.getCount(id);
+	}
+
 }

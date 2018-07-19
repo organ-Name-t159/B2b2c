@@ -29,5 +29,12 @@ public interface ProductMapper {
 	 * @return
 	 */
 	public Product getProduct(@Param("pId")Integer id);
-
+/**
+ * 根据类别id查找商品联表
+ */
+	public List<Product> getProductById(@Param("pId")Integer id);
+	/**
+	 * 获取商品总条数
+	 */
+		public int getCount(@Param("pId")Integer id);
 }

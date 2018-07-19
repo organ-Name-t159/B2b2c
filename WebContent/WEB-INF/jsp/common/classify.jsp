@@ -69,7 +69,7 @@
 						<div class="list">
 							<dl class="cat">
 								<dt class="cat-name">
-									<a href="#" target="_blank"
+									<a href="${ctx}/details/Wine.html?id=${temp.productCategory.id}" target="_blank"
 										title="${temp.productCategory.name}">${temp.productCategory.name}</a>
 								</dt>
 								<i>&gt;</i>
