@@ -34,7 +34,7 @@ var contextPath="${ctx}";
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">
-            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="button" onlick="submitLogin()">
+            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="button" onclick="submitLogin()">
             <hr class="hr20" >
         </form>
     </div>
@@ -43,8 +43,13 @@ var contextPath="${ctx}";
     	function submitLogin(){
     		var name=$("input[name='username']").val();
     		var pass=$("input[name='password']").val();
-    		alert(name)
-    		alert(pass)
+    		if(name==null||name==""){
+    			alert("账号不能为空")
+    			return false;
+    		}else if(pass==null||pass==""){
+    			alert("密码不能为空")
+    			return false;
+    		}   		
     		 $.ajax({
     			url:contextPath+"/BackLogin/verifyLogin.view",
     			method:"post",
@@ -53,10 +58,12 @@ var contextPath="${ctx}";
     				pass:pass
     			},
     			success:function(jsonStr){
-    				if(jsonStr=="200"){
-    					
+    				var result=eval("("+jsonStr+")");
+    				//alert(result.status)
+    				if(result.status==1){   					
+    					window.location.href=contextPath+"/BackIndex/inToIndex.html";
     				}else{
-    					alert(jsonStr)
+    					alert(result.message)
     				}
     			}
     		}); 
@@ -67,7 +74,7 @@ var contextPath="${ctx}";
     
     
     
-        $(function  () {
+   /*  $(function  () {
             layui.use('form', function(){
               var form = layui.form;
               // layer.msg('玩命卖萌中', function(){
@@ -82,7 +89,7 @@ var contextPath="${ctx}";
                 return false;
               });
             });
-        })
+        }) */ 
 
         
     </script>

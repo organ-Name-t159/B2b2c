@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BackIndexController {
 	
 	@RequestMapping(value="/inToIndex.html")
-	public String inToIndex() {
-		
-		
-		
+	public String inToIndex() {				
 		return "back/index";
+	}
+	
+	@RequestMapping(value="/inToWelcome.view")
+	public String inToWelcome() {
+		return "back/welcome";
 	}
 
 }
