@@ -22,14 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getProduct" resultType="product">
 		SELECT p1.* FROM `product` p1 WHERE `id`=#{pId}
 	</select>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	<update id="updateNumber">
 		UPDATE `product` SET `stock`=#{number} WHERE `id`=#{pId}
 	</update>
-=======
-=======
->>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+
 	
 	
 	<select id="getProductById" resultType="product">
@@ -39,8 +36,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCount" resultType="int">
 	SELECT COUNT(*)  FROM product WHERE categoryLevel1Id=#{pId}
 	</select>
-<<<<<<< HEAD
->>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
-=======
->>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+
 </mapper>

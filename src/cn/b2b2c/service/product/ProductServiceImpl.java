@@ -78,14 +78,12 @@ public class ProductServiceImpl implements ProductService {
 
 
 	@Override
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	public int updateNumber(Integer stock, Integer id) throws Exception {
 		
 		return productMapper.updateNumber(stock, id);
-=======
-=======
->>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+	}
+
 	public List<Product> getProductById(Integer id) {
 		// TODO Auto-generated method stub
 		return productMapper.getProductById(id);
@@ -97,10 +95,7 @@ public class ProductServiceImpl implements ProductService {
 	public int getCount(Integer id) {
 		// TODO Auto-generated method stub
 		return productMapper.getCount(id);
-<<<<<<< HEAD
->>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
-=======
->>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+
 	}
 
 }
