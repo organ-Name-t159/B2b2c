@@ -75,4 +75,26 @@ public class ProductServiceImpl implements ProductService {
 		return cart;
 	}
 
+
+
+	@Override
+<<<<<<< HEAD
+	public int updateNumber(Integer stock, Integer id) throws Exception {
+		
+		return productMapper.updateNumber(stock, id);
+=======
+	public List<Product> getProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return productMapper.getProductById(id);
+	}
+
+
+
+	@Override
+	public int getCount(Integer id) {
+		// TODO Auto-generated method stub
+		return productMapper.getCount(id);
+>>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+	}
+
 }

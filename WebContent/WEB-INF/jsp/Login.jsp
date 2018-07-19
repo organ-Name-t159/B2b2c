@@ -171,12 +171,12 @@ function login() {
 			}
           
         },
-        error : function(date) {
-        	if(date==404){
+        error : function() {
+        	
         		 alert("账号或密码错误,请重新输入！");
         		 $("#password").val("").focus()
         		 $("#authcode").val("");
-        	}
+        		 create_code();
        
          
         }
