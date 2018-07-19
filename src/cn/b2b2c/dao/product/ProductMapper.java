@@ -30,6 +30,7 @@ public interface ProductMapper {
 	 */
 	public Product getProduct(@Param("pId")Integer id);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 	/**
@@ -44,6 +45,8 @@ public interface ProductMapper {
 	
 
 =======
+=======
+>>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
 /**
  * 根据类别id查找商品联表
  */
@@ -52,5 +55,8 @@ public interface ProductMapper {
 	 * 获取商品总条数
 	 */
 		public int getCount(@Param("pId")Integer id);
+<<<<<<< HEAD
+>>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+=======
 >>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
 }

@@ -3,6 +3,10 @@ package cn.b2b2c.service.product;
 import java.util.List;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import org.apache.ibatis.annotations.Param;
+>>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
 =======
 import org.apache.ibatis.annotations.Param;
 >>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
@@ -59,6 +63,7 @@ public interface ProductService {
 	 */
 	public ShoppingCart modifyShoppingCart(String productId,String quantityStr,ShoppingCart cart) throws Exception;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 	
@@ -80,10 +85,15 @@ public interface ProductService {
 	
 	
 =======
+=======
+>>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
 	/**
 	 * 获取商品总条数
 	 */
 		public int getCount(Integer id);
+<<<<<<< HEAD
+>>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
+=======
 >>>>>>> c5785c3ae77d91313507dc76f295b11ff9b5599d
 
 }
