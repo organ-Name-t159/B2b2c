@@ -120,6 +120,7 @@ public class CarController {
 		String pId=(String)session.getAttribute("paymentWayId");
 		//System.out.println(number);
 		if(orderService.updateOrder(number)==1) {
+			//productService.updateNumber(stock, id);
 			System.out.println("改变状态成功");
 		}
 		if(Integer.parseInt(pId)==1) {
@@ -134,11 +135,14 @@ public class CarController {
 	@ResponseBody
 	public Object addCar(HttpServletRequest request)throws Exception {
 		//System.out.println("添加购物车中");
+		HttpSession session=request.getSession();
 		ReturnResult result=new ReturnResult();
 		String pId=request.getParameter("productsId");
 		String quantityStr=request.getParameter("number");
-		if(quantityStr==null) {
+		String buyId=request.getParameter("buyId");
+		if(quantityStr==null||buyId==null) {
 			quantityStr="1";
+			buyId="400";
 		}
 		Integer quantityS=1;
 		quantityS=Integer.parseInt(quantityStr);
@@ -152,6 +156,9 @@ public class CarController {
 		result=cart.addItem(product, quantityS);
 		if(result.getStatus()==Constants.ReturnResult.SUCCESS) {
 			cart.setSum((EmptyUtils.isEmpty(cart.getSum()) ? 0.0 :cart.getSum())+(product.getPrice()*quantityS*1.0));
+		}
+		if(session.getAttribute("user")==null&&buyId.equals("404")) {
+			 return result.returnFail("未登录，请先登录");
 		}
 		
 		return result;
@@ -203,6 +210,8 @@ public class CarController {
 		 session.setAttribute("cart", cart);
 		return result.returnSuccess();
 	}
+	
+	
 	
 	
 	@RequestMapping(value="/deleteCartAll.html",method=RequestMethod.POST)

@@ -22,4 +22,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getProduct" resultType="product">
 		SELECT p1.* FROM `product` p1 WHERE `id`=#{pId}
 	</select>
+
+	<update id="updateNumber">
+		UPDATE `product` SET `stock`=#{number} WHERE `id`=#{pId}
+	</update>
+
+	
+	
+	<select id="getProductById" resultType="product">
+		SELECT p1.* FROM `product` p1 WHERE p1.categoryLevel1Id=#{pId}
+	</select>
+	
+	<select id="getCount" resultType="int">
+	SELECT COUNT(*)  FROM product WHERE categoryLevel1Id=#{pId}
+	</select>
+
 </mapper>

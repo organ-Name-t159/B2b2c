@@ -70,7 +70,7 @@ public class LoginController {
 			return 200;
 			}
 		}	
-		 return "404";
+		 return "error";
 	}
 	//退出登陆 跳转
 	@RequestMapping(value="/outLogin")
