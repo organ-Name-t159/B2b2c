@@ -82,8 +82,13 @@ public interface ProductService {
 
 	/**
 	 * 获取商品总条数
+	 * @param proName
+	 * @param id
+	 * @param level
+	 * @return
+	 * @throws Exception
 	 */
-		public int getCount(Integer id);
+	public int getCount(String proName,Integer id,Integer level)throws Exception;
 
 
 }

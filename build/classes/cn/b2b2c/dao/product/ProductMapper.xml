@@ -34,7 +34,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getCount" resultType="int">
-	SELECT COUNT(*)  FROM product WHERE categoryLevel1Id=#{pId}
+	SELECT COUNT(1) FROM product p WHERE 1=1
+	<if test="pName !=null and pName !=''">
+		and p.name like CONCAT('%',#{pName},'%')
+	</if>
+	<if test="level ==1 and categoryId !=null">
+		and p.categoryLevel1Id=#{categoryId}
+	</if>
+	<if test="level ==2 and categoryId !=null">
+		and p.categoryLevel2Id=#{categoryId}
+	</if>
+	<if test="level ==3 and categoryId !=null">
+		and p.categoryLevel3Id=#{categoryId}
+	</if>
+	
+	
+	
 	</select>
 
 </mapper>

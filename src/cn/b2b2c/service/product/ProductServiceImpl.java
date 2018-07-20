@@ -91,11 +91,11 @@ public class ProductServiceImpl implements ProductService {
 
 
 
-	@Override
-	public int getCount(Integer id) {
-		// TODO Auto-generated method stub
-		return productMapper.getCount(id);
 
+	@Override
+	public int getCount(String proName, Integer id, Integer level) throws Exception {
+		
+		return productMapper.getCount(proName, id, level);
 	}
 
 }

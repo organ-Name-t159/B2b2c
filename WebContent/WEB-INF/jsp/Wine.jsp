@@ -563,7 +563,7 @@ $(function(){
         <a href="##"><span class="icon next-btn"></span></a>  -->
          
       </div>
-      <div class="total">共<span class="main-color">${count}</span>个商品</div>
+      <div class="total">共<span class="main-color">${total}</span>个商品</div>
     </div>
     <div class="fore2">
       <div class="filter-btn"> <a class="filter-tag " href="##">
@@ -591,7 +591,7 @@ $(function(){
  
 <form name="compareForm" action="##" method="post" onsubmit="return compareGoods(this);">
     <ul class="list-grid clearfix">
-       <c:forEach items="${productsList}" var="pl">
+    <c:forEach items="${productsList}" var="pl">
      <li class="item" id="li_250" style="width: 229px;">
         <div class="item-con"> 
           <div class="item-tag-box">
@@ -693,39 +693,11 @@ $(function(){
 })
 </script>
  
-            <form name="selectPageForm" action="##" method="get">
-      <div class="page">
-    <div class="page-wrap fr"> 
-    	<div class="page-num fl">
-        	            <span class="num prev disabled">
-            	<i class="icon"></i>
-                <i>上一页</i>
-            </span>
-            			 
-			 
-			 
-			<span class="num curr">1</span> 
-			 
-			 
-			 <c:if test="${count>16 }">
-			<a class="num" href="##">2</a> 
-			 
-			 
-			 </c:if>
-            <a class="num next" href="##">
-                <i>下一页</i>
-            	<i class="icon"></i>
-            </a>
-         </div>
-      <c:if test="${count<16}">
-      <div class="total">共1 页</div>
-       </c:if>
-       <c:if test="${count>16&&count<32}">
-      <div class="total">共2页</div>
-       </c:if>
-    </div>
-  </div>
-    </form>
+
+<%@include file="common/pagerBar.jsp" %>
+
+
+
 <script type="Text/Javascript" language="JavaScript">
 function selectPage(sel){
   sel.form.submit();
