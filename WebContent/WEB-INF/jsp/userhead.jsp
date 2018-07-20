@@ -80,14 +80,29 @@ function outUser(){
 			</font>
 			<ul class="sn-quick-menu">
 				<li class="sn-mytaobao menu-item">
+				<c:choose>
+				<c:when test="${sessionScope.user==null || sessionScope.user==''}">
 					<div class="sn-menu">
-						<a class="menu-hd" href="${ctx}/user/welocome.html">我的信息<b></b></a>
-						<div id="menu-2" class="menu-bd">
+					<a class="menu-hd" href="${ctx}/register/login.html"  >我的信息<b></b></a>
+					<div id="menu-2" class="menu-bd">
 							<div class="menu-bd-panel">
 								<a href="#">已买到的宝贝</a> <a href="#">我的地址管理</a>
 							</div>
 						</div>
 					</div>
+					</c:when>
+					<c:otherwise><c:if test="${sessionScope.user!=null || sessionScope.user!=''}">
+					<div class="sn-menu">
+					<a class="menu-hd" href="${ctx}/user/welocome.html"  >我的信息<b></b></a>
+					<div id="menu-2" class="menu-bd">
+							<div class="menu-bd-panel">
+								<a href="#">已买到的宝贝</a> <a href="#">我的地址管理</a>
+							</div>
+						</div>
+					</div>
+					</c:if>
+					</c:otherwise>
+					</c:choose>
 				</li>
 				<li class="sn-mystores"><a target="_top"
 					class="sn-stores header-icon main-color" href="#"><i></i>我关注的店铺</a>

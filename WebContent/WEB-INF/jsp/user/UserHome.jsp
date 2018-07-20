@@ -203,6 +203,14 @@ $(function(){
 				<div class="exchangeList">
 					<div class="colFrame">
 						<ul class="clearfix">
+						<style>
+						.first img{
+						width: 100%;
+						height:80%;
+						}
+						
+						
+						</style>
 							<li class="first"><a href="##"> <img
 									src="${ctx}/statics/images/97_thumb_G_1437523257758.jpg"
 									alt="除湿机家用抽湿机20B 地下室别墅吸湿器除湿器"> <span>14990积分</span>
@@ -219,74 +227,6 @@ $(function(){
 									src="${ctx}/statics/images/102_thumb_G_1437523460978.jpg"
 									alt="Polo衫男短袖 2015夏装男装短袖t恤 男士拼接撞色修身韩版潮"> <span>1560积分</span>
 							</a> <a href="##">Polo衫男短袖 2015夏装男装短袖t恤 男士拼接撞色修身韩版潮</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/110_thumb_G_1437523812526.jpg"
-									alt="养生壶玻璃加厚分体保温电煎药壶全自动花茶壶隔水炖正品"> <span>999积分</span>
-							</a> <a href="##">养生壶玻璃加厚分体保温电煎药壶全自动花茶壶隔水炖正品</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/56_thumb_G_1437520837769.jpg"
-									alt="2015新品真丝睡衣女款可爱娃娃衫家居服春秋桑蚕丝睡裙"> <span>3999积分</span>
-							</a> <a href="##">2015新品真丝睡衣女款可爱娃娃衫家居服春秋桑蚕丝睡裙</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/29_thumb_G_1437506331258.jpg"
-									alt="意大利费列罗巧克力食品进口零食礼盒576粒整箱装结婚喜糖"> <span>1299积分</span>
-							</a> <a href="##">意大利费列罗巧克力食品进口零食礼盒576粒整箱装结婚喜糖</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/86_thumb_G_1437522610059.jpg"
-									alt="海尔HGS-2164手持蒸汽挂烫机家用挂式电熨斗熨烫机正品全国联保"> <span>1099积分</span>
-							</a> <a href="##">海尔HGS-2164手持蒸汽挂烫机家用挂式电熨斗熨烫机正品全国联保</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/31_thumb_G_1437506821290.jpg"
-									alt="台湾进口 百年老店糖之坊夏威夷果牛轧糖奶糖（蔓越莓味）120克"> <span>500积分</span>
-							</a> <a href="##">台湾进口 百年老店糖之坊夏威夷果牛轧糖奶糖（蔓越莓味）120克</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/55_thumb_G_1437520599834.jpg"
-									alt="嘉云糖 300g玻璃罐装 水果硬糖 喜糖 德国进口"> <span>499积分</span>
-							</a> <a href="##">嘉云糖 300g玻璃罐装 水果硬糖 喜糖 德国进口</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/52_thumb_G_1437520436446.jpg"
-									alt="昆仑玉红枣 和田香枣二级500g 新疆特产 免洗零食 和田大枣子"> <span>499积分</span>
-							</a> <a href="##">昆仑玉红枣 和田香枣二级500g 新疆特产 免洗零食 和田大枣子</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/62_thumb_G_1437521071878.jpg"
-									alt="澳大利亚 进口牛奶 德运（Devondale） 全脂牛奶 1L*10 整箱装"> <span>999积分</span>
-							</a> <a href="##">澳大利亚 进口牛奶 德运（Devondale） 全脂牛奶 1L*10 整箱装</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/91_thumb_G_1437522939065.jpg"
-									alt="海尔ZB401G 家用小型床铺除螨仪 床上除螨机吸尘器 紫外线杀菌"> <span>1699积分</span>
-							</a> <a href="##">海尔ZB401G 家用小型床铺除螨仪 床上除螨机吸尘器 紫外线杀菌</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/79_thumb_G_1437522204345.jpg"
-									alt="蒙牛 特仑苏 纯牛奶 250ml*12 礼盒装"> <span>799积分</span>
-							</a> <a href="##">蒙牛 特仑苏 纯牛奶 250ml*12 礼盒装</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/101_thumb_G_1437523379443.jpg"
-									alt="美的电磁炉Midea/美的 WK2102电磁炉特价家用触摸屏火锅电池炉灶"> <span>1500积分</span>
-							</a> <a href="##">美的电磁炉Midea/美的 WK2102电磁炉特价家用触摸屏火锅电池炉灶</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/92_thumb_G_1437523024248.jpg"
-									alt="人气5折杰克琼斯夏纯棉条纹撞色POLO衫短袖T恤"> <span>700积分</span>
-							</a> <a href="##">人气5折杰克琼斯夏纯棉条纹撞色POLO衫短袖T恤</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/85_thumb_G_1437522493859.jpg"
-									alt="美的空调扇单冷遥控制冷风扇冷风机家用净化静音冷气空调AC120-G"> <span>2600积分</span>
-							</a> <a href="##">美的空调扇单冷遥控制冷风扇冷风机家用净化静音冷气空调AC120-G</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/30_thumb_G_1437506667557.jpg"
-									alt="日本进口 KRACIE（KRACIE）牌玫瑰香味糖果32g"> <span>699积分</span>
-							</a> <a href="##">日本进口 KRACIE（KRACIE）牌玫瑰香味糖果32g</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/94_thumb_G_1437523136659.jpg"
-									alt="电熨斗蒸汽家用 手持迷你电烫斗顺滑不粘底板 蒸汽熨斗家用"> <span>2000积分</span>
-							</a> <a href="##">电熨斗蒸汽家用 手持迷你电烫斗顺滑不粘底板 蒸汽熨斗家用</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/105_thumb_G_1437523502682.jpg"
-									alt="法曼斯2015夏装新款长绒棉短袖t恤商务男士休闲天丝翻领纯色上衣"> <span>1200积分</span>
-							</a> <a href="##">法曼斯2015夏装新款长绒棉短袖t恤商务男士休闲天丝翻领纯色上衣</a></li>
-							<li class="first"><a href="##"> <img
-									src="${ctx}/statics/images/26_thumb_G_1437505984631.jpg"
-									alt="韩国进口X-5花生夹心巧克力棒盒装（24根）864g"> <span>100积分</span>
-							</a> <a href="##">韩国进口X-5花生夹心巧克力棒盒装（24根）864g</a></li>
 						</ul>
 					</div>
 				</div>
@@ -415,36 +355,6 @@ $(function(){
 											src="${ctx}/statics/images/32_thumb_G_1437506920994.jpg"
 											alt="Lindt瑞士莲黑巧克力特醇排装德国进口 70%可可黑巧克力10块组合 特惠分享装"> <span>￥260.00</span>
 									</a> <a href="##">Lindt瑞士莲黑巧克力特醇排装德国进口 70%可可黑巧克力10块组合 特惠分享装</a></li>
-
-
-									<li class="first"><a href="##"> <img
-											src="${ctx}/statics/images/88_thumb_G_1437522788663.jpg"
-											alt="家用静音办公室空调加湿器 香薰迷你大容量净化特价"> <span>￥100.00</span>
-									</a> <a href="##">家用静音办公室空调加湿器 香薰迷你大容量净化特价</a></li>
-
-
-									<li class="first"><a href="##"> <img
-											src="${ctx}/statics/images/91_thumb_G_1437522939065.jpg"
-											alt="海尔ZB401G 家用小型床铺除螨仪 床上除螨机吸尘器 紫外线杀菌"> <span>￥399.00</span>
-									</a> <a href="##">海尔ZB401G 家用小型床铺除螨仪 床上除螨机吸尘器 紫外线杀菌</a></li>
-
-
-									<li class="first"><a href="##"> <img
-											src="${ctx}/statics/images/97_thumb_G_1437523257758.jpg"
-											alt="除湿机家用抽湿机20B 地下室别墅吸湿器除湿器"> <span>￥259.00</span>
-									</a> <a href="##">除湿机家用抽湿机20B 地下室别墅吸湿器除湿器</a></li>
-
-
-									<li class="first"><a href="##"> <img
-											src="${ctx}/statics/images/86_thumb_G_1437522610059.jpg"
-											alt="海尔HGS-2164手持蒸汽挂烫机家用挂式电熨斗熨烫机正品全国联保"> <span>￥500.00</span>
-									</a> <a href="##">海尔HGS-2164手持蒸汽挂烫机家用挂式电熨斗熨烫机正品全国联保</a></li>
-
-
-									<li class="first"><a href="##"> <img
-											src="${ctx}/statics/images/103_thumb_G_1437523455426.jpg"
-											alt="Galanz/格兰仕 G90F25CN3L-C2(G2) 微波炉 光波炉 正品"> <span>￥359.00</span>
-									</a> <a href="##">Galanz/格兰仕 G90F25CN3L-C2(G2) 微波炉 光波炉 正品</a></li>
 								</ul>
 							</div>
 							<p class="more">
