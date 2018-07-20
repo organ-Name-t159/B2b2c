@@ -31,7 +31,7 @@
 				</p>
 				<a href="${ctx}/user/welocome.html" class="item curs"><span>欢迎页</span><i></i></a> 
 				<a href="${ctx}/user/userMessage.html" class="item"><span>用户信息</span><i></i></a>
-				<a href="${ctx}/user/accountSecurity.html" class="item"><span>账户安全</span><i></i></a> 
+				<a href="${ctx}/user/BindEmail.html" class="item"><span>账户安全</span><i></i></a> 
 				<a href="##" class="item"><span>收货地址</span><i></i></a>
 				<!-- <a href="##" class="item"><span>资金管理</span><i></i></a>  -->
 				<a href="##" class="item"><span>我的红包</span><i></i></a>

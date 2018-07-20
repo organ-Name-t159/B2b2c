@@ -67,6 +67,8 @@ public class LoginController {
 			System.out.println(userName+"3");
 			if(SecurityUtils.md5Hex(password).equals(user.getPassword())){
 				System.out.println(userName+"  "+user.getPassword()+" "+SecurityUtils.md5Hex(password));
+				String	phone=user.getPhone().replace(user.getPhone().substring(3, 8),"****");
+				session.setAttribute("tPhone",phone);
 				session.setAttribute("user", user);
 			return 200;
 			}

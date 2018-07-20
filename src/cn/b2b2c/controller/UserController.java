@@ -33,11 +33,28 @@ public class UserController {
 		return "user/AccountSecurity";
 	}
 	
+	@RequestMapping(value="/BindEmail.html")
+	public String accountBindEmail(HttpSession session)throws Exception {
+				
+		return "user/BindEmail";
+	}
 	
+	@RequestMapping(value="/BindEmailOne.html")
+	public String accountBindEmailOne(HttpSession session)throws Exception {
+				
+		return "user/BindEmailOne";
+	}
 	
+	@RequestMapping(value="/BindEmailTow.html")
+	public String accountBindEmailTow(HttpSession session)throws Exception {
+				
+		return "user/BindEmailTow";
+	}
 	
-	
-	
-	
+	@RequestMapping(value="/BindEmailSuccess.html")
+	public String accountBindEmailSuccess(HttpSession session)throws Exception {
+				
+		return "user/BindEmailSuccess";
+	}
 
 }
