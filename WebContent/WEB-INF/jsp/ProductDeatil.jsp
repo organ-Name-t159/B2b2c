@@ -390,7 +390,7 @@ $(function(){
 			<div id="preview">
 				<div class="goods-img" id="li_125"
 					style="position: relative; z-index: 3;">
-					<a href="${ctx}/statics/images/125_P_1437525897393.jpg"
+					<a href="${ctx}/statics/images/${product.fileName}"
 						class="MagicZoom" id="zoom" rel="zoom-position: right;}"> 
 						<img src="${ctx}/statics/images/${product.fileName}"
 						class="goodsimg pic_img_125" id="goods_bimg" width="400"
@@ -692,9 +692,9 @@ $(function(){
 						</div>
 						<div id="choose-btns" class="buyNub-buy">
 
-							<a href="javascript:addToCart(125,0,1)" name="bi_addToCart"
-								class="u-buy1">立即购买</a> <a href="javascript:addToCart(125)"
-								name="bi_addToCart" class="u-buy2">加入购物车</a> <a id="phone"
+							<a href="javascript:void(0)" onclick="buyCart('${product.id}')" name="bi_addToCart"
+								class="u-buy1">立即购买</a> <a href="javascript:void(0)"
+								name="bi_addToCart" class="u-buy2" onclick="addToCart('${product.id}')">加入购物车</a> <a id="phone"
 								class="btn-phone" style="position: relative; cursor: pointer">
 								手机购买<i></i>
 								<div id="phone-tan"

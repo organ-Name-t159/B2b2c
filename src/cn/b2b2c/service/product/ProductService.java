@@ -2,6 +2,11 @@ package cn.b2b2c.service.product;
 
 import java.util.List;
 
+
+import org.apache.ibatis.annotations.Param;
+
+
+
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.tools.ShoppingCart;
 
@@ -31,7 +36,10 @@ public interface ProductService {
 	 */
 	public Product getProduct(Integer id)throws Exception;
 	
-	
+	/**
+	 * 根据类别id查找商品联表
+	 */
+		public List<Product> getProductById(Integer id);
 	/**
 	 * 购物车的结算
 	 * @param cart
@@ -50,6 +58,37 @@ public interface ProductService {
 	 * @throws Exception
 	 */
 	public ShoppingCart modifyShoppingCart(String productId,String quantityStr,ShoppingCart cart) throws Exception;
+
+	
+	
+	
+	
+	/**
+	 * 根据商品id修改数量
+	 * @param stock
+	 * @param id
+	 * @return
+	 */
+	public int updateNumber(Integer stock,Integer id)throws Exception;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	/**
+	 * 获取商品总条数
+	 * @param proName
+	 * @param id
+	 * @param level
+	 * @return
+	 * @throws Exception
+	 */
+	public int getCount(String proName,Integer id,Integer level)throws Exception;
 
 
 }

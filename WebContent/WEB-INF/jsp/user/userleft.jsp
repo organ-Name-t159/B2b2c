@@ -4,7 +4,7 @@
 <div class="user-left">
 		<div class="sideNav">
 			<h1>
-				<a href="##"><span>yiren</span></a>
+				<a href="##"><span>${sessionScope.user.userName}</span></a>
 			</h1>
 			<div class="userInfo">
 				<div class="myInfo clearfix">

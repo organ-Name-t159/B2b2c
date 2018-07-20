@@ -30,4 +30,34 @@ public interface ProductMapper {
 	 */
 	public Product getProduct(@Param("pId")Integer id);
 
+	
+	
+	/**
+	 * 根据商品id修改数量
+	 * @param stock
+	 * @param id
+	 * @return
+	 */
+	public int updateNumber(@Param("number")Integer stock,@Param("pId")Integer id);
+	
+	
+	
+
+
+/**
+ * 根据类别id查找商品联表
+ */
+	public List<Product> getProductById(@Param("pId")Integer id);
+	
+	
+	/**
+	 * 获取商品总条数
+	 * @param proName
+	 * @param id
+	 * @param level
+	 * @return
+	 * @throws Exception
+	 */
+	public int getCount(@Param("pName")String proName,@Param("categoryId")Integer id,@Param("level")Integer level);
+
 }

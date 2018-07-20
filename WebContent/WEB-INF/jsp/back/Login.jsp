@@ -29,18 +29,52 @@ var contextPath="${ctx}";
         <div class="message">B2b2c后台管理登录</div>
         <div id="darkbannerwrap"></div>
         
-        <form method="post" class="layui-form" >
+        <form method="post" class="layui-form">
             <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">
-            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
+            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="button" onclick="submitLogin()">
             <hr class="hr20" >
         </form>
     </div>
 
     <script>
-        $(function  () {
+    	function submitLogin(){
+    		var name=$("input[name='username']").val();
+    		var pass=$("input[name='password']").val();
+    		if(name==null||name==""){
+    			alert("账号不能为空")
+    			return false;
+    		}else if(pass==null||pass==""){
+    			alert("密码不能为空")
+    			return false;
+    		}   		
+    		 $.ajax({
+    			url:contextPath+"/BackLogin/verifyLogin.view",
+    			method:"post",
+    			data:{
+    				name:name,
+    				pass:pass
+    			},
+    			success:function(jsonStr){
+    				var result=eval("("+jsonStr+")");
+    				//alert(result.status)
+    				if(result.status==1){   					
+    					window.location.href=contextPath+"/BackIndex/inToIndex.html";
+    				}else{
+    					alert(result.message)
+    				}
+    			}
+    		}); 
+    	}
+    
+    
+    
+    
+    
+    
+   /*  $(function  () {
             layui.use('form', function(){
               var form = layui.form;
               // layer.msg('玩命卖萌中', function(){
@@ -55,7 +89,7 @@ var contextPath="${ctx}";
                 return false;
               });
             });
-        })
+        }) */ 
 
         
     </script>

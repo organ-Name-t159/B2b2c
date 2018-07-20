@@ -124,6 +124,7 @@ function showMessage(content){
  */
 
 function addToCart(goodsId,number) {
+	number=$("#number").val();
 	/*alert(goodsId)
 	alert(number)*/
 	$.ajax({
@@ -142,14 +143,46 @@ function addToCart(goodsId,number) {
 				/*showMessage("操作成功")*/
 				refreshCart();
 			}else{
-				showMessage(result.message);
+				alert(result.message);
 			}
 		}
 		
-	})
+	});
 
 
 }
+
+function buyCart(goodsId) {
+	var number=$("#number").val();
+	var buyId="404";
+	/*alert(goodsId)
+	alert(number)*/
+	$.ajax({
+		url:contextPath+"/car/addCar.html",
+		method:"post",
+		data:{
+			productsId:goodsId,
+			number:number,
+			buyId:buyId
+		},
+		success:function(jsonStr){
+			
+			var result=eval("("+jsonStr+")");
+			/*alert(result.status)*/
+			if(result.status==1){
+				
+				window.location.href=contextPath+"/car/closeCart.html";
+			}else{
+				alert(result.message);
+			}
+			
+		}
+		
+	});
+
+
+}
+
 
 /**
  * 刷新购物车 searchBar DIV

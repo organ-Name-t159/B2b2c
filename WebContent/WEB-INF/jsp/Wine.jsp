@@ -542,8 +542,9 @@ $(function(){
  
             </div>
         </div>
+    	
     	<div class="main">
-        	<div id="filter" class="" style="">
+ <div id="filter" class="" style="">
   <form method="get" name="listform" action="##">
     <div class="fore1">
       <dl class="order">
@@ -555,23 +556,24 @@ $(function(){
       </dl>
       <div class="pagin"> 
          
-        <a class="prev"><span class="icon prev-disabled"></span></a> 
+       <!--  <a class="prev"><span class="icon prev-disabled"></span></a> 
          
         <span class="text"><font class="main-color">1</font>/2</span> 
          
-        <a href="##"><span class="icon next-btn"></span></a> 
+        <a href="##"><span class="icon next-btn"></span></a>  -->
          
       </div>
-      <div class="total">共<span class="main-color">28</span>个商品</div>
+      <div class="total">共<span class="main-color">${total}</span>个商品</div>
     </div>
     <div class="fore2">
-      <div class="filter-btn"> <a class="filter-tag " href="##"><i class="icon"></i><span class="text">仅显示有货</span></a>          
+      <div class="filter-btn"> <a class="filter-tag " href="##">
+      <!-- <i class="icon"></i><span class="text">仅显示有货</span></a>          
         <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href='#'"> <i class="icon"></i> <span class="text">全部</span> </a> 
          
         <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href='#'"> <i class="icon"></i> <span class="text">网站自营</span> </a> 
          
         <a href="##"> <input class="none" type="radio" name="fff" onclick="top.location.href='#'"> <i class="icon"></i> <span class="text">入驻商店铺</span> </a> 
-         
+          -->
       </div>
       <div class="filter-mod"> <a href="##"><span class="filter-type-icon"></span></a> <a href="##"><span class="filter-type-icon"></span></a> <a href="##"><span class="filter-type-icon"></span></a> </div>
     </div>
@@ -589,26 +591,26 @@ $(function(){
  
 <form name="compareForm" action="##" method="post" onsubmit="return compareGoods(this);">
     <ul class="list-grid clearfix">
-       
-            <li class="item" id="li_250">
+    <c:forEach items="${productsList}" var="pl">
+     <li class="item" id="li_250" style="width: 229px;">
         <div class="item-con"> 
           <div class="item-tag-box">
           <div class="item-tag"><span>爆款</span><i></i></div>          </div>
           <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/250_thumb_G_1456450428826.jpg" src="${ctx}/statics/images/250_thumb_G_1456450428826.jpg" title="怡宝 纯净水 4.5L*4 箱装" class="pic_img_250" style="display: inline;">
+          	<a href="${ctx}/details/ProductDeatil.html?id=${pl.id}">
+            	<img data-original="${ctx}/statics/images/${pl.fileName}" src="${ctx}/statics/images/${pl.fileName}" title="${pl.name}" class="pic_img_250" style="display: inline;">
             </a>
           </div>
                     <div class="item-info">
           	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥29.9">¥29.9</em>
+            	<em class="sale-price main-color" title="本店价：¥${pl.price}">¥${pl.price}</em>
                 <em class="sale-count">已售0件</em>
             </div>
             <div class="item-name">
-            	<a href="##">怡宝 纯净水 4.5L*4 箱装</a>
+            	<a href="##">${pl.name}</a>
             </div>
             <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="250" data-type="0" onclick="Compare.add(250,怡宝 纯净水 4.5L*4 箱装,0, ${ctx}/statics/images/250_thumb_G_1456450428826.jpg, ¥29.9)"><i></i>对比</a>
+            	<a class="operate-btn compare-btn" data-goods="250" data-type="0" onclick="Compare.add(250,怡宝 纯净水 4.5L*4 箱装,, ${ctx}/statics/images/${pl.fileName}, ¥29.9)"><i></i>对比</a>
             	<a id="collect_250" href="##"><i></i>收藏</a>
                 <a href="##"><i></i>0</a> 
                 <a href="javascript:addToCart(86);" class="add-cart" title="加入购物车"></a>
@@ -616,428 +618,9 @@ $(function(){
           </div>
         </div>
       </li>
+    </c:forEach>
        
-       
-       <li class="item" id="li_253">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/253_thumb_G_1456450820776.jpg" src="${ctx}/statics/images/253_thumb_G_1456450820776.jpg" title="七喜冰爽柠檬汽水330ml*24（整箱）" class="pic_img_253" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥43.7">¥43.7</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">七喜冰爽柠檬汽水330ml*24（整箱）</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="253" data-type="0" onclick="Compare.add(253,七喜冰爽柠檬汽水330ml*24（整箱）,0, ${ctx}/statics/images/253_thumb_G_1456450820776.jpg, ¥43.7)"><i></i>对比</a>
-            	<a id="collect_253" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_252">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/252_thumb_G_1456450660879.jpg" src="${ctx}/statics/images/252_thumb_G_1456450660879.jpg" title="1.25L雪碧+1.25L美汁源果粒橙" class="pic_img_252" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥9.9">¥9.9</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">1.25L雪碧+1.25L美汁源果粒橙</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="252" data-type="0" onclick="Compare.add(252,1.25L雪碧+1.25L美汁源果粒橙,0, ${ctx}/statics/images/252_thumb_G_1456450660879.jpg, ¥9.9)"><i></i>对比</a>
-            	<a id="collect_252" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item last" id="li_254">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/254_thumb_G_1456451004329.jpg" src="${ctx}/statics/images/254_thumb_G_1456451004329.jpg" title="洋河海之蓝42度480ml" class="pic_img_254" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥129.0">¥129.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">洋河海之蓝42度480ml</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="254" data-type="0" onclick="Compare.add(254,洋河海之蓝42度480ml,0, ${ctx}/statics/images/254_thumb_G_1456451004329.jpg, ¥129.0)"><i></i>对比</a>
-            	<a id="collect_254" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_255">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/255_thumb_G_1456451111974.jpg" src="${ctx}/statics/images/255_thumb_G_1456451111974.jpg" title="ROM威士忌鸡尾酒青柠味预调酒275ml" class="pic_img_255" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥12.9">¥12.9</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">ROM威士忌鸡尾酒青柠味预调酒275ml</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="255" data-type="0" onclick="Compare.add(255,ROM威士忌鸡尾酒青柠味预调酒275ml,0, ${ctx}/statics/images/255_thumb_G_1456451111974.jpg, ¥12.9)"><i></i>对比</a>
-            	<a id="collect_255" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_258">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/258_thumb_G_1456451394456.jpg" src="${ctx}/statics/images/258_thumb_G_1456451394456.jpg" title="汇源 100%苹果果汁 1L/盒" class="pic_img_258" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥15.9">¥15.9</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">汇源 100%苹果果汁 1L/盒</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="258" data-type="0" onclick="Compare.add(258,汇源 100%苹果果汁 1L/盒,0, ${ctx}/statics/images/258_thumb_G_1456451394456.jpg, ¥15.9)"><i></i>对比</a>
-            	<a id="collect_258" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_257">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/257_thumb_G_1456451288943.jpg" src="${ctx}/statics/images/257_thumb_G_1456451288943.jpg" title="汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包" class="pic_img_257" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥29.9">¥29.9</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="257" data-type="0" onclick="Compare.add(257,汇源 乐乐园 100%复合果蔬汁 5+7 125ml*16包,0, ${ctx}/statics/images/257_thumb_G_1456451288943.jpg, ¥29.9)"><i></i>对比</a>
-            	<a id="collect_257" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item last" id="li_256">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/256_thumb_G_1456451184573.jpg" src="${ctx}/statics/images/256_thumb_G_1456451184573.jpg" title="女儿红6年陈350ML 整箱6瓶装" class="pic_img_256" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥159.0">¥159.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">女儿红6年陈350ML 整箱6瓶装</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="256" data-type="0" onclick="Compare.add(256,女儿红6年陈350ML 整箱6瓶装,0, ${ctx}/statics/images/256_thumb_G_1456451184573.jpg, ¥159.0)"><i></i>对比</a>
-            	<a id="collect_256" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_262">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/262_thumb_G_1456451850522.jpg" src="${ctx}/statics/images/262_thumb_G_1456451850522.jpg" title="雀巢 中老年奶粉 850g雀巢" class="pic_img_262" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥75.0">¥75.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">雀巢 中老年奶粉 850g雀巢</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="262" data-type="0" onclick="Compare.add(262,雀巢 中老年奶粉 850g雀巢,0, ${ctx}/statics/images/262_thumb_G_1456451850522.jpg, ¥75.0)"><i></i>对比</a>
-            	<a id="collect_262" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_261">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/261_thumb_G_1456451756248.jpg" src="${ctx}/statics/images/261_thumb_G_1456451756248.jpg" title="维维 维他型豆奶粉 560g" class="pic_img_261" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥15.9">¥15.9</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">维维 维他型豆奶粉 560g</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="261" data-type="0" onclick="Compare.add(261,维维 维他型豆奶粉 560g,0, ${ctx}/statics/images/261_thumb_G_1456451756248.jpg, ¥15.9)"><i></i>对比</a>
-            	<a id="collect_261" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_260">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/260_thumb_G_1456451682591.jpg" src="${ctx}/statics/images/260_thumb_G_1456451682591.jpg" title="伊利 女士高铁高钙奶粉 400g" class="pic_img_260" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥32.8">¥32.8</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">伊利 女士高铁高钙奶粉 400g</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="260" data-type="0" onclick="Compare.add(260,伊利 女士高铁高钙奶粉 400g,0, ${ctx}/statics/images/260_thumb_G_1456451682591.jpg, ¥32.8)"><i></i>对比</a>
-            	<a id="collect_260" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item last" id="li_259">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/259_thumb_G_1456451555948.jpg" src="${ctx}/statics/images/259_thumb_G_1456451555948.jpg" title="舒达源天然苏打水400ml*24" class="pic_img_259" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥209.0">¥209.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">舒达源天然苏打水400ml*24</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="259" data-type="0" onclick="Compare.add(259,舒达源天然苏打水400ml*24,0, ${ctx}/statics/images/259_thumb_G_1456451555948.jpg, ¥209.0)"><i></i>对比</a>
-            	<a id="collect_259" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_263">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/263_thumb_G_1456451965817.jpg" src="${ctx}/statics/images/263_thumb_G_1456451965817.jpg" title="伊利 学生高锌高钙奶粉400g" class="pic_img_263" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥32.0">¥32.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">伊利 学生高锌高钙奶粉400g</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="263" data-type="0" onclick="Compare.add(263,伊利 学生高锌高钙奶粉400g,0, ${ctx}/statics/images/263_thumb_G_1456451965817.jpg, ¥32.0)"><i></i>对比</a>
-            	<a id="collect_263" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_264">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/264_thumb_G_1456452043487.jpg" src="${ctx}/statics/images/264_thumb_G_1456452043487.jpg" title="藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加" class="pic_img_264" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥49.0">¥49.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="264" data-type="0" onclick="Compare.add(264,藏原蜜语 高原土蜂蜜野生百花蜜糖500g*2瓶 天然无添加,0, ${ctx}/statics/images/264_thumb_G_1456452043487.jpg, ¥49.0)"><i></i>对比</a>
-            	<a id="collect_264" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item" id="li_265">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/265_thumb_G_1456452231528.jpg" src="${ctx}/statics/images/265_thumb_G_1456452231528.jpg" title="恒寿堂 蜜炼柠檬茶大瓶装850g/瓶" class="pic_img_265" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥32.0">¥32.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">恒寿堂 蜜炼柠檬茶大瓶装850g/瓶</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="265" data-type="0" onclick="Compare.add(265,恒寿堂 蜜炼柠檬茶大瓶装850g/瓶,0, ${ctx}/statics/images/265_thumb_G_1456452231528.jpg, ¥32.0)"><i></i>对比</a>
-            	<a id="collect_265" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-       
-            <li class="item last" id="li_267">
-        <div class="item-con"> 
-          <div class="item-tag-box">
-          <div class="item-tag"><span>爆款</span><i></i></div>          </div>
-          <div class="item-pic">
-          	<a href="##">
-            	<img data-original="${ctx}/statics/images/267_thumb_G_1456452393137.jpg" src="${ctx}/statics/images/267_thumb_G_1456452393137.jpg" title="艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2" class="pic_img_267" style="display: inline;">
-            </a>
-          </div>
-                    <div class="item-info">
-          	<div class="item-price">
-            	<em class="sale-price main-color" title="本店价：¥29.0">¥29.0</em>
-                <em class="sale-count">已售0件</em>
-            </div>
-            <div class="item-name">
-            	<a href="##">艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2</a>
-            </div>
-            <div class="item-operate">
-            	<a class="operate-btn compare-btn" data-goods="267" data-type="0" onclick="Compare.add(267,艺福堂 茗茶 红糖姜茶 女人茶 袋泡茶 速溶姜茶花茶125g/盒*2,0, ${ctx}/statics/images/267_thumb_G_1456452393137.jpg, ¥29.0)"><i></i>对比</a>
-            	<a id="collect_267" href="##"><i></i>收藏</a>
-                <a href="##"><i></i>0</a> 
-                                <a href="##"></a>
-                            </div>
-          </div>
-        </div>
-      </li>
-       
-          </ul>
+ </ul>
    
 </form>
 <script type="Text/Javascript" language="JavaScript">
@@ -1110,43 +693,21 @@ $(function(){
 })
 </script>
  
-            <form name="selectPageForm" action="##" method="get">
-      <div class="page">
-    <div class="page-wrap fr"> 
-    	<div class="page-num fl">
-        	            <span class="num prev disabled">
-            	<i class="icon"></i>
-                <i>上一页</i>
-            </span>
-            			 
-			 
-			 
-			<span class="num curr">1</span> 
-			 
-			 
-			 
-			<a class="num" href="##">2</a> 
-			 
-			 
-			 
-            			<a class="num next" href="##">
-                <i>下一页</i>
-            	<i class="icon"></i>
-            </a>
-                    </div>
-      
-      <div class="total">共 2 页</div>
-       
-    </div>
-  </div>
-    </form>
+
+<%@include file="common/pagerBar.jsp" %>
+
+
+
 <script type="Text/Javascript" language="JavaScript">
 function selectPage(sel){
   sel.form.submit();
 }
 
-</script>         </div>
+</script> 
+</div>
     </div>
+
+
     <div class="browse-history none">
 	<div class="browse-history-tab clearfix">
     	        <span class="tab-span">浏览历史</span>

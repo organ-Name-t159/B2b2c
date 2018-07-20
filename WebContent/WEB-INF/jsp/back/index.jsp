@@ -17,7 +17,7 @@ var contextPath="${ctx}";
       </ul>
       <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+            <iframe src="${ctx}/BackIndex/inToWelcome.view" frameborder="0" scrolling="yes" class="x-iframe"></iframe>
         </div>
       </div>
     </div>
