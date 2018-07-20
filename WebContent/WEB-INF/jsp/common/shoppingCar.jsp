@@ -117,7 +117,7 @@
 					<div class="cart-panel-main">
 						<c:if
 							test="${sessionScope.cart==null || sessionScope.cart.items.size()<=0 }">
-							<div class="cart-panel-content" style="height: 572px;">
+							<div class="cart-panel-content" style="height: 570px;">
 								<div class="tip-box">
 									<i class="tip-icon"></i>
 									<div class="tip-text">

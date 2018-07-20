@@ -329,11 +329,16 @@ public class CarController {
 		Integer orderId=orderService.getId(serialNumber);
 		ShoppingCart cart=(ShoppingCart)getCartFromSession(request);
 		for (ShoppingCartItem car : cart.items) {
-			orderDetailService.addOrderDetail(orderId, car.getProduct().getId(), car.getQuantity(), car.getCost());			
+			orderDetailService.addOrderDetail(orderId, car.getProduct().getId(), car.getQuantity(), car.getCost());	
+			productService.updateNumber(car.getProduct().getStock()-car.getQuantity(), car.getProduct().getId());
 		}
 		DistributionWay dWay= orderService.getDistributionWayId(distributionWayId);
 		PaymentWay pWay=paymentWaySerivce.getId(Integer.parseInt(paymentWayId));
 		DeliveryTime dTime =deliveryTimeService.getId(Integer.parseInt(uTime));
+		
+		
+		
+		
 		session.setAttribute("serialNumber", serialNumber);
 		//request.setAttribute("serialNumber", serialNumber);
 		//session.setAttribute(arg0, arg1);
