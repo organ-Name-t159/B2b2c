@@ -9,7 +9,7 @@
 		<c:if test="${pager.pageCount>=1}">
 			<a class="num" href="${ctx}/${pager.url}&currentPage=1">首页</a>
 			<c:if test="${pager.currentPage>1}">
-            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}" class="num">上一页</a>
+            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}" class="num prev disabled">上一页</a>
        		</c:if>
 			<c:forEach var="temp" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?page.currentPage+3:pager.pageCount}" step="1">
 				<c:if test="${pager.currentPage==temp}">
@@ -20,7 +20,7 @@
 	            </c:if>
 			</c:forEach>
 			<c:if test="${pager.currentPage>1}">
-            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}" class="num">下一页</a>
+            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}" class="num prev disabled">下一页</a>
        		</c:if>
 			<a class="num" href="${ctx}/${pager.url}&currentPage=${pager.pageCount}">尾页</a>			
 		</c:if>
