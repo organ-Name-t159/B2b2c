@@ -21,6 +21,7 @@ import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.GetMessageCode;
 import cn.b2b2c.tools.ReturnContant;
 import cn.b2b2c.tools.SecurityUtils;
+import cn.b2b2c.tools.TouristPattern;
 /**
  * 登陆控制
  * @author surface
@@ -89,6 +90,9 @@ public class LoginController {
 		@RequestMapping(value="/regist",method=RequestMethod.POST)
 		public String regist(User user,BindingResult bindingresult,HttpSession session){
 			user.setPassword(SecurityUtils.md5Hex(user.getPassword()));
+			
+			String suname=TouristPattern.tp();
+			user.setUserName(suname);
 			int result=userService.regist(user);
 					if(result>0){
 				return "Login";
