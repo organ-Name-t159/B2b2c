@@ -7,17 +7,19 @@ var contextPath="${ctx}";
 </script>
 
 <head>
-	<meta charset="UTF-8">
+	<!-- <meta charset="UTF-8"> -->
 	<title>B2b2c后台</title>
-	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<!-- <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     
     <link rel="stylesheet" href="${ctx}/statics/css/font.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/xadmin.css">	
-	<link rel="stylesheet" href="${ctx}/statics/css/code.css">
+	<link rel="stylesheet" href="${ctx}/statics/css/modules/code.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/laydate.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/layer.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/layui.css">
@@ -34,10 +36,10 @@ var contextPath="${ctx}";
 	<script type="text/javascript" src="${ctx}/statics/js/laydate.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/layedit.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/layer.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/laypagen.js"></script>
+	<script type="text/javascript" src="${ctx}/statics/js/laypage.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/laytpl.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/layui.all.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/moblie.js"></script>
+	<script type="text/javascript" src="${ctx}/statics/js/mobile.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/table.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/tree.js"></script>
 	<script type="text/javascript" src="${ctx}/statics/js/upload.js"></script>
@@ -66,8 +68,8 @@ var contextPath="${ctx}";
         <ul class="layui-nav right" lay-filter="">
           <li class="layui-nav-item">
             <a href="javascript:;">admin</a>
-            <dl class="layui-nav-child layui-anim layui-anim-upbit"> <!-- 二级菜单 -->
-              <dd class="layui-this"><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+              <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
               <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
               <dd><a href="./login.html">退出</a></dd>
             </dl>

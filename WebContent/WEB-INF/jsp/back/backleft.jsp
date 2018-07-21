@@ -17,7 +17,7 @@ var contextPath="${ctx}";
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="member-list.html">
+                        <a _href="${ctx}/BackIndex/memberList.view">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>会员列表</cite>
                             
