@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 注册 -->
 	<insert id="regist" parameterType="User">
-	INSERT INTO user(phone,password)VALUES(#{phone},#{password})
+	INSERT INTO user(userName,phone,password)VALUES(#{userName},#{phone},#{password})
 	</insert>
 	
 	

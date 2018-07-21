@@ -16,5 +16,16 @@ public class BackIndexController {
 	public String inToWelcome() {
 		return "back/welcome";
 	}
+	
+	@RequestMapping(value="/memberList.view")
+	public String memberList() {
+		return "back/member-list";
+	}
+	
+	@RequestMapping(value="/memberAdd.view")
+	public String memberAdd() {
+		return "back/member-add";
+	}
+	
 
 }

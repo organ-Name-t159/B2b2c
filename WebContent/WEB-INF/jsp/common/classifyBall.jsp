@@ -13,9 +13,8 @@
 			</div>
 			<div class="mall-search">
 				<div id="search-tips" style="display: none;"></div>
-				<form class="mallSearch-form" method="get" name="searchForm"
-					id="searchForm" action=""
-					onsubmit="return checkSearchForm()">
+				<form class="mallSearch-form" method="post" name="searchForm"
+					id="searchForm" action="${ctx}/details/Wine.html">
 					<input type="hidden" name="type" id="searchtype" value="0">
 					<div class="mallSearch-input">
 						<ul class="search-type">
@@ -24,12 +23,8 @@
 						</ul>
 						<div class="s-combobox">
 							<div class="s-combobox-input-wrap">
-								<input aria-haspopup="true" role="combobox"
-									class="s-combobox-input" name="keywords" id="keyword"
-									tabindex="9" accesskey="s" onkeyup="STip(this.value, event);"
-									autocomplete="off" value="请输入关键词"
-									onfocus="if(this.value==&#39;请输入关键词&#39;){this.value=&#39;&#39;;}else{this.value=this.value;}"
-									onblur="if(this.value==&#39;&#39;)this.value=&#39;请输入关键词&#39;"
+								<input class="s-combobox-input" name="keyWord" id="keyword"
+									tabindex="9" accesskey="s" autocomplete="off" value="${keyWord}"									
 									type="text">
 							</div>
 						</div>
@@ -69,7 +64,7 @@
 						<div class="list">
 							<dl class="cat">
 								<dt class="cat-name">
-									<a href="#" target="_blank"
+									<a href="${ctx}/details/Wine.html?category=${temp.productCategory.id}&level=1" target="_blank"
 										title="${temp.productCategory.name}">${temp.productCategory.name}</a>
 								</dt>
 								<i>&gt;</i>
@@ -79,7 +74,7 @@
 									<c:forEach items="${temp.productCategoryVoList}" var="vo1">
 										<div class="item-channels">
 											<div class="channels">
-												<a href="" target="_blank"
+												<a href="${ctx}/details/Wine.html?category=${vo1.productCategory.id}&level=2" target="_blank"
 													title="${vo1.productCategory.name}">${vo1.productCategory.name}<i>&gt;</i></a>
 											</div>
 										</div>
@@ -88,12 +83,12 @@
 										<c:forEach items="${temp.productCategoryVoList}" var="vo">
 											<dl class="fore1">
 												<dt>
-													<a href="#" target="_blank"
+													<a href="${ctx}/details/Wine.html?category=${vo.productCategory.id}&level=2" target="_blank"
 														title="${vo.productCategory.name}">${vo.productCategory.name}<i>&gt;</i></a>
 												</dt>
 												<dd>
 													<c:forEach items="${vo.productCategoryVoList}" var="vo2">
-														<a href="#" target="_blank"
+														<a href="${ctx}/details/Wine.html?category=${vo2.productCategory.id}&level=3" target="_blank"
 															title="${vo2.productCategory.name}">${vo2.productCategory.name}</a>
 
 													</c:forEach>

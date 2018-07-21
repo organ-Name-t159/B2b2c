@@ -117,7 +117,7 @@
 					<div class="cart-panel-main">
 						<c:if
 							test="${sessionScope.cart==null || sessionScope.cart.items.size()<=0 }">
-							<div class="cart-panel-content" style="height: 572px;">
+							<div class="cart-panel-content" style="height: 570px;">
 								<div class="tip-box">
 									<i class="tip-icon"></i>
 									<div class="tip-text">
@@ -133,14 +133,14 @@
 									<c:forEach items="${sessionScope.cart.items}" var="temp">
 										<div class="cart-item">
 											<div class="item-goods">
-												<span class="p-img"> <a href="#"> <img
+												<span class="p-img"> <a href="${ctx}/details/ProductDeatil.html?id=${temp.product.id}"> <img
 														alt="${temp.product.name}"
 														src="${ctx}/statics/images/${temp.product.fileName}"
 														width="50px" height="50px">
 												</a>
 												</span>
 												<div class="p-name">
-													<a href="#" title="${temp.product.name}">${temp.product.name}</a>
+													<a href="${ctx}/details/ProductDeatil.html?id=${temp.product.id}" title="${temp.product.name}">${temp.product.name}</a>
 												</div>
 												<div class="p-price">
 													<strong>￥${temp.product.price}</strong>x${temp.quantity}

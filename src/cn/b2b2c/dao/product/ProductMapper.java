@@ -59,5 +59,5 @@ public interface ProductMapper {
 	 * @throws Exception
 	 */
 	public int getCount(@Param("pName")String proName,@Param("categoryId")Integer id,@Param("level")Integer level);
-
+	
 }
