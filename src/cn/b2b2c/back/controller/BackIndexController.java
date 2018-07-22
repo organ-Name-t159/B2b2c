@@ -27,5 +27,32 @@ public class BackIndexController {
 		return "back/member-add";
 	}
 	
+	@RequestMapping(value="/memberEdit.view")
+	public String memberEdit() {
+		return "back/member-edit";
+	}
+	
+	@RequestMapping(value="/memberPassword.view")
+	public String memberPassword() {
+		return "back/member-password";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

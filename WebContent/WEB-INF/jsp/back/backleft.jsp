@@ -71,7 +71,7 @@ var contextPath="${ctx}";
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="order-list.html">
+                        <a _href="${ctx}/BackOrder/orderList.view">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>订单列表</cite>
                         </a>
@@ -86,7 +86,7 @@ var contextPath="${ctx}";
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="cate.html">
+                        <a _href="${ctx}/BackCate/cate.view">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>多级分类</cite>
                         </a>
