@@ -1,6 +1,7 @@
 package cn.b2b2c.dao.user;
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -10,6 +11,30 @@ import cn.b2b2c.pojo.UserAddress;
 
 
 public interface UserMapper {
+	
+	
+	
+	/**
+	 * 分页查询
+	 * @param currentPageNo
+	 * @param pageSize
+	 * @param keyWord
+	 * @param beginTime
+	 * @param expirationTime
+	 * @return
+	 */
+	public List<User> userAll(@Param("cpn")Integer currentPageNo,@Param("ps")Integer pageSize,@Param("kw")String keyWord,@Param("bt")Date beginTime,@Param("et")Date expirationTime);
+	
+	
+	
+	/**
+	 * 查询==总条数
+	 * @param keyWord
+	 * @param beginTime
+	 * @param expirationTime
+	 * @return
+	 */
+	public int userCount(@Param("kw")String keyWord,@Param("bt")Date beginTime,@Param("et")Date expirationTime);
 	
 	/**
 	 * 登录验证

@@ -1,6 +1,7 @@
 package cn.b2b2c.service.user;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,20 @@ public class UserServiceImpl implements UserService {
 	public int deleteAddress(Integer userId, Integer id) throws Exception {
 		
 		return userMapper.deleteAddress(userId, id);
+	}
+
+
+	@Override
+	public int userCount(String keyWord, Date beginTime, Date expirationTime) {
+		
+		return userMapper.userCount(keyWord, beginTime, expirationTime);
+	}
+
+	@Override
+	public List<User> userAll(Integer currentPageNo, Integer pageSize, String keyWord, Date beginTime,
+			Date expirationTime) {
+		currentPageNo=(currentPageNo-1)*pageSize;
+		return userMapper.userAll(currentPageNo, pageSize, keyWord, beginTime, expirationTime);
 	}
 
 	

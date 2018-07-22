@@ -1,11 +1,32 @@
 package cn.b2b2c.service.user;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
 
 public interface UserService {
+	
+	/**
+	 * 分页查询
+	 * @param currentPageNo
+	 * @param pageSize
+	 * @param keyWord
+	 * @param beginTime
+	 * @param expirationTime
+	 * @return
+	 */
+	public List<User> userAll(Integer currentPageNo,Integer pageSize,String keyWord,Date beginTime,Date expirationTime);
+	
+	/**
+	 * 查询==总条数
+	 * @param keyWord
+	 * @param beginTime
+	 * @param expirationTime
+	 * @return
+	 */
+	public int userCount(String keyWord,Date beginTime,Date expirationTime);
 	
 	public int geiId();
 	

@@ -16,7 +16,8 @@ var contextPath="${ctx}";
     <script type="text/javascript" src="${ctx}/statics/js/jquery-1.12.4.js"></script>
     <script src="${ctx}/statics/js/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="${ctx}/statics/js/xadmin.js"></script>
-       
+    
+        
 </head>
 <body class="layui-anim layui-anim-up">
     <div class="x-nav">
@@ -31,17 +32,17 @@ var contextPath="${ctx}";
     </div>
     <div class="x-body">
       <div class="layui-row">
-        <form class="layui-form layui-col-md12 x-so">
-          <input class="layui-input" placeholder="开始日" name="start" id="start">
-          <input class="layui-input" placeholder="截止日" name="end" id="end">
-          <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        <form class="layui-form layui-col-md12 x-so" action="${ctx}/BackIndex/memberList.view" method="post">
+          <input class="layui-input" placeholder="开始日" name="start" id="start" lay-key="1">
+          <input class="layui-input" placeholder="截止日" name="end" id="end" lay-key="2">
+          <input type="text" name="keyWord"  value="${keyWord}" placeholder="请输入用户名" autocomplete="off" class="layui-input">
           <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
       </div>
       <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <button class="layui-btn" onclick="x_admin_show('添加用户','/BackIndex/memberAdd.view',600,400)"><i class="layui-icon"></i>添加</button>
-        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+        <span class="x-right" style="line-height:40px">共有数据：${rowCount} 条</span>
       </xblock>
       <table class="layui-table">
         <thead>
@@ -52,25 +53,24 @@ var contextPath="${ctx}";
             <th>ID</th>
             <th>用户名</th>
             <th>性别</th>
-            <th>手机</th>
-            <th>邮箱</th>
-            <th>地址</th>
-            <th>加入时间</th>
+            <th>电子邮箱</th>
+            <th>电话</th>
+            <th>出生日期</th>           
             <th>状态</th>
             <th>操作</th></tr>
         </thead>
         <tbody>
-          <tr>
+        <c:forEach items="${userList}" var="temp" >
+        	<tr>
             <td>
               <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
             </td>
-            <td>1</td>
-            <td>小明</td>
-            <td>男</td>
-            <td>13000000000</td>
-            <td>admin@mail.com</td>
-            <td>北京市 海淀区</td>
-            <td>2017-01-01 11:11:42</td>
+            <td>${temp.id}</td>
+            <td>${temp.userName}</td>
+            <td>${temp.sex}</td>
+            <td>${temp.email}</td>
+            <td>${temp.phone}</td>            
+            <td>${temp.birthday}</td>
             <td class="td-status">
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
             <td class="td-manage">
@@ -88,45 +88,34 @@ var contextPath="${ctx}";
               </a>
             </td>
           </tr>
-          <tr>
-            <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
-            </td>
-            <td>1</td>
-            <td>小明</td>
-            <td>男</td>
-            <td>13000000000</td>
-            <td>admin@mail.com</td>
-            <td>北京市 海淀区</td>
-            <td>2017-01-01 11:11:42</td>
-            <td class="td-status">
-              <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
-            <td class="td-manage">
-              <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
-                <i class="layui-icon">&#xe601;</i>
-              </a>
-              <a title="编辑"  onclick="x_admin_show('编辑','member-edit.html',600,400)" href="javascript:;">
-                <i class="layui-icon">&#xe642;</i>
-              </a>
-              <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
-                <i class="layui-icon">&#xe631;</i>
-              </a>
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                <i class="layui-icon">&#xe640;</i>
-              </a>
-            </td>
-          </tr>
+        </c:forEach>
+         
         </tbody>
       </table>
       <div class="page">
-        <div>
-          <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
-          <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
-          <a class="next" href="">&gt;&gt;</a>
+      <c:if test="${pager.pageCount>=1}">
+      	<div>
+      	<c:if test="${pager.currentPage>1}">
+      		<a class="prev" href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}">&lt;&lt;</a>
+      	</c:if>
+          <c:forEach var="tempt" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?page.currentPage+3:pager.pageCount}" step="1">
+          	<c:if test="${pager.currentPage==tempt}">
+          		<span class="current">${tempt}</span>
+          		<%-- <a class="num" href="">${temp}</a> --%>
+          	</c:if>
+          	<c:if test="${pager.currentPage!=tempt}">
+          		<a class="num" href="${ctx}/${pager.url}&currentPage=${tempt}">${tempt}</a>
+          	</c:if>
+          </c:forEach>         
+         <c:if test="${pager.currentPage<pager.pageCount}">
+         <a class="next" href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}">&gt;&gt;</a>
+      	 </c:if>
+          
         </div>
+      </c:if>
+       <c:if test="${pager.pageCount==0}">
+       	战无记录
+       </c:if> 
       </div>
 
     </div>
@@ -191,11 +180,6 @@ var contextPath="${ctx}";
         });
       }
     </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
+   
   </body>
 </html>

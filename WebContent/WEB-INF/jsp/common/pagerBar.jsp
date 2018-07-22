@@ -19,7 +19,7 @@
 	                <a href="${ctx}/${pager.url}&currentPage=${temp}" class="num">${temp}</a>
 	            </c:if>
 			</c:forEach>
-			<c:if test="${pager.currentPage>1}">
+			<c:if test="${pager.currentPage<pager.pageCount}">
             <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}" class="num prev disabled">下一页</a>
        		</c:if>
 			<a class="num" href="${ctx}/${pager.url}&currentPage=${pager.pageCount}">尾页</a>			
