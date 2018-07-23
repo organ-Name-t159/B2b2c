@@ -3,6 +3,8 @@
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class User implements Serializable{
 
 	private Integer id;	
@@ -12,7 +14,11 @@ public class User implements Serializable{
 	private String email;//电子邮箱
 	private String phone;//电话
 	private String headPortrait;//头像文件
+	
+	@JSONField(format="yyyy-MM-dd")
 	private Date birthday;//出生日期
+	
+	private String  commB;//时间格式替身
 	
 	public String getPhone() {
 		return phone;
@@ -63,6 +69,12 @@ public class User implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getCommB() {
+		return commB;
+	}
+	public void setCommB(String commB) {
+		this.commB = commB;
 	}
 	
 	

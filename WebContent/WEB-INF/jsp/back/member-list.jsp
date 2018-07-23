@@ -67,17 +67,20 @@ var contextPath="${ctx}";
             </td>
             <td>${temp.id}</td>
             <td>${temp.userName}</td>
-            <td>${temp.sex}</td>
+            <td>
+            <c:if test="${temp.sex==1}">男</c:if>
+            <c:if test="${temp.sex==0}">女</c:if>
+            </td>
             <td>${temp.email}</td>
             <td>${temp.phone}</td>            
-            <td>${temp.birthday}</td>
+            <td>${temp.commB}</td>
             <td class="td-status">
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
             <td class="td-manage">
               <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                 <i class="layui-icon">&#xe601;</i>
               </a>
-              <a title="编辑"  onclick="x_admin_show('编辑','/BackIndex/memberEdit.view',600,400)" href="javascript:;">
+              <a title="编辑"  onclick="x_admin_show('编辑','/BackIndex/memberEdit.view?uId=${temp.id}',600,400)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
               <a onclick="x_admin_show('修改密码','/BackIndex/memberPassword.view',600,400)" title="修改密码" href="javascript:;">

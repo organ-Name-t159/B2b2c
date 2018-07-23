@@ -12,7 +12,19 @@ import cn.b2b2c.pojo.UserAddress;
 
 public interface UserMapper {
 	
+	/**
+	 * 后台==修改
+	 * @param user
+	 * @return
+	 */
+	public int updateBackUser(User user);
 	
+	/**
+	 * 根据id查询
+	 * @param userId
+	 * @return
+	 */
+	public User getUser(@Param("uId")Integer userId);
 	
 	/**
 	 * 分页查询

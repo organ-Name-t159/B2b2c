@@ -19,55 +19,66 @@ var contextPath="${ctx}";
 </head>
 <body>
     <div class="x-body">
-        <form class="layui-form">
-          <div class="layui-form-item">
-              <label for="L_email" class="layui-form-label">
-                  <span class="x-red">*</span>邮箱
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required="" lay-verify="email"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>将会成为您唯一的登入名
-              </div>
-          </div>
+        <form class="layui-form" action="${ctx}/BackIndex/memberListUpdate.html?id=${userEdit.id}" method="post">
+          
           <div class="layui-form-item">
               <label for="L_username" class="layui-form-label">
                   <span class="x-red">*</span>昵称
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_username" name="username" required="" lay-verify="nikename"
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_username" name="userName" required="" lay-verify="nikename"
+                  autocomplete="off" value="${userEdit.userName}" class="layui-input">
               </div>
           </div>
           <div class="layui-form-item">
-              <label for="L_pass" class="layui-form-label">
-                  <span class="x-red">*</span>密码
+              <label for="L_sex" class="layui-form-label">
+                  <span class="x-red">*</span>性别
               </label>
               <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="pass" required="" lay-verify="pass"
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_pass" name="sex" required="" lay-verify="sex"
+                  autocomplete="off" value="${userEdit.sex}" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  6到16个字符
-              </div>
+            	  1:男，0：女
+           </div>             
           </div>
           <div class="layui-form-item">
-              <label for="L_repass" class="layui-form-label">
-                  <span class="x-red">*</span>确认密码
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>邮箱
               </label>
               <div class="layui-input-inline">
-                  <input type="password" id="L_repass" name="repass" required="" lay-verify="repass"
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_repass" name="email" required="" lay-verify="email"
+                  autocomplete="off" value="${userEdit.email}" class="layui-input">
+              </div>
+          </div>
+           <div class="layui-form-item">
+              <label for="L_phone" class="layui-form-label">
+                  <span class="x-red">*</span>电话
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_repass" name="phone" required="" lay-verify="phone"
+                  autocomplete="off" value="${userEdit.phone}" class="layui-input">
+              </div>
+            <div class="layui-form-mid layui-word-aux">
+            	   标准11位   
+           </div>
+          </div>
+          
+           <div class="layui-form-item">
+              <label for="L_birthday" class="layui-form-label">
+                  <span class="x-red">*</span>出生日期
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_repass" name="birthday" required="" lay-verify="birthday"
+                  autocomplete="off" value="${userEdit.commB}" class="layui-input">
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
-              </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  增加
-              </button>
+              </label>             
+              	<button  class="layui-btn" lay-filter="update" lay-submit="">
+                  	修改
+              </button>                        
           </div>
       </form>
     </div>

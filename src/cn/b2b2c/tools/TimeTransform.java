@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class TimeTransform implements Serializable {
 	
-	public static Date isTime(Object obj) {
+	public static Object isTime(Object obj) {
 		Date date=new Date();
 		String timeStr="";
 		DateFormat dFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -22,10 +22,8 @@ public class TimeTransform implements Serializable {
 			}			
 			return date;
 		}else if(obj instanceof Date) {
-			timeStr=dFormat.format(obj);
-			date.parse(timeStr);
-			System.out.println(date);
-			return date;
+			timeStr=dFormat.format((Date)obj);
+			return timeStr;
 		}
 		
 		return null;

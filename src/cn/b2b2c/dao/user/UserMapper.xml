@@ -3,6 +3,15 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.user.UserMapper">
+
+	<update id="updateBackUser" parameterType="User">
+		update user set userName=#{userName},sex=#{sex},email=#{email},phone=#{phone},birthday=#{birthday}
+		where id=#{id}
+	</update>
+	<select id="getUser" resultType="User">
+		SELECT u.* FROM `user` u WHERE u.`id`=#{uId}
+	</select>
+
 	<select id="userAll" resultType="User">
 		SELECT u.* FROM `user` u where 1=1
 		<if test="kw !=null and kw !=''">
