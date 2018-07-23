@@ -2,11 +2,11 @@ package cn.b2b2c.dao.user;
 
 import cn.b2b2c.pojo.User;
 
-public interface information {
+public interface Information {
 	/**
 	 * 修改基本信息
 	 * @param user
 	 * @return
 	 */
- public int update (User user);
+	 public int update (User user);
 }

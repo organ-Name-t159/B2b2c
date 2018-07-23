@@ -1,6 +1,7 @@
 package cn.b2b2c.service.user;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import cn.b2b2c.dao.user.UserMapper;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
+import cn.b2b2c.tools.TimeTransform;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 	
@@ -76,6 +78,38 @@ public class UserServiceImpl implements UserService {
 	public int deleteAddress(Integer userId, Integer id) throws Exception {
 		
 		return userMapper.deleteAddress(userId, id);
+	}
+
+
+	@Override
+	public int userCount(String keyWord, Date beginTime, Date expirationTime) {
+		
+		return userMapper.userCount(keyWord, beginTime, expirationTime);
+	}
+
+	@Override
+	public List<User> userAll(Integer currentPageNo, Integer pageSize, String keyWord, Date beginTime,
+			Date expirationTime) {
+		currentPageNo=(currentPageNo-1)*pageSize;
+		List<User> userList=userMapper.userAll(currentPageNo, pageSize, keyWord, beginTime, expirationTime);
+		for (User user : userList) {	
+			user.setCommB((String)TimeTransform.isTime(user.getBirthday()));			
+		}
+		
+		return userList;
+	}
+
+	@Override
+	public User getUser(Integer userId) {
+		User userEdit=userMapper.getUser(userId);
+		userEdit.setCommB((String)TimeTransform.isTime(userEdit.getBirthday()));
+		return userEdit;
+	}
+
+	@Override
+	public int updateBackUser(User user) {
+		
+		return userMapper.updateBackUser(user);
 	}
 
 	

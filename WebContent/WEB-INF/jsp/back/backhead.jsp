@@ -15,7 +15,7 @@ var contextPath="${ctx}";
     <meta http-equiv="Cache-Control" content="no-siteapp" /> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+   <!--  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> -->
     
     <link rel="stylesheet" href="${ctx}/statics/css/font.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/xadmin.css">	
@@ -51,7 +51,7 @@ var contextPath="${ctx}";
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./index.html">X-admin v2.0</a></div>
+        <div class="logo"><a href="./index.html">B2b2c后台</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
@@ -66,16 +66,24 @@ var contextPath="${ctx}";
           </li>
         </ul>
         <ul class="layui-nav right" lay-filter="">
-          <li class="layui-nav-item">
+          <li class="layui-nav-item" onmousemove="layuiOver()" onmouseout="layuiOut()">
             <a href="javascript:;">admin</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
-              <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
-              <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
-              <dd><a href="./login.html">退出</a></dd>
+              <!-- <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd> -->
+              <dd><a onclick="x_admin_show('切换帐号','/BackLogin/inToLogin.html')">切换帐号</a></dd>
+              <dd><a href="${ctx}/BackLogin/inToLogin.html">退出</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item to-index"><a href="/">前台首页</a></li>
+          <li class="layui-nav-item to-index"><a href="${ctx}/product/index.html">前台首页</a></li>
         </ul>
         
     </div>
     <!-- 顶部结束 -->
+    <script type="text/javascript">
+    	function layuiOver(){
+    		$(".layui-nav-child").show();
+    	}
+    	function layuiOut(){
+    		$(".layui-nav-child").hide();
+    	}
+    </script>

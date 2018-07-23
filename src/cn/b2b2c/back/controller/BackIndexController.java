@@ -1,11 +1,30 @@
 package cn.b2b2c.back.controller;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import cn.b2b2c.pojo.User;
+import cn.b2b2c.service.user.UserService;
+import cn.b2b2c.tools.EmptyUtils;
+import cn.b2b2c.tools.Pager;
+import cn.b2b2c.tools.TimeTransform;
 
 @Controller
 @RequestMapping("/BackIndex")
 public class BackIndexController {
+	
+	@Resource
+	private UserService userService;
+	
+	
 	
 	@RequestMapping(value="/inToIndex.html")
 	public String inToIndex() {				
@@ -18,9 +37,50 @@ public class BackIndexController {
 	}
 	
 	@RequestMapping(value="/memberList.view")
-	public String memberList() {
+	public String memberList(HttpServletRequest request) {
+		String category=request.getParameter("category");
+		String pageSizeStr=request.getParameter("pageSize");
+		String keyWord=request.getParameter("keyWord");
+		String currentPageStr=request.getParameter("currentPage");
+		String beginTime=request.getParameter("beginTime");
+		String expirationTime=request.getParameter("expirationTime");
+		
+		int rowPerPage=EmptyUtils.isEmpty(pageSizeStr)?2:Integer.parseInt(pageSizeStr);
+		int currentPage=EmptyUtils.isEmpty(currentPageStr)?1:Integer.parseInt(currentPageStr);
+		int rowCount=userService.userCount(EmptyUtils.isEmpty(keyWord)?null:keyWord, EmptyUtils.isEmpty(beginTime)?null:((Date)TimeTransform.isTime(beginTime)), EmptyUtils.isEmpty(expirationTime)?null:((Date)TimeTransform.isTime(expirationTime)));
+		Pager pager=new Pager(rowCount, rowPerPage, currentPage);
+		pager.setUrl("/BackIndex/memberList.view?category="+(EmptyUtils.isEmpty(category)?"":category));
+		List<User> userList=userService.userAll(currentPage, rowPerPage, keyWord, ((Date)TimeTransform.isTime(beginTime)), ((Date)TimeTransform.isTime(expirationTime)));
+		System.out.println("数据："+userList.size());
+		request.setAttribute("pager", pager);
+		request.setAttribute("userList", userList);
+		request.setAttribute("rowCount", rowCount);
+		
 		return "back/member-list";
 	}
+	
+	@RequestMapping(value="/memberListUpdate.html",method=RequestMethod.POST)
+	public String memberListUpdate(HttpServletRequest request) {
+		String id=request.getParameter("id");
+		String userName=request.getParameter("userName");
+		String sex=request.getParameter("sex");
+		String email=request.getParameter("email");
+		String phone=request.getParameter("phone");
+		String birthday=request.getParameter("birthday");
+		User user=new User();
+		user.setId(Integer.parseInt(id));
+		user.setUserName(userName);
+		user.setSex(Integer.parseInt(sex));
+		user.setEmail(email);
+		user.setPhone(phone);
+		user.setBirthday((Date)TimeTransform.isTime(birthday));
+		userService.updateBackUser(user);
+		
+		return "back/successBack";
+	}
+	
+	
+	
 	
 	@RequestMapping(value="/memberAdd.view")
 	public String memberAdd() {
@@ -28,7 +88,11 @@ public class BackIndexController {
 	}
 	
 	@RequestMapping(value="/memberEdit.view")
-	public String memberEdit() {
+	public String memberEdit(HttpServletRequest request) {
+		String userId=request.getParameter("uId");		
+		User userEdit=userService.getUser(Integer.parseInt(userId));
+		request.setAttribute("userEdit", userEdit);
+		
 		return "back/member-edit";
 	}
 	
