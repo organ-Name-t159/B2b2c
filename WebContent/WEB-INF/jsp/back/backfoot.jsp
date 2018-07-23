@@ -8,6 +8,6 @@ var contextPath="${ctx}";
 
 <!-- 底部开始 -->
 <div class="footer">
-    <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved</div>  
+    <div class="copyright">Copyright ©2018 何文彪小组制造</div>  
 </div>
 <!-- 底部结束 -->

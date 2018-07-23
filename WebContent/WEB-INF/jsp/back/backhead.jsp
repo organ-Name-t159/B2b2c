@@ -15,7 +15,7 @@ var contextPath="${ctx}";
     <meta http-equiv="Cache-Control" content="no-siteapp" /> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+   <!--  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> -->
     
     <link rel="stylesheet" href="${ctx}/statics/css/font.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/xadmin.css">	
