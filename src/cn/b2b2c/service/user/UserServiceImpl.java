@@ -112,5 +112,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.updateBackUser(user);
 	}
 
+<<<<<<< HEAD
 	
+=======
+	@Override
+	public User basic(User user) {
+		return userMapper.basic(user);
+	}
+>>>>>>> 1716a29267fabdd35e06386be55fff0ade0a09e9
 }
