@@ -1,11 +1,6 @@
 package cn.b2b2c.controller;
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dde71ea4abb6647c25047f2b63fa694b5d0ca307
-
 
 
 import java.util.List;
@@ -36,24 +31,16 @@ import cn.b2b2c.tools.TimeTransform;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-<<<<<<< HEAD
+
 	
 
 
 	@Autowired
 	private UserService  userService;
 
-=======
-
-	
-
-
-
-	@Autowired
-	private UserService  userService;
 @Autowired
 private  DiscountCouponService dcs;
->>>>>>> dde71ea4abb6647c25047f2b63fa694b5d0ca307
+
 	
 	@RequestMapping(value="/welocome.html")
 	public String welocome(HttpSession session)throws Exception {
