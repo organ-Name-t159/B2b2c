@@ -1,10 +1,15 @@
 package cn.b2b2c.controller;
 
 
+
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 
 
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 	
+
 
 	
 	@RequestMapping(value="/welocome.html")
@@ -21,7 +27,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/userMessage.html")
-	public String userMessage(HttpSession session)throws Exception {
+	public String userMessage(HttpSession session,HttpServletRequest request)throws Exception {		
 		
 		return "user/UserMessage";
 	}
@@ -33,28 +39,6 @@ public class UserController {
 		return "user/AccountSecurity";
 	}
 	
-	@RequestMapping(value="/BindEmail.html")
-	public String accountBindEmail(HttpSession session)throws Exception {
-				
-		return "user/BindEmail";
-	}
 	
-	@RequestMapping(value="/BindEmailOne.html")
-	public String accountBindEmailOne(HttpSession session)throws Exception {
-				
-		return "user/BindEmailOne";
-	}
 	
-	@RequestMapping(value="/BindEmailTow.html")
-	public String accountBindEmailTow(HttpSession session)throws Exception {
-				
-		return "user/BindEmailTow";
-	}
-	
-	@RequestMapping(value="/BindEmailSuccess.html")
-	public String accountBindEmailSuccess(HttpSession session)throws Exception {
-				
-		return "user/BindEmailSuccess";
-	}
-
 }

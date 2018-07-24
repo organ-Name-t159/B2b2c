@@ -27,4 +27,10 @@ public class DiscountCouponServiceImpl implements DiscountCouponService {
 		return discountCouponMapper.getAll(dcId);
 	}
 
+	@Override
+	public List<DiscountCoupon> getQueryById(Integer userId) throws Exception {
+		// TODO Auto-generated method stub
+		return discountCouponMapper.getQueryById(userId);
+	}
+
 }

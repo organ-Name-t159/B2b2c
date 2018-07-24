@@ -25,4 +25,6 @@ public interface DiscountCouponMapper {
 	 */
 	public DiscountCoupon getAll(@Param("dcId")Integer dcId);
 	
+	public List<DiscountCoupon> getQueryById(@Param("userId")Integer userId);
+	
 }

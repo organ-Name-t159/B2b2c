@@ -13,10 +13,21 @@
 						<img id="headImagePath" src="${ctx}/statics/images/people.gif"
 							height="80" width="80">
 					</div>
+					<script type="text/javascript">
+function outUser(){
+	var msg=confirm("确定退出吗？")
+	if (msg==true) {
+		return true;
+	} else {
+		return false;
+	}
+	
+}
+</script>
 					<div class="info-op">
 						<ul>
 							<li class="info-op1"><i></i><a href="##">修改资料</a></li>
-							<li class="info-op2"><i></i><a href="##">安全退出</a></li>
+							<li class="info-op2"><i></i><a href="${ctx}/register/outLogin" onclick="return outUser();">安全退出</a></li>
 							<li class="info-op3"><i></i><a href="##">钻石会员</a></li>
 						</ul>
 					</div>
@@ -32,9 +43,9 @@
 				<a href="${ctx}/user/welocome.html" class="item curs"><span>欢迎页</span><i></i></a> 
 				<a href="${ctx}/user/userMessage.html" class="item"><span>用户信息</span><i></i></a>
 				<a href="${ctx}/user/BindEmail.html" class="item"><span>账户安全</span><i></i></a> 
-				<a href="##" class="item"><span>收货地址</span><i></i></a>
+				<a href="${ctx}/user/ReceivingAddress.html" class="item"><span>收货地址</span><i></i></a>
 				<!-- <a href="##" class="item"><span>资金管理</span><i></i></a>  -->
-				<a href="##" class="item"><span>我的红包</span><i></i></a>
+				<a href="${ctx}/user/RedEnvelopes.html?userId=${sessionScope.user.id}" class="item"><span>我的红包</span><i></i></a>
 				<!-- <a href="##" class="item">储值卡充值<i></i></a> -->
 			</div>
 			<div class="func func2 clearfix">
