@@ -13,6 +13,13 @@ import cn.b2b2c.pojo.UserAddress;
 public interface UserMapper {
 	
 	/**
+	 * 查询基本信息
+	 * @param user
+	 * @return
+	 */
+	public User basic(User user);
+	
+	/**
 	 * 后台==修改
 	 * @param user
 	 * @return
