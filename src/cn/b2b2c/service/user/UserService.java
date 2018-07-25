@@ -15,7 +15,7 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	public User basic(User user);
+	public User basic(Integer uId);
 	
 	/**
 	 * 后台==修改

@@ -1,12 +1,10 @@
 package cn.b2b2c.back.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +35,7 @@ public class BackIndexController {
 	}
 	
 	@RequestMapping(value="/memberList.view")
-	public String memberList(HttpServletRequest request) {
+	public String memberList(HttpServletRequest request)throws Exception {
 		String category=request.getParameter("category");
 		String pageSizeStr=request.getParameter("pageSize");
 		String keyWord=request.getParameter("keyWord");
@@ -47,10 +45,10 @@ public class BackIndexController {
 		
 		int rowPerPage=EmptyUtils.isEmpty(pageSizeStr)?2:Integer.parseInt(pageSizeStr);
 		int currentPage=EmptyUtils.isEmpty(currentPageStr)?1:Integer.parseInt(currentPageStr);
-		int rowCount=userService.userCount(EmptyUtils.isEmpty(keyWord)?null:keyWord, EmptyUtils.isEmpty(beginTime)?null:((Date)TimeTransform.isTime(beginTime)), EmptyUtils.isEmpty(expirationTime)?null:((Date)TimeTransform.isTime(expirationTime)));
+		int rowCount=userService.userCount(EmptyUtils.isEmpty(keyWord)?null:keyWord, EmptyUtils.isEmpty(beginTime)?null:TimeTransform.isDateOne(beginTime), EmptyUtils.isEmpty(expirationTime)?null:TimeTransform.isDateOne(expirationTime));
 		Pager pager=new Pager(rowCount, rowPerPage, currentPage);
 		pager.setUrl("/BackIndex/memberList.view?category="+(EmptyUtils.isEmpty(category)?"":category));
-		List<User> userList=userService.userAll(currentPage, rowPerPage, keyWord, ((Date)TimeTransform.isTime(beginTime)), ((Date)TimeTransform.isTime(expirationTime)));
+		List<User> userList=userService.userAll(currentPage, rowPerPage, keyWord, EmptyUtils.isEmpty(beginTime)?null:TimeTransform.isDateOne(beginTime), EmptyUtils.isEmpty(expirationTime)?null:TimeTransform.isDateOne(expirationTime));
 		System.out.println("数据："+userList.size());
 		request.setAttribute("pager", pager);
 		request.setAttribute("userList", userList);
@@ -60,7 +58,7 @@ public class BackIndexController {
 	}
 	
 	@RequestMapping(value="/memberListUpdate.html",method=RequestMethod.POST)
-	public String memberListUpdate(HttpServletRequest request) {
+	public String memberListUpdate(HttpServletRequest request)throws Exception {
 		String id=request.getParameter("id");
 		String userName=request.getParameter("userName");
 		String sex=request.getParameter("sex");
@@ -73,7 +71,7 @@ public class BackIndexController {
 		user.setId(Integer.parseInt(sex));
 		user.setEmail(email);
 		user.setPhone(phone);
-		user.setBirthday((Date)TimeTransform.isTime(birthday));
+		user.setBirthday(TimeTransform.isDateOne(birthday));
 		userService.updateBackUser(user);
 		
 		return "back/successBack";

@@ -70,37 +70,37 @@ $(function(){
                     <tbody><tr>
                       <td width="35%" align="right">用户名称：</td>
                       <td width="65%" align="left">
-                      	<input type="text" name="username" value="${useryou.userName}"  onblur="check_username(this.value)" size="25" class="inputBg" style="ime-mode:disabled">
+                      	<input type="text" name="username" value="${useryou.userName}"   size="25" class="inputBg" style="ime-mode:disabled">
                         <span id="username_message" style="color:#C81623"></span>
                       </td>
                     </tr>
                     <tr>
                       <td align="right">出生日期：</td>
                       <td align="left"> 
-                      <input type="date" name="birthday" value="${useryou.commB}" onblur="check_username(this.value)" size="25" class="inputBg" style="ime-mode:disabled">
+                      <input type="date" name="birthday" value="${useryou.commB}"  size="25" class="inputBg" style="ime-mode:disabled">
                       </td>
                     </tr>
                     <tr>
                       <td align="right">性别：</td>
                       <td align="left">
                       
-                         <c:if test="${useryou.sex==0}">
-                         <label>
-                        <input type="radio" name="sex" value="0" checked="checked">
-                          女&nbsp;&nbsp; </label>
-                          <label>
-                          <input type="radio" name="sex" value="1">
-                          男&nbsp;&nbsp; </label>
-                        </c:if>
+                      <c:if test="${useryou.sex==0}">
+                       <label>
+                        <input type="radio" name="sex" value="0" checked="checked"> 女&nbsp;&nbsp; 
+                       </label>
+                       <label>
+                          <input type="radio" name="sex" value="1"> 男&nbsp;&nbsp; 
+                        </label>
+                       </c:if>
                         
-                        <c:if test="${useryou.sex==1}">
+                       <c:if test="${useryou.sex==1}">
                         <label>
-                        <input type="radio" name="sex" value="0" >
-                          女&nbsp;&nbsp; </label>
-                          <label>
-                          <input type="radio" name="sex" value="1" checked="checked">
-                          男&nbsp;&nbsp; </label>
-                        </c:if>
+                        <input type="radio" name="sex" value="0" > 女&nbsp;&nbsp; 
+                        </label>
+                        <label>
+                          <input type="radio" name="sex" value="1" checked="checked">男&nbsp;&nbsp; 
+                        </label>
+                       </c:if>
                        
                         
                        </td>

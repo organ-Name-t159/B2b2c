@@ -17,7 +17,7 @@ public interface UserMapper {
 	 * @param user
 	 * @return
 	 */
-	public User basic(User user);
+	public User basic(@Param("uid")Integer uId);
 	
 	/**
 	 * 后台==修改
@@ -105,5 +105,5 @@ public interface UserMapper {
 	 * @param user
 	 * @return
 	 */
-	public int updatemodify(@Param("id")Integer userid,@Param("userName")String userName,@Param("birthday")Date birthday,@Param("sex")Integer sex);
+	public int updatemodify(@Param("uid")Integer userid,@Param("uName")String userName,@Param("bDay")Date birthday,@Param("sx")Integer sex);
 }
