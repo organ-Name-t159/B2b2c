@@ -3,7 +3,6 @@ package cn.b2b2c.service.productCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,6 +67,24 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		productCategoryList=productCategoryMapper.queryProductCategorylist(params);	
 		//System.out.println("size: " + productCategoryList.size());
 		return productCategoryList;
+	}
+
+	@Override
+	public ProductCategory queryAll(Integer ProductCategoryId) throws Exception {
+		
+		return productCategoryMapper.queryAll(ProductCategoryId);
+	}
+
+	@Override
+	public int updateProduct(Integer id, String name, Integer type) throws Exception {
+		
+		return productCategoryMapper.updateProduct(id, name, type);
+	}
+
+	@Override
+	public int addProduct(String name, Integer type, Integer id) {
+		
+		return productCategoryMapper.addProduct(name, type, id);
 	}
 	
 	

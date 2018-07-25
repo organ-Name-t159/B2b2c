@@ -79,11 +79,11 @@
 							checked="" lay-skin="switch"></td>
 						<td class="td-manage">
 							<button class="layui-btn layui-btn layui-btn-xs"
-								onclick="x_admin_show('编辑','admin-edit.html')">
+								onclick="x_admin_show('编辑','/BackCate/adminEdit.view?pcId=${temp.productCategory.id}')">
 								<i class="layui-icon">&#xe642;</i>编辑
 							</button>
 							<button class="layui-btn layui-btn-warm layui-btn-xs"
-								onclick="x_admin_show('编辑','admin-edit.html')">
+								onclick="x_admin_show('添加子栏目','/BackCate/adminAdd.view?type=2&parentId=${temp.productCategory.id}')">
 								<i class="layui-icon">&#xe642;</i>添加子栏目
 							</button>
 							<button class="layui-btn-danger layui-btn layui-btn-xs"
@@ -110,11 +110,11 @@
 								checked="" lay-skin="switch"></td>
 							<td class="td-manage">
 								<button class="layui-btn layui-btn layui-btn-xs"
-									onclick="x_admin_show('编辑','admin-edit.html')">
+									onclick="x_admin_show('编辑','/BackCate/adminEdit.view?pcId=${vo1.productCategory.id}')">
 									<i class="layui-icon">&#xe642;</i>编辑
 								</button>
 								<button class="layui-btn layui-btn-warm layui-btn-xs"
-									onclick="x_admin_show('编辑','admin-edit.html')">
+									onclick="x_admin_show('添加子栏目','/BackCate/adminAdd.view?type=3&parentId=${vo1.productCategory.id}')">
 									<i class="layui-icon">&#xe642;</i>添加子栏目
 								</button>
 								<button class="layui-btn-danger layui-btn layui-btn-xs"
@@ -143,13 +143,9 @@
 									checked="" lay-skin="switch"></td>
 								<td class="td-manage">
 									<button class="layui-btn layui-btn layui-btn-xs"
-										onclick="x_admin_show('编辑','admin-edit.html')">
+										onclick="x_admin_show('编辑','/BackCate/adminEdit.view?pcId=${vo2.productCategory.id}')">
 										<i class="layui-icon">&#xe642;</i>编辑
-									</button>
-									<button class="layui-btn layui-btn-warm layui-btn-xs"
-										onclick="x_admin_show('编辑','admin-edit.html')">
-										<i class="layui-icon">&#xe642;</i>添加子栏目
-									</button>
+									</button>									
 									<button class="layui-btn-danger layui-btn layui-btn-xs"
 										onclick="member_del(this,'要删除的id')" href="javascript:;">
 										<i class="layui-icon">&#xe640;</i>删除

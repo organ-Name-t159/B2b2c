@@ -18,6 +18,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			limit #{startIndex},#{pageSize}
 		</if>
 	</select>
-
+	
+	<select id="queryAll" resultType="ProductCategory">
+		SELECT pc.* FROM `product_category` pc WHERE pc.`id`=#{pcId}
+	</select>
+	
+	<update id="updateProduct">
+		UPDATE `product_category` SET `name`=#{pName},`type`=#{pType} where `id`=#{pId}
+	</update>
+	
+	<insert id="addProduct">
+		INSERT INTO `product_category`(`name`,`parentId`,`type`)VALUES(#{pName},#{pId},#{pType})
+	</insert>
 
 </mapper>
