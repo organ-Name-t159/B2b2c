@@ -19,17 +19,17 @@ var contextPath="${ctx}";
 </head>
 <body>
     <div class="x-body">
-        <form class="layui-form" action="${ctx}/BackCate/adminUpdate.view?pId=${pCategory.id}" method="post">
+        <form class="layui-form" action="${ctx}/BackCate/adminNewly.view" method="post">
           <div class="layui-form-item">
               <label for="name" class="layui-form-label">
                   <span class="x-red">*</span>栏目名
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="name" name="name" required="" lay-verify="name"
-                  autocomplete="off" value="${pCategory.name}" class="layui-input">
+                  autocomplete="off" value="" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>不能轻易改动
+                  <span class="x-red">*</span>
               </div>
           </div>
           <div class="layui-form-item">
@@ -37,8 +37,20 @@ var contextPath="${ctx}";
                   <span class="x-red">*</span>排序
               </label>
               <div class="layui-input-inline">
-                  <input type="text" value="${pCategory.type}" id="type" name="type" required="" lay-verify="type"
-                  autocomplete="off" class="layui-input">
+                  <input type="text" value="${type}" id="type" name="type" required="" lay-verify="type"
+                  autocomplete="off" class="layui-input" readonly>
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>不能轻易改动
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="parentId" class="layui-form-label">
+                  <span class="x-red">*</span>父级id
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" value="${parentId}" id="parentId" name="parentId" required="" lay-verify="parentId"
+                  autocomplete="off" class="layui-input" readonly>
               </div>
               <div class="layui-form-mid layui-word-aux">
                   <span class="x-red">*</span>不能轻易改动
@@ -48,30 +60,13 @@ var contextPath="${ctx}";
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <button  class="layui-btn" lay-filter="update" lay-submit="">
-                  	修改
+              <button  class="layui-btn" lay-filter="add" lay-submit="">
+                  	新增
               </button>
           </div>
       </form>
     </div>
-    <script>
-    	
-          /* //监听提交
-           form.on('submit(add)', function(data){
-            //console.log(data);
-            //发异步，把数据提交给php
-            if(data=="200"){
-            	layer.alert("修改成功", {icon: 6},function () {
-                    // 获得frame索引
-                    var index = parent.layer.getFrameIndex(window.name);
-                    //关闭当前frame
-                    parent.layer.close(index);
-                });
-            }            
-            return false;
-          });  */
-                          
-    </script>
+    
    
   </body>
 
