@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<script type="text/javascript">
+	var contextPath = "${ctx}";
+</script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +13,7 @@
 <%@include file="/WEB-INF/jsp/userhead.jsp"%>
 <%@include file="/WEB-INF/jsp/common/classifyBall.jsp"%>
 
-<script type="text/javascript" src="${ctx}/statics/images/nav.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/nav.js"></script>
 <div class="margin-w1210 clearfix">
 	<div class="w">
 		<div class="breadcrumb clearfix">
@@ -31,9 +34,10 @@ $(function(){
 	<%@include file="/WEB-INF/jsp/user/userleft.jsp" %>
 <div class="user-right">
     	<div class="box">
-    	 <script type="text/javascript" src="js/region.js"></script><script type="text/javascript" src="js/shopping_flow.js"></script> 
+    	 <%-- <script type="text/javascript" src="${ctx}/statics/js/region.js"></script> --%>
+    	 <script type="text/javascript" src="${ctx}/statics/js/shopping_flow.js"></script> 
           <script type="text/javascript">
-              region.isAdmin = false;
+             region.isAdmin = false;
                             var consignee_not_null = "收货人姓名不能为空！";
                             var country_not_null = "请您选择收货人所在国家！";
                             var province_not_null = "请您选择收货人所在省份！";
@@ -71,34 +75,35 @@ $(function(){
             </ul>
           </div>
           <div class="mar_top">
-          <c:forEach items="${addressesList}" var="al"></c:forEach>
+          <c:forEach items="${addressesList}" var="al" varStatus="vs">
             <form action="" method="post" name="theForm" >
+            
             <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#eeeeee">
                 <tr>
                   <td align="right" width="10%">收货人姓名：</td>
-                  <td align="left" width="40%"><input name="consignee" type="text" class="inputBg" id="consignee_0" value="anan" />
+                  <td align="left" width="40%"><input name="consignee" type="text" class="inputBg" id="consignee_0" value="${al.consignee}" />
                     (必填) </td>
                   <td align="right" width="10%">电子邮件地址：</td>
-                  <td align="left" width="40%"><input name="email" type="text" class="inputBg" id="email_0" value="" />
+                  <td align="left" width="40%"><input name="email" type="text" class="inputBg" id="email_0" value="${user.email}" />
                   </td>
                 </tr>
                 <tr>
                   <td align="right">详细地址：</td>
-                  <td align="left" colspan="3"><input name="address" type="text" class="inputBg" id="address_0" value="东城区" style="width: 692px;"/>
+                  <td align="left" colspan="3"><input name="address" type="text" class="inputBg" id="address_0" value="${al.address}" style="width: 692px;"/>
                     (必填)</td>
                	</tr>
                 <tr>
                 <td align="right">邮政编码：</td>
-                  <td align="left"><input name="zipcode" type="text" class="inputBg" id="zipcode_0" value="" /></td>
+                  <td align="left"><input name="zipcode" type="text" class="inputBg" id="zipcode_0" value="${al.postcode}" />(必填)</td>
                   <td align="right">手机：</td>
-                  <td align="left"><input name="mobile" type="text" class="inputBg" id="mobile_0" value="15184393141" />
+                  <td align="left"><input name="mobile" type="text" class="inputBg" id="mobile_0" value="${al.addressPhone}" />(必填)
                 </td>
                 </tr>
                 <tr>
                 <td colspan="4" align="center">
-                	                    
-                    <input type="submit" name="submit" class="main-btn main-btn-large" value="确认修改" />
-                    <input name="button" type="button" class="main-btn main-btn-large"  onclick="if (confirm('你确认要删除该收货地址吗？'))location.href='user.php?act=drop_consignee&id=63'" value="删除" />
+                	                 
+                    <input id="addressButton${al.id}" cId="${al.id}" onclick="if(confirm('你确定要修改信息吗？'))return update(${al.id});" type="button" name="submit" class="main-btn main-btn-large" value="确认修改" />
+                    <input id="delButton${al.id}" uId="${al.id}" name="button"  type="button" class="main-btn main-btn-large"  onclick="if (confirm('你确认要删除该收货地址吗？'))window.location.href='${ctx}/user/DelAddress?uid=${al.id}'" value="删除" />
                     
                                         
                     <input type="hidden" name="act" value="act_edit_address" />
@@ -107,8 +112,46 @@ $(function(){
               </table>
             </form>
             <div class="blank10"></div>
+             </c:forEach>
+            <script type="text/javascript">
+            function update(po){
+            	var consignee=document.getElementById("consignee_0").value;
+            	var email=document.getElementById("email_0").value;
+            	var address=document.getElementById("address_0").value;
+            	var zipcode=document.getElementById("zipcode_0").value;
+            	var mobile=document.getElementById("mobile_0").value;
+            	var id=$("#addressButton"+po).attr("cId");
+            	
+            	alert("id"+id+"-------"+"userId"+${user.id});
+            	if(consignee==""||consignee==null)return false;
+            	if(address==""||address==null)return false;
+            	
+            	$.ajax({
+            		url:contextPath+"/user/UpdateAddress",
+            		method:"POST",
+            		data: {
+            			consignee:consignee,
+            			email:email,
+            			address:address,
+            			zipcode:zipcode,
+            			mobile:mobile,
+            			id:id,
+            		  },
+            		success:function (date) {
+            		     if (date==200) {
+            		    	 alert("修改成功");
+            		     window.location.href=contextPath+"/user/ReceivingAddress.html";
+            			}
+            		},
+            		error:function(){
+            			alert("修改失败");
+            		}
+            	});
+            }
             
-            <form action="" method="post" name="theForm">
+            </script>
+           
+            <form action="${ctx}/user/addAddress" method="post" name="theForm">
             <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#eeeeee">
                 
                 <tr>
@@ -116,7 +159,7 @@ $(function(){
                   <td align="left" width="40%"><input name="consignee" type="text" class="inputBg" id="consignee_2" value="" />
                     (必填) </td>
                   <td align="right" width="10%">电子邮件地址：</td>
-                  <td align="left" width="40%"><input name="email" type="text" class="inputBg" id="email_2" value="38306293@qq.com" />
+                  <td align="left" width="40%"><input name="email" type="text" class="inputBg" id="email_2" value="" />
                   </td>
                 </tr>
                 <tr>
@@ -126,10 +169,10 @@ $(function(){
                	</tr>
                 <tr>
                  <td align="right">邮政编码：</td>
-                  <td align="left"><input name="zipcode" type="text" class="inputBg" id="zipcode_2" value="" /></td>
+                  <td align="left"><input name="zipcode" type="text" class="inputBg" id="zipcode_2" value="" />(必填)</td>
                   
                   <td align="right">手机：</td>
-                  <td align="left"><input name="mobile" type="text" class="inputBg" id="mobile_2" value="" />
+                  <td align="left"><input name="mobile" type="text" class="inputBg" id="mobile_2" value="" />(必填)
                 </td>
                 </tr>
                 <tr>
@@ -144,7 +187,6 @@ $(function(){
               </table>
             </form>
             <div class="blank10"></div>
-             
           </div>
          </div>
     </div>

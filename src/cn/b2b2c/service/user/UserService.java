@@ -15,7 +15,7 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	public User basic(User user);
+	public User basic(Integer uId);
 	
 	/**
 	 * 后台==修改
@@ -116,7 +116,11 @@ public interface UserService {
 	 */
 	public int deleteAddress(Integer userId,Integer id)throws Exception;
 	
-	
-	
-	
+	/**
+	 * 修改基本信息
+	 * @param user
+	 * @return
+	 */
+	public int updatemodify(Integer userid,String userName,Date birthday,Integer sex);
+
 }

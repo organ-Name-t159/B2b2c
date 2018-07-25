@@ -17,7 +17,7 @@ public interface UserMapper {
 	 * @param user
 	 * @return
 	 */
-	public User basic(User user);
+	public User basic(@Param("uid")Integer uId);
 	
 	/**
 	 * 后台==修改
@@ -100,6 +100,10 @@ public interface UserMapper {
 	 * @return
 	 */
 	public int deleteAddress(@Param("uId")Integer userId,@Param("aId")Integer id);
-	
-
+	/**
+	 * 修改基本信息
+	 * @param user
+	 * @return
+	 */
+	public int updatemodify(@Param("uid")Integer userid,@Param("uName")String userName,@Param("bDay")Date birthday,@Param("sx")Integer sex);
 }

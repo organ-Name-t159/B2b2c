@@ -3,6 +3,8 @@
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class User implements Serializable{
@@ -15,7 +17,8 @@ public class User implements Serializable{
 	private String phone;//电话
 	private String headPortrait;//头像文件
 	
-	@JSONField(format="yyyy-MM-dd")
+	//@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	//@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Date birthday;//出生日期
 	
 	private String  commB;//时间格式替身
@@ -32,12 +35,7 @@ public class User implements Serializable{
 	public void setHeadPortrait(String headPortrait) {
 		this.headPortrait = headPortrait;
 	}
-	public Date getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -57,12 +55,7 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Integer getSex() {
-		return sex;
-	}
-	public void setSex(Integer sex) {
-		this.sex = sex;
-	}
+	
 	
 	public String getEmail() {
 		return email;
@@ -76,6 +69,19 @@ public class User implements Serializable{
 	public void setCommB(String commB) {
 		this.commB = commB;
 	}
+	public Integer getSex() {
+		return sex;
+	}
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	
 	
 	
 	

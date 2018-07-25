@@ -44,11 +44,12 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/alipay-sdk-java20170324180803-source.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/alipay-sdk-java20170324180803.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fastjson-1.2.13-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-3.10-FINAL.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-3.10.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-schemas-3.10.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fastjson-1.2.13-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fastjson-1.2.6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

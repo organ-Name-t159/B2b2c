@@ -91,18 +91,20 @@ public class UserServiceImpl implements UserService {
 	public List<User> userAll(Integer currentPageNo, Integer pageSize, String keyWord, Date beginTime,
 			Date expirationTime) {
 		currentPageNo=(currentPageNo-1)*pageSize;
-		List<User> userList=userMapper.userAll(currentPageNo, pageSize, keyWord, beginTime, expirationTime);
-		for (User user : userList) {	
-			user.setCommB((String)TimeTransform.isTime(user.getBirthday()));			
+		List<User> userList=userMapper.userAll(currentPageNo, pageSize, keyWord, beginTime, expirationTime);		
+		for (User user : userList) {
+			if(user.getBirthday()!=null) {
+				user.setCommB(TimeTransform.isTimeOne(user.getBirthday()));
+			}
+			
 		}
-		
 		return userList;
 	}
 
 	@Override
 	public User getUser(Integer userId) {
 		User userEdit=userMapper.getUser(userId);
-		userEdit.setCommB((String)TimeTransform.isTime(userEdit.getBirthday()));
+		userEdit.setCommB(TimeTransform.isTimeOne(userEdit.getBirthday()));
 		return userEdit;
 	}
 
@@ -114,8 +116,18 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public User basic(User user) {
-		return userMapper.basic(user);
+	public User basic(Integer uId) {
+		return userMapper.basic(uId);
 	}
+
+
+
+	@Override
+	public int updatemodify(Integer userid, String userName, Date birthday, Integer sex) {
+		
+		return userMapper.updatemodify(userid, userName, birthday, sex);
+	}
+
+	
 
 }
