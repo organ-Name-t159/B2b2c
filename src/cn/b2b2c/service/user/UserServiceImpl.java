@@ -118,4 +118,14 @@ public class UserServiceImpl implements UserService {
 		return userMapper.basic(user);
 	}
 
+
+
+	@Override
+	public int updatemodify(Integer userid, String userName, Date birthday, Integer sex) {
+		
+		return userMapper.updatemodify(userid, userName, birthday, sex);
+	}
+
+	
+
 }

@@ -65,7 +65,7 @@ $(function(){
           </div>
           <div class="ncm-user-profile">
             <div class="ncm-default-form" id="con_tab_1">
-              <form name="formEdit" action="" method="post" onsubmit="return userEdit()">
+              <form name="formEdit" action="${ctx}/UserMessage/update.xiugai?id=${sessionScope.user.id}" method="post">
                 <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#eee">
                     <tbody><tr>
                       <td width="35%" align="right">用户名称：</td>
@@ -77,7 +77,7 @@ $(function(){
                     <tr>
                       <td align="right">出生日期：</td>
                       <td align="left"> 
-                      <input type="text" name="date" value="${useryou.commB}" onblur="check_username(this.value)" size="25" class="inputBg" style="ime-mode:disabled">
+                      <input type="date" name="birthday" value="${useryou.commB}" onblur="check_username(this.value)" size="25" class="inputBg" style="ime-mode:disabled">
                       </td>
                     </tr>
                     <tr>

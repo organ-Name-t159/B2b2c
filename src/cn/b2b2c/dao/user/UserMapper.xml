@@ -3,7 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.user.UserMapper">
-
+	<update id="updatemodify">
+	 update user set userName=#{userName},birthday=#{birthday},sex=#{sex}
+	 where id=#{id}
+	</update>
 	<update id="updateBackUser" parameterType="User">
 		update user set userName=#{userName},sex=#{sex},email=#{email},phone=#{phone},birthday=#{birthday}
 		where id=#{id}

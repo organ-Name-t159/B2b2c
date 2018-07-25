@@ -70,7 +70,7 @@ public class BackIndexController {
 		User user=new User();
 		user.setId(Integer.parseInt(id));
 		user.setUserName(userName);
-		user.setSex(Integer.parseInt(sex));
+		user.setId(Integer.parseInt(sex));
 		user.setEmail(email);
 		user.setPhone(phone);
 		user.setBirthday((Date)TimeTransform.isTime(birthday));

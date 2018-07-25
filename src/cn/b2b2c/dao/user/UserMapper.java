@@ -100,6 +100,10 @@ public interface UserMapper {
 	 * @return
 	 */
 	public int deleteAddress(@Param("uId")Integer userId,@Param("aId")Integer id);
-	
-
+	/**
+	 * 修改基本信息
+	 * @param user
+	 * @return
+	 */
+	public int updatemodify(@Param("id")Integer userid,@Param("userName")String userName,@Param("birthday")Date birthday,@Param("sex")Integer sex);
 }
