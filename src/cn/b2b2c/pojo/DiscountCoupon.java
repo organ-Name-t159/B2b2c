@@ -10,6 +10,23 @@ public class DiscountCoupon implements Serializable {
 	private String issue;//发行店铺
 	private float use;//满足金额
 	private Date validTime;//有效时间
+	
+	private String newTime;//新的时间字符串
+	
+	private String stateName;//状态
+	
+	public String getStateName() {
+		return stateName;
+	}
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
+	public String getNewTime() {
+		return newTime;
+	}
+	public void setNewTime(String newTime) {
+		this.newTime = newTime;
+	}
 	public Integer getId() {
 		return id;
 	}

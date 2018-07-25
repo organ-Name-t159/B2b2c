@@ -7,8 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>家家商城</title>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@include file="/WEB-INF/jsp/userhead.jsp"%>
 <%@include file="/WEB-INF/jsp/common/classifyBall.jsp"%>
 

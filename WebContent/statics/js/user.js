@@ -507,7 +507,7 @@ function is_registered(username) {
 		return false;
 	}
 
-	Ajax.call('user.php?act=is_registered', 'username=' + username, registed_callback, 'GET', 'TEXT', true, true);
+	Ajax.call('user.js?act=is_registered', 'username=' + username, registed_callback, 'GET', 'TEXT', true, true);
 }
 
 function registed_callback(result) {
@@ -686,7 +686,7 @@ function checkMobilePhoneExist(mobile, callback) {
 		return;
 	}
 
-	$.post('user.php?act=check_mobile_phone', {
+	$.post('user.js?act=check_mobile_phone', {
 		mobile_phone: mobile
 	}, function(result) {
 
@@ -1064,7 +1064,7 @@ function sendEmailCode(emailObj, emailCodeObj, sendButton) {
 		if (result) {
 			// 发送邮件
 			// &XDEBUG_SESSION_START=ECLIPSE_DBGP
-			var url = 'user.php?act=send_email_code&XDEBUG_SESSION_START=ECLIPSE_DBGP';
+			var url = 'user.js?act=send_email_code&XDEBUG_SESSION_START=ECLIPSE_DBGP';
 			$.post(url, {
 				email: emailObj.val()
 			}, function(result) {
@@ -1094,7 +1094,7 @@ function sendMobileCode(mobileObj, mobileCodeObj, sendButton) {
 	checkMobilePhone(mobileObj, function(result) {
 		if (result) {
 			// 发送邮件
-			var url = 'user.php?act=send_mobile_code&XDEBUG_SESSION_START=ECLIPSE_DBGP';
+			var url = 'user.js?act=send_mobile_code&XDEBUG_SESSION_START=ECLIPSE_DBGP';
 			$.post(url, {
 				mobile_phone: mobileObj.val()
 			}, function(result) {

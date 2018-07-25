@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<script type="text/javascript">
+	var contextPath = "${ctx}";
+</script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,7 +69,7 @@ $(function(){
               <div class="item">
                 <label class="con_un">请选择验证身份方式：</label>
                 <select id="validate_type" name="validate_type">
-                                    <option id="validate_type_mobile_phone" value="mobile_phone" val="135*****050">已验证的手机号码</option>
+                                    <option id="validate_type_mobile_phone" value="mobile_phone" val="${user.phone}">已验证的手机号码</option>
                                   </select>
               </div>
               <div class="item v_mobile_phone v_item" style="/* display: none */">
@@ -97,7 +100,7 @@ $(function(){
                 <input type="text" id="captcha" size="8" name="captcha" class="text text_te" placeholder="验证码" style="ime-mode: disabled" autocomplete="off" MaxLength="6" />
                 <label class="img" style="margin-left: 5px"> 
                 <!-- <img src="" alt="captcha" style="vertical-align: middle; cursor: pointer;" onClick="" />  -->
-                <input id="zphones" class="zphone" type="button"  value="获取手机验证码 "style="color: #fff; background-color:#C81623;height: 32px;font-size: 12px;border: 0 none;">
+                <input id="zphones" class="zphone" type="button" onclick="phones();"  value="获取手机验证码 "style="color: #fff; background-color:#C81623;height: 32px;font-size: 12px;border: 0 none;">
                 </label>
               </div>
               <div class="item">
@@ -109,45 +112,49 @@ $(function(){
           </div>
         </div>
       
+      
+      
         <script type="text/javascript">  
-        $(function(){  
-           // $("#zphone").removeAttr("disabled");  
-            //发送验证码  
-            $("#zphones").click(function(){   
-                $.ajax({  
-                    url:"${ctx}/messageServlet",  
-                    data:{  
-                        "phone":$("#validate_type_mobile_phone").val()  
-                    },  
-                    type:"post",  
-                    async:false,  
-                    dataType:"text",  
-                    success : function(data) {  
-                        if(data=='true'){  
-                            alert("验证码发送成功，收到后请输入验证码");  
-                            time(this);  
-                        } else {  
-                            alert("验证码发送失败");  
-                        }  
-                    },  
-                    error : function() {  
-                        alert("error");  
-                    }  
-                });  
-            });  
-            //验证  
+        function phones() {
+        	//发送验证码  
+        	$.ajax({  
+                 url:"${ctx}/messageServlet",  
+                 data:{  
+                     "phone":$("#validate_type_mobile_phone").val()  
+                 },  
+                 type:"post",  
+                 async:false,  
+                 dataType:"text",  
+                 success : function(data) {  
+                     if(data=='true'){  
+                         alert("验证码发送成功，收到后请输入验证码");
+                         time(this); 
+                     } else {  
+                         alert("验证码发送失败");  
+                     }  
+                 },  
+                 error : function() {  
+                     alert("error");  
+                 }  
+             }); 
+        	
+        	//验证  
             $("#mobile_code").blur(function(){      
                 $.ajax({  
                     url:"${ctx}/codeServlet",  
                     data:{  
-                        "code":$("#validate_type_mobile_code").val()  
+                        "code":$("#captcha").val()  
                     },  
                     type:"post",  
                     async:false,  
                     dataType:"text",  
                     success : function(data) {  
                         if(data=='true'){  
-                            alert("恭喜您，验证成功");  
+                            alert("恭喜您，验证成功"); 
+                           $("#btn_submit").click(function(){
+                        	   window.location.href=contextPath+"/product/index.html";
+                        	   
+                           });
                         } else {  
                             alert("验证失败");  
                         }  
@@ -157,18 +164,19 @@ $(function(){
                     }  
                 });  
             });  
-        })  
+		}
+
           
         //验证码倒计时  
         var wait = 60;  
         function time(obj) {  
             if(wait==0) {  
                 $("#zphones").removeAttr("disabled");  
-                $("#zphones").val("获取验证码");  
+                $("#zphones").val("获手机取验证码");  
                 wait = 60;  
             }else {  
-                $("#zphones").attr("disabled","true");  
-                $("#zphones").val(wait+"秒后重试");  
+                $("#zphones").attr("disabled","true").css("background-color","#666666");  
+                $("#zphones").val(wait+"秒后重试");
                 wait--;  
                 setTimeout(function() {     //倒计时方法  
                     time(obj);  

@@ -2,7 +2,6 @@ package cn.b2b2c.service.discountcoupon;
 
 import java.util.List;
 
-
 import cn.b2b2c.pojo.DiscountCoupon;
 
 public interface DiscountCouponService {
@@ -21,5 +20,5 @@ public interface DiscountCouponService {
 	 */
 	public DiscountCoupon getAll(Integer dcId);
 
-
+	public List<DiscountCoupon> getQueryById(Integer userId)throws Exception;
 }

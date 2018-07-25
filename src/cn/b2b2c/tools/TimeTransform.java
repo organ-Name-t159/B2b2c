@@ -12,6 +12,7 @@ public class TimeTransform implements Serializable {
 		Date date=new Date();
 		String timeStr="";
 		DateFormat dFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		DateFormat dFormatOne=new SimpleDateFormat("yyyy-MM-dd");
 		if(obj instanceof String) {
 			try {
 				date=dFormat.parse((String)obj);
@@ -22,7 +23,7 @@ public class TimeTransform implements Serializable {
 			}			
 			return date;
 		}else if(obj instanceof Date) {
-			timeStr=dFormat.format((Date)obj);
+			timeStr=dFormatOne.format((Date)obj);
 			return timeStr;
 		}
 		

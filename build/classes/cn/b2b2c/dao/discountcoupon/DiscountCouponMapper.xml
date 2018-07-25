@@ -11,4 +11,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAll" resultType="DiscountCoupon">
 		SELECT dc.* FROM `discount_coupon` dc WHERE `id`=#{dcId}
 	</select>
+	
+	<select id="getQueryById" resultType="DiscountCoupon">
+		SELECT dc.*,dcs.stateName as stateName  FROM `user_discount_coupon` udc 
+		INNER JOIN `discount_coupon` dc ON udc.`dcId`=dc.`id`
+		INNER JOIN `discount_coupon_state` dcs ON udc.dcsId=dcs.id
+		WHERE udc.`userId`=#{userId}
+	
+	</select>
 </mapper>
