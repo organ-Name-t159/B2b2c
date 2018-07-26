@@ -86,6 +86,12 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		
 		return productCategoryMapper.addProduct(name, type, id);
 	}
+
+	@Override
+	public int deleteProduct(Integer id) {
+		
+		return productCategoryMapper.deleteProduct(id);
+	}
 	
 	
 

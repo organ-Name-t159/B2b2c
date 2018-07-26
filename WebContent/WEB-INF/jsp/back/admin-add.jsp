@@ -19,7 +19,7 @@ var contextPath="${ctx}";
 </head>
 <body>
     <div class="x-body">
-        <form class="layui-form" action="${ctx}/BackCate/adminNewly.view" method="post">
+       <%--  <form class="layui-form" action="${ctx}/BackCate/adminNewly.view" method="post"> --%>
           <div class="layui-form-item">
               <label for="name" class="layui-form-label">
                   <span class="x-red">*</span>栏目名
@@ -60,13 +60,72 @@ var contextPath="${ctx}";
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
+              <button  class="layui-btn" onclick="addAdmin(this)">
                   	新增
               </button>
           </div>
-      </form>
+      <!-- </form> -->
     </div>
-    
+    <script>
+    function addAdmin(obj){
+    	var name=$("input[name='name']").val();
+    	var type=$("input[name='type']").val();
+    	var parentId=$("input[name='parentId']").val();
+    	/* alert(name)
+    	alert(type) */
+    	layer.confirm('确定要新增吗？',function(index){
+    		//发异步删除数据
+			$.ajax({
+				url:contextPath+"/BackCate/adminNewly.view",
+				method:"post",
+				data:{
+					parentId:parentId,
+					name:name,
+					type:type
+				},
+				success:function(jsonStr){
+					if(jsonStr=="1"){
+						layer.msg('新增成功', {
+							icon : 1,
+							time : 1000							
+						},function(){
+							window.parent.location.reload();//刷新父级页面
+		                    parent.layer.close(index);//关闭当前的弹窗
+						});						
+						 // 获得frame索引
+	                    //var index = parent.layer.getFrameIndex(window.name);
+	                    
+					}else{
+						layer.msg('新增失败', {
+							icon : 1,
+							time : 1000
+						});
+					}						
+					
+				}
+			});
+    		
+    		
+    		
+    	});
+    }
+    	
+          /* //监听提交
+           form.on('submit(add)', function(data){
+            //console.log(data);
+            //发异步，把数据提交给php
+            if(data=="200"){
+            	layer.alert("修改成功", {icon: 6},function () {
+                    // 获得frame索引
+                    var index = parent.layer.getFrameIndex(window.name);
+                    //关闭当前frame
+                    parent.layer.close(index);
+                });
+            }            
+            return false;
+          });  */
+                          
+    </script>
    
   </body>
 

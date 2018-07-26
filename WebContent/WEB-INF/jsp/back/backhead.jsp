@@ -67,7 +67,7 @@ var contextPath="${ctx}";
         </ul>
         <ul class="layui-nav right" lay-filter="">
           <li class="layui-nav-item" onmousemove="layuiOver()" onmouseout="layuiOut()">
-            <a href="javascript:;">admin</a>
+            <a href="javascript:;">${backUser.backUserName}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <!-- <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd> -->
               <dd><a onclick="x_admin_show('切换帐号','/BackLogin/inToLogin.html')">切换帐号</a></dd>

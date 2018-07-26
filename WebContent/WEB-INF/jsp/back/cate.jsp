@@ -29,7 +29,7 @@
 	</div>
 	<div class="x-body">
 		<div class="layui-row">
-			<form class="layui-form layui-col-md12 x-so layui-form-pane">
+			<form class="layui-form layui-col-md12 x-so layui-form-pane" action="${ctx}/BackCate/adminCateAdd.view" method="post">
 				<input class="layui-input" placeholder="分类名" name="cate_name">
 				<button class="layui-btn" lay-submit="" lay-filter="sreach">
 					<i class="layui-icon"></i>增加
@@ -87,7 +87,7 @@
 								<i class="layui-icon">&#xe642;</i>添加子栏目
 							</button>
 							<button class="layui-btn-danger layui-btn layui-btn-xs"
-								onclick="member_del(this,'要删除的id')" href="javascript:;">
+								onclick="member_del(this,${temp.productCategory.id})" href="javascript:;">
 								<i class="layui-icon">&#xe640;</i>删除
 							</button>
 						</td>
@@ -171,11 +171,23 @@
 		function member_del(obj, id) {
 			layer.confirm('确认要删除吗？', function(index) {
 				//发异步删除数据
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!', {
-					icon : 1,
-					time : 1000
+				$.ajax({
+					url:contextPath+"/BackCate/adminCateDelete.view",
+					method:"post",
+					data:{
+						id:id
+					},
+					success:function(jsonStr){
+						if(jsonStr=="1"){
+							$(obj).parents("tr").remove();
+							layer.msg('已删除!', {
+								icon : 1,
+								time : 1000
+							});
+						}						
+					}
 				});
+				
 			});
 		}
 

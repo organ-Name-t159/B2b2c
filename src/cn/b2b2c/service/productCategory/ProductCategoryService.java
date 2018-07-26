@@ -50,6 +50,13 @@ public interface ProductCategoryService {
 	 */
 	public int addProduct(String name,Integer type,Integer id);
 	
+	/**
+	 * 根据id删除
+	 * @param id
+	 * @return
+	 */
+	public int deleteProduct(Integer id);
+	
 
 	
 

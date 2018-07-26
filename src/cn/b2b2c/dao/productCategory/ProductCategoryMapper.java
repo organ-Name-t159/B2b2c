@@ -46,7 +46,11 @@ public interface ProductCategoryMapper {
 	public int addProduct(@Param("pName")String name,@Param("pType")Integer type,@Param("pId")Integer id);
 	
 	
-	
-	
+	/**
+	 * 根据id删除
+	 * @param id
+	 * @return
+	 */
+	public int deleteProduct(@Param("pId")Integer id);
 	
 }
