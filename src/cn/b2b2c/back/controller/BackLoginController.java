@@ -38,6 +38,7 @@ public class BackLoginController {
 		BackUser backUser= backUserService.getBackUser(uName);
 		if(backUser!=null) {					
 			if(uPass.equals(backUser.getBackPassWord())) {
+				session.setAttribute("backUser", backUser);
 				return restatus.returnSuccess();
 			}else {
 				return restatus.returnFail("账号或密码错误");

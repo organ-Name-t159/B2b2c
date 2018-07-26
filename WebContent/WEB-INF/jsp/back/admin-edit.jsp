@@ -19,7 +19,7 @@ var contextPath="${ctx}";
 </head>
 <body>
     <div class="x-body">
-        <form class="layui-form" action="${ctx}/BackCate/adminUpdate.view?pId=${pCategory.id}" method="post">
+        <%-- <form class="layui-form" action="${ctx}/BackCate/adminUpdate.view?pId=${pCategory.id}" method="post"> --%>
           <div class="layui-form-item">
               <label for="name" class="layui-form-label">
                   <span class="x-red">*</span>栏目名
@@ -48,13 +48,54 @@ var contextPath="${ctx}";
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <button  class="layui-btn" lay-filter="update" lay-submit="">
+              <button  class="layui-btn" href="javascript:;" onclick="updateAdmin(this,${pCategory.id})">
                   	修改
               </button>
           </div>
-      </form>
+      <!-- </form> -->
     </div>
     <script>
+    function updateAdmin(obj,pId){
+    	var name=$("input[name='name']").val();
+    	var type=$("input[name='type']").val();
+    	/* alert(name)
+    	alert(type) */
+    	layer.confirm('确定要修改吗？',function(index){
+    		//发异步删除数据
+			$.ajax({
+				url:contextPath+"/BackCate/adminUpdate.view",
+				method:"post",
+				data:{
+					pId:pId,
+					name:name,
+					type:type
+				},
+				success:function(jsonStr){
+					if(jsonStr=="1"){
+						layer.msg('修改成功', {
+							icon : 1,
+							time : 1000							
+						},function(){
+							window.parent.location.reload();//刷新父级页面
+		                    parent.layer.close(index);//关闭当前的弹窗
+						});						
+						 // 获得frame索引
+	                    //var index = parent.layer.getFrameIndex(window.name);
+	                    
+					}else{
+						layer.msg('修改失败', {
+							icon : 1,
+							time : 1000
+						});
+					}						
+					
+				}
+			});
+    		
+    		
+    		
+    	});
+    }
     	
           /* //监听提交
            form.on('submit(add)', function(data){

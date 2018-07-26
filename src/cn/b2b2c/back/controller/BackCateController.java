@@ -26,9 +26,9 @@ public class BackCateController {
 		
 	
 	@RequestMapping(value="/cate.view")
-	public String cate(HttpSession session)throws Exception {
+	public String cate(HttpServletRequest request,HttpSession session)throws Exception {
 		List<ProductCategoryVo> productCategoryVoListBack=productCategoryService.queryAllProductCategoryList();
-		session.setAttribute("productCategoryVoListBack", productCategoryVoListBack);
+		request.setAttribute("productCategoryVoListBack", productCategoryVoListBack);
 		
 		return "back/cate";
 	}
@@ -44,17 +44,18 @@ public class BackCateController {
 	
 	
 	@RequestMapping(value="/adminUpdate.view",method=RequestMethod.POST)
-	public String adminUpdate(HttpServletRequest request)throws Exception {
+	@ResponseBody
+	public Object adminUpdate(HttpServletRequest request)throws Exception {
 		String pId=request.getParameter("pId");
 		String name=request.getParameter("name");
 		String type=request.getParameter("type");		
 		int num=productCategoryService.updateProduct(Integer.parseInt(pId), name, Integer.parseInt(type));
 		//System.out.println(num);
-		if(num==1) {
+		/*if(num==1) {
 			//return "200";
 			return "back/successBack";
-		}
-		return "erroe";
+		}*/
+		return num;
 	}
 	
 	
@@ -68,22 +69,39 @@ public class BackCateController {
 		return "back/admin-add";
 	}
 	
-	@RequestMapping(value="/adminNewly.view")
-	public String adminNewly(HttpServletRequest request)throws Exception {
+	@RequestMapping(value="/adminNewly.view",method=RequestMethod.POST)
+	@ResponseBody
+	public Object adminNewly(HttpServletRequest request)throws Exception {
 		String name=request.getParameter("name");
 		String type=request.getParameter("type");
 		String parentId=request.getParameter("parentId");
 		int num=productCategoryService.addProduct(name, Integer.parseInt(type), Integer.parseInt(parentId));
-		if(num==1) {			
+		/*if(num==1) {			
 			return "back/successBack";
+		}*/
+		return num;
+	}
+	
+	@RequestMapping(value="/adminCateAdd.view")
+	public String adminCateAdd(HttpServletRequest request)throws Exception {
+		String cName=request.getParameter("cate_name");		
+		int num=productCategoryService.addProduct(cName, 1, 0);
+		if(num==1) {			
+			return "back/cate";
 		}
 		return "erroe";
 	}
 	
 	
-	
-	
-	
+	@RequestMapping(value="/adminCateDelete.view")
+	@ResponseBody
+	public Object adminCateDelete(HttpServletRequest request)throws Exception {
+		String id=request.getParameter("id");		
+		int num=productCategoryService.deleteProduct(Integer.parseInt(id));
+		System.out.println(num);
+		
+		return num;
+	}
 	
 	
 	

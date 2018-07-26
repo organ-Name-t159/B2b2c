@@ -19,7 +19,7 @@ var contextPath="${ctx}";
 </head>
 <body>
     <div class="x-body">
-        <form class="layui-form" action="${ctx}/BackIndex/memberListUpdate.html?id=${userEdit.id}" method="post">
+        <%-- <form class="layui-form" action="${ctx}/BackIndex/memberListUpdate.html?id=${userEdit.id}" method="post"> --%>
           
           <div class="layui-form-item">
               <label for="L_username" class="layui-form-label">
@@ -76,14 +76,63 @@ var contextPath="${ctx}";
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>             
-              	<button  class="layui-btn" lay-filter="update" lay-submit="">
+              	<button  class="layui-btn" onclick="updateMember(this,${userEdit.id})">
                   	修改
               </button>                        
           </div>
-      </form>
+     <!--  </form> -->
     </div>
     <script>
-      layui.use(['form','layer'], function(){
+    function updateMember(obj,id){
+    	var userName=$("input[name='userName']").val();
+    	var sex=$("input[name='sex']").val();
+    	var email=$("input[name='email']").val();
+    	var phone=$("input[name='phone']").val();
+    	var birthday=$("input[name='birthday']").val();
+    	/* alert(name)
+    	alert(type) */
+    	layer.confirm('确定要修改吗？',function(index){
+    		//发异步删除数据
+			$.ajax({
+				url:contextPath+"/BackIndex/memberListUpdate.html",
+				method:"post",
+				data:{
+					id:id,
+					userName:userName,
+					sex:sex,
+					email:email,
+					phone:phone,
+					birthday:birthday
+				},
+				success:function(jsonStr){
+					if(jsonStr=="1"){
+						layer.msg('修改成功', {
+							icon : 1,
+							time : 1000							
+						},function(){
+							window.parent.location.reload();//刷新父级页面
+		                    parent.layer.close(index);//关闭当前的弹窗
+						});						
+						 // 获得frame索引
+	                    //var index = parent.layer.getFrameIndex(window.name);
+	                    
+					}else{
+						layer.msg('修改失败', {
+							icon : 1,
+							time : 1000
+						});
+					}						
+					
+				}
+			});
+    		
+    		
+    		
+    	});
+    }
+    
+    
+      /* layui.use(['form','layer'], function(){
           $ = layui.jquery;
         var form = layui.form
         ,layer = layui.layer;
@@ -117,14 +166,9 @@ var contextPath="${ctx}";
         });
         
         
-      });
+      }); */
   </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
+ 
   </body>
 
 </html>

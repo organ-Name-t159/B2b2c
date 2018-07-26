@@ -30,5 +30,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addProduct">
 		INSERT INTO `product_category`(`name`,`parentId`,`type`)VALUES(#{pName},#{pId},#{pType})
 	</insert>
+	
+	<delete id="deleteProduct">
+		delete from product_category where id=#{pId}
+	</delete>
 
 </mapper>
