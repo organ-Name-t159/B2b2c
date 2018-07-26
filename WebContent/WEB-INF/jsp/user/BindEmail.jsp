@@ -59,7 +59,7 @@ $(function(){
 	    </div>
           <div class="fore3"> 
              
-            <a href="${ctx}/user/BindEmailOne.html" class="btn btn-7">绑定邮箱</a> 
+            <a href="${ctx}/user/BindEmailOne.html" class="main-btn main-btn-large" >绑定邮箱</a> 
              
           </div>
         </div>

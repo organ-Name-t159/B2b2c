@@ -35,7 +35,7 @@
 <script type="text/javascript" src="${ctx}/statics/js/magiczomm_plus.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/magiczoom.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/compare.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/gw_totop.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/statics/js/gw_totop.js"></script> --%>
 <script type="text/javascript" src="${ctx}/statics/js/scrollpic.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statics/js/jquery-lazyload.js"></script>

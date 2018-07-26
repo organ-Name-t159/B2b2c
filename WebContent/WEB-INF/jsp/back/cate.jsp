@@ -118,7 +118,7 @@
 									<i class="layui-icon">&#xe642;</i>添加子栏目
 								</button>
 								<button class="layui-btn-danger layui-btn layui-btn-xs"
-									onclick="member_del(this,'要删除的id')" href="javascript:;">
+									onclick="member_del(this,${vo1.productCategory.id})" href="javascript:;">
 									<i class="layui-icon">&#xe640;</i>删除
 								</button>
 							</td>
@@ -147,7 +147,7 @@
 										<i class="layui-icon">&#xe642;</i>编辑
 									</button>									
 									<button class="layui-btn-danger layui-btn layui-btn-xs"
-										onclick="member_del(this,'要删除的id')" href="javascript:;">
+										onclick="member_del(this,${vo2.productCategory.id})" href="javascript:;">
 										<i class="layui-icon">&#xe640;</i>删除
 									</button>
 								</td>
