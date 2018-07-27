@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.service.user.UserService;
@@ -58,7 +59,8 @@ public class BackIndexController {
 	}
 	
 	@RequestMapping(value="/memberListUpdate.html",method=RequestMethod.POST)
-	public String memberListUpdate(HttpServletRequest request)throws Exception {
+	@ResponseBody
+	public Object memberListUpdate(HttpServletRequest request)throws Exception {
 		String id=request.getParameter("id");
 		String userName=request.getParameter("userName");
 		String sex=request.getParameter("sex");
@@ -68,13 +70,13 @@ public class BackIndexController {
 		User user=new User();
 		user.setId(Integer.parseInt(id));
 		user.setUserName(userName);
-		user.setId(Integer.parseInt(sex));
+		user.setSex(Integer.parseInt(sex));
 		user.setEmail(email);
 		user.setPhone(phone);
 		user.setBirthday(TimeTransform.isDateOne(birthday));
-		userService.updateBackUser(user);
+		int num=userService.updateBackUser(user);
 		
-		return "back/successBack";
+		return num;
 	}
 	
 	

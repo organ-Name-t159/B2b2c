@@ -3,6 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.user.UserMapper">
+
+	<update id="updateEmail">
+		update user set email=#{em} where id=#{uid}
+	</update>
 	<update id="updatemodify">
 	 update user set userName=#{uName},birthday=#{bDay},sex=#{sx}
 	 where id=#{uid}

@@ -23,6 +23,7 @@ function reg_package() {
 
 }
 
+
 function get_packcheck_count(pid) {
 	var result = 1;
 	var fid = document.getElementById('package_box_' + pid);

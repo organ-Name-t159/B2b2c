@@ -175,40 +175,40 @@ create_code();
 	font-size: 20px;
 }
 </style>
-					 <div class="item">
-									<input type="text" id="captcha" size="8" name="captcha" class="text text-te" placeholder="验证码" style="ime-mode: disabled" autocomplete="off" maxlength="6">
-									<label class="img phoKeys" id="captcha2"> </label>
-									<i class="i-captcha"></i>
-									<div style="clear:both"> <span class="label" id="captcha_notice"></span> </div>
-								</div>
+ <div class="item">
+		<input type="text" id="captcha" size="8" name="captcha" class="text text-te" placeholder="验证码" style="ime-mode: disabled" autocomplete="off" maxlength="6">
+		<label class="img phoKeys" id="captcha2"> </label>
+		<i class="i-captcha"></i>
+		<div style="clear:both"> <span class="label" id="captcha_notice"></span> </div>
+	</div>
 
-								<div class="item">
-									<input id="mobile_code" class="text text-te fl" type="text" placeholder="手机验证码" name="mobile_code">
-									<i class="i-phone"></i>
-									<input id="zphone" class="zphone" type="button" value="获取手机验证码 " disabled="disabled">
-									
-									<div> <span id="extend_field5i" class="label"></span> </div>
-								</div> 
-								<div class="safety">
-									<input name="agreement" type="checkbox" value="1" checked="checked" class="checkbox">
-									<label for="remember" class="mar-b">我已看过并接受《<a href="##">用户协议</a>》</label>
-								</div>
-								<div class="item">
-									<input name="act" type="hidden" value="register">
-									<input type="hidden" name="back_act" value="user.php">
-									<input type="submit" id="btn_submit" name="Submit" class="btn-img btn-regist" value="立即注册">
-								</div>
-							</div>
-						</form>
-						<!--[if !ie]>form end<![endif]-->
+	<div class="item">
+		<input id="mobile_code" class="text text-te fl" type="text" placeholder="手机验证码" name="mobile_code">
+		<i class="i-phone"></i>
+		<input id="zphone" class="zphone" type="button" value="获取手机验证码 " disabled="disabled">
+		
+		<div> <span id="extend_field5i" class="label"></span> </div>
+	</div> 
+	<div class="safety">
+		<input name="agreement" type="checkbox" value="1" checked="checked" class="checkbox">
+		<label for="remember" class="mar-b">我已看过并接受《<a href="##">用户协议</a>》</label>
+	</div>
+	<div class="item">
+		<input name="act" type="hidden" value="register">
+		<input type="hidden" name="back_act" value="user.php">
+		<input type="submit" id="btn_submit" name="Submit" class="btn-img btn-regist" value="立即注册">
+	</div>
+</div>
+</form>
+	<!--[if !ie]>form end<![endif]-->
 
-					</div>
-				</div>
-			</div>
-
-			<div class="blank"></div>
+</div>
 		</div>
-		<%@include file="foot.jsp" %>
+	</div>
+
+	<div class="blank"></div>
+</div>
+<%@include file="foot.jsp" %>
 
 <script type="text/javascript">
 			var process_request = "正在处理您的请求...";

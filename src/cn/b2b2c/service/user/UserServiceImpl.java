@@ -128,6 +128,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.updatemodify(userid, userName, birthday, sex);
 	}
 
+	@Override
+	public int updateEmail(Integer uId, String email) {
+		
+		return userMapper.updateEmail(uId, email);
+	}
+
 	
 
 }

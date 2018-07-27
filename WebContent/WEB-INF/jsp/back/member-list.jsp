@@ -40,8 +40,8 @@ var contextPath="${ctx}";
         </form>
       </div>
       <xblock>
-        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','/BackIndex/memberAdd.view',600,400)"><i class="layui-icon"></i>添加</button>
+        <button class="layui-btn layui-btn-danger" onclick="delAll()" disabled="disabled"><i class="layui-icon"></i>批量删除</button>
+        <button class="layui-btn" onclick="x_admin_show('添加用户','/BackIndex/memberAdd.view',600,400)" disabled="disabled"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：${rowCount} 条</span>
       </xblock>
       <table class="layui-table">
@@ -83,10 +83,10 @@ var contextPath="${ctx}";
               <a title="编辑"  onclick="x_admin_show('编辑','/BackIndex/memberEdit.view?uId=${temp.id}',600,400)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
-              <a onclick="x_admin_show('修改密码','/BackIndex/memberPassword.view',600,400)" title="修改密码" href="javascript:;">
+              <a onclick="x_admin_show('修改密码','/BackIndex/memberPassword.view',600,400)" title="修改密码" href="javascript:;" disabled="disabled">
                 <i class="layui-icon">&#xe631;</i>
               </a>
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;" disabled="disabled">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </td>
