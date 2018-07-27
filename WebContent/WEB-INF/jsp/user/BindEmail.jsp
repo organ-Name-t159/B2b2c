@@ -51,16 +51,27 @@ $(function(){
           </div>
         </div>
         <div class="mc">
+        <c:if test="${userEamil!=null}">
+        <div class="fore1"> <s class="fore1_3"></s> <strong>邮箱验证</strong> </div>
+        </c:if>
+        <c:if test="${userEamil==null}">
           <div class="fore1"> <s class="fore1_1"></s> <strong>邮箱验证</strong> </div>
+        </c:if>  
           <div class="fore2"> 
-             
+             <c:if test="${userEamil!=null}">
+             	<span class="ftx-03">您验证的邮箱：${userEamil}，若已丢失或停用，请立即更换，避免账户被盗</span>
+             </c:if>
+             <c:if test="${userEamil==null}">
             <span style="color: #ED5854;">验证后，可用于快速找回登录密码，接收账户余额变动提醒</span> 
-             
+             </c:if>
 	    </div>
           <div class="fore3"> 
-             
+             <c:if test="${userEamil!=null}">
+             	<input type="button" value="修改" onclick="" class="main-btn main-btn-large" />
+             </c:if>
+             <c:if test="${userEamil==null}">
             <a href="${ctx}/user/BindEmailOne.html" class="main-btn main-btn-large" >绑定邮箱</a> 
-             
+             </c:if>
           </div>
         </div>
         <div class="mc">
@@ -71,7 +82,7 @@ $(function(){
              
           </div>
           <div class="fore3"> 
-                        <input type="button" value="修改" onclick="" class="main-btn main-btn-large" />
+            <input type="button" value="修改" onclick="" class="main-btn main-btn-large" />
              
           </div>
         </div>

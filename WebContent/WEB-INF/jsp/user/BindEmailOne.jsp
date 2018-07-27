@@ -49,14 +49,14 @@
 						</dl>
 					</div>
 					<div id="find-box" class="uc_box">
-						<form action="">
+						<form action="${ctx}/user/verifyEmail.html" method="post" onsubmit="return verifyEmail()">
 							<div id="error_container"></div>
 							<div class="item">
 								<label class="con_un">您的邮箱地址：</label><input type="text" value="" name="email" placeholder="请输入邮箱"></input> <%-- <span id="l_email">${userEmail.email}</span> --%>
 							</div>
 							<div class="item">
 								<label class="con_un">请输入邮箱验证码：</label> <input name="email_code"
-									id="email_code" type="text" tabindex="2" placeholder="请输入邮箱验证码"
+									id="email_code" type="text" value="" tabindex="2" placeholder="请输入邮箱验证码"
 									class="text text_te"> 
 									<input type="button" value="获取邮箱验证码" class="code" onclick="gainEmail()">									
 							</div>
@@ -71,7 +71,7 @@
 							</div> -->
 							<div class="item">
 								<label class="con_un">&nbsp;</label>  <input
-									type="button" id="btn_submit" name="btn_submit"
+									type="submit" id="btn_submit" name="btn_submit"
 									class="main-btn main-btn-large" value="提交">
 							</div>
 						</form>
@@ -90,6 +90,14 @@
 var emailTo="";
 	function gainEmail() {
 		var email=$("input[name='email']").val();
+		var emailPattern=/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
+		if(emailPattern.test(email)){			
+			return true;
+		}else{
+			alert("你输出的邮箱格式不正确")
+			return false;
+		}
+		
 		$.ajax({
 			url:contextPath+"/user/gainEmail.html",
 			method:"post",
@@ -98,10 +106,24 @@ var emailTo="";
 			},
 			success:function(jsonStr){
 				emailTo=jsonStr;
-				alert(emailTo)
+				//alert(emailTo)
 			}
 		});
 	}
+	
+	function verifyEmail(){
+		var emailT=$("input[name='email_code']").val();
+		if(emailT.equals(emailTo) && emailTo!=''){
+			alert("成功")
+			return true;
+		}else{
+			alert("验证码匹配不相符")
+			return false;
+		}
+		
+		
+	}
+	
 </script>
 </body>
 </html>

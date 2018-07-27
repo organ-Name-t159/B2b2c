@@ -60,8 +60,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/BindEmail.html")
-	public String accountBindEmail(HttpSession session) throws Exception {
-
+	public String accountBindEmail(HttpServletRequest request,HttpSession session) throws Exception {
+		User user = (User) session.getAttribute("user");
+		user = userService.basic(user.getId());
+		String emailCover=user.getEmail().replace(user.getEmail().substring(4, 9), "****");
+		System.out.println(user.getEmail());
+		request.setAttribute("userEamil", emailCover);
 		return "user/BindEmail";
 	}
 
@@ -114,6 +118,17 @@ public class UserController {
 		return subjectEmail;
 	}
 	
+	
+	@RequestMapping(value = "/verifyEmail.html",method=RequestMethod.POST)
+	public String verifyEmail(HttpServletRequest request,HttpSession session) throws Exception {
+		String email=request.getParameter("email");
+		User user = (User) session.getAttribute("user");
+		int num=userService.updateEmail(user.getId(), email);
+		if(num==1) {
+			return "user/BindEmailTow";
+		}
+		return "error";
+	}
 	
 	
 	
