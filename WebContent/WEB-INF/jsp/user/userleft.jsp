@@ -58,13 +58,11 @@ function outUser(){
 			<a href="${ctx}/order/userOrder.view" class="item"><span>我的订单</span><i></i></a>
 			<!-- <a href="##" class="item"><span>退款/退货及维修</span><i></i></a> 
 				<a href="##" class="item"><span>商品评价/晒单</span><i></i></a> -->
-<<<<<<< HEAD
+
 				<a href="${ctx}/user/Collect.html" class="item"><span>商品收藏</span><i></i></a>
+				<!-- <a href="##" class="item"><span>店铺关注</span><i></i></a>
+				<a href="##" class="item"><span>商品收藏</span><i></i></a>
 				<!-- <a href="##" class="item"><span>店铺关注</span><i></i></a> 
-=======
-			<a href="##" class="item"><span>商品收藏</span><i></i></a>
-			<!-- <a href="##" class="item"><span>店铺关注</span><i></i></a> 
->>>>>>> 421d877362e555d7a49cdaaa32c09f72fed08669
 				<a href="##" class="item"><span>我的竞拍</span><i></i></a>
 				<a href="##" class="item"><span>提货券入口</span><i></i></a> 
 				<a href="##" class="item"><span>我的提货</span><i></i></a> -->
