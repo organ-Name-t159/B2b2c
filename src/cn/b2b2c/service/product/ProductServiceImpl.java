@@ -98,4 +98,27 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.getCount(proName, id, level);
 	}
 
+
+
+	@Override
+	public int insertCommodity(Integer uid, Integer pid)throws Exception {
+		return productMapper.insertCommodity(uid, pid);
+	}
+
+
+
+	@Override
+	public List<Product> getCommodityByuid(Integer uid)throws Exception {
+		// TODO Auto-generated method stub
+		return productMapper.getCommodityByuid(uid);
+	}
+
+
+
+	@Override
+	public int deleteCommodity(Integer uid, Integer pid) {
+		// TODO Auto-generated method stub
+		return productMapper.deleteCommodity(uid, pid);
+	}
+
 }

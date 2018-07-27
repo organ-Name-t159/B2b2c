@@ -592,8 +592,8 @@ function MoveBox(gid) {
  * 添加商品到收藏夹
  */
 function collect(goodsId) {
-	Ajax.call('user.php?act=collect', 'id=' + goodsId, collectResponse, 'GET', 'JSON');
 }
+
 
 /*******************************************************************************
  * 处理收藏商品的反馈信息

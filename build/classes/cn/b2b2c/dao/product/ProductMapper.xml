@@ -47,9 +47,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<if test="level ==3 and categoryId !=null">
 		and p.categoryLevel3Id=#{categoryId}
 	</if>
-	
-	
-	
 	</select>
 
+	<insert id="insertCommodity" >
+		INSERT INTO user_commodity (userId,productId) VALUES(#{uid},#{pid})
+	</insert>
+	
+	<select id="getCommodityByuid" resultType="product">
+		SELECT p.* FROM product p JOIN `user_commodity` uc ON p.id=uc.productId WHERE uc.userId=#{uid}
+	</select>
+	
+	<delete id="deleteCommodity">
+	
+	DELETE FROM`user_commodity` WHERE userId=#{uid} and `productId`=#{pid}
+	
+	</delete>
 </mapper>

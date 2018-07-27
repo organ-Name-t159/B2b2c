@@ -46,7 +46,7 @@ $(function(){
 							<a href="##"><i class="user_bg"></i></a>
 						</div>
 						<p>
-							<a href="##">¥3806.97</a>
+							<a href="##">暂未启用</a>
 						</p>
 					</li>
 					<li class="second">
@@ -57,7 +57,7 @@ $(function(){
 							<a href="##"><i class="user_bg"></i></a>
 						</div>
 						<p>
-							<a href="##"> 14 张</a>
+							<a href="##"> 3</a>
 						</p>
 					</li>
 					<li class="third">

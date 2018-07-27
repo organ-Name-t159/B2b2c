@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.DiscountCoupon;
+import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
 import cn.b2b2c.service.discountcoupon.DiscountCouponService;
+import cn.b2b2c.service.product.ProductService;
 import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.TimeTransform;
 
@@ -31,7 +33,8 @@ public class UserController {
 
 	@Autowired
 	private DiscountCouponService dcs;
-
+@Autowired
+private ProductService productService;
 	@RequestMapping(value = "/welocome.html")
 	public String welocome(HttpSession session) throws Exception {
 
@@ -149,4 +152,30 @@ public class UserController {
 		int num = userService.addAddress(user.getId(), consignee, address, addressPhone, postcode);
 		return "redirect:ReceivingAddress.html";
 	}
+	/**
+	 * 我的收藏
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="Collect.html")
+	public String Collect(HttpServletRequest request) throws Exception {
+		User user=(User)request.getSession().getAttribute("user");	
+		List<Product> productClist=productService.getCommodityByuid(user.getId());
+		request.getSession().setAttribute("productClist", productClist);
+		
+		return "user/GoodsCollect";
+	}
+	//删除收藏
+	@RequestMapping(value="delCollect")
+	public String delCollect(HttpServletRequest request) {
+	User user=(User)request.getSession().getAttribute("user");
+	Integer pid=Integer.parseInt(request.getParameter("pid"));
+	Integer num=productService.deleteCommodity(user.getId(), pid);
+	 if (num==1) {
+		 return "redirect:Collect.html";
+	}
+	 return "error";
+	}
+	
 }

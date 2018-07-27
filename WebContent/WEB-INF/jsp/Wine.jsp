@@ -538,7 +538,7 @@ $(function(){
             </div>
             <div class="item-operate">
             	<a class="operate-btn compare-btn" data-goods="250" data-type="0" onclick="Compare.add(250,怡宝 纯净水 4.5L*4 箱装,, ${ctx}/statics/images/${pl.fileName}, ¥29.9)"><i></i>对比</a>
-            	<a id="collect_250" href="javascript:void(0)" class="operate-btn collet-btn"><i></i>收藏</a>              
+            	<a id="collect_250" href="javascript:void(0)" onclick="collects('${pl.id}')" class="operate-btn collet-btn"><i></i>收藏</a>              
                 <a href="javascript:void(0)" class="add-cart" onclick="addToCart('${pl.id}')" title="加入购物车"></a>
              </div>
           </div>
@@ -549,6 +549,28 @@ $(function(){
  </ul>
    
 </form>
+<script type="text/javascript">
+function collects(goodsId) {
+	alert("成功");
+	$.ajax({
+		url:contextPath+"/details/GoodsCollect.html",
+		method:"post",
+		data:{
+			goodsId:goodsId
+		},
+		success:function(date){
+			if(dates==200){
+				alert("添加成功")
+			}else{
+				alert("失败");
+			}
+		}
+		
+	});
+}
+
+
+</script>
 <script type="Text/Javascript" language="JavaScript">
 re_collect();
 function re_collect(id){
