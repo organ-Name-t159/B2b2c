@@ -89,6 +89,22 @@ public interface ProductService {
 	 * @throws Exception
 	 */
 	public int getCount(String proName,Integer id,Integer level)throws Exception;
+	/**
+	 * 添加用户id和商品id 用于用户收藏商品
+	 * @throws Exception 
+	 */
+	public int insertCommodity(Integer uid,Integer pid) throws Exception;
+	
+	/**
+	 * 根据用户id查商品
+	 * @return
+	 * @throws Exception 
+	 */
+	public List<Product> getCommodityByuid(Integer uid) throws Exception;
 
-
+	
+	/**
+	 * 删除用户收藏商品
+	 */
+	public int	deleteCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
 }

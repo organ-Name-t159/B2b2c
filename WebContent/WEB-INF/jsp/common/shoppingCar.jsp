@@ -51,10 +51,25 @@
 					<div class="popup">
 						我关注的店铺 <i class="arrow-right"></i>
 					</div></li>
-				<li id="collectGoods"><a href="#"><i class="collect"></i></a>
+					<c:choose>
+					
+					<c:when test="${sessionScope.user==null || sessionScope.user==''}">
+				<li id="collectGoods"><a href="${ctx}/register/login.html"><i class="collect"></i></a>
+				
 					<div class="popup">
 						我的收藏 <i class="arrow-right"></i>
 					</div></li>
+					</c:when>
+					<c:otherwise>
+					<c:if test="${sessionScope.user!=null || sessionScope.user!=''}">
+				<li id="collectGoods"><a href="${ctx}/user/Collect.html"><i class="collect"></i></a>
+				
+					<div class="popup">
+						我的收藏 <i class="arrow-right"></i>
+					</div></li>
+					</c:if>
+					</c:otherwise>
+					</c:choose>
 			</ul>
 		</div>
 		<div class="quick-toggle">
@@ -121,7 +136,7 @@
 								<div class="tip-box">
 									<i class="tip-icon"></i>
 									<div class="tip-text">
-										您的购物车里什么都没有哦<br> <a class="main-color" href="#">再去看看吧</a>
+										您的购物车里什么都没有哦<br> <a class="main-color" href="${ctx}/product/index.html">再去看看吧</a>
 									</div>
 								</div>
 							</div>

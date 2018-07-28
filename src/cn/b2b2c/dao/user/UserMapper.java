@@ -13,6 +13,14 @@ import cn.b2b2c.pojo.UserAddress;
 public interface UserMapper {
 	
 	/**
+	 * 绑定邮箱
+	 * @param uId
+	 * @param email
+	 * @return
+	 */
+	public int updateEmail(@Param("uid")Integer uId,@Param("em")String email);
+	
+	/**
 	 * 查询基本信息
 	 * @param user
 	 * @return

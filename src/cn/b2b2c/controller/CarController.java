@@ -31,6 +31,7 @@ import cn.b2b2c.pojo.PaymentWay;
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
+import cn.b2b2c.pojo.UserIntegral;
 import cn.b2b2c.service.deliverytime.DeliveryTimeService;
 import cn.b2b2c.service.discountcoupon.DiscountCouponService;
 import cn.b2b2c.service.invoice.InvoiceService;
@@ -38,6 +39,7 @@ import cn.b2b2c.service.order.OrderService;
 import cn.b2b2c.service.orderdetail.OrderDetailService;
 import cn.b2b2c.service.paymentway.PaymentWaySerivce;
 import cn.b2b2c.service.product.ProductService;
+import cn.b2b2c.service.user.UserIntegralService;
 import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.Constants;
 import cn.b2b2c.tools.EmptyUtils;
@@ -74,6 +76,9 @@ public class CarController {
 	
 	@Resource
 	private OrderDetailService orderDetailService;
+	
+	@Resource
+	private UserIntegralService userIntegralService;
 	
 	
 	
@@ -116,11 +121,20 @@ public class CarController {
 	@RequestMapping(value="/return_url.view")
 	public String returnUrl(HttpServletRequest request,HttpServletResponse response)throws Exception {
 		HttpSession session=request.getSession();
+		User user=(User)session.getAttribute("user");
 		String number=(String)session.getAttribute("serialNumber");
 		String pId=(String)session.getAttribute("paymentWayId");
+		String integral=(String) session.getAttribute("monetAll");
 		//System.out.println(number);
 		if(orderService.updateOrder(number)==1) {
 			//productService.updateNumber(stock, id);
+			UserIntegral uIntegral=userIntegralService.queryUserIntegral(user.getId());
+			if(uIntegral==null) {
+				userIntegralService.addUserIntegral(user.getId(), Integer.parseInt(integral));
+			}else {
+				userIntegralService.updateUserIntegral(user.getId(), uIntegral.getIntegral()+Integer.parseInt(integral));
+			}
+			
 			System.out.println("改变状态成功");
 		}
 		if(Integer.parseInt(pId)==1) {

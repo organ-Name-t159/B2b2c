@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.b2b2c.dao.user.UserIntegralMapper">
+	<insert id="addUserIntegral">
+		INSERT INTO `user_integral`(`userId`,`integral`) VALUES(#{uId},#{ing})
+	</insert>
+	<select id="queryUserIntegral" resultType="UserIntegral">
+		SELECT * FROM `user_integral` WHERE `userId`=#{uId}
+	</select>
+	<update id="updateUserIntegral">
+		UPDATE `user_integral` SET `integral`=#{ing} WHERE `userId`=#{uId}
+	</update>
+	
+</mapper>

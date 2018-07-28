@@ -20,9 +20,11 @@ import com.kewail.sdk.email.yun.EmailSingleSender;
 import com.kewail.sdk.email.yun.EmailSingleSenderResult;
 
 import cn.b2b2c.pojo.DiscountCoupon;
+import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
 import cn.b2b2c.service.discountcoupon.DiscountCouponService;
+import cn.b2b2c.service.product.ProductService;
 import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.TimeTransform;
 
@@ -35,7 +37,8 @@ public class UserController {
 
 	@Autowired
 	private DiscountCouponService dcs;
-
+@Autowired
+private ProductService productService;
 	@RequestMapping(value = "/welocome.html")
 	public String welocome(HttpSession session) throws Exception {
 
@@ -60,8 +63,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/BindEmail.html")
-	public String accountBindEmail(HttpSession session) throws Exception {
-
+	public String accountBindEmail(HttpServletRequest request,HttpSession session) throws Exception {
+		User user = (User) session.getAttribute("user");
+		user = userService.basic(user.getId());
+		String emailCover=user.getEmail().replace(user.getEmail().substring(4, 9), "****");
+		System.out.println(user.getEmail());
+		request.setAttribute("userEamil", emailCover);
 		return "user/BindEmail";
 	}
 
@@ -114,6 +121,17 @@ public class UserController {
 		return subjectEmail;
 	}
 	
+	
+	@RequestMapping(value = "/verifyEmail.html",method=RequestMethod.POST)
+	public String verifyEmail(HttpServletRequest request,HttpSession session) throws Exception {
+		String email=request.getParameter("email");
+		User user = (User) session.getAttribute("user");
+		int num=userService.updateEmail(user.getId(), email);
+		if(num==1) {
+			return "user/BindEmailTow";
+		}
+		return "error";
+	}
 	
 	
 	
@@ -200,4 +218,30 @@ public class UserController {
 		int num = userService.addAddress(user.getId(), consignee, address, addressPhone, postcode);
 		return "redirect:ReceivingAddress.html";
 	}
+	/**
+	 * 我的收藏
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="Collect.html")
+	public String Collect(HttpServletRequest request) throws Exception {
+		User user=(User)request.getSession().getAttribute("user");	
+		List<Product> productClist=productService.getCommodityByuid(user.getId());
+		request.getSession().setAttribute("productClist", productClist);
+		
+		return "user/GoodsCollect";
+	}
+	//删除收藏
+	@RequestMapping(value="delCollect")
+	public String delCollect(HttpServletRequest request) {
+	User user=(User)request.getSession().getAttribute("user");
+	Integer pid=Integer.parseInt(request.getParameter("pid"));
+	Integer num=productService.deleteCommodity(user.getId(), pid);
+	 if (num==1) {
+		 return "redirect:Collect.html";
+	}
+	 return "error";
+	}
+	
 }

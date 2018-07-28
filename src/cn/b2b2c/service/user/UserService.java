@@ -3,12 +3,20 @@ package cn.b2b2c.service.user;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
 
 public interface UserService {
+	
+	/**
+	 * 绑定邮箱
+	 * @param uId
+	 * @param email
+	 * @return
+	 */
+	public int updateEmail(Integer uId,String email);
+	
 	
 	/**
 	 * 查询基本信息
@@ -31,7 +39,7 @@ public interface UserService {
 	 * @param userId
 	 * @return
 	 */
-	public User getUser(@Param("uId")Integer userId);
+	public User getUser(Integer userId);
 	
 	/**
 	 * 分页查询

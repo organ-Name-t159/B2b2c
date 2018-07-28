@@ -121,8 +121,6 @@ $(function(){
             	var zipcode=document.getElementById("zipcode_0").value;
             	var mobile=document.getElementById("mobile_0").value;
             	var id=$("#addressButton"+po).attr("cId");
-            	
-            	alert("id"+id+"-------"+"userId"+${user.id});
             	if(consignee==""||consignee==null)return false;
             	if(address==""||address==null)return false;
             	
@@ -151,7 +149,7 @@ $(function(){
             
             </script>
            
-            <form action="${ctx}/user/addAddress" method="post" name="theForm">
+            <form action="${ctx}/user/addAddress" method="post" name="theForm" id="addForm" onsubmit="return del()">
             <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#eeeeee">
                 
                 <tr>
@@ -159,7 +157,7 @@ $(function(){
                   <td align="left" width="40%"><input name="consignee" type="text" class="inputBg" id="consignee_2" value="" />
                     (必填) </td>
                   <td align="right" width="10%">电子邮件地址：</td>
-                  <td align="left" width="40%"><input name="email" type="text" class="inputBg" id="email_2" value="" />
+                  <td align="left" width="40%"><input name="email" type="text" class="inputBg" id="email_2" value="${user.email}" />
                   </td>
                 </tr>
                 <tr>
@@ -172,13 +170,13 @@ $(function(){
                   <td align="left"><input name="zipcode" type="text" class="inputBg" id="zipcode_2" value="" />(必填)</td>
                   
                   <td align="right">手机：</td>
-                  <td align="left"><input name="mobile" type="text" class="inputBg" id="mobile_2" value="" />(必填)
+                  <td align="left"><input name="mobile" type="text" class="inputBg" id="mobile_2" value="${user.phone}" />
                 </td>
                 </tr>
                 <tr>
                 <td colspan="4" align="center">
                 	                    
-                    <input type="submit" name="submit" class="main-btn main-btn-large"  value="新增收货地址"/>
+                    <input id="addButton" type="submit" name="submit" class="main-btn main-btn-large"  value="新增收货地址"/>
                     
                                         
                     <input type="hidden" name="act" value="act_edit_address" />
@@ -186,6 +184,41 @@ $(function(){
                 </tr>
               </table>
             </form>
+            <script type="text/javascript">
+            	function del(){
+            		if(confirm('你确定要修改信息吗？')==true){
+            			var consignee=document.getElementById("consignee_2").value;
+                		var email=document.getElementById("email_2").value;
+                		var address=document.getElementById("address_2").value;
+                		var zipcode=document.getElementById("zipcode_2").value;
+                		var mobile=document.getElementById("mobile_2").value;
+                		if (consignee==""||consignee==null) {
+                			alert("收货人姓名不能为空");
+							return false;
+						}else
+                		if (address==""||address==null) {
+                			alert("详细地址不能为空");s
+							return false;
+						}else
+                		if (zipcode==""||zipcode==null) {
+                			alert("邮政编码不能为空");
+							return false;
+						}else
+	                	if (mobile==""||mobile==null) {
+	                		alert("手机号码不能为空不能为空");
+							return false;
+						}else{
+							return true;
+						}
+                		
+            		}else{
+            			return false;
+            		}
+            		
+            	}	
+               
+            
+            </script>
             <div class="blank10"></div>
           </div>
          </div>

@@ -60,4 +60,19 @@ public interface ProductMapper {
 	 */
 	public int getCount(@Param("pName")String proName,@Param("categoryId")Integer id,@Param("level")Integer level);
 	
+	/**
+	 * 添加用户id和商品id 用于用户收藏商品
+	 */
+	public int insertCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
+	
+	/**
+	 * 根据用户id查商品
+	 * @return
+	 */
+	public List<Product> getCommodityByuid(@Param("uid")Integer uid);
+	/**
+	 * 删除用户收藏商品
+	 */
+	public int	deleteCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
+ 
 }

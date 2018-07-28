@@ -96,7 +96,7 @@ function outUser(){
 					<a class="menu-hd" href="${ctx}/user/welocome.html"  >我的信息<b></b></a>
 					<div id="menu-2" class="menu-bd">
 							<div class="menu-bd-panel">
-								<a href="#">已买到的宝贝</a> <a href="#">我的地址管理</a>
+								<a href="#">已买到的宝贝</a> <a href="${ctx}/user/ReceivingAddress.html">我的地址管理</a>
 							</div>
 						</div>
 					</div>
@@ -108,7 +108,7 @@ function outUser(){
 					class="sn-stores header-icon main-color" href="#"><i></i>我关注的店铺</a>
 				</li>
 				<li class="sn-cart mini-cart menu"><a id="mc-menu-hd"
-					class="sn-cart header-icon main-color" href="#"><i></i>购物车</a></li>
+					class="sn-cart header-icon main-color" href="${ctx}/car/closeCart.html"><i></i>购物车</a></li>
 				<li class="sn-favorite menu-item">
 					<div class="sn-menu">
 						<a class="menu-hd" href="#">收藏夹<b></b></a>
