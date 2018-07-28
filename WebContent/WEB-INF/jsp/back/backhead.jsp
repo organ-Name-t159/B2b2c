@@ -25,28 +25,7 @@ var contextPath="${ctx}";
 	<link rel="stylesheet" href="${ctx}/statics/css/layui.css">
 	<link rel="stylesheet" href="${ctx}/statics/css/layui.mobile.css">	
 		
-    <script type="text/javascript" src="${ctx}/statics/js/jquery-1.12.4.js"></script>
-    <script src="${ctx}/statics/js/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="${ctx}/statics/js/xadmin.js"></script>
-    <script type="text/javascript" src="${ctx}/statics/js/element.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/flow.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/carousel.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/code.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/form.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/laydate.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/layedit.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/layer.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/laypage.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/laytpl.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/layui.all.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/mobile.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/table.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/tree.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/upload.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/util.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/xcity.js"></script>
-	<script type="text/javascript" src="${ctx}/statics/js/jquery.js"></script>
-	
+     
 </head>
 <body>
     <!-- 顶部开始 -->
@@ -58,7 +37,7 @@ var contextPath="${ctx}";
         <ul class="layui-nav left fast-add" lay-filter="">
           <li class="layui-nav-item">
             <a href="javascript:;">+新增</a>
-            <dl class="layui-nav-more"> <!-- 二级菜单 -->
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <dd><a onclick="x_admin_show('资讯','http://www.baidu.com')"><i class="iconfont">&#xe6a2;</i>资讯</a></dd>
               <dd><a onclick="x_admin_show('图片','http://www.baidu.com')"><i class="iconfont">&#xe6a8;</i>图片</a></dd>
                <dd><a onclick="x_admin_show('用户','http://www.baidu.com')"><i class="iconfont">&#xe6b8;</i>用户</a></dd>
@@ -66,7 +45,7 @@ var contextPath="${ctx}";
           </li>
         </ul>
         <ul class="layui-nav right" lay-filter="">
-          <li class="layui-nav-item" onmousemove="layuiOver()" onmouseout="layuiOut()">
+          <li class="layui-nav-item">
             <a href="javascript:;">${backUser.backUserName}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <!-- <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd> -->
@@ -80,10 +59,10 @@ var contextPath="${ctx}";
     </div>
     <!-- 顶部结束 -->
     <script type="text/javascript">
-    	function layuiOver(){
+    	 function layuiOver(){
     		$(".layui-nav-child").show();
     	}
     	function layuiOut(){
     		$(".layui-nav-child").hide();
-    	}
+    	} 
     </script>

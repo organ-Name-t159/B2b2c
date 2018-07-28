@@ -15,11 +15,10 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/flow.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/category.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/statics/css/goods.css">
+
 <script type="text/javascript" src="${ctx}/stiatics/js/global.js"></script>
-<script type="text/javascript"
-	src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript"
-	src="${ctx}/statics/js/jquery.validate.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/messages_zh.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
 <%--  <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%> 
@@ -27,23 +26,23 @@
 <script type="text/javascript" src="${ctx}/statics/js/user.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/bubbleup.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/utils.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/common.min.js"></script>
+
 <script type="text/javascript" src="${ctx}/statics/js/page.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/bubbleup.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jump.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/tab.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/magiczomm_plus.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/magiczoom.js"></script>
+
 <script type="text/javascript" src="${ctx}/statics/js/compare.js"></script>
 <%-- <script type="text/javascript" src="${ctx}/statics/js/gw_totop.js"></script> --%>
 <script type="text/javascript" src="${ctx}/statics/js/scrollpic.js"></script>
-<script type="text/javascript"
-	src="${ctx}/statics/js/jquery-lazyload.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/jquery-lazyload.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
-<script type="text/javascript" src="${ctx}/statics/js/index.js"></script>
+
 <script type="text/javascript" src="${ctx}/statics/js/arrive_notice.js"></script>
-<%-- <script type="text/javascript"
-	src="${ctx}/statics/js/indexPrivate.min.js"></script> --%>
+<script type="text/javascript" src="${ctx}/statics/js/indexPrivate.min.js"></script>
+
+
 <script type="text/javascript">
 	var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
 	var btn_buy = "购买";
