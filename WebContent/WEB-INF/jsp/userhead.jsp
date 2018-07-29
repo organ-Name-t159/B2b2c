@@ -141,14 +141,14 @@ function outUser(){
 				</li>
 				<li class="menu-item">
 					<div class="sn-menu">
-						<a class="menu-hd sn-mobile" href="#">手机版<b></b></a>
+						<a class="menu-hd sn-mobile" href="#">手机版<b></b></a>						
 						<div class="menu-bd sn-qrcode" id="menu-5">
 							<ul>
 								<li class="app_down"><a href="#"></a>
 									<p>微信商城</p> <img src="${ctx}/statics/images/app.jpg"
 									alt="请用手机浏览器扫描" width="86px" height="240px"></li>
 							</ul>
-						</div>
+						</div>						
 					</div>
 				</li>
 			</ul>

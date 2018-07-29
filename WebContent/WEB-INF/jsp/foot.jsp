@@ -119,6 +119,7 @@
 				<dd>售后咨询 020-34506590</dd>
 				<dd>客服 QQ 38306293</dd>
 				<dd>工作时间 9：00-17：30</dd>
+				<dd><a class="" href="${ctx}/BackLogin/inToLogin.html">后台b2b2c</a></dd>
 			</dl>
 		</div>
 		<div class="footer-info clearfix">
@@ -229,6 +230,7 @@
 									www.wrzc.net <span>广州网软志成信息科技有限公司</span> 版权所有
 							</font> <a href="#"> <font color="#FF0000">进入后台管理</font>
 							</a></td>
+							
 						</tr>
 					</tbody>
 				</table>

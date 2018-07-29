@@ -103,6 +103,18 @@ public class BackCateController {
 		return num;
 	}
 	
+	@RequestMapping(value="/adminProduct.view")
+	public String adminProduct(HttpServletRequest request) {
+		return "back/productList";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 
