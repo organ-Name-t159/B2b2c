@@ -134,6 +134,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.updateEmail(uId, email);
 	}
 
+	@Override
+	public int updatePicture(Integer uId, String picture) {
+		
+		return userMapper.updatePicture(uId, picture);
+	}
+
 	
 
 }
