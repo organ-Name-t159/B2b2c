@@ -11,12 +11,13 @@ var contextPath="${ctx}";
     <meta charset="UTF-8">
     <title>欢迎页面-X-admin2.0</title>
     <link rel="stylesheet" href="${ctx}/statics/css/font.css">
-	<link rel="stylesheet" href="${ctx}/statics/css/xadmin.css">   
+	<link rel="stylesheet" href="${ctx}/statics/css/xadmin.css">
+		  
 </head>
 <body>
 <div class="x-body layui-anim layui-anim-up">
         <blockquote class="layui-elem-quote">欢迎管理员：
-            <span class="x-red">test</span>！当前时间:2018-04-25 20:50:53</blockquote>
+            <span id="time">111</span></blockquote>
         <fieldset class="layui-elem-field">
             <legend>数据统计</legend>
             <div class="layui-field-box">
@@ -156,15 +157,7 @@ var contextPath="${ctx}";
         </fieldset>
         <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,百度Echarts,jquery,本系统由x-admin提供技术支持。</blockquote>
     </div>
-        <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
-
+    <script type="text/javascript" src="${ctx}/statics/js/time.js"></script>
+        
 </body>
 </html>

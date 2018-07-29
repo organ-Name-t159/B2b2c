@@ -10,7 +10,7 @@
 			<div class="myInfo clearfix">
 				<div class="photo">
 					<div class="mask"></div>
-					<img id="headImagePath" src="${ctx}/statics/images/people.gif"
+					<img id="headImagePath" src="${ctx}/statics/images/${userPic.headPortrait}"
 						height="80" width="80">
 				</div>
 <script type="text/javascript">

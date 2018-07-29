@@ -9,6 +9,15 @@ import cn.b2b2c.pojo.UserAddress;
 
 public interface UserService {
 	
+	
+	/**
+	 * 上传图片
+	 * @param uId
+	 * @param picture
+	 * @return
+	 */
+	public int updatePicture(Integer uId,String picture);
+	
 	/**
 	 * 绑定邮箱
 	 * @param uId

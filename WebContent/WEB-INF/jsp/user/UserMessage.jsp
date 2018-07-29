@@ -117,7 +117,7 @@ $(function(){
               </form>
             </div>
             <div class="ncm-default-form" id="con_tab_2" style="display:none">
-              <form name="formEdit" action="" method="post" enctype="multipart/form-data" onsubmit="return userEdit()">
+              <form name="formEdit" action="${ctx}/picture/uploading.view" method="post" enctype="multipart/form-data">
                 <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#eee">
                 	<tbody><tr>
                     	<td width="35%" align="right">头像预览：</td>

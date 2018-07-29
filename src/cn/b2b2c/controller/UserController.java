@@ -41,7 +41,9 @@ public class UserController {
 private ProductService productService;
 	@RequestMapping(value = "/welocome.html")
 	public String welocome(HttpSession session) throws Exception {
-
+		User user = (User) session.getAttribute("user");
+		user = userService.basic(user.getId());
+		session.setAttribute("userPic", user);
 		return "user/UserHome";
 	}
 
