@@ -121,4 +121,12 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.deleteCommodity(uid, pid);
 	}
 
+
+
+	@Override
+	public int count(String keyWord) {
+		
+		return productMapper.count(keyWord);
+	}
+
 }

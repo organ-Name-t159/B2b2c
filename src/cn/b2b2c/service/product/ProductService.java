@@ -12,6 +12,11 @@ import cn.b2b2c.tools.ShoppingCart;
 
 
 public interface ProductService {
+	/**
+	 * 查询总条数
+	 * @return
+	 */
+	public int count(String keyWord);
 	
 	
 	/**

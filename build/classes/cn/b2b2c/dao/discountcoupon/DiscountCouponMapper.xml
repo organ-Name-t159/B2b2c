@@ -3,6 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.discountcoupon.DiscountCouponMapper">
+	<update id="updateDiscountCouponStatic">
+		update user_discount_coupon set dcsId=#{sId} where userId=#{uId} and id=#{id}
+	</update>
 	<select id="getDiscountCoupon" resultType="DiscountCoupon">
 		SELECT dc.* FROM `user_discount_coupon` udc INNER JOIN `discount_coupon` dc ON udc.`dcId`=dc.`id`WHERE 
 		udc.`dcsId`=#{sId} AND udc.userId=#{uId}		
