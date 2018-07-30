@@ -2,6 +2,7 @@ package cn.b2b2c.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -23,8 +24,10 @@ import cn.b2b2c.pojo.DiscountCoupon;
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
+import cn.b2b2c.pojo.UserIntegral;
 import cn.b2b2c.service.discountcoupon.DiscountCouponService;
 import cn.b2b2c.service.product.ProductService;
+import cn.b2b2c.service.user.UserIntegralService;
 import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.TimeTransform;
 
@@ -37,13 +40,20 @@ public class UserController {
 
 	@Autowired
 	private DiscountCouponService dcs;
-@Autowired
-private ProductService productService;
+	
+	@Autowired
+	private ProductService productService;
+	
+	@Resource
+	private UserIntegralService userIntegralService;
+	
 	@RequestMapping(value = "/welocome.html")
-	public String welocome(HttpSession session) throws Exception {
+	public String welocome(HttpServletRequest request,HttpSession session) throws Exception {
 		User user = (User) session.getAttribute("user");
 		user = userService.basic(user.getId());
 		session.setAttribute("userPic", user);
+		UserIntegral integral = userIntegralService.queryUserIntegral(user.getId());
+		request.setAttribute("integral", integral);
 		return "user/UserHome";
 	}
 
@@ -156,7 +166,9 @@ private ProductService productService;
 		Integer userId = Integer.parseInt(request.getParameter("userId"));
 
 		List<DiscountCoupon> dcStateList = dcs.getQueryById(userId);
-
+		dcStateList.size();
+		System.out.println(dcStateList.size());
+		
 		for (DiscountCoupon discountCoupon : dcStateList) {
 			discountCoupon.setNewTime(TimeTransform.isTime(discountCoupon.getValidTime()).toString());
 		}
