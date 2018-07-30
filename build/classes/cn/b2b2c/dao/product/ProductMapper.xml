@@ -3,6 +3,14 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.product.ProductMapper">
+
+	<select id="count" resultType="int">
+		select count(1) from product where 1=1
+		<if test="kw !=null and kw !=''">
+			and name like concat('%',#{kw},'%')
+		</if>
+		
+	</select>
 	<select id="getProductList" resultType="product">
 		SELECT p.* FROM `product` p WHERE 1=1
 		<if test="proName !=null and proName !=''">

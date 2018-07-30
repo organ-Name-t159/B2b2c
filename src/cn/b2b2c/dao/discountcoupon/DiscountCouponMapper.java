@@ -9,6 +9,15 @@ import cn.b2b2c.pojo.DiscountCoupon;
 public interface DiscountCouponMapper {
 	
 	/**
+	 * 根据id修改优惠券状态
+	 * @param UserId
+	 * @param dcId
+	 * @param stateId
+	 * @return
+	 */
+	public int updateDiscountCouponStatic(@Param("uId")Integer UserId,@Param("id")Integer Id,@Param("sId")Integer stateId);
+	
+	/**
 	 * 查询用户拥有的优惠券
 	 * @param UserId
 	 * @param stateId

@@ -29,38 +29,11 @@ var contextPath="${ctx}";
 	</div>
 	<div class="x-body">
 		<div class="layui-row">
-			<form class="layui-form layui-col-md12 x-so">
-				<input class="layui-input" placeholder="开始日" name="start" id="start">
-				<input class="layui-input" placeholder="截止日" name="end" id="end">
-				<div class="layui-input-inline">
-					<select name="contrller">
-						<option>支付状态</option>
-						<option>已支付</option>
-						<option>未支付</option>
-					</select>
-				</div>
-				<div class="layui-input-inline">
-					<select name="contrller">
-						<option>支付方式</option>
-						<option>支付宝</option>
-						<option>微信</option>
-						<option>货到付款</option>
-					</select>
-				</div>
-				<div class="layui-input-inline">
-					<select name="contrller">
-						<option value="">订单状态</option>
-						<option value="0">待确认</option>
-						<option value="1">已确认</option>
-						<option value="2">已收货</option>
-						<option value="3">已取消</option>
-						<option value="4">已完成</option>
-						<option value="5">已作废</option>
-					</select>
-				</div>
-				<input type="text" name="username" placeholder="请输入订单号"
+			<form class="layui-form layui-col-md12 x-so" action="${ctx}/BackCate/adminProduct.view" method="post">
+				
+				<input type="text" name="keyWord"  value="${keyWord}" placeholder="请输入订单号"
 					autocomplete="off" class="layui-input">
-				<button class="layui-btn" lay-submit="" lay-filter="sreach">
+				<button class="layui-btn">
 					<i class="layui-icon">&#xe615;</i>
 				</button>
 			</form>
@@ -73,7 +46,7 @@ var contextPath="${ctx}";
 			onclick="x_admin_show('添加用户','/BackOrder/orderAdd.view')">
 			<i class="layui-icon"></i>添加
 		</button>
-		<span class="x-right" style="line-height: 40px">共有数据：88 条</span> </xblock>
+		<span class="x-right" style="line-height: 40px">共有数据：${pager.rowCount}条</span> </xblock>
 		<table class="layui-table">
 			<thead>
 				<tr>
@@ -88,7 +61,7 @@ var contextPath="${ctx}";
 					<th>价格</th>
 					<th>市场价格</th>
 					<th>库存</th>					
-					<th>文件名</th>
+					<!-- <th>文件名</th> -->
 					<th>销售量</th>
 					<th>评价次数</th>
 					<th>赠送积分</th>					
@@ -97,6 +70,7 @@ var contextPath="${ctx}";
 				</tr>
 			</thead>
 			<tbody>
+			<c:forEach items="${productList}" var="temp">
 				<tr>
 					<td>
 						<div class="layui-unselect layui-form-checkbox" lay-skin="primary"
@@ -104,31 +78,51 @@ var contextPath="${ctx}";
 							<i class="layui-icon">&#xe605;</i>
 						</div>
 					</td>
-					<td>2017009171822298053</td>
-					<td>老王:18925139194</td>
-					<td>7829.10</td>
-					<td>7854.10</td>
-					<td>待确认</td>
-					<td>未支付</td>
-					<td>未发货</td>
-					<td>其他方式</td>
-					<td>申通物流</td>
-					<td>2017-08-17 18:22</td>
+					<td>${temp.id}</td>
+					<td>${temp.name}</td>					
+					<td>${temp.price}</td>
+					<td>${temp.bazaarPrice}</td>
+					<td>${temp.stock}</td>
+					<%-- <td>${temp.fileName}</td> --%>
+					<td>${temp.salesVolume}</td>
+					<td>${temp.evaluateSales}</td>
+					<td>${temp.giveIntegral}</td>
+					<td>${temp.isDelete}</td>
 					<td class="td-manage"><a title="查看" onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
 							<i class="layui-icon">&#xe63c;</i>
 					</a> <a title="删除" onclick="member_del(this,'要删除的id')"
 						href="javascript:;"> <i class="layui-icon">&#xe640;</i>
 					</a></td>
 				</tr>
+			</c:forEach>
+				
 			</tbody>
 		</table>
 		<div class="page">
-			<div>
-				<a class="prev" href="">&lt;&lt;</a> <a class="num" href="">1</a> <span
-					class="current">2</span> <a class="num" href="">3</a> <a
-					class="num" href="">489</a> <a class="next" href="">&gt;&gt;</a>
-			</div>
-		</div>
+      <c:if test="${pager.pageCount>=1}">
+      	<div>
+      	<c:if test="${pager.currentPage>1}">
+      		<a class="prev" href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}">&lt;&lt;</a>
+      	</c:if>
+          <c:forEach var="tempt" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?pager.currentPage+3:pager.pageCount}" step="1">
+          	<c:if test="${pager.currentPage==tempt}">
+          		<span class="current">${tempt}</span>
+          		<%-- <a class="num" href="">${temp}</a> --%>
+          	</c:if>
+          	<c:if test="${pager.currentPage!=tempt}">
+          		<a class="num" href="${ctx}/${pager.url}&currentPage=${tempt}">${tempt}</a>
+          	</c:if>
+          </c:forEach>         
+         <c:if test="${pager.currentPage<pager.pageCount}">
+         <a class="next" href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}">&gt;&gt;</a>
+      	 </c:if>
+          
+        </div>
+      </c:if>
+       <c:if test="${pager.pageCount==0}">
+       	暂无记录
+       </c:if> 
+      </div>
 
 	</div>
 	<script>

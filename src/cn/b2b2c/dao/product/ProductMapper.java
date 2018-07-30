@@ -9,6 +9,12 @@ import cn.b2b2c.pojo.Product;
 public interface ProductMapper {
 	
 	/**
+	 * 查询总条数
+	 * @return
+	 */
+	public int count(@Param("kw")String keyWord);
+	
+	/**
 	 * 根据查询条件，分页显示商品信息列表（返回类型：List<Product>，参数：当前页码、页码容量、商品名称、分类级别、类别）。
 	 * @param currentPageNo
 	 * @param pageSize

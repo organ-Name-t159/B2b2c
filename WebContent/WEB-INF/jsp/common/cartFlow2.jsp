@@ -346,7 +346,7 @@ $(function() {
 									class="otherinput">
 										<option value="0" selected="selected">请选择</option>
 										<c:forEach items="${lCoupons}" var="lc">
-										<option value="${lc.id}">店铺：${lc.issue}|满${lc.use}可用|优惠:[¥${lc.money}]</option>
+										<option value="${lc.id}"<c:if test="${sessionScope.cart.sum < lc.use}">disabled="disabled"</c:if> >店铺：${lc.issue}|满${lc.use}可用|优惠:[¥${lc.money}]</option>
 										</c:forEach>										
 
 								</select></td>

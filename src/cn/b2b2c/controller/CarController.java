@@ -349,13 +349,14 @@ public class CarController {
 		DistributionWay dWay= orderService.getDistributionWayId(distributionWayId);
 		PaymentWay pWay=paymentWaySerivce.getId(Integer.parseInt(paymentWayId));
 		DeliveryTime dTime =deliveryTimeService.getId(Integer.parseInt(uTime));
-		
-		
+		int udcNum=discountCouponService.updateDiscountCouponStatic(Integer.parseInt(userId), Integer.parseInt(uTiscountCouponId), 3);
+		System.out.println(udcNum);
 		
 		
 		session.setAttribute("serialNumber", serialNumber);
 		//request.setAttribute("serialNumber", serialNumber);
 		//session.setAttribute(arg0, arg1);
+		session.setAttribute("uTiscountCouponId", uTiscountCouponId);
 		session.setAttribute("monetAll", monetAll);
 		session.setAttribute("paymentWayId", paymentWayId);
 		session.setAttribute("dWay", dWay);
