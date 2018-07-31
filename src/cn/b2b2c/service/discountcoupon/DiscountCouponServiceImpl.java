@@ -33,4 +33,10 @@ public class DiscountCouponServiceImpl implements DiscountCouponService {
 		return discountCouponMapper.getQueryById(userId);
 	}
 
+	@Override
+	public int updateDiscountCouponStatic(Integer UserId, Integer Id, Integer stateId) {
+		
+		return discountCouponMapper.updateDiscountCouponStatic(UserId, Id, stateId);
+	}
+
 }

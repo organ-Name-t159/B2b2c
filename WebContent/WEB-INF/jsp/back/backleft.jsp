@@ -91,6 +91,12 @@ var contextPath="${ctx}";
                             <cite>多级分类</cite>
                         </a>
                     </li >
+                    <li>
+                        <a _href="${ctx}/BackCate/adminProduct.view">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>商品分类</cite>
+                        </a>
+                    </li >
                 </ul>
             </li>
             

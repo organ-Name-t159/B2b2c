@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.ProductCategory;
+import cn.b2b2c.service.product.ProductService;
 import cn.b2b2c.service.productCategory.ProductCategoryService;
+import cn.b2b2c.tools.EmptyUtils;
+import cn.b2b2c.tools.Pager;
 import cn.b2b2c.tools.ProductCategoryVo;
 import sun.print.resources.serviceui;
 
@@ -23,6 +27,31 @@ public class BackCateController {
 	
 	@Resource
 	private ProductCategoryService productCategoryService;
+	
+	@Resource
+	private ProductService productService;
+	
+	
+	@RequestMapping(value="/adminProduct.view")
+	public String adminProduct(HttpServletRequest request)throws Exception {
+		String category=request.getParameter("category");
+		String pageSizeStr=request.getParameter("pageSize");		
+		String currentPageStr=request.getParameter("currentPage");
+		String keyWord=request.getParameter("keyWord");
+		String keyWordStr=EmptyUtils.isEmpty(keyWord)?null:keyWord;
+		int rowPerPage=EmptyUtils.isEmpty(pageSizeStr)?4:Integer.parseInt(pageSizeStr);
+		int currentPage=EmptyUtils.isEmpty(currentPageStr)?1:Integer.parseInt(currentPageStr);
+		int rowCount=productService.count(keyWordStr);
+		Pager pager=new Pager(rowCount, rowPerPage, currentPage);
+		pager.setUrl("/BackCate/adminProduct.view?category="+(EmptyUtils.isEmpty(category)?"":category));
+		
+		List<Product> productList=productService.getProductList(currentPage, rowPerPage, keyWordStr, null,null);
+		request.setAttribute("pager", pager);
+		request.setAttribute("productList", productList);
+		request.setAttribute("rowCount", rowCount);
+		
+		return "back/productList";
+	}
 		
 	
 	@RequestMapping(value="/cate.view")
@@ -102,6 +131,15 @@ public class BackCateController {
 		
 		return num;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

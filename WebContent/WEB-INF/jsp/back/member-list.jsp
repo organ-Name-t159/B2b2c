@@ -101,7 +101,7 @@ var contextPath="${ctx}";
       	<c:if test="${pager.currentPage>1}">
       		<a class="prev" href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}">&lt;&lt;</a>
       	</c:if>
-          <c:forEach var="tempt" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?page.currentPage+3:pager.pageCount}" step="1">
+          <c:forEach var="tempt" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?pager.currentPage+3:pager.pageCount}" step="1">
           	<c:if test="${pager.currentPage==tempt}">
           		<span class="current">${tempt}</span>
           		<%-- <a class="num" href="">${temp}</a> --%>
@@ -117,7 +117,7 @@ var contextPath="${ctx}";
         </div>
       </c:if>
        <c:if test="${pager.pageCount==0}">
-       	战无记录
+       	暂无记录
        </c:if> 
       </div>
 

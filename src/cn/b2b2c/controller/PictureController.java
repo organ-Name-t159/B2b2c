@@ -38,8 +38,8 @@ public class PictureController {
 			cacheDir.mkdirs();//创建目录
 		}
 		
-		String tempPath="G:\\Git-001\\B2b2c\\WebContent\\statics\\images";
-		String thisPath=session.getServletContext().getRealPath("/statics/images");//实际路径
+		String tempPath="G:\\Git-001\\B2b2c\\WebContent\\statics\\images";//服务器路径
+		String thisPath=session.getServletContext().getRealPath("/statics/images");//本地路径
 		File realDir=new File(thisPath);
 		File serverDir=new File(tempPath);
 		realDir.mkdirs();

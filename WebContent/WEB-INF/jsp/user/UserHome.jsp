@@ -57,7 +57,7 @@ $(function(){
 							<a href="##"><i class="user_bg"></i></a>
 						</div>
 						<p>
-							<a href="##"> 3</a>
+							<a href="##">3</a>
 						</p>
 					</li>
 					<li class="third">
@@ -68,7 +68,7 @@ $(function(){
 							<i class="user_bg"></i>
 						</div>
 						<p>
-							<a href="##">14769积分</a>
+							<a href="##">${integral.integral}</a>
 						</p>
 					</li>
 				</ul>
