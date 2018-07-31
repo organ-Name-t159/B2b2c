@@ -112,4 +112,6 @@ public interface ProductService {
 	 * 删除用户收藏商品
 	 */
 	public int	deleteCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
+
+	public Product	selectComm(Integer uid,Integer pid);
 }

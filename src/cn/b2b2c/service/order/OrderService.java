@@ -1,10 +1,12 @@
 package cn.b2b2c.service.order;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.DistributionWay;
+import cn.b2b2c.pojo.Order;
 
 public interface OrderService {
 	
@@ -66,7 +68,10 @@ public interface OrderService {
 	 */
 	public int updateOrder(String serialNumber)throws Exception;
 	
-	
+	/**
+	 * 根据用户id查订单
+	 */
+	public List<Order> getOrderById(Integer uid)throws Exception;
 	
 
 }

@@ -22,6 +22,128 @@ public class Order implements Serializable {
 	private Integer invoiceTypeId;
 	private Integer invoiceContentId;
 	private String leaveWord;
+	
+	
+	private String fileName;
+	private String name;
+	private String colour;
+	private float price;
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	public String getColour() {
+		return colour;
+	}
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	private String consignee;
+	private String address;
+	private String addressPhone;
+	private int postcode;
+	private String timeName;
+	private String statusName;
+	private String wayName;
+	private String dbtName;
+	private String invoiceType;
+	private String content;
+	private int productId;
+	private int quantity;
+	private int costt;
+	public String getConsignee() {
+		return consignee;
+	}
+	public void setConsignee(String consignee) {
+		this.consignee = consignee;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getAddressPhone() {
+		return addressPhone;
+	}
+	public void setAddressPhone(String addressPhone) {
+		this.addressPhone = addressPhone;
+	}
+	public int getPostcode() {
+		return postcode;
+	}
+	public void setPostcode(int postcode) {
+		this.postcode = postcode;
+	}
+	public String getTimeName() {
+		return timeName;
+	}
+	public void setTimeName(String timeName) {
+		this.timeName = timeName;
+	}
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+	public String getWayName() {
+		return wayName;
+	}
+	public void setWayName(String wayName) {
+		this.wayName = wayName;
+	}
+	public String getDbtName() {
+		return dbtName;
+	}
+	public void setDbtName(String dbtName) {
+		this.dbtName = dbtName;
+	}
+	public String getInvoiceType() {
+		return invoiceType;
+	}
+	public void setInvoiceType(String invoiceType) {
+		this.invoiceType = invoiceType;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getCostt() {
+		return costt;
+	}
+	public void setCostt(int costt) {
+		this.costt = costt;
+	}
+
 	public Integer getId() {
 		return id;
 	}

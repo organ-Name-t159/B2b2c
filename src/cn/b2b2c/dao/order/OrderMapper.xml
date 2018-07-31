@@ -19,5 +19,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE `order` SET `paymentStatusId`=2 where `serialNumber`=#{su}
 	</update>
 	
+		<select id="getOrderById" resultType="Order">
+SELECT o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
+dt.`timeName` AS timeName ,ps.`statusName` AS statusName,pw.`wayName` AS wayName,dw.`dbtName` AS dbtName,it.`invoiceType` AS invoiceType,ic.`content` AS content,
+od.`productId` AS productId,od.`quantity` AS quantity,od.`cost` AS costt,pp.fileName AS fileName, pp.name AS `name`,pp.colour as colour,pp.price AS price 
+FROM `order` o
+JOIN `user_address` ua ON o.userAddressId=ua.id 
+JOIN `delivery_time` dt ON o.`deliveryTimeId`=dt.id 
+JOIN `payment_status` ps ON o.`paymentStatusId`=ps.id 
+JOIN `payment_way` pw ON o.`paymentWayId`=pw.id 
+JOIN `distribution_way` dw ON o.`distributionWayId`=dw.id 
+JOIN `invoice_type` it ON o.`invoiceTypeId`=it.id
+JOIN `invoice_content` ic ON o.`invoiceContentId`=ic.id  
+JOIN `order_detail` od ON o.id=od.`orderId`
+JOIN `product` pp ON pp.id=od.`productId`
+WHERE o.userId=#{uid}
 	
+	</select>
 </mapper>

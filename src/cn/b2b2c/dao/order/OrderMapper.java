@@ -1,5 +1,7 @@
 package cn.b2b2c.dao.order;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.DistributionWay;
@@ -31,5 +33,10 @@ public interface OrderMapper {
 	 * @return
 	 */
 	public int updateOrder(@Param("su")String serialNumber);
+	
+	/**
+	 * 根据用户id查订单
+	 */
+	public List<Order> getOrderById(@Param("uid")Integer uid);
 
 }

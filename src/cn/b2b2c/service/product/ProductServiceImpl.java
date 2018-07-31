@@ -128,5 +128,12 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productMapper.count(keyWord);
 	}
+	
+	
+	@Override
+	public Product selectComm(Integer uid, Integer pid) {
+		// TODO Auto-generated method stub
+		return productMapper.selectComm(uid, pid);
 
+	}
 }
