@@ -73,10 +73,11 @@
 	</mvc:interceptors> 
 	
 	<!-- 配置MultipartResolver，用于上传文件，使用spring的CommonsMultipartResolver -->  
-	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		 <property name="maxUploadSize" value="5000000"/>
+	 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <property name="maxUploadSize" value="104857600"/>
 		 <property name="defaultEncoding" value="UTF-8"/>
-	</bean> -->
+		 <property name="uploadTempDir" value="fileUpload/temp"/>
+	</bean> 
 	   
         
 </beans>
