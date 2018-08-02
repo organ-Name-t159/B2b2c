@@ -3,7 +3,23 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.product.ProductMapper">
-
+	
+	<update id="updateProductAll" parameterType="Product">
+		UPDATE `product` SET `name`=#{name}
+		,`description`=#{description}
+		,`price`=#{price}
+		,`bazaarPrice`=#{bazaarPrice}
+		,`stock`=#{stock}
+		,<if test="fileName !=null and fileName !=''">`fileName`=#{fileName},</if>
+		`salesVolume`=#{salesVolume}
+		,`evaluateSales`=#{evaluateSales}
+		,`giveIntegral`=#{giveIntegral}
+		,`model`=#{model}
+		,`colour`=#{colour}
+		,`isDelete`=#{isDelete}
+		WHERE `id`=#{id}
+		
+	</update>
 	<select id="count" resultType="int">
 		select count(1) from product where 1=1
 		<if test="kw !=null and kw !=''">

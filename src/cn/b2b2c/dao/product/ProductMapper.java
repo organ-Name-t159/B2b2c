@@ -9,6 +9,14 @@ import cn.b2b2c.pojo.Product;
 public interface ProductMapper {
 	
 	/**
+	 * 修改商品
+	 * @param product
+	 * @return
+	 */
+	public int updateProductAll(Product product);
+	
+	
+	/**
 	 * 查询总条数
 	 * @return
 	 */
