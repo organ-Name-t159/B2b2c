@@ -19,7 +19,16 @@ var contextPath="${ctx}";
 </head>
 <body>
 <div class="x-body">
-        <form class="layui-form" action="">
+        <form class="layui-form" action="${ctx}/BackCate/adminUpdateProductFile.view" method="post" enctype="multipart/form-data">
+          <div class="layui-form-item">
+              <label for="name" class="layui-form-label">
+                  <span class="x-red">*</span>产品编号
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="id" name="id" value="${product.id}" required="" 
+                  autocomplete="off" class="layui-input" >
+              </div>
+          </div>
           <div class="layui-form-item">
               <label for="name" class="layui-form-label">
                   <span class="x-red">*</span>产品名称
@@ -46,6 +55,9 @@ var contextPath="${ctx}";
                   <input type="text" id="price" value="${product.price}" name="price" required="" l
                   autocomplete="off" class="layui-input">
               </div>
+              <div class="layui-form-mid layui-word-aux">
+               	  元
+              </div>
           </div>
           <div class="layui-form-item">
               <label for="bazaarPrice" class="layui-form-label">
@@ -54,6 +66,9 @@ var contextPath="${ctx}";
               <div class="layui-input-inline">
                   <input type="text" id="bazaarPrice" value="${product.bazaarPrice}" name="bazaarPrice" required="" 
                   autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+               	  元
               </div>
           </div>
           <div class="layui-form-item">
@@ -76,6 +91,9 @@ var contextPath="${ctx}";
                   <input type="text" id="salesVolume" value="${product.salesVolume}" name="salesVolume" required="" 
                   autocomplete="off" class="layui-input">
               </div>
+              <div class="layui-form-mid layui-word-aux">
+               	  件
+              </div>
           </div>
           <div class="layui-form-item">
               <label for="evaluateSales" class="layui-form-label">
@@ -84,6 +102,9 @@ var contextPath="${ctx}";
               <div class="layui-input-inline">
                   <input type="text" id="evaluateSales" value="${product.evaluateSales}" name="evaluateSales" required="" 
                   autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+               	  次
               </div>
           </div>
           <div class="layui-form-item">
@@ -115,7 +136,7 @@ var contextPath="${ctx}";
           </div>
           <div class="layui-form-item">
               <label for="isDelete" class="layui-form-label">
-                  <span class="x-red">*</span>1：正常0：下架
+                  <span class="x-red">1:正常</span><span class="x-red">0:下架</span>
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="isDelete" value="${product.isDelete}" name="isDelete" required="" 
@@ -126,7 +147,7 @@ var contextPath="${ctx}";
               <label for="L_repass" class="layui-form-label">
               </label>
               <button  class="layui-btn"  >
-                	 增加
+                	 修改
               </button>
           </div>
       </form>
