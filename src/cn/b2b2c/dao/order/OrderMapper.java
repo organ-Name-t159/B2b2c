@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.DistributionWay;
 import cn.b2b2c.pojo.Order;
+import cn.b2b2c.pojo.Product;
 
 public interface OrderMapper {
 	
@@ -39,4 +40,15 @@ public interface OrderMapper {
 	 */
 	public List<Order> getOrderById(@Param("uid")Integer uid);
 
+	/**
+	 * 订单分页
+	 */
+	public List<Order> getUserComm(@Param("from")Integer currentPageNo,
+			@Param("pageSize")Integer pageSize,
+			@Param("uid")Integer uid);
+	/**
+	 * 订单总条数
+	 */
+	public int getCountComm(@Param("uid")Integer uid);
+	
 }

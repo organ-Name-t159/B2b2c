@@ -77,7 +77,7 @@ $(function(){
                 <td colspan="8"><span class="no">
                   <label> 订单编号：<span class="order-num"><a href="" class="main-color">${ol.serialNumber }</a>
                     </span> </label>
-                  </span> <span class="deal-time">&nbsp;&nbsp;成交时间：${ol.createTime }</span> <span class="deal-time">&nbsp;&nbsp;商家店铺：网站自营</span>
+                  </span> <span class="deal-time">&nbsp;&nbsp;成交时间：${ol.newTime }</span> <span class="deal-time">&nbsp;&nbsp;商家店铺：网站自营</span>
                   
                   <a href="" title="联系客服">
                   <img src="${ctx}/statics/images/${ol.fileName}" width="16" height="16" style="vertical-align:top;"></a>
@@ -185,38 +185,31 @@ $(function(){
           <div style="height:30px;line-heihgt:30px;clear:both"></div>
           <form name="selectPageForm" action="" method="get">
       <div class="page">
-    <div class="page-wrap fr"> 
-    	<div class="page-num fl">
-        	            <span class="num prev disabled">
-            	<i class="icon"></i>
-                <i>上一页</i>
-            </span>
-             
-			<span class="num curr">1</span> 
-			<a class="num next" href="http://b2b2c.wygk.cn/user.php?act=order_list&amp;composite_status=-1&amp;page=2">
-                <i>下一页</i>
-            	<i class="icon"></i>
-            </a>
-                    </div>
-      
-      <div class="total">共 1 页 ，</div>
-       
-      <div class="form fl"> 
-      <span class="text">到第</span>
-       
-            <input type="hidden" name="act" value="order_list">
-       
-       
-            <input type="hidden" name="composite_status" value="-1">
-       
-       
-      <kbd style="float:left;">
-      <input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" class="input">
-      </kbd>
-      <span class="text">页</span>
-      </div> 
-       
-    </div>
+    	<div class="page-wrap fr">
+		<div class="page-num fl">
+		<c:if test="${pager.pageCount>=1}">
+			<a class="num" href="${ctx}/${pager.url}&currentPage=1">首页</a>
+			<c:if test="${pager.currentPage>1}">
+            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}" class="num prev disabled">上一页</a>
+       		</c:if>
+			<c:forEach var="temp" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?page.currentPage+3:pager.pageCount}" step="1">
+				<c:if test="${pager.currentPage==temp}">
+                <a href="${ctx}/${pager.url}&currentPage=${temp}" class="num">${temp}</a>
+	            </c:if>
+	            <c:if test="${pager.currentPage!=temp}">
+	                <a href="${ctx}/${pager.url}&currentPage=${temp}" class="num">${temp}</a>
+	            </c:if>
+			</c:forEach>
+			<c:if test="${pager.currentPage<pager.pageCount}">
+            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}" class="num prev disabled">下一页</a>
+       		</c:if>
+			<a class="num" href="${ctx}/${pager.url}&currentPage=${pager.pageCount}">尾页</a>			
+		</c:if>
+		<c:if test="${pager.pageCount==0}">
+		        暂无记录
+		</c:if>
+		</div>
+	</div>
   </div>
     </form>
 <script type="Text/Javascript" language="JavaScript">

@@ -72,19 +72,4 @@ public class DetailsController {
 		}
 		return 500;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
