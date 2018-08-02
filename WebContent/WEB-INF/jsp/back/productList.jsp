@@ -88,7 +88,7 @@ var contextPath="${ctx}";
 					<td>${temp.evaluateSales}</td>
 					<td>${temp.giveIntegral}</td>
 					<td>${temp.isDelete}</td>
-					<td class="td-manage"><a title="查看" onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
+					<td class="td-manage"><a title="查看" onclick="x_admin_show('编辑','/BackCate/adminProductEdit.view?productId=${temp.id}')" href="javascript:;">
 							<i class="layui-icon">&#xe63c;</i>
 					</a> <a title="删除" onclick="member_del(this,'要删除的id')"
 						href="javascript:;"> <i class="layui-icon">&#xe640;</i>

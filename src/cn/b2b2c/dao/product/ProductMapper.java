@@ -81,4 +81,6 @@ public interface ProductMapper {
 	 */
 	public int	deleteCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
  
+	
+	public Product	selectComm(@Param("uid")Integer uid,@Param("pid")Integer pid);
 }

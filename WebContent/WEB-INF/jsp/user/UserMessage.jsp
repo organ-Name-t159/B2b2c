@@ -116,7 +116,7 @@ $(function(){
                 </tbody></table>
               </form>
             </div>
-            <div class="ncm-default-form" id="con_tab_2" style="display:none">
+            <div class="ncm-default-form" id="con_tab_2" style="display:none"><!-- method="post" enctype="multipart/form-data" -->
               <form name="formEdit" action="${ctx}/picture/uploading.view" method="post" enctype="multipart/form-data">
                 <table width="100%" border="0" cellpadding="10" cellspacing="1" bgcolor="#eee">
                 	<tbody><tr>
@@ -132,7 +132,7 @@ $(function(){
                     	<td width="35%" align="right">更换头像：</td>
                         <td>
                             <div class="ncm-upload-btn"> 
-                                <a href="javascript:void(0);"><span><input type="file" name="headimg"></span></a>
+                                <a href="javascript:void(0);"><span><input type="file" name="headimg" onchange="setImg(this);"></span></a><span><img id="printShow" src="" width="80" height="80"></img></span>
                             </div>
                       	</td>
                     </tr>
@@ -150,29 +150,28 @@ $(function(){
             <div class="ncm-default-form" id="con_tab_3" style="display:none"> 
               <script type="text/javascript" src="${ctx}/statics/js/region.js"></script><script type="text/javascript" src="${ctx}/statics/js/shopping_flow.js"></script> 
               <script type="text/javascript">
-              region.isAdmin = false;
-                            var consignee_not_null = "收货人姓名不能为空！";
-                            var country_not_null = "请您选择收货人所在国家！";
-                            var province_not_null = "请您选择收货人所在省份！";
-                            var city_not_null = "请您选择收货人所在城市！";
-                            var district_not_null = "请您选择收货人所在区域！";
-                            var invalid_email = "您输入的邮件地址不是一个合法的邮件地址。";
-                            var address_not_null = "收货人的详细地址不能为空！";
-                            var tele_not_null = "固定电话不能为空！";
-                            var shipping_not_null = "请您选择配送方式！";
-                            var payment_not_null = "请您选择支付方式！";
-                            var goodsattr_style = "1";
-                            var tele_invaild = "该商品已添加到购物车，您现在还需要继续购物吗？\n如果您希望马上结算，请点击“确定”按钮。\n如果您希望继续购物，请点击“取消”按钮。";
-                            var zip_not_num = "邮政编码只能填写数字";
-                            var mobile_not_null = "手机号码不能为空!";
-                            var mobile_invaild = "手机号码不是合法号码";
-                            var mobile_or_tel_not_null = "手机号码和固定电话至少要填写一项";
-                            
-              onload = function() {
-                if (!document.all)
-                {
-                  document.forms['theForm'].reset();
-                }
+              function setImg(obj){
+              	var fSrc=$(obj).val();//获取图片路径
+              	var data = new FormData();//动态form表单
+              	
+              	 $.each($(obj)[0].files,function(i,file){//遍历
+                       data.append('file', file);//添加数据
+                   }); 
+              	
+              	$.ajax({
+          			url:contextPath+"/picture/uploading2.view",
+          			type:"post",
+          			data:data,
+          			cache: false,
+          			contentType: false,    //不可缺
+                      processData: false,		//不可缺 
+                      dataType:"json",
+          			success:function(jsonStr){				
+          				//alert(jsonStr)				
+          				$("#printShow").attr("src",jsonStr);//绑定某个属性，赋予值
+          			}
+          		}); 
+              	
               }
               
             </script>

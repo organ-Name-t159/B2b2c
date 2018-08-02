@@ -9,6 +9,7 @@ import javax.websocket.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
@@ -56,16 +57,20 @@ public class DetailsController {
 	
 	
 	@RequestMapping(value="GoodsCollect.html",method=RequestMethod.POST)
-	public String GoodsCollect(HttpServletRequest request)throws Exception {
+	@ResponseBody
+	public Object GoodsCollect(HttpServletRequest request)throws Exception {
 		User user=(User)request.getSession().getAttribute("user");		
 		Integer pid=Integer.parseInt(request.getParameter("goodsId"));
+		
+		Product product=productService.selectComm(user.getId(), pid);
+		if (product!=null) {
+			return 505;
+		}
 		Integer num=productService.insertCommodity(user.getId(), pid);
 		if (num==1) {
-			List<Product> productClist=productService.getCommodityByuid(user.getId());
-			request.getSession().setAttribute("productClist", productClist);
-			return "200";
+			return 200;
 		}
-		return "500";
+		return 500;
 	}
 	
 	

@@ -101,7 +101,7 @@ $(function(){
             </a>
                     </div>
       
-      <div class="total">共 20 页 ，</div>
+      <div class="total">共 1页 ，</div>
        
       <div class="form fl"> 
       <span class="text">到第</span>

@@ -1,6 +1,7 @@
 package cn.b2b2c.service.order;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -59,7 +60,11 @@ public class OrderServiceImpl implements OrderService {
 
 	
 	
-	
+	@Override
+	public List<Order> getOrderById(Integer uid) throws Exception {
+		// TODO Auto-generated method stub
+		return orderMapper.getOrderById(uid);
+	}
 	
 	
 	

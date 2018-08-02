@@ -70,4 +70,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	DELETE FROM`user_commodity` WHERE userId=#{uid} and `productId`=#{pid}
 	
 	</delete>
+	
+	<select id="selectComm" resultType="product">
+	SELECT p.* FROM product p JOIN `user_commodity` uc ON p.id=uc.productId WHERE uc.userId=#{uid} and uc.productId=#{pid}
+	</select>
 </mapper>
