@@ -12,6 +12,14 @@ import cn.b2b2c.tools.ShoppingCart;
 
 
 public interface ProductService {
+	
+	/**
+	 * 修改商品
+	 * @param product
+	 * @return
+	 */
+	public int updateProductAll(Product product);
+	
 	/**
 	 * 查询总条数
 	 * @return
@@ -114,4 +122,6 @@ public interface ProductService {
 	public int	deleteCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
 
 	public Product	selectComm(Integer uid,Integer pid);
+	
+	public int getcommodityCount(Integer uid);
 }

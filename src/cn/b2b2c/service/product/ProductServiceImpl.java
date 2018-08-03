@@ -132,8 +132,24 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public Product selectComm(Integer uid, Integer pid) {
-		// TODO Auto-generated method stub
+		
 		return productMapper.selectComm(uid, pid);
 
+	}
+
+
+
+	@Override
+	public int updateProductAll(Product product) {
+		
+		return productMapper.updateProductAll(product);
+	}
+
+
+
+	@Override
+	public int getcommodityCount(Integer uid) {
+		// TODO Auto-generated method stub
+		return productMapper.getcommodityCount(uid);
 	}
 }

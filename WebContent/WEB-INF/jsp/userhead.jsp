@@ -89,20 +89,124 @@ function outUser(){
 							</div>
 						</div>
 					</div>
+					</li>
+				<li class="sn-mystores"><a target="_top"
+					class="sn-stores header-icon main-color" href="${ctx}/register/login.html"><i></i>我关注的店铺</a>
+				</li>
+				<li class="sn-cart mini-cart menu"><a id="mc-menu-hd"
+					class="sn-cart header-icon main-color" href="${ctx}/register/login.html"><i></i>购物车</a></li>
+				<li class="sn-favorite menu-item">
+					<div class="sn-menu">
+						<a class="menu-hd" href="${ctx}/register/login.html">收藏夹<b></b></a>
+						<div id="menu-4" class="menu-bd">
+							<div class="menu-bd-panel">
+								<a href="${ctx}/register/login.html">收藏的宝贝</a> <a href="${ctx}/register/login.html">收藏的店铺</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="sn-separator"></li>
+				<script type="text/javascript">
+						function show_qcord() {
+							var qs = document.getElementById('sn-qrcode');
+							qs.style.display = "block";
+						}
+						function hide_qcord() {
+							var qs = document.getElementById('sn-qrcode');
+							qs.style.display = "none";
+						}
+					</script>
+				<li class="sn-favorite menu-item">
+					<div class="sn-menu">
+						<a class="menu-hd" href="${ctx}/register/login.html">卖家中心<b></b></a>
+						<div id="menu-4" class="menu-bd">
+							<div class="menu-bd-panel">
+								<a href="${ctx}/register/login.html">商家入驻</a> <a href="${ctx}/register/login.html">商家中心</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="menu-item">
+					<div class="sn-menu">
+						<a class="menu-hd sn-mobile" href="${ctx}/register/login.html">手机版<b></b></a>						
+						<div class="menu-bd sn-qrcode" id="menu-5">
+							<ul>
+								<li class="app_down"><a href="${ctx}/register/login.html"></a>
+									<p>微信商城</p> <img src="${ctx}/statics/images/app.jpg"
+									alt="请用手机浏览器扫描" width="86px" height="240px"></li>
+							</ul>
+						</div>						
+					</div>
+				</li>
+			</ul>
+					
+					
+					
+					
 					</c:when>
 					<c:otherwise><c:if test="${sessionScope.user!=null || sessionScope.user!=''}">
 					<div class="sn-menu">
 					<a class="menu-hd" href="${ctx}/user/welocome.html"  >我的信息<b></b></a>
 					<div id="menu-2" class="menu-bd">
 							<div class="menu-bd-panel">
-								<a href="#">已买到的宝贝</a> <a href="${ctx}/user/ReceivingAddress.html">我的地址管理</a>
+								<a href="${ctx}/order/userOrder.view">已买到的宝贝</a> <a href="${ctx}/user/ReceivingAddress.html">我的地址管理</a>
 							</div>
 						</div>
 					</div>
+					</li>
+				<li class="sn-mystores"><a target="_top"
+					class="sn-stores header-icon main-color" href="#"><i></i>我关注的店铺</a>
+				</li>
+				<li class="sn-cart mini-cart menu"><a id="mc-menu-hd"
+					class="sn-cart header-icon main-color" href="${ctx}/car/closeCart.html"><i></i>购物车</a></li>
+				<li class="sn-favorite menu-item">
+					<div class="sn-menu">
+						<a class="menu-hd" href="${ctx}/user/Collect.html">收藏夹<b></b></a>
+						<div id="menu-4" class="menu-bd">
+							<div class="menu-bd-panel">
+								<a href="${ctx}/user/Collect.html">收藏的宝贝</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="sn-separator"></li>
+				<script type="text/javascript">
+						function show_qcord() {
+							var qs = document.getElementById('sn-qrcode');
+							qs.style.display = "block";
+						}
+						function hide_qcord() {
+							var qs = document.getElementById('sn-qrcode');
+							qs.style.display = "none";
+						}
+					</script>
+				<li class="sn-favorite menu-item">
+					<div class="sn-menu">
+						<a class="menu-hd" href="#">卖家中心<b></b></a>
+						<div id="menu-4" class="menu-bd">
+							<div class="menu-bd-panel">
+								<a href="#">商家入驻</a> <a href="#">商家中心</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="menu-item">
+					<div class="sn-menu">
+						<a class="menu-hd sn-mobile" href="#">手机版<b></b></a>						
+						<div class="menu-bd sn-qrcode" id="menu-5">
+							<ul>
+								<li class="app_down"><a href="#"></a>
+									<p>微信商城</p> <img src="${ctx}/statics/images/app.jpg"
+									alt="请用手机浏览器扫描" width="86px" height="240px"></li>
+							</ul>
+						</div>						
+					</div>
+				</li>
+			</ul>
 					</c:if>
 					</c:otherwise>
 					</c:choose>
-				</li>
+				<%-- </li>
 				<li class="sn-mystores"><a target="_top"
 					class="sn-stores header-icon main-color" href="#"><i></i>我关注的店铺</a>
 				</li>
@@ -151,7 +255,7 @@ function outUser(){
 						</div>						
 					</div>
 				</li>
-			</ul>
+			</ul> --%>
 		</div>
 	</div>
 	<!-- <script>

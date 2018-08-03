@@ -28,6 +28,13 @@ public class Order implements Serializable {
 	private String name;
 	private String colour;
 	private float price;
+	 private String newTime;
+	public String getNewTime() {
+		return newTime;
+	}
+	public void setNewTime(String newTime) {
+		this.newTime = newTime;
+	}
 	public float getPrice() {
 		return price;
 	}

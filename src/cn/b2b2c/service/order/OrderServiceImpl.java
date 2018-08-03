@@ -1,5 +1,6 @@
 package cn.b2b2c.service.order;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -64,6 +65,18 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> getOrderById(Integer uid) throws Exception {
 		// TODO Auto-generated method stub
 		return orderMapper.getOrderById(uid);
+	}
+
+	@Override
+	public List<Order> getUserComm(Integer currentPageNo, Integer pageSize, Integer uid) {
+		List<Order> orders=new ArrayList<Order>();
+		currentPageNo=(currentPageNo-1)*pageSize;
+		return orders= orderMapper.getUserComm(currentPageNo, pageSize, uid);
+	}
+
+	@Override
+	public int getCountComm(Integer uid) {
+		return orderMapper.getCountComm(uid);
 	}
 	
 	

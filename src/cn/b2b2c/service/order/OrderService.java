@@ -72,6 +72,18 @@ public interface OrderService {
 	 * 根据用户id查订单
 	 */
 	public List<Order> getOrderById(Integer uid)throws Exception;
+	/**
+	 * 订单分页
+	 * @param currentPageNo
+	 * @param pageSize
+	 * @param categoryId
+	 * @return
+	 */
+			
+	public List<Order> getUserComm(Integer currentPageNo,Integer pageSize,Integer uid);
 	
-
+	/**
+	 * 订单总条数
+	 */
+	public int getCountComm(Integer uid);
 }

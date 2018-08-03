@@ -55,7 +55,7 @@ $(function(){
           <div class="mar_top">
             <div id="tab_tab1_1">
               <ul class="bonus_con">
-                 
+                 <c:if test="${dcStateList!=null}">
                  <c:forEach items="${dcStateList}" var="cl">              
                 <li >
                   <p class="bonus_con_1"><strong>￥</strong><span class="type_money">${cl.money}</span>
@@ -63,13 +63,17 @@ $(function(){
                   <p>发行店铺：<a href="index.php" target="_blank">${cl.issue}</a></p>
                   <p>使用条件：满${cl.use}</p>
                   <p>有效时间：截至${cl.newTime}</p>
-                </li>
-                </c:forEach> 
                 
+                </c:forEach> 
+                </c:if>
+                <c:if test="${dcStateList==null}">
+                <li >
+                <span>暂无红包</span>
+                </li>
+                </c:if>
                </ul>
+               
               <div class="blank5"></div>
-              <form name="selectPageForm" action="/user.php" method="get">
-      </form>
 <script type="Text/Javascript" language="JavaScript">
 <!--
 

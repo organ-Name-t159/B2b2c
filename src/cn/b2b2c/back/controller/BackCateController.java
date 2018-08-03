@@ -40,6 +40,60 @@ public class BackCateController {
 	private ProductService productService;
 	
 	
+	@RequestMapping(value="/adminUpdateProductFile.view",method=RequestMethod.POST)
+	public String adminUpdateProductFile(@RequestParam(value="fileName",required=false)MultipartFile file
+								,HttpServletRequest request
+								,HttpSession session)throws Exception {
+		
+		String id=request.getParameter("id");
+		String name=request.getParameter("name");
+		String description=request.getParameter("description");
+		String price=request.getParameter("price");
+		String bazaarPrice=request.getParameter("bazaarPrice");
+		String salesVolume=request.getParameter("salesVolume");
+		String evaluateSales=request.getParameter("evaluateSales");
+		String giveIntegral=request.getParameter("giveIntegral");
+		String model=request.getParameter("model");
+		String colour=request.getParameter("colour");
+		String isDelete=request.getParameter("isDelete");
+		//String rawfileName=request.getParameter("rawfileName");
+		int num=0;
+		Product product=new Product();
+		product.setId(Integer.parseInt(id));
+		product.setName(name);
+		product.setDescription(description);
+		product.setPrice(Float.valueOf(price));
+		product.setBazaarPrice(Float.valueOf(bazaarPrice));
+		product.setSalesVolume(Integer.parseInt(salesVolume));
+		product.setEvaluateSales(Integer.parseInt(evaluateSales));
+		product.setGiveIntegral(Integer.parseInt(giveIntegral));
+		product.setModel(model);
+		product.setColour(colour);
+		product.setIsDelete(Integer.parseInt(isDelete));
+		File targetFile=null;
+		String tempPath="G:\\Git-001\\B2b2c\\WebContent\\upload\\imgs";//服务器路径
+		File serverDir=new File(tempPath);
+		String fileName=file.getOriginalFilename();//获取文件名加后缀
+		if(fileName!=null&&fileName!=""){ 
+			targetFile = new File(serverDir, fileName);
+            System.out.println("targetFile:"+targetFile);            
+            file.transferTo(targetFile);
+            product.setFileName(fileName);
+            
+		}
+		
+		num=productService.updateProductAll(product);
+		
+		if(num==1) {
+			System.out.println("修改成功");
+			return "back/success";
+		}
+		
+		return "error";
+	}
+	
+	
+	
 	@RequestMapping(value="/adminProductFile.view")
 	@ResponseBody
 	public String adminProductFile(@RequestParam(value="file",required=false)MultipartFile file

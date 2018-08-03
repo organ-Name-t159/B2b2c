@@ -78,7 +78,11 @@ public class UserController {
 	public String accountBindEmail(HttpServletRequest request,HttpSession session) throws Exception {
 		User user = (User) session.getAttribute("user");
 		user = userService.basic(user.getId());
-		String emailCover=user.getEmail().replace(user.getEmail().substring(4, 9), "****");
+		String emailCover=null;
+		if(user.getEmail()!=null&&user.getEmail()!="") {
+			 emailCover=user.getEmail().replace(user.getEmail().substring(4, 9), "****");
+		}
+		
 		System.out.println(user.getEmail());
 		request.setAttribute("userEamil", emailCover);
 		return "user/BindEmail";
