@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.stereotype.Service;
 
 import cn.b2b2c.dao.productCategory.ProductCategoryMapper;
@@ -12,12 +13,31 @@ import cn.b2b2c.pojo.ProductCategory;
 import cn.b2b2c.pojo.ProductCategoryParam;
 import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.ProductCategoryVo;
+import cn.b2b2c.tools.SerializeUtil;
+import redis.clients.jedis.Jedis;
 
 @Service
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 	
 	@Autowired
+	private JedisConnectionFactory jedisConnectionFactory;
+
+	private Jedis jedis = null;
+	
+	@Autowired
 	private ProductCategoryMapper productCategoryMapper;
+	
+	private Jedis getJedis() {
+
+		System.out.println(jedisConnectionFactory);
+
+		// 从工厂里边获取 jedis
+		if (jedis == null) {
+			return jedisConnectionFactory.getShardInfo().createResource(); //
+		}
+		return jedis;
+
+	}
 
 	@Override
 	public List<ProductCategoryVo> queryAllProductCategoryList() throws Exception {
@@ -54,7 +74,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		}
 		return productCategory1VoList;
 	}
-
+	
+	int number=1;
 	@Override
 	public List<ProductCategory> getProductCategories(Integer parentId) throws Exception {
 		List<ProductCategory> productCategoryList=new ArrayList<ProductCategory>();
@@ -65,6 +86,22 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 			params.setParentId(0);
 		}
 		productCategoryList=productCategoryMapper.queryProductCategorylist(params);	
+		
+		if(number==10) {
+			//redis缓存开始
+			
+			String board="proList";
+			String boardS=board+number;
+			//连接
+			 jedis = getJedis();
+			//把对象列表放入redis 中
+		     jedis.set(boardS.getBytes(),SerializeUtil.serializeListPro(productCategoryList));
+		   //获取数据
+		     productCategoryList=SerializeUtil.unserializeListPro(jedis.get(boardS.getBytes()));
+		    number++;
+		    
+			//redis缓存结束
+		}
 		//System.out.println("size: " + productCategoryList.size());
 		return productCategoryList;
 	}
