@@ -144,4 +144,12 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productMapper.updateProductAll(product);
 	}
+
+
+
+	@Override
+	public int getcommodityCount(Integer uid) {
+		// TODO Auto-generated method stub
+		return productMapper.getcommodityCount(uid);
+	}
 }

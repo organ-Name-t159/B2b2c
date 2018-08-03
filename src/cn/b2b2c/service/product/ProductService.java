@@ -122,4 +122,6 @@ public interface ProductService {
 	public int	deleteCommodity(@Param("uid")Integer uid,@Param("pid")Integer pid);
 
 	public Product	selectComm(Integer uid,Integer pid);
+	
+	public int getcommodityCount(Integer uid);
 }

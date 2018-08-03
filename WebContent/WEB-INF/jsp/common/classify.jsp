@@ -109,7 +109,7 @@
 			</div>
 			<div class="allnav fl" id="nav">
 				<ul>
-					<li><a class="nav" href="#" title="首页">首页</a></li>
+					<li><a class="nav" href="${ctx}/product/index.html" title="首页">首页</a></li>
 					<li><a class="nav " href="#" title="食品生鲜">食品生鲜</a>
 					</li>
 					<li><a class="nav " href="#" title="店铺街">店铺街</a></li>

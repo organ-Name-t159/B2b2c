@@ -87,23 +87,18 @@ $(function(){
             	<i class="icon"></i>
                 <i>上一页</i>
             </span>
-            			 
-			 
-			 
+            		
 			<span class="num curr">1</span> 
-			 
-			 
-			 
-			<a class="num" href="user.php?act=collection_list&page=2">2</a> 
-            	<a class="num next" href="user.php?act=collection_list&page=2">
+		
+            	<a class="num next" href="">
                 <i>下一页</i>
             	<i class="icon"></i>
             </a>
                     </div>
       
-      <div class="total">共 1页 ，</div>
+      <div class="total">共 1页 </div>
        
-      <div class="form fl"> 
+     <!--  <div class="form fl"> 
       <span class="text">到第</span>
        
             <input type="hidden" name="act" value="collection_list" />
@@ -113,7 +108,7 @@ $(function(){
       <input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" class="input"/>
       </kbd>
       <span class="text">页</span>
-      </div> 
+      </div>  -->
        
     </div>
   </div>

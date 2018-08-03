@@ -78,7 +78,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="getCommodityByuid" resultType="product">
-		SELECT p.* FROM product p JOIN `user_commodity` uc ON p.id=uc.productId WHERE uc.userId=#{uid}
+		SELECT p.* FROM product p JOIN `user_commodity` uc ON p.id=uc.productId 
+		WHERE uc.userId=#{uid}
 	</select>
 	
 	<delete id="deleteCommodity">
@@ -90,4 +91,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectComm" resultType="product">
 	SELECT p.* FROM product p JOIN `user_commodity` uc ON p.id=uc.productId WHERE uc.userId=#{uid} and uc.productId=#{pid}
 	</select>
+	<!-- 收藏总条数 -->
+	<select id="getcommodityCount" resultType="int">
+		select count(*) from user_commodity c where c.userId=#{uid}
+	</select>
+	
 </mapper>

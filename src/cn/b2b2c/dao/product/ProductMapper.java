@@ -91,4 +91,6 @@ public interface ProductMapper {
  
 	
 	public Product	selectComm(@Param("uid")Integer uid,@Param("pid")Integer pid);
+	
+	public int getcommodityCount(@Param("uid")Integer uid);
 }

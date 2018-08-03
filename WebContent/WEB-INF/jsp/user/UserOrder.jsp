@@ -39,7 +39,7 @@ $(function(){
               <li class="active"> <a href="">我的订单</a> </li>
             </ul>
           </div>
-          <div id="J_Remide" class="remide-box">
+        <!--   <div id="J_Remide" class="remide-box">
             <h3>我的交易提醒：</h3>
             <ul>
               <li><a href="">未确认订单<span class="num">(0)</span></a></li>
@@ -47,12 +47,12 @@ $(function(){
               <li><a href="">待发货<span class="num">(16)</span></a></li>
               <li><a href="">已成交订单数<span class="num">(8)</span></a></li>
             </ul>
-          </div>
+          </div> -->
           <div class="extra-r" style="display:none">
             <div class="search-01">
               <input id="ip_keyword" name="" class="s-itxt" value="商品名称、商品编号、订单编号" onfocus="if (this.value==this.defaultValue) this.value=;" onblur="this.value=this.defaultValue" onkeydown="javascript:if(event.keyCode==13) OrderSearch();" type="text">
               <!--input name="" type="button" value="查 询" class="btn-13" onclick="OrderSearch('ip_keyword')" clstag="click|keycount|orderinfo|search"/--> 
-              <a href="javascript:;" class="btn-13" onclick="OrderSearch("")" clstag="click|keycount|orderinfo|search">查 询</a> </div>
+              <a href="javascript:;" class="btn-13" onclick="OrderSearch()" clstag="click|keycount|orderinfo|search">查 询</a> </div>
             <div class="blank"></div>
           </div>
           <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bought-table">
@@ -86,7 +86,7 @@ $(function(){
               <tr class="order-bd last">
                 <td align="center" class="baobei no-border-right order_goods_info">
                                   
-		  <div class="goods_desc last" style="height: 60px;"> <a class="pic" href="" title="查看宝贝详情" target="_blank"> 
+		  <div class="goods_desc last" style="height: 60px;"> <a class="pic" href="${ctx}/details/ProductDeatil.html?id=${ol.productId}" title="查看宝贝详情" > 
                      
                     <img src="${ctx}/statics/images/${ol.fileName}" alt="查看宝贝详情" width="50" height="50">
                      
@@ -119,16 +119,21 @@ $(function(){
                 
                 				¥${ol.costt}                               </strong></p></td>
                 <td rowspan="1" align="center" class="trade-status no-border-right">${ol.wayName }<br>${ol.statusName}<br>${ol.dbtName}<br>
-                  <a href="" class="main-color">查看详情</a>
+                  <a href="${ctx}/details/ProductDeatil.html?id=${ol.productId}" class="main-color">查看详情</a>
                    
                 </td>
+                
                 <td rowspan="1" align="center" class="other">
-                	 
-                   
-                   
+                	<c:if test="${ol.statusName eq '已付款'}">
                   <font class="main-color"><span style="color:red">已确认</span></font><br>
+                  	</c:if>
+                  	 <c:if test="${ol.statusName eq '未付款'}">                
+                  <font class="main-color"><span style="color:red">无效</span></font></br>
                   
                    
+                   
+                  <a href="goods.php?id=232" target="_blank">再次购买</a> 
+                   </c:if>  
                   </td>
               </tr>
             </tbody>
