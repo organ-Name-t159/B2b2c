@@ -7,38 +7,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-		<!--<style>
-			::-webkit-input-placeholder {
-				text-overflow: ellipsis;
-				overflow: hidden;
-				cursor: text;
-				color: gray;
-				opacity: 1;
-				padding: 0;
-				border: 0;
-			}
-		</style>-->
-		<!--<base href="#">-->
-		<base href="#">
-
-		<meta name="Keywords" content="">
-		<meta name="Description" content="">
-		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-
-		<title>用户中心_网软志成B2B2C电商平台系统多用户商城系统模板</title>
-
+<title>注册</title>
+		
 		<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/passport.css"/>
 		<link rel="stylesheet" type="text/css" href="${ctx}/statics/css/wrzc_common.css"/>
 
-		
 		<script type="text/javascript" src="${ctx}/statics/js/jquery_email.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/jquery.validate.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/messages_zh.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/placeholder.js"></script>
-		<script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>
-		<%-- <script type="text/javascript" src="${ctx}/statics/js/transport.js"></script> --%>
+		<script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>		
 		<script type="text/javascript" src="${ctx}/statics/js/common.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/register.js"></script>
 		<script type="text/javascript" src="${ctx}/statics/js/zz.js"></script>
@@ -46,110 +25,134 @@
 <body onclick="wygk_onclick();" style="cursor: auto;">
 
 <div class="logo-r">
-			<div class="logo-info-r">
-				<a href="${ctx}/product/index.html" class="logo"></a> <span class="findpw">欢迎注册</span>
-				<a href="#" class="qq"></a>
-				<a href="#" class="sina"></a>
-				<div class="user-weixin weixin">
-					<span></span>
-					<div class="erweima">
-						<div class="erweima-inner">
-							<i><s>◇</s></i>
-<!-- 							<img alt="微信" src="imgweixin.jpg" width="130" height="130"> -->
-						</div>
-					</div>
-				</div>
+<div class="logo-info-r">
+	<a href="${ctx}/product/index.html" class="logo"></a> <span class="findpw">欢迎注册</span>
+	<a href="#" class="qq"></a>
+	<a href="#" class="sina"></a>
+	<div class="user-weixin weixin">
+		<span></span>
+		<div class="erweima">
+			<div class="erweima-inner">
+				<i><s>◇</s></i>
+<!-- <img alt="微信" src="imgweixin.jpg" width="130" height="130"> -->
 			</div>
 		</div>
-		<div class="blank"></div>
-		<div class="blank"></div>
-		<div class="w990">
+	</div>
+</div>
+</div>
+<div class="blank"></div>
+<div class="blank"></div>
+	<div class="w990">
 
-			<script type="text/javascript" src="${ctx}/statics/js/utils.js"></script>
-			<div id="regist">
-				<div class="register-con" style="height: 479px;">
-					<div class="box-pic-reg"><img src="${ctx}/statics/images/registerPic.jpg"/></div>
-					<div class="uc-box-reg">
-						<form action="${ctx}/register/regist" method="post" id="formRegister" name="formRegister">
-							<input type="hidden" id="register_type" name="register_type" value="${register_type}">
-							<ul class="register-tab">
-								<li id="li-register-type-mobile" class="tab-item fl cur" register_type="mobile">手机注册<span class="bg-ff"></span></li>
-								<li id="li-register-type-email" class="tab-item fl" register_type="email">邮箱注册<span class="bg-ff"></span></li>
-								<li class="have-account fr">已有账号！
-									<a href="${ctx}/register/login.html">登录</a>
-								</li>
-							</ul>
-						</form>
-						<form action="regist" method="post" id="formUser" name="formUser">
-							<div class="form">
-								<input type="hidden" name="register_type" value="mobile">
+		<script type="text/javascript" src="${ctx}/statics/js/utils.js"></script>
+		<div id="regist">
+			<div class="register-con" style="height: 479px;">
+				<div class="box-pic-reg">
+					<img src="${ctx}/statics/images/registerPic.jpg" />
+				</div>
+				<div class="uc-box-reg">
+					<form action="${ctx}/register/regist" method="post"
+						id="formRegister" name="formRegister">
+						<input type="hidden" id="register_type" name="register_type"
+							value="${register_type}">
+						<ul class="register-tab">
+							<li id="li-register-type-mobile" class="tab-item fl cur"
+								register_type="mobile">手机注册<span class="bg-ff"></span></li>
+							<li id="li-register-type-email" class="tab-item fl"
+								register_type="email">邮箱注册<span class="bg-ff"></span></li>
+							<li class="have-account fr">已有账号！ <a
+								href="${ctx}/register/login.html">登录</a>
+							</li>
+						</ul>
+					</form>
+					<form action="regist" method="post" id="formUser" name="formUser">
+						<div class="form">
+							<input type="hidden" name="register_type" value="mobile">
+							<div class="item">
+								<input name="phone" type="text" id="mobile_phone"
+									placeholder="手机" onblur="checkMobilePhone(this)" class="text">
+								<i class="i-phone"></i>
+								<div>
+									<span class="label" id="mobile_phone_notice"></span>
+								</div>
+							</div>
+							<div id="o-password">
 								<div class="item">
-									<input name="phone" type="text" id="mobile_phone" placeholder="手机" onblur="checkMobilePhone(this)" class="text">
-									<i class="i-phone"></i>
-									<div> <span class="label" id="mobile_phone_notice"></span> </div>
-								</div>
-								<div id="o-password">
-									<div class="item">
-										<input name="password" type="password" id="password" placeholder="密码" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="text">
-										<i class="i-pass"></i>
-										<div id="pwd_notice" style="display: none;"> <span class="label" id="password_notice"></span> </div>
-										<div id="pwd_intensity"> <span class="label">
-                  <table width="295" height="25px" border="0" cellspacing="0" cellpadding="0" style="padding: 0px 0px 10px;">
-                    <tbody><tr align="center">
-                       <td width="33%" id="pwd_lower" class="pwd pwd_c">弱</td>
-                      <td width="33%" id="pwd_middle" class="pwd pwd_c pwd_f">中</td>
-                      <td width="33%" id="pwd_high" class="pwd pwd_c pwd_c_r">强</td> 
-                       
-                    </tr>
-
-                    
-                  </tbody></table>
-                  </span> </div>
+									<input name="password" type="password" id="password"
+										placeholder="密码" onblur="check_password(this.value);"
+										onkeyup="checkIntensity(this.value)" class="text"> <i
+										class="i-pass"></i>
+									<div id="pwd_notice" style="display: none;">
+										<span class="label" id="password_notice"></span>
 									</div>
-									<div class="item">
-										<input type="password" id="conform_password" name="confirm_password" class="text" placeholder="确认密码" onblur="check_conform_password(this.value);" autocomplete="off">
-										<i class="i-pass"></i>
-										<div> <span class="label" id="conform_password_notice"></span> </div>
+									<div id="pwd_intensity">
+										<span class="label">
+											<table width="295" height="25px" border="0" cellspacing="0"
+												cellpadding="0" style="padding: 0px 0px 10px;">
+												<tbody>
+													<tr align="center">
+														<td width="33%" id="pwd_lower" class="pwd pwd_c">弱</td>
+														<td width="33%" id="pwd_middle" class="pwd pwd_c pwd_f">中</td>
+														<td width="33%" id="pwd_high" class="pwd pwd_c pwd_c_r">强</td>
+													</tr>
+												</tbody>
+											</table>
+										</span>
 									</div>
 								</div>
-<script type="text/javascript">
-$(function() {
-	/*生成验证码*/
-create_code();
-});
-		
-		function create_code() {
-			function shuffle() {
-				var arr = [ '1', 'r', 'Q', '4', 'S', '6', 'w', 'u', 'D', 'I',
-						'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-						'l', 'm', 'n', 'o', 'p', 'q', '2', 's', 't', '8', 'v',
-						'7', 'x', 'y', 'z', 'A', 'B', 'C', '9', 'E', 'F', 'G',
-						'H', '0', 'J', 'K', 'L', 'M', 'N', 'O', 'P', '3', 'R',
-						'5', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
-				return arr.sort(function() {
-					return (Math.random() - .5);
-				});
-			}
-			;
-			shuffle();
+								<div class="item">
+									<input type="password" id="conform_password"
+										name="confirm_password" class="text" placeholder="确认密码"
+										onblur="check_conform_password(this.value);"
+										autocomplete="off"> <i class="i-pass"></i>
+									<div>
+										<span class="label" id="conform_password_notice"></span>
+									</div>
+								</div>
+							</div>
+							<script type="text/javascript">
+								$(function() {
+									/*生成验证码*/
+									create_code();
+								});
 
-			function show_code() {
-				var ar1 = '';
-				var code = shuffle();
-				for (var i = 0; i < 4; i++) {
-					ar1 += code[i];
-				}
-				;
+								function create_code() {
+									function shuffle() {
+										var arr = [ '1', 'r', 'Q', '4', 'S',
+												'6', 'w', 'u', 'D', 'I', 'a',
+												'b', 'c', 'd', 'e', 'f', 'g',
+												'h', 'i', 'j', 'k', 'l', 'm',
+												'n', 'o', 'p', 'q', '2', 's',
+												't', '8', 'v', '7', 'x', 'y',
+												'z', 'A', 'B', 'C', '9', 'E',
+												'F', 'G', 'H', '0', 'J', 'K',
+												'L', 'M', 'N', 'O', 'P', '3',
+												'R', '5', 'T', 'U', 'V', 'W',
+												'X', 'Y', 'Z' ];
+										return arr.sort(function() {
+											return (Math.random() - .5);
+										});
+									}
+									;
+									shuffle();
 
-				$(".img").text(ar1);
-			}
-			;
-			show_code();
-			$(".img").click(function() {
-				show_code();
-			});
-		}
-</script>
+									function show_code() {
+										var ar1 = '';
+										var code = shuffle();
+										for (var i = 0; i < 4; i++) {
+											ar1 += code[i];
+										}
+										;
+
+										$(".img").text(ar1);
+									}
+									;
+									show_code();
+									$(".img").click(function() {
+										show_code();
+									});
+								}
+							</script>
 <style>
 .phoKeys {
 	background: #C81623;
@@ -160,6 +163,7 @@ create_code();
 	width: 103.56px;
 	margin-left: 11px;
 }
+
 .zphone {
 	background: #C81623;
 	text-align: center;
@@ -175,36 +179,46 @@ create_code();
 	font-size: 20px;
 }
 </style>
- <div class="item">
-		<input type="text" id="captcha" size="8" name="captcha" class="text text-te" placeholder="验证码" style="ime-mode: disabled" autocomplete="off" maxlength="6">
-		<label class="img phoKeys" id="captcha2"> </label>
-		<i class="i-captcha"></i>
-		<div style="clear:both"> <span class="label" id="captcha_notice"></span> </div>
-	</div>
-
-	<div class="item">
-		<input id="mobile_code" class="text text-te fl" type="text" placeholder="手机验证码" name="mobile_code">
-		<i class="i-phone"></i>
-		<input id="zphone" class="zphone" type="button" value="获取手机验证码 " disabled="disabled">
-		
-		<div> <span id="extend_field5i" class="label"></span> </div>
-	</div> 
-	<div class="safety">
-		<input name="agreement" type="checkbox" value="1" checked="checked" class="checkbox">
-		<label for="remember" class="mar-b">我已看过并接受《<a href="##">用户协议</a>》</label>
-	</div>
-	<div class="item">
-		<input name="act" type="hidden" value="register">
-		<input type="hidden" name="back_act" value="user.php">
-		<input type="submit" id="btn_submit" name="Submit" class="btn-img btn-regist" value="立即注册">
+<div class="item">
+	<input type="text" id="captcha" size="8" name="captcha"
+		class="text text-te" placeholder="验证码"
+		style="ime-mode: disabled" autocomplete="off" maxlength="6">
+	<label class="img phoKeys" id="captcha2"> </label> 
+	<i class="i-captcha"></i>
+	<div style="clear: both">
+		<span class="label" id="captcha_notice"></span>
 	</div>
 </div>
+
+<div class="item">
+	<input id="mobile_code" class="text text-te fl" type="text"
+		placeholder="手机验证码" name="mobile_code"> <i
+		class="i-phone"></i> <input id="zphone" class="zphone"
+		type="button" value="获取手机验证码 " disabled="disabled">
+
+	<div>
+		<span id="extend_field5i" class="label"></span>
+	</div>
+</div>
+<div class="safety">
+	<input name="agreement" type="checkbox" value="1"
+		checked="checked" class="checkbox"> <label
+		for="remember" class="mar-b">我已看过并接受《<a href="##">用户协议</a>》
+	</label>
+</div>
+<div class="item">
+	<input name="act" type="hidden" value="register"> <input
+		type="hidden" name="back_act" value="user.php"> <input
+		type="submit" id="btn_submit" name="Submit"
+		class="btn-img btn-regist" value="立即注册">
+</div>
+	</div>
 </form>
-	<!--[if !ie]>form end<![endif]-->
+					<!--[if !ie]>form end<![endif]-->
 
-</div>
 		</div>
 	</div>
+</div>
 
 	<div class="blank"></div>
 </div>
