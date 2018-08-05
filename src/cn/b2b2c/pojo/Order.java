@@ -29,6 +29,14 @@ public class Order implements Serializable {
 	private String colour;
 	private float price;
 	 private String newTime;
+	private int suCount;
+	
+	public int getSuCount() {
+		return suCount;
+	}
+	public void setSuCount(int suCount) {
+		this.suCount = suCount;
+	}
 	public String getNewTime() {
 		return newTime;
 	}

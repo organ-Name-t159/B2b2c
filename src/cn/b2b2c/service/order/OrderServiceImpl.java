@@ -1,7 +1,9 @@
 package cn.b2b2c.service.order;
 
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -62,9 +64,9 @@ public class OrderServiceImpl implements OrderService {
 	
 	
 	@Override
-	public List<Order> getOrderById(Integer uid) throws Exception {
+	public List<Order> getOrderById(Integer uid,String uNum) throws Exception {
 		// TODO Auto-generated method stub
-		return orderMapper.getOrderById(uid);
+		return orderMapper.getOrderById(uid, uNum);
 	}
 
 	@Override

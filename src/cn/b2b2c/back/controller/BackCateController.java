@@ -1,8 +1,15 @@
 package cn.b2b2c.back.controller;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.annotation.Resource;
@@ -24,8 +31,11 @@ import cn.b2b2c.pojo.ProductCategory;
 import cn.b2b2c.service.product.ProductService;
 import cn.b2b2c.service.productCategory.ProductCategoryService;
 import cn.b2b2c.tools.EmptyUtils;
+import cn.b2b2c.tools.FreemarkerUtil;
 import cn.b2b2c.tools.Pager;
 import cn.b2b2c.tools.ProductCategoryVo;
+import cn.b2b2c.tools.TimeTransform;
+import freemarker.template.Template;
 import sun.print.resources.serviceui;
 
 @Controller
@@ -38,6 +48,72 @@ public class BackCateController {
 	
 	@Resource
 	private ProductService productService;
+	
+	@RequestMapping(value="/printProductList.view",method=RequestMethod.POST)
+	@ResponseBody
+	public Object printProductList(HttpServletRequest request)throws Exception {
+		Map<String, Object> proMapAll = new HashMap<String, Object>();
+		List<Product> productList=productService.getProductById(null);
+		
+		List<Map<String, Object>> proMapList=new ArrayList<Map<String, Object>>();
+		for (Product product : productList) {
+			Map<String, Object> proMap = new HashMap<String, Object>();
+			proMap.put("name", product.getName());
+			proMap.put("description", product.getDescription());
+			proMap.put("price", product.getPrice().toString());
+			proMap.put("bazaarPrice", product.getBazaarPrice().toString());
+			proMap.put("stock", product.getStock().toString());
+			proMap.put("fileName", product.getFileName());
+			proMap.put("salesVolume", product.getSalesVolume().toString());
+			proMap.put("evaluateSales", product.getEvaluateSales().toString());
+			proMap.put("giveIntegral", product.getGiveIntegral().toString());
+			proMap.put("model", product.getModel());
+			proMap.put("colour", product.getColour());
+			proMap.put("isDelete", product.getIsDelete().toString());
+			proMapList.add(proMap);
+		}
+		proMapAll.put("proMapList", proMapList);
+		Template t = null;
+		FreemarkerUtil fku=new FreemarkerUtil();
+		t=fku.getTemplate("productDetailList.ftl");
+		File outFile = new File("F:/product-List" + TimeTransform.isTimeOne(new Date()) + ".xls"); // 导出文件		
+		Writer out = null;
+		out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
+		t.process(proMapAll, out); // 将填充数据填入模板文件并输出到目标文件
+		
+		return productList;
+	}
+	
+	
+	@RequestMapping(value="/printProduct.view",method=RequestMethod.POST)
+	@ResponseBody
+	public Object printProduct(HttpServletRequest request)throws Exception {
+		String proId=request.getParameter("proId");
+		Product product=productService.getProduct(Integer.parseInt(proId));
+		Map<String, Object> proMap = new HashMap<String, Object>();
+		proMap.put("name", product.getName());
+		proMap.put("description", product.getDescription());
+		proMap.put("price", product.getPrice().toString());
+		proMap.put("bazaarPrice", product.getBazaarPrice().toString());
+		proMap.put("stock", product.getStock().toString());
+		proMap.put("fileName", product.getFileName());
+		proMap.put("salesVolume", product.getSalesVolume().toString());
+		proMap.put("evaluateSales", product.getEvaluateSales().toString());
+		proMap.put("giveIntegral", product.getGiveIntegral().toString());
+		proMap.put("model", product.getModel());
+		proMap.put("colour", product.getColour());
+		proMap.put("isDelete", product.getIsDelete().toString());
+		Template t = null;
+		FreemarkerUtil fku=new FreemarkerUtil();
+		t=fku.getTemplate("productDetail.ftl");
+		File outFile = new File("F:/productDt" + TimeTransform.isTimeOne(new Date()) + ".xls"); // 导出文件
+		Writer out = null;
+		out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
+		t.process(proMap, out); // 将填充数据填入模板文件并输出到目标文件
+		
+		
+		return product;
+	}
 	
 	
 	@RequestMapping(value="/adminUpdateProductFile.view",method=RequestMethod.POST)

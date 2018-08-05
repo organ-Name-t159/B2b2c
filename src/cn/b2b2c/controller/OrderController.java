@@ -1,12 +1,20 @@
 package cn.b2b2c.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alipay.api.domain.OrderDetailResult;
 
 import cn.b2b2c.pojo.Order;
 import cn.b2b2c.pojo.Product;
@@ -44,15 +52,35 @@ public class OrderController {
 		pager.setUrl("/order/userOrder.view?category="+(EmptyUtils.isEmpty(category)?"":category));		
 		
 		List<Order> orderList=orderService.getUserComm(currentPage, rowPerPage, user.getId());	
-		
+		List<List<Order>> orders=new ArrayList<List<Order>>();
+		Map<String,List<Order>> map=new HashMap<String, List<Order>>();
 		for (Order order : orderList) {
 			order.setNewTime(TimeTransform.isTime(order.getCreateTime()).toString());
+			List<Order> s=orderService.getOrderById(user.getId(), order.getSerialNumber());
+			map.put(order.getSerialNumber(), s);
+			
 		}
 		
+		Set<Map.Entry<String, List<Order>>> es = map.entrySet();
+		 
+		Iterator<Map.Entry<String, List<Order>>> it = es.iterator();
+		while (it.hasNext()) {
+			Map.Entry<String,  List<Order>> en = it.next();
+			 
+			// 获取Map.Entry对象中封装的key和value对象
+			String key = en.getKey();
+			List<Order> value = en.getValue();
+			System.out.println("key=" + key);
+			for (Order order : value) {
+				System.out.println(" value=" + order.getName()+""+order.getAddressPhone());
+			}
+			
+		}
+		
+		request.setAttribute("map", map);
 		request.setAttribute("pager", pager);
 		request.setAttribute("total", total);
 		request.setAttribute("orderList", orderList);
-	
 /*	
 	List<Order> orderList=	orderService.getOrderById(user.getId());
 	request.getSession().setAttribute("orderList", orderList);*/

@@ -141,7 +141,7 @@ var contextPath="${ctx}";
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="echarts1.html">
+                        <a _href="${ctx}/echarts/echarts1.view">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>拆线图</cite>
                         </a>

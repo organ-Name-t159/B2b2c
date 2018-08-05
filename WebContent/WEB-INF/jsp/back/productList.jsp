@@ -46,6 +46,9 @@ var contextPath="${ctx}";
 			onclick="x_admin_show('添加用户','/BackOrder/orderAdd.view')">
 			<i class="layui-icon"></i>添加
 		</button>
+		<button class="layui-btn" onclick="printProductList()">
+			<i class="layui-icon">&#xe6ab;</i>全部打印
+		</button>
 		<span class="x-right" style="line-height: 40px">共有数据：${pager.rowCount}条</span> </xblock>
 		<table class="layui-table">
 			<thead>
@@ -90,9 +93,14 @@ var contextPath="${ctx}";
 					<td>${temp.isDelete}</td>
 					<td class="td-manage"><a title="查看" onclick="x_admin_show('编辑','/BackCate/adminProductEdit.view?productId=${temp.id}')" href="javascript:;">
 							<i class="layui-icon">&#xe63c;</i>
-					</a> <a title="删除" onclick="member_del(this,'要删除的id')"
+					</a> 
+					<a title="删除" onclick="member_del(this,'要删除的id')"
 						href="javascript:;"> <i class="layui-icon">&#xe640;</i>
-					</a></td>
+					</a>
+					<a title="打印" onclick="printProduct(${temp.id})" href="javascript:;">
+					<i class="layui-icon">&#xe6ab;</i>
+					</a>
+					</td>
 				</tr>
 			</c:forEach>
 				
@@ -172,8 +180,62 @@ var contextPath="${ctx}";
               layer.msg('已删除!',{icon:1,time:1000});
           });
       }
+      
+      function printProductList(){
+			layer.confirm('确认要打印商品吗？',function(index){
+				$.ajax({
+					url:contextPath+"/BackCate/printProductList.view",
+					type:"post",
+					data:{
+						
+					},
+					success:function(jsonStr){
+						if(jsonStr !=null){
+							layer.msg('全部成功打印', {
+								icon : 1,
+								time : 1000
+							});
+						}else{
+							layer.msg('打印失败', {
+								icon : 2,
+								time : 1000
+							});
+						}
+						
+					}
+					
+				});
+				
+			});
+		}
 
-
+		function printProduct(proId){
+			layer.confirm('确认要打印商品吗？',function(index){
+				$.ajax({
+					url:contextPath+"/BackCate/printProduct.view",
+					type:"post",
+					data:{
+						proId:proId
+					},
+					success:function(jsonStr){
+						if(jsonStr !=null){
+							layer.msg('成功打印', {
+								icon : 1,
+								time : 1000
+							});
+						}else{
+							layer.msg('打印失败', {
+								icon : 2,
+								time : 1000
+							});
+						}
+						
+					}
+					
+				});
+				
+			});
+		}
 
       function delAll (argument) {
 
@@ -186,11 +248,6 @@ var contextPath="${ctx}";
         });
       }
     </script>
-	<script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
+	
 </body>
 </html>
