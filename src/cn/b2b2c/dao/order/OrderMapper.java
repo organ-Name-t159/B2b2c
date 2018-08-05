@@ -1,5 +1,6 @@
 package cn.b2b2c.dao.order;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -38,7 +39,7 @@ public interface OrderMapper {
 	/**
 	 * 根据用户id查订单
 	 */
-	public List<Order> getOrderById(@Param("uid")Integer uid);
+	public List<Order> getOrderById(@Param("uid")Integer uid,@Param("uNum")String uNum);
 
 	/**
 	 * 订单分页

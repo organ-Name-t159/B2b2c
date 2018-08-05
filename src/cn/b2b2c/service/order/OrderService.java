@@ -1,6 +1,7 @@
 package cn.b2b2c.service.order;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -71,7 +72,7 @@ public interface OrderService {
 	/**
 	 * 根据用户id查订单
 	 */
-	public List<Order> getOrderById(Integer uid)throws Exception;
+	public List<Order> getOrderById(Integer uid,String uNum)throws Exception;
 	/**
 	 * 订单分页
 	 * @param currentPageNo
