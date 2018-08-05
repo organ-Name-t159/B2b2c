@@ -44,7 +44,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		limit #{from},#{pageSize}
 	</select>
 	<select id="getProduct" resultType="product">
-		SELECT p1.* FROM `product` p1 WHERE `id`=#{pId}
+		SELECT p1.* FROM `product` p1 WHERE 1=1
+		<if test="pId !=null and pId !=''">
+			and `id`=#{pId}
+		</if>
+		
 	</select>
 
 	<update id="updateNumber">
@@ -54,7 +58,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="getProductById" resultType="product">
-		SELECT p1.* FROM `product` p1 WHERE p1.categoryLevel1Id=#{pId}
+		SELECT p1.* FROM `product` p1 WHERE 1=1
+		<if test="pId !=null and pId !=''">
+			and p1.categoryLevel1Id=#{pId}
+		</if>
+		 
 	</select>
 	
 	<select id="getCount" resultType="int">
