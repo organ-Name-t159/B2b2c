@@ -70,6 +70,6 @@
      
      <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="cn.b2b2c.dao" />
-	</bean>		
-	     
+	</bean>
+	  
 </beans>

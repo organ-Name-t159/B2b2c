@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +16,7 @@ import cn.b2b2c.pojo.User;
 import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.Pager;
+import cn.b2b2c.tools.ReturnResult;
 import cn.b2b2c.tools.TimeTransform;
 
 @Controller
@@ -67,16 +70,27 @@ public class BackIndexController {
 		String email=request.getParameter("email");
 		String phone=request.getParameter("phone");
 		String birthday=request.getParameter("birthday");
-		User user=new User();
-		user.setId(Integer.parseInt(id));
-		user.setUserName(userName);
-		user.setSex(Integer.parseInt(sex));
-		user.setEmail(email);
-		user.setPhone(phone);
-		user.setBirthday(TimeTransform.isDateOne(birthday));
-		int num=userService.updateBackUser(user);
 		
-		return num;
+		ReturnResult restatus=new ReturnResult();
+		Subject subject=SecurityUtils.getSubject();
+		boolean isPermitted =subject.isPermitted("admin:update");
+		if(!isPermitted) {
+			return restatus.returnFail("你权限不够，请联系管理员");
+		}else {
+			User user=new User();
+			user.setId(Integer.parseInt(id));
+			user.setUserName(userName);
+			user.setSex(Integer.parseInt(sex));
+			user.setEmail(email);
+			user.setPhone(phone);
+			user.setBirthday(TimeTransform.isDateOne(birthday));
+			int num=userService.updateBackUser(user);
+			if(num==1) {
+				return restatus.returnSuccess();
+			}
+		}
+		
+		return null;
 	}
 	
 	
