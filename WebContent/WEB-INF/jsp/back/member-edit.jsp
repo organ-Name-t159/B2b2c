@@ -105,7 +105,8 @@ var contextPath="${ctx}";
 					birthday:birthday
 				},
 				success:function(jsonStr){
-					if(jsonStr=="1"){
+					var result=eval("("+jsonStr+")");
+					if(result.status==1){
 						layer.msg('修改成功', {
 							icon : 1,
 							time : 1000							
@@ -117,7 +118,7 @@ var contextPath="${ctx}";
 	                    //var index = parent.layer.getFrameIndex(window.name);
 	                    
 					}else{
-						layer.msg('修改失败', {
+						layer.msg(result.message, {
 							icon : 1,
 							time : 1000
 						});

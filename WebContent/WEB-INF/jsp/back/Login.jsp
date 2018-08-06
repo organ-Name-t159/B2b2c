@@ -57,7 +57,7 @@ var contextPath="${ctx}";
         			return false;
         		}   		
         		 $.ajax({
-        			url:contextPath+"/BackLogin/verifyLogin.view",
+        			url:contextPath+"/BackLogin/verifyLoginRole.view",
         			method:"post",
         			data:{
         				name:name,

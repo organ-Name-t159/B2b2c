@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.b2b2c.dao.jurisdiction.JurisdictionMapper">
+	<select id="getPermissions" resultType="String">
+		SELECT ju.`juName` FROM `jurisdiction` ju JOIN `ju_back_name` jbn ON ju.`id`=jbn.`juId` WHERE jbn.`backLoginName`=#{name}
+	</select>
+</mapper>
