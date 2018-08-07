@@ -54,6 +54,7 @@ public class UserController {
 		session.setAttribute("userPic", user);
 		UserIntegral integral = userIntegralService.queryUserIntegral(user.getId());
 		request.setAttribute("integral", integral);
+		 DiscountCoupon discountCoupon = (DiscountCoupon) dcs.getQueryById(user.getId());
 		return "user/UserHome";
 	}
 
