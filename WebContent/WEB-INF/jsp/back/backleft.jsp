@@ -153,7 +153,7 @@ var contextPath="${ctx}";
                         </a>
                     </li>
                     <li>
-                        <a _href="echarts3.html">
+                        <a _href="${ctx}/echarts/echarts2.view">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>地图</cite>
                         </a>
