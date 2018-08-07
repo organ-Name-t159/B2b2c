@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fm" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <c:set value="${pageContext.request.contextPath}" var="ctx"></c:set>
 <script type="text/javascript">
 var contextPath="${ctx}";
@@ -67,7 +68,7 @@ var contextPath="${ctx}";
       <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <button class="layui-btn" onclick="x_admin_show('添加用户','/BackOrder/orderAdd.view')"><i class="layui-icon"></i>添加</button>
-        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+        <span class="x-right" style="line-height:40px">共有数据：${total} 条</span>
       </xblock>
       <table class="layui-table">
         <thead>
@@ -89,20 +90,21 @@ var contextPath="${ctx}";
             </tr>
         </thead>
         <tbody>
+        <c:forEach items="${orderList}" var="ol">
           <tr>
             <td>
               <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
             </td>
-            <td>2017009171822298053</td>
-            <td>老王:18925139194</td>
-            <td>7829.10</td>
-            <td>7854.10</td>
+            <td>${ol.serialNumber}</td>
+            <td>${ol.consignee}:${ol.addressPhone}</td>
+            <td>${ol.cost}</td>
+            <td>${ol.cost}</td>
             <td>待确认</td>
-            <td>未支付</td>
-            <td>未发货</td>
-            <td>其他方式</td>
-            <td>申通物流</td>
-            <td>2017-08-17 18:22</td>
+            <td>${ol.statusName }</td>
+            <td>${ol.deliveryStatus }</td>
+            <td>${ol.wayName }</td>
+            <td>${ol.dbtName }</td>
+            <td><fm:formatDate var="t" value="${ol.createTime }" type="Date" pattern="yyyy-MM-dd HH:mm:ss"/>${t}</td>
             <td class="td-manage">
               <a title="查看"  onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
                 <i class="layui-icon">&#xe63c;</i>
@@ -112,18 +114,36 @@ var contextPath="${ctx}";
               </a>
             </td>
           </tr>
+          </c:forEach>
         </tbody>
       </table>
-      <div class="page">
-        <div>
-          <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
-          <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
-          <a class="next" href="">&gt;&gt;</a>
-        </div>
-      </div>
+    <div class="page">
+    	<div class="page-wrap fr">
+		<div class="page-num fl">
+		<c:if test="${pager.pageCount>=1}">
+			<a class="num" href="${ctx}/${pager.url}&currentPage=1">首页</a>
+			<c:if test="${pager.currentPage>1}">
+            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage-1}" class="num prev disabled">上一页</a>
+       		</c:if>
+			<c:forEach var="temp" begin="${pager.currentPage>3?pager.currentPage-3:1}" end="${pager.pageCount-pager.currentPage>3?page.currentPage+3:pager.pageCount}" step="1">
+				<c:if test="${pager.currentPage==temp}">
+                <a href="${ctx}/${pager.url}&currentPage=${temp}" class="num">${temp}</a>
+	            </c:if>
+	            <c:if test="${pager.currentPage!=temp}">
+	                <a href="${ctx}/${pager.url}&currentPage=${temp}" class="num">${temp}</a>
+	            </c:if>
+			</c:forEach>
+			<c:if test="${pager.currentPage<pager.pageCount}">
+            <a href="${ctx}/${pager.url}&currentPage=${pager.currentPage+1}" class="num prev disabled">下一页</a>
+       		</c:if>
+			<a class="num" href="${ctx}/${pager.url}&currentPage=${pager.pageCount}">尾页</a>			
+		</c:if>
+		<c:if test="${pager.pageCount==0}">
+		        暂无记录
+		</c:if>
+		</div>
+	</div>
+  </div> 
 
     </div>
     <script>

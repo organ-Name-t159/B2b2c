@@ -20,12 +20,20 @@ import cn.b2b2c.pojo.Order;
 import cn.b2b2c.service.order.OrderService;
 import cn.b2b2c.tools.TimeTransform;
 
+
 @Controller
 @RequestMapping("/echarts")
 public class BackEcharts {
 	
 	@Resource
 	private OrderService orderService;
+	
+	@RequestMapping(value="/echarts2.view")
+	public String echarts2() {
+		
+		return "back/echarts2";
+	}
+	
 	
 	@RequestMapping(value="/echarts1Date.view",method=RequestMethod.POST)
 	@ResponseBody
@@ -45,7 +53,7 @@ public class BackEcharts {
 			calendar.set(Calendar.SECOND, 0);
 			calendar.add(Calendar.DATE, -i);			
 			Date tempDate=calendar.getTime();
-			System.out.println("一临时"+tempDate);
+			//System.out.println("一临时"+tempDate);
 			
 			calendar2.setTime(new Date());
 			calendar2.set(Calendar.HOUR, 0);
@@ -53,13 +61,13 @@ public class BackEcharts {
 			calendar2.set(Calendar.SECOND, 0);
 			calendar2.add(Calendar.DATE, -i+1);
 			Date tempGDate=calendar2.getTime();
-			System.out.println("二临时"+tempGDate);
+			//System.out.println("二临时"+tempGDate);
 			
 			dataTime[6-i]=TimeTransform.isTimeOne(tempDate);
-			System.out.println("时间"+dataTime[6-i]);
+			//System.out.println("时间"+dataTime[6-i]);
 			int num=0;
 			for (Order order : oList) {
-				//
+				
 				if(tempDate.before(order.getCreateTime())&&order.getCreateTime().before(tempGDate)) {
 					num++;					
 				}else {
@@ -68,13 +76,13 @@ public class BackEcharts {
 				
 			}
 			dataNumber[6-i]=num;
-			System.out.println("量"+dataNumber[6-i]);
+			//System.out.println("量"+dataNumber[6-i]);
 			
 		}
 		
 		map.put("dataTime", dataTime);
 		map.put("dataNumber", dataNumber);
-		System.out.println(map);
+		//System.out.println(map);
 		return JSON.toJSON(map);
 	}
 	
