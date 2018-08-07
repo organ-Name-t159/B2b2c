@@ -39,7 +39,7 @@ public class UserController {
 	private UserService userService;
 
 	@Autowired
-	private DiscountCouponService dcs;
+	private DiscountCouponService discountCouponService;
 	
 	@Autowired
 	private ProductService productService;
@@ -53,8 +53,10 @@ public class UserController {
 		user = userService.basic(user.getId());
 		session.setAttribute("userPic", user);
 		UserIntegral integral = userIntegralService.queryUserIntegral(user.getId());
+		List<DiscountCoupon> dtList =discountCouponService.getQueryById(user.getId());
+		request.setAttribute("dtListNumber", dtList.size());
 		request.setAttribute("integral", integral);
-		 DiscountCoupon discountCoupon = (DiscountCoupon) dcs.getQueryById(user.getId());
+		 
 		return "user/UserHome";
 	}
 
@@ -170,7 +172,7 @@ public class UserController {
 		DiscountCoupon coupon = new DiscountCoupon();
 		Integer userId = Integer.parseInt(request.getParameter("userId"));
 
-		List<DiscountCoupon> dcStateList = dcs.getQueryById(userId);
+		List<DiscountCoupon> dcStateList = discountCouponService.getQueryById(userId);
 		dcStateList.size();
 		System.out.println(dcStateList.size());
 		
