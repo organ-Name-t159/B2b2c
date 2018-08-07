@@ -57,7 +57,12 @@ $(function(){
 							<a href="##"><i class="user_bg"></i></a>
 						</div>
 						<p>
-							<a href="##">3</a>
+							<c:if test="${dtListNumber !=null}">
+							<a href="##">${dtListNumber}</a>
+							</c:if>
+							<c:if test="${dtListNumber ==null}">
+							<a href="##">0</a>
+						</c:if>
 						</p>
 					</li>
 					<li class="third">
@@ -68,7 +73,12 @@ $(function(){
 							<i class="user_bg"></i>
 						</div>
 						<p>
+						<c:if test="${integral.integral !=null}">
 							<a href="##">${integral.integral}</a>
+						</c:if>
+						<c:if test="${integral.integral ==null}">
+							<a href="##">0</a>
+						</c:if>
 						</p>
 					</li>
 				</ul>

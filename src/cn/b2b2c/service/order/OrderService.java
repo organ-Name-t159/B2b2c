@@ -12,6 +12,12 @@ import cn.b2b2c.pojo.Order;
 public interface OrderService {
 	
 	/**
+	 * 统计数据
+	 * @return
+	 */
+	public List<Order> statisticalData(); 
+	
+	/**
 	 * 新增订单
 	 * @param userId
 	 * @param userAddressId
