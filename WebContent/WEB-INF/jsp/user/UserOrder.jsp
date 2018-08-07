@@ -137,8 +137,6 @@ $(function(){
                    </c:forEach>
                   </td>
                   <td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
-                   <a href="" class="main-color">退款</a><br>
-                     
                     <a href="">留言/投诉</a> 
 				</td>
 				 
@@ -148,7 +146,7 @@ $(function(){
                		 </c:forEach></strong></p></td>
                  <td rowspan="1" align="center" class="trade-status no-border-right">
                   <c:forEach items="${ol.value}" var="os" end="0">
-                 ${os.wayName }<br>${os.statusName}<br>${os.dbtName}<br>
+                 ${os.wayName }<br>${os.statusName}<br>${os.deliveryStatus}<br>
                  
                   <a href="${ctx}/details/ProductDeatil.html?id=${os.productId}" class="main-color">查看详情</a>
                    </c:forEach>
@@ -160,9 +158,9 @@ $(function(){
                   <font class="main-color"><span style="color:red">已确认</span></font><br>
                   	</c:if>
                   	 <c:if test="${os.statusName eq '未付款'}">                
-                  <font class="main-color"><span style="color:red">无效</span></font></br>
+                 <!--  <font class="main-color"><span style="color:red">去付款</span></font></br> -->
                   
-                  <a href="goods.php?id=232" target="_blank">再次购买</a> 
+                  <a href="">取消订单</a> 
                    </c:if>  
                    </c:forEach>
                   </td>

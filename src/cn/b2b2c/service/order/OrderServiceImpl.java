@@ -73,12 +73,33 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> getUserComm(Integer currentPageNo, Integer pageSize, Integer uid) {
 		List<Order> orders=new ArrayList<Order>();
 		currentPageNo=(currentPageNo-1)*pageSize;
-		return orders= orderMapper.getUserComm(currentPageNo, pageSize, uid);
+		 orders= orderMapper.getUserComm(currentPageNo, pageSize, uid);
+		return orders;
 	}
 
 	@Override
 	public int getCountComm(Integer uid) {
 		return orderMapper.getCountComm(uid);
+	}
+
+	@Override
+	public List<Order> getOrderById(String uNum) {
+		// TODO Auto-generated method stub
+		return orderMapper.getOrderById(uNum);
+	}
+
+	@Override
+	public List<Order> getOrderAll(Integer currentPageNo, Integer pageSize) {
+		List<Order> orders=new ArrayList<Order>();
+		currentPageNo=(currentPageNo-1)*pageSize;
+		 orders= orderMapper.getOrderAll(currentPageNo, pageSize);
+		 return orders;
+	}
+
+	@Override
+	public int getCountComm() {
+		// TODO Auto-generated method stub
+		return orderMapper.getCountComm();
 	}
 	
 	

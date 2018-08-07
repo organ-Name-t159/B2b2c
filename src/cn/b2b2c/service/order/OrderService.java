@@ -73,6 +73,7 @@ public interface OrderService {
 	 * 根据用户id查订单
 	 */
 	public List<Order> getOrderById(Integer uid,String uNum)throws Exception;
+	public List<Order> getOrderById(String uNum);
 	/**
 	 * 订单分页
 	 * @param currentPageNo
@@ -82,9 +83,10 @@ public interface OrderService {
 	 */
 			
 	public List<Order> getUserComm(Integer currentPageNo,Integer pageSize,Integer uid);
-	
+	public List<Order> getOrderAll(Integer currentPageNo,Integer pageSize);
 	/**
 	 * 订单总条数
 	 */
 	public int getCountComm(Integer uid);
+	public int getCountComm();
 }
