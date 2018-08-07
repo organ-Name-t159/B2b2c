@@ -80,6 +80,12 @@ public class OrderServiceImpl implements OrderService {
 	public int getCountComm(Integer uid) {
 		return orderMapper.getCountComm(uid);
 	}
+
+	@Override
+	public List<Order> statisticalData() {
+		
+		return orderMapper.statisticalData();
+	}
 	
 	
 	

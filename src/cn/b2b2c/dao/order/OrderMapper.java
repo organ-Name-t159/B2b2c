@@ -11,6 +11,13 @@ import cn.b2b2c.pojo.Product;
 
 public interface OrderMapper {
 	
+	/**
+	 * 统计数据
+	 * @return
+	 */
+	public List<Order> statisticalData(); 
+	
+	
 	public int addOrder(Order order);
 	
 	/**
