@@ -83,7 +83,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<Order> getOrderById(String uNum) {
 		// TODO Auto-generated method stub
 		return orderMapper.getOrderById(uNum);
@@ -101,11 +100,11 @@ public class OrderServiceImpl implements OrderService {
 	public int getCountComm() {
 		// TODO Auto-generated method stub
 		return orderMapper.getCountComm();
-=======
+		}
+
 	public List<Order> statisticalData() {
 		
 		return orderMapper.statisticalData();
->>>>>>> 0e7b12f53915fd7ae28e74a57063b8f8ac33dee9
 	}
 	
 	
