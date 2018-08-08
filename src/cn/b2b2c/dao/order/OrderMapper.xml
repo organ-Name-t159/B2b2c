@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 		<select id="getOrderById" resultType="Order">
-SELECT o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
+SELECT o.`id`,o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
 dt.`timeName` AS timeName ,ps.`statusName` AS statusName,pw.`wayName` AS wayName,dw.`dbtName` AS dbtName,
 od.`productId` AS productId,od.`quantity` AS quantity,od.`cost` AS costt,pp.fileName AS fileName, pp.name AS `name`,pp.colour as colour,pp.price AS price,ds.`deliveryStatus`AS `deliveryStatus`
 FROM `order` o
@@ -49,7 +49,7 @@ and o.userId=#{uid}
 	
 	
 	<select id="getUserComm" resultType="Order">
-SELECT o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
+SELECT o.`id`,o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
 dt.`timeName` AS timeName ,ps.`statusName` AS statusName,pw.`wayName` AS wayName,dw.`dbtName` AS dbtName,
 od.`productId` AS productId,od.`cost` AS costt,pp.fileName AS fileName , pp.name AS `name`,pp.price AS price ,COUNT(o.serialNumber) AS suCount,ds.`deliveryStatus`AS `deliveryStatus`
 FROM `order` o
@@ -78,7 +78,7 @@ ORDER BY o.createTime DESC
 	</select>
 	
 	<select id="getOrderAll" resultType="Order">
-	SELECT o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
+	SELECT o.`id`,o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
 dt.`timeName` AS timeName ,ps.`statusName` AS statusName,pw.`wayName` AS wayName,dw.`dbtName` AS dbtName,
 od.`productId` AS productId,od.`cost` AS costt,pp.fileName AS fileName , pp.name AS `name`,pp.price AS price ,COUNT(o.serialNumber) AS suCount,ds.`deliveryStatus`AS `deliveryStatus`
 FROM `order` o

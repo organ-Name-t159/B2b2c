@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import cn.b2b2c.pojo.Order;
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.service.order.OrderService;
+import cn.b2b2c.service.product.ProductService;
 import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.Pager;
 import cn.b2b2c.tools.TimeTransform;
@@ -31,6 +33,20 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
+	
+	@Resource
+	private ProductService productService;
+	
+	@RequestMapping(value="/userEvaluate.view")
+	public String userEvaluate(HttpServletRequest request)throws Exception {
+		String pId=request.getParameter("pId");
+		String oId=request.getParameter("oId");
+		
+		Product product=productService.getProduct(Integer.parseInt(pId));
+		request.setAttribute("product", product);
+		request.setAttribute("oId", oId);
+		return "user/UserEvaluate";
+	}
 	
 	
 	

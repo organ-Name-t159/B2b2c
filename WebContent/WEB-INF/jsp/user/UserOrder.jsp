@@ -119,11 +119,18 @@ $(function(){
                     
                    </c:forEach>
                   </td>
-                  <%-- <c:forEach items="" var=""> --%>
+                    
                   	<td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
-                    <a href="">我要评价</a> 
+                    <c:forEach items="${ol.value}" var="os">
+                    <c:if test="${os.statusName eq '已付款'}">
+                    	<a href="${ctx}/order/userEvaluate.view?pId=${os.productId}&oId=${os.id}">我要评价</a></br>                   	
+                    </c:if>
+                     <c:if test="${os.statusName eq '未付款'}">
+                    	<a href="javascript:void(0)">去支付</a></br>
+                    </c:if>                    
+                     </c:forEach>
 					</td>
-                 <%--  </c:forEach> --%>
+                
                 
 				 <td rowspan="1" align="center" class="amount no-border-right"><p class="post-type"><strong>
                 	 <c:forEach items="${ol.value}" var="os" end="0">
