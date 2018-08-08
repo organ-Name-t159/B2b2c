@@ -1218,16 +1218,46 @@ reg_package();
 								<li id="mct_4" onClick="ShowMyComments(125,4,1)">用户晒单<span>(0)</span></li>
 								<br><br>
 							</ul>
-						<ul id="evaluate">
+						<%-- <ul id="evaluate">
 						<c:forEach items="${evaluates}" var="el">
 						<li><img src="${ctx}/statics/images/b105.gif"></li><br><br>
 						<li>${el.evaluateName } </li><br>
 						<li>${el.uPEName }</li><br><br>
 						</c:forEach>
-						</ul>
+						</ul> --%>
+						<div class="my-comment-list" id="ECS_MYCOMMENTS">
+						
+						<c:forEach items="${evaluates}" var="el">
+						
+						<dl class="commente-info clearfix">
+								<dt style="border-right:solid #d0e4c2 1px; width: 110px;">
+									<div >
+										<img src="themes/wrzcnet_jdcom/images/people.gif" height="80"
+											width="80">
+									</div>
+									<p> ${el.evaluateName }</p>
+								</dt>
+								<dd >
+									<div class="rank68">
+										<span class="stars stars4"></span> <span class="add-time fr">2015-12-04</span>
+									</div>
+									<table width="100%" border="0" cellspacing="1" cellpadding="0">
+										<tbody>
+											<tr>
+												<th width="64">心得：</th>
+												<td>${el.uPEName }</td>
+											</tr>
+										</tbody>
+									</table>
+								</dd>
+								</dl> 	
+
+								</c:forEach>
+								
 						</div>
-						<div class="my-comment-list" id="ECS_MYCOMMENTS"></div>
-						<script language="javascript">
+						</div>
+						<!-- <div class="my-comment-list" id="ECS_MYCOMMENTS"></div> -->
+						<!-- <script language="javascript">
 				function ShowMyComments(goods_id, type, page)
 				{
 					for (var i = 0; i <= 4 ; i ++)
@@ -1265,10 +1295,12 @@ reg_package();
 					}
 				}
 				document.getElementById('mct_0').click();
-</script>
+</script> -->
 					</div>
 					<div class="mc" id="os_advantage">
 						<div class="blank20">
+
+								
 						</div>
 						<div class="my-comment-pre">
 							<div class="tab-title">
