@@ -80,7 +80,7 @@ var contextPath="${ctx}";
             <th>收货人</th>
             <th>总金额</th>
             <th>应付金额</th>
-            <th>订单状态</th>
+           <!--  <th>订单状态</th> -->
             <th>支付状态</th>
             <th>发货状态</th>
             <th>支付方式</th>
@@ -99,14 +99,14 @@ var contextPath="${ctx}";
             <td>${ol.consignee}:${ol.addressPhone}</td>
             <td>${ol.cost}</td>
             <td>${ol.cost}</td>
-            <td>待确认</td>
+           <!--  <td>待确认</td> -->
             <td>${ol.statusName }</td>
             <td>${ol.deliveryStatus }</td>
             <td>${ol.wayName }</td>
             <td>${ol.dbtName }</td>
             <td><fm:formatDate var="t" value="${ol.createTime }" type="Date" pattern="yyyy-MM-dd HH:mm:ss"/>${t}</td>
             <td class="td-manage">
-              <a title="查看"  onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
+              <a title="查看"  onclick="x_admin_show('编辑','/BackOrder/orderEdit.view?name=${ol.serialNumber}')" href="javascript:;">
                 <i class="layui-icon">&#xe63c;</i>
               </a>
               <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
