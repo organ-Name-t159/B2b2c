@@ -3,6 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.order.OrderMapper">
+
+	<update id="updateOrderDetail">
+		UPDATE `order_detail` SET `evaluateStaticId`=#{2} WHERE `orderId`=#{oId} AND `productId`=#{pId}
+	</update>
 	<select id="statisticalData" resultType="Order">
 		SELECT o.* FROM `order` o WHERE DATE_SUB(CURDATE(),INTERVAL 7 DAY)<![CDATA[ <=(o.`createTime`) ]]>
 	</select>

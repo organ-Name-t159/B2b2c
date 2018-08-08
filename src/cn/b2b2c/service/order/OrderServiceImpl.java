@@ -106,6 +106,12 @@ public class OrderServiceImpl implements OrderService {
 		
 		return orderMapper.statisticalData();
 	}
+
+	@Override
+	public int updateOrderDetail(Integer orderId, Integer productId) {
+		
+		return orderMapper.updateOrderDetail(orderId, productId);
+	}
 	
 	
 	

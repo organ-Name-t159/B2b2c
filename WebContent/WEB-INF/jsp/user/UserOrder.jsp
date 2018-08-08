@@ -40,21 +40,9 @@ $(function(){
               <li class="active"> <a href="">我的订单</a> </li>
             </ul>
           </div>
-        <!--   <div id="J_Remide" class="remide-box">
-            <h3>我的交易提醒：</h3>
-            <ul>
-              <li><a href="">未确认订单<span class="num">(0)</span></a></li>
-              <li><a href="">待付款<span class="num">(0)</span></a></li>
-              <li><a href="">待发货<span class="num">(16)</span></a></li>
-              <li><a href="">已成交订单数<span class="num">(8)</span></a></li>
-            </ul>
-          </div> -->
+        
           <div class="extra-r" style="display:none">
-           <!--  <div class="search-01">
-              <input id="ip_keyword" name="" class="s-itxt" value="商品名称、商品编号、订单编号" onfocus="if (this.value==this.defaultValue) this.value=;" onblur="this.value=this.defaultValue" onkeydown="javascript:if(event.keyCode==13) OrderSearch();" type="text">
-              input name="" type="button" value="查 询" class="btn-13" onclick="OrderSearch('ip_keyword')" clstag="click|keycount|orderinfo|search"/ 
-              <a href="javascript:;" class="btn-13" onclick="OrderSearch()" clstag="click|keycount|orderinfo|search">查 询</a> </div>
-            <div class="blank"></div> -->
+           
           </div>
           <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bought-table">
             <thead>
@@ -96,9 +84,7 @@ $(function(){
             	<tr class="order-bd last">
                 <td align="center" class="baobei no-border-right order_goods_info">
                 <c:forEach items="${ol.value }" var="os">
-                 <%--   <c:forEach items="${map}" var="m"> 
-                  <c:if test="${m.key eq ol.serialNumber }">
-                   	<c:forEach items="${m.key }" var="os">   --%>       
+                       
 		  <div class="goods_desc last" style="height: 60px;"> 
 		  <a class="pic" href="${ctx}/details/ProductDeatil.html?id=${os.productId}" title="查看宝贝详情" > 
                      
@@ -107,39 +93,38 @@ $(function(){
                     </a>
                     <div class="goods_name"> ${os.name}</div>
                   </div>
-                 <%--  </c:forEach>  
-                  </c:if> --%>
+                 
                    </c:forEach>
                   </td>
                   <td align="center" class="baobei no-border-right order_goods_attr">  
-               <%--     <c:forEach items="${map}" var="m"> 
-                   <c:if test="${m.key eq ol.serialNumber}">  --%>  
+                
                    	<c:forEach items="${ol.value }" var="os">              
                   <div class="goods_desc goods_desc_t last">颜色:${os.colour} <br>
                   
  					</div>
-                <%--   </c:forEach>   
-                  </c:if>   --%>
+                
                    </c:forEach>
                   </td>
                 <td align="center" class="baobei no-border-right order_goods_info" style="padding:0px;">   
-               <%--  <c:forEach items="${map}" var="m">   --%>  
+               
                    	<c:forEach items="${ol.value }" var="os">            
                   <div class="goods_desc price  last" style="padding-left: 0px; line-height: 50px; height: 60px;"> ¥${os.price} </div>
-                 <%--  </c:forEach>   --%>
+                 
                    </c:forEach> 
                   </td>
                 <td align="center" class="baobei no-border-right order_goods_info" style="padding:0px;"> 
-             <%--    <c:forEach items="${map}" var="m">  --%> 
+              
                    	<c:forEach items="${ol.value}" var="os">                  
                   <div class="goods_desc  last" style="padding-left: 0px; line-height: 50px; height: 60px;"> ${os.quantity} </div>
-                  <%-- </c:forEach>   --%>  
+                    
                    </c:forEach>
                   </td>
-                  <td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
-                    <a href="">留言/投诉</a> 
-				</td>
-				 
+                  <c:forEach items="" var="">
+                  	<td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
+                    <a href="">我要评价</a> 
+					</td>
+                  </c:forEach>
+                
 				 <td rowspan="1" align="center" class="amount no-border-right"><p class="post-type"><strong>
                 	 <c:forEach items="${ol.value}" var="os" end="0">
                 				¥${os.cost}  
@@ -155,10 +140,10 @@ $(function(){
                <td rowspan="1" align="center" class="other">
                 <c:forEach items="${ol.value}" var="os" end="0">
                 	<c:if test="${os.statusName eq '已付款'}">
-                  <font class="main-color"><span style="color:red">已确认</span></font><br>
+                  <font class="main-color"><span style="color:red">确认订单</span></font><br>
                   	</c:if>
                   	 <c:if test="${os.statusName eq '未付款'}">                
-                 <!--  <font class="main-color"><span style="color:red">去付款</span></font></br> -->
+                 
                   
                   <a href="">取消订单</a> 
                    </c:if>  
@@ -167,108 +152,7 @@ $(function(){
                </tr>
            
           </c:forEach>
-            <%-- <c:if test="${ol.suCount==1 }">
-              <tr class="order-bd last">
-                <td align="center" class="baobei no-border-right order_goods_info">              
-		  <div class="goods_desc last" style="height: 60px;"> 
-		  <a class="pic" href="${ctx}/details/ProductDeatil.html?id=${ol.productId}" title="查看宝贝详情" > 
-                     
-                    <img src="${ctx}/statics/images/${ol.fileName}" alt="查看宝贝详情" width="50" height="50">
-                     
-                    </a>
-                    <div class="goods_name"> ${ol.name}</div>
-                  </div>
-                   
-                  </td>
-                  <td align="center" class="baobei no-border-right order_goods_attr">  
-                                  
-                  <div class="goods_desc goods_desc_t last">颜色:${ol.colour} <br>
-                  
- 					</div>
-                  
-                  </td>
-                <td align="center" class="baobei no-border-right order_goods_info" style="padding:0px;">   
-                                
-                  <div class="goods_desc price  last" style="padding-left: 0px; line-height: 50px; height: 60px;"> ¥${ol.price} </div>
-                
-                  </td>
-                <td align="center" class="baobei no-border-right order_goods_info" style="padding:0px;"> 
-                              
-                  <div class="goods_desc  last" style="padding-left: 0px; line-height: 50px; height: 60px;"> ${ol.quantity} </div>
-                  
-                  </td>
-                  <td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
-                   <a href="" class="main-color">退款</a><br>
-                     
-                    <a href="">留言/投诉</a> 
-				</td>
-				 
-				<td rowspan="1" align="center" class="amount no-border-right"><p class="post-type"><strong>
-                
-                				¥${ol.costt}                               </strong></p></td>
-                <td rowspan="1" align="center" class="trade-status no-border-right">${ol.wayName }<br>${ol.statusName}<br>${ol.dbtName}<br>
-                  <a href="${ctx}/details/ProductDeatil.html?id=${ol.productId}" class="main-color">查看详情</a>
-                   
-                </td>
-                
-                <td rowspan="1" align="center" class="other">
-                	<c:if test="${ol.statusName eq '已付款'}">
-                  <font class="main-color"><span style="color:red">已确认</span></font><br>
-                  	</c:if>
-                  	 <c:if test="${ol.statusName eq '未付款'}">                
-                  <font class="main-color"><span style="color:red">无效</span></font></br>
-                  
-                   
-                   
-                  <a href="goods.php?id=232" target="_blank">再次购买</a> 
-                   </c:if>  
-                  </td>
-               </tr>
-                </c:if> --%>
-            </tbody>
-           <%--  </c:forEach> --%>
-            
-       <!--      <script language="javascript" type="text/javascript">
-		function showSubNav(id)
-		{
-			if (id != document.getElementById("s_have_hidden").value)
-			{
-				if (document.getElementById("s_have_hidden").value != 0)
-				{
-					var s_have_val = document.getElementById("s_have_hidden").value;
-					document.getElementById(s_have_val).style.display = 'none';
-				}
-				document.getElementById(id).style.display = 'block';
-				document.getElementById("s_have_hidden").value = id;
-			}
-		}
-        function showSubNav2(id,express_id,express_no)
-		{
-			var _id = id;
-			var id = 'subNav_'+id;
-			if (id != document.getElementById("s_have_hidden").value)
-			{
-				if (document.getElementById("s_have_hidden").value != 0)
-				{
-					var s_have_val = document.getElementById("s_have_hidden").value;
-					document.getElementById(s_have_val).style.display = 'none';
-				}
-				get_invoice_info2(express_id,express_no,1,_id);
-				
-				document.getElementById(id).style.display = 'block';
-				document.getElementById("s_have_hidden").value = id;
-			}
-		}
-
-        function hiddenSubNav(id)
-		{
-			document.getElementById(id).style.display = 'none';
-			document.getElementById("s_have_hidden").value = 0;
-		} 
-        </script> -->
-            
-        
-            
+           
       </table>
           <script type="text/javascript">
           $(function(){

@@ -6,8 +6,23 @@ import java.util.List;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
+import cn.b2b2c.pojo.UserProductEvaluate;
 
 public interface UserService {
+	
+	/**
+	 * 新增商品评价
+	 * @param uEvaluate
+	 * @return
+	 */
+	public int addEvaluateName(UserProductEvaluate uEvaluate);
+	
+	/**
+	 * 查询商品评价
+	 * @param productId
+	 * @return
+	 */
+	public List<UserProductEvaluate> queryEvaluateAll(Integer productId);
 	
 	
 	/**

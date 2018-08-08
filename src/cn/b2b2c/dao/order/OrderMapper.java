@@ -12,6 +12,14 @@ import cn.b2b2c.pojo.Product;
 public interface OrderMapper {
 	
 	/**
+	 * 修改评价状态
+	 * @param orderId
+	 * @param productId
+	 * @return
+	 */
+	public int updateOrderDetail(@Param("oId")Integer orderId,@Param("pId")Integer productId);
+	
+	/**
 	 * 统计数据
 	 * @return
 	 */

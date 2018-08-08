@@ -3,6 +3,13 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.b2b2c.dao.user.UserMapper">
+	
+	<insert id="addEvaluateName">
+		INSERT INTO `user_product_evaluate`(`userId`,`productId`,`uPEName`,`evaluateTime`)VALUES(#{userId},#{productId},#{uPEName},#{evaluateTime})
+	</insert>
+	<select id="queryEvaluateAll" resultType="UserProductEvaluate">
+		SELECT upe.* u.`userName` FROM `user_product_evaluate` upe JOIN `user` u ON upe.`userId`=u.`id` WHERE upe.`productId`=#{pId}
+	</select>
 	<update id="updatePicture">
 		update user set headPortrait=#{pt} where id=#{uid}
 	</update>

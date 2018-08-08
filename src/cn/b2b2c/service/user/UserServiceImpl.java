@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import cn.b2b2c.dao.user.UserMapper;
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
+import cn.b2b2c.pojo.UserProductEvaluate;
 import cn.b2b2c.tools.TimeTransform;
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -136,7 +137,19 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int updatePicture(Integer uId, String picture) {
-		// TODO Auto-generated method stub
+		
 		return userMapper.updatePicture(uId, picture);
+	}
+
+	@Override
+	public List<UserProductEvaluate> queryEvaluateAll(Integer productId) {
+		
+		return userMapper.queryEvaluateAll(productId);
+	}
+
+	@Override
+	public int addEvaluateName(UserProductEvaluate uEvaluate) {
+		
+		return userMapper.addEvaluateName(uEvaluate);
 	}
 }
