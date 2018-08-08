@@ -31,6 +31,7 @@ public class Order implements Serializable {
 	private String newTime;
 	private int suCount;
 	private String deliveryStatus;
+	private Integer evaluateStaticId;
 
 	public String getDeliveryStatus() {
 		return deliveryStatus;
@@ -316,6 +317,14 @@ public class Order implements Serializable {
 
 	public void setLeaveWord(String leaveWord) {
 		this.leaveWord = leaveWord;
+	}
+
+	public Integer getEvaluateStaticId() {
+		return evaluateStaticId;
+	}
+
+	public void setEvaluateStaticId(Integer evaluateStaticId) {
+		this.evaluateStaticId = evaluateStaticId;
 	}
 
 }

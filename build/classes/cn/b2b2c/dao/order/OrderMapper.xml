@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<select id="getOrderById" resultType="Order">
 SELECT o.`id`,o.`createTime`,o.`cost`,o.`serialNumber`,ua.`consignee` AS consignee,ua.`address` AS address,ua.`addressPhone` AS addressPhone,ua.`postcode` AS postcode,
 dt.`timeName` AS timeName ,ps.`statusName` AS statusName,pw.`wayName` AS wayName,dw.`dbtName` AS dbtName,
-od.`productId` AS productId,od.`quantity` AS quantity,od.`cost` AS costt,pp.fileName AS fileName, pp.name AS `name`,pp.colour as colour,pp.price AS price,ds.`deliveryStatus`AS `deliveryStatus`
+od.`productId` AS productId,od.`quantity` AS quantity,od.`cost` AS costt,od.`evaluateStaticId` AS evaluateStaticId,pp.fileName AS fileName, pp.name AS `name`,pp.colour as colour,pp.price AS price,ds.`deliveryStatus`AS `deliveryStatus`
 FROM `order` o
 JOIN `user_address` ua ON o.userAddressId=ua.id 
 JOIN `delivery_time` dt ON o.`deliveryTimeId`=dt.id 

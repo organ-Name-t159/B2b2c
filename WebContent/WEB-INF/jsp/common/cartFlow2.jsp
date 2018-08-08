@@ -499,7 +499,7 @@ $(function() {
 									<tr>
 										<td align="right" bgcolor="#ffffff">应付款金额： <font
 										class="main-color"
-										style="font-size: 18px; font-family: 微软雅黑;" id="moneyAll" >¥${sessionScope.cart.sum-dCoupon.money-15.0}</font>
+										style="font-size: 18px; font-family: 微软雅黑;" id="moneyAll" >¥${sessionScope.cart.sum-dCoupon.money+15.0}</font>
 										</td>
 									</tr>
 								</tbody>

@@ -67,7 +67,7 @@ $(function(){
               </tr>
               <tr class="order-hd">
                 <td colspan="8"><span class="no">
-                  <label> 订单编号：<span class="order-num"><a href="" class="main-color">${ol.key }</a>
+                  <label> 订单编号：<span class="order-num"><a href="" class="main-color">${ol.key}</a>
                     </span> </label>
                   </span> 
                   <c:forEach items="${ol.value}" var="os" end="0">
@@ -121,14 +121,19 @@ $(function(){
                   </td>
                     
                   	<td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
+                    <c:forEach items="${ol.value}" var="os" end="0">
+                     <c:if test="${os.evaluateStaticId==2}">
+                    	<a href="javascript:void(0)">已评价</a></br>
+                    </c:if>                    
+                     </c:forEach>
                     <c:forEach items="${ol.value}" var="os">
-                    <c:if test="${os.statusName eq '已付款'}">
+                    <c:if test="${os.statusName eq '已付款' and os.evaluateStaticId==1}">
                     	<a href="${ctx}/order/userEvaluate.view?pId=${os.productId}&oId=${os.id}">我要评价</a></br></br></br>                	
                     </c:if>
                     </c:forEach>
                     <c:forEach items="${ol.value}" var="os" end="0">
                      <c:if test="${os.statusName eq '未付款'}">
-                    	<a href="javascript:void(0)">去支付</a></br>
+                    	<a href="${ctx}/car/jieKou.html?WIDout_trade_no=${ol.key}&WIDtotal_amount=${os.cost}&WIDsubject=${ol.key}&WIDbody=${os.colour}">去支付</a></br>
                     </c:if>                    
                      </c:forEach>
 					</td>
