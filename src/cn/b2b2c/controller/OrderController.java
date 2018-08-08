@@ -1,6 +1,7 @@
 package cn.b2b2c.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,10 @@ import com.alipay.api.domain.OrderDetailResult;
 import cn.b2b2c.pojo.Order;
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
+import cn.b2b2c.pojo.UserProductEvaluate;
 import cn.b2b2c.service.order.OrderService;
 import cn.b2b2c.service.product.ProductService;
+import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.Pager;
 import cn.b2b2c.tools.TimeTransform;
@@ -37,6 +41,31 @@ public class OrderController {
 	@Resource
 	private ProductService productService;
 	
+	@Resource
+	private UserService userService;
+	
+	@RequestMapping(value="/userEvaluateSubmit.view")
+	public String userEvaluateSubmit(HttpServletRequest request,HttpSession session) {
+		User user=(User) session.getAttribute("user");
+		String orderId=request.getParameter("orderId");
+		String commentT=request.getParameter("content");
+		String productId=request.getParameter("productId");
+		UserProductEvaluate uEvaluate=new UserProductEvaluate();
+		uEvaluate.setProductId(Integer.parseInt(productId));
+		uEvaluate.setEvaluateTime(new Date());
+		uEvaluate.setuPEName(commentT);
+		uEvaluate.setUserId(user.getId());
+		int eNumber=userService.addEvaluateName(uEvaluate);
+		if(eNumber==1) {
+			orderService.updateOrderDetail(Integer.parseInt(orderId), Integer.parseInt(productId));
+		}		
+		
+		return "redirect:/user/welocome.html";
+	}
+	
+	
+	
+	
 	@RequestMapping(value="/userEvaluate.view")
 	public String userEvaluate(HttpServletRequest request)throws Exception {
 		String pId=request.getParameter("pId");
@@ -47,7 +76,6 @@ public class OrderController {
 		request.setAttribute("oId", oId);
 		return "user/UserEvaluate";
 	}
-	
 	
 	
 	@RequestMapping(value="/userOrder.view")

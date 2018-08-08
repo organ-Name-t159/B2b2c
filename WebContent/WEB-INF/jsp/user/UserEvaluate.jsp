@@ -61,7 +61,7 @@ $(function(){
                     <tr id="commtr_245"> 
                    <td colspan="6" class="comment-pop" style="background:#fffdee;">
               	<div class="send-comment"> 
-                    <form action="" method="post" onsubmit="return ">
+                    <form action="${ctx}/order/userEvaluateSubmit.view?productId=${product.id}" method="post" onsubmit="return ">
                     <input type="hidden" name="goods_id" value="116">
                     <input type="hidden" name="rec_id" value="245">
                     <table width="70%" border="0" cellspacing="1" cellpadding="5" style="float:left">
@@ -70,9 +70,9 @@ $(function(){
                      
                       <tr>
                       	<td>
-                        	<input type="hidden" class="orderId" value="${oId}">                          	
+                        	<input type="hidden" name="orderId" value="${oId}">                          	
                         </td>
-                        <th>心得：</th>                       
+                        <th>评价内容：</th>                     
                         <td><textarea name="content" class="comment-textarea" id="content_245"></textarea></td>
                       </tr>
                       <tr>
