@@ -119,11 +119,11 @@ $(function(){
                     
                    </c:forEach>
                   </td>
-                  <c:forEach items="" var="">
+                  <%-- <c:forEach items="" var=""> --%>
                   	<td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
                     <a href="">我要评价</a> 
 					</td>
-                  </c:forEach>
+                 <%--  </c:forEach> --%>
                 
 				 <td rowspan="1" align="center" class="amount no-border-right"><p class="post-type"><strong>
                 	 <c:forEach items="${ol.value}" var="os" end="0">
