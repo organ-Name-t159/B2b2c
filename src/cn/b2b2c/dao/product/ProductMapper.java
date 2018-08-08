@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.Product;
+import cn.b2b2c.pojo.UserProductEvaluate;
 
 public interface ProductMapper {
 	
@@ -93,4 +94,11 @@ public interface ProductMapper {
 	public Product	selectComm(@Param("uid")Integer uid,@Param("pid")Integer pid);
 	
 	public int getcommodityCount(@Param("uid")Integer uid);
+	
+	/**
+	 * 查询全部评论
+	 * @param user
+	 * @return
+	 */
+	public List<UserProductEvaluate> getEvaluateAll(@Param("pid")Integer pid);
 }

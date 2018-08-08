@@ -1219,15 +1219,11 @@ reg_package();
 								<br><br>
 							</ul>
 						<ul id="evaluate">
+						<c:forEach items="${evaluates}" var="el">
 						<li><img src="${ctx}/statics/images/b105.gif"></li><br><br>
-						<li>晨******行 </li><br>
-						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li><br><br>
-						<li><img src="${ctx}/statics/images/b56.gif"></li><br><br>
-						<li>jk*******e</li><br>
-						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li><br><br>
-						<li><img src="${ctx}/statics/images/b61.gif"></li><br><br>
-						<li>bo******o</li><br>
-						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li>
+						<li>${el.evaluateName } </li><br>
+						<li>${el.uPEName }</li><br><br>
+						</c:forEach>
 						</ul>
 						</div>
 						<div class="my-comment-list" id="ECS_MYCOMMENTS"></div>

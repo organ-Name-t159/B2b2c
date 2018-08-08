@@ -123,8 +123,10 @@ $(function(){
                   	<td align="center" class="after-service baobei no-border-right order_goods_info" valign="middle">
                     <c:forEach items="${ol.value}" var="os">
                     <c:if test="${os.statusName eq '已付款'}">
-                    	<a href="${ctx}/order/userEvaluate.view?pId=${os.productId}&oId=${os.id}">我要评价</a></br>                   	
+                    	<a href="${ctx}/order/userEvaluate.view?pId=${os.productId}&oId=${os.id}">我要评价</a></br></br></br>                	
                     </c:if>
+                    </c:forEach>
+                    <c:forEach items="${ol.value}" var="os" end="0">
                      <c:if test="${os.statusName eq '未付款'}">
                     	<a href="javascript:void(0)">去支付</a></br>
                     </c:if>                    

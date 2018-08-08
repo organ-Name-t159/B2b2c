@@ -3,6 +3,7 @@ package cn.b2b2c.service.user;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.User;
 import cn.b2b2c.pojo.UserAddress;
@@ -154,5 +155,4 @@ public interface UserService {
 	 * @return
 	 */
 	public int updatemodify(Integer userid,String userName,Date birthday,Integer sex);
-
 }

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 
 import cn.b2b2c.pojo.Product;
+import cn.b2b2c.pojo.UserProductEvaluate;
 import cn.b2b2c.tools.ShoppingCart;
 
 
@@ -124,4 +125,10 @@ public interface ProductService {
 	public Product	selectComm(Integer uid,Integer pid);
 	
 	public int getcommodityCount(Integer uid);
+	/**
+	 * 查询全部评论
+	 * @param user
+	 * @return
+	 */
+	public List<UserProductEvaluate> getEvaluateAll(Integer pid);
 }
