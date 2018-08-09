@@ -12,7 +12,14 @@ public class UserProductEvaluate implements Serializable {
 	private Date evaluateTime;//评价时间
 	private String tempEvaluateTime;//临时转换时间字段
 	private String evaluateName;//临时评价人名称
+	private String headPortrait;//头像
 	
+	public String getHeadPortrait() {
+		return headPortrait;
+	}
+	public void setHeadPortrait(String headPortrait) {
+		this.headPortrait = headPortrait;
+	}
 	public String getTempEvaluateTime() {
 		return tempEvaluateTime;
 	}

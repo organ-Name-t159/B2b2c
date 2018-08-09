@@ -104,7 +104,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from user_commodity c where c.userId=#{uid}
 	</select>
 	<select id="getEvaluateAll" resultType="UserProductEvaluate">
-		SELECT upe.*, u.userName AS evaluateName FROM `user_product_evaluate` upe
+		SELECT upe.*, u.userName AS evaluateName,u.`headPortrait` AS headPortrait FROM `user_product_evaluate` upe
 		JOIN USER u ON u.id=upe.userId
 		WHERE productId=#{pid}
 	</select>

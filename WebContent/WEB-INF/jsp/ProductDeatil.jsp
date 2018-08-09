@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fm" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -1211,7 +1211,7 @@ reg_package();
 						</div>
 						<div class="my-comment-tab">
 							<ul>
-								<li id="mct_0" onClick="ShowMyComments(125,0,1)" class="cur">全部评价<span>(3)</span></li>
+								<li id="mct_0" onClick="ShowMyComments(125,0,1)" class="cur">全部评价<span>(${evNumber})</span></li>
 								<li id="mct_1" onClick="ShowMyComments(125,1,1)">好评<span>(0)</span></li>
 								<li id="mct_2" onClick="ShowMyComments(125,2,1)">中评<span>(0)</span></li>
 								<li id="mct_3" onClick="ShowMyComments(125,3,1)">差评<span>(0)</span></li>
@@ -1232,14 +1232,16 @@ reg_package();
 						<dl class="commente-info clearfix">
 								<dt style="border-right:solid #d0e4c2 1px; width: 110px;">
 									<div >
-										<img src="themes/wrzcnet_jdcom/images/people.gif" height="80"
+										<img src="${ctx}/statics/images/${el.headPortrait}" height="80"
 											width="80">
 									</div>
 									<p> ${el.evaluateName }</p>
 								</dt>
 								<dd >
 									<div class="rank68">
-										<span class="stars stars4"></span> <span class="add-time fr">2015-12-04</span>
+										<span class="stars stars4"></span> <span class="add-time fr">
+										<fm:formatDate var="t" value="${el.evaluateTime }" type="Date" pattern="yyyy-MM-dd HH:mm:ss"/>
+										${t} </span>
 									</div>
 									<table width="100%" border="0" cellspacing="1" cellpadding="0">
 										<tbody>

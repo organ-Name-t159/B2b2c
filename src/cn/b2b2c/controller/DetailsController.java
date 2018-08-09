@@ -32,6 +32,7 @@ public class DetailsController {
         Product product = productService.getProduct(id);
         List<UserProductEvaluate> evaluates=productService.getEvaluateAll(id);
         
+        request.setAttribute("evNumber", evaluates.size());
         request.setAttribute("evaluates", evaluates);
         request.setAttribute("product", product);
         return "ProductDeatil";
