@@ -18,6 +18,7 @@
 
 <script type="text/javascript" src="${ctx}/stiatics/js/global.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/statics/js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/messages_zh.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/jquery.json.js"></script>

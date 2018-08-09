@@ -9,6 +9,14 @@ public class OrderDetail implements Serializable {
 	private Integer productId;
 	private Integer quantity;
 	private float cost;
+	private Integer evaluateStaticId;
+	
+	public Integer getEvaluateStaticId() {
+		return evaluateStaticId;
+	}
+	public void setEvaluateStaticId(Integer evaluateStaticId) {
+		this.evaluateStaticId = evaluateStaticId;
+	}
 	public Integer getId() {
 		return id;
 	}

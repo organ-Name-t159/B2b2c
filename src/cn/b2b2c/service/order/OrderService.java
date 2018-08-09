@@ -4,12 +4,21 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 
 import cn.b2b2c.pojo.DistributionWay;
 import cn.b2b2c.pojo.Order;
 
 public interface OrderService {
+	
+	/**
+	 * 修改评价状态
+	 * @param orderId
+	 * @param productId
+	 * @return
+	 */
+	public int updateOrderDetail(Integer orderId,Integer productId);
+	
+	
 	
 	/**
 	 * 统计数据

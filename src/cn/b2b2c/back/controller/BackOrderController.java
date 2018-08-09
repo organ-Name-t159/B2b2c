@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.Order;
 import cn.b2b2c.service.order.OrderService;
@@ -61,6 +64,19 @@ public class BackOrderController {
 		return "back/order-add";
 	}
 	
+	@RequestMapping(value="/orderEdit.view")
+	public String orderEdit(HttpServletRequest request) throws Exception {
+		String serialNumber=request.getParameter("name");
+		List<Order> orders=orderService.getOrderById(null,serialNumber);
+		
+		request.setAttribute("orders", orders);
+		return "back/order-edit";
+	}
+ @RequestMapping(value="/update.view")
+ @ResponseBody
+ public Object updateView(HttpServletRequest request) {
+	 String deliveryStatus=request.getParameter("deliveryStatus");
 	
-
+	 return   "";
+ }
 }

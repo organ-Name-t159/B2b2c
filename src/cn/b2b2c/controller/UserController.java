@@ -101,6 +101,7 @@ public class UserController {
 	@ResponseBody
 	public Object gainEmail(HttpServletRequest request,HttpSession session) throws Exception {		
 		String userEmail=request.getParameter("email");
+		System.out.println(userEmail);
 		EmailSenderUtil esu=new EmailSenderUtil();
 		String subjectEmail=Integer.toString(esu.getRandom());		
 		//请根据实际 accesskey 和 secretkey 进行开发，以下只作为演示 sdk 使用

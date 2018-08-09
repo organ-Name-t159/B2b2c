@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fm" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -1211,27 +1211,55 @@ reg_package();
 						</div>
 						<div class="my-comment-tab">
 							<ul>
-								<li id="mct_0" onClick="ShowMyComments(125,0,1)" class="cur">全部评价<span>(3)</span></li>
+								<li id="mct_0" onClick="ShowMyComments(125,0,1)" class="cur">全部评价<span>(${evNumber})</span></li>
 								<li id="mct_1" onClick="ShowMyComments(125,1,1)">好评<span>(0)</span></li>
 								<li id="mct_2" onClick="ShowMyComments(125,2,1)">中评<span>(0)</span></li>
 								<li id="mct_3" onClick="ShowMyComments(125,3,1)">差评<span>(0)</span></li>
 								<li id="mct_4" onClick="ShowMyComments(125,4,1)">用户晒单<span>(0)</span></li>
 								<br><br>
 							</ul>
-						<ul id="evaluate">
+						<%-- <ul id="evaluate">
+						<c:forEach items="${evaluates}" var="el">
 						<li><img src="${ctx}/statics/images/b105.gif"></li><br><br>
-						<li>晨******行 </li><br>
-						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li><br><br>
-						<li><img src="${ctx}/statics/images/b56.gif"></li><br><br>
-						<li>jk*******e</li><br>
-						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li><br><br>
-						<li><img src="${ctx}/statics/images/b61.gif"></li><br><br>
-						<li>bo******o</li><br>
-						<li>宝贝收到了，非常喜欢，质量很好，卖家热情，物流给力，非常愉快的一次购物，好评！</li>
-						</ul>
+						<li>${el.evaluateName } </li><br>
+						<li>${el.uPEName }</li><br><br>
+						</c:forEach>
+						</ul> --%>
+						<div class="my-comment-list" id="ECS_MYCOMMENTS">
+						
+						<c:forEach items="${evaluates}" var="el">
+						
+						<dl class="commente-info clearfix">
+								<dt style="border-right:solid #d0e4c2 1px; width: 110px;">
+									<div >
+										<img src="${ctx}/statics/images/${el.headPortrait}" height="80"
+											width="80">
+									</div>
+									<p> ${el.evaluateName }</p>
+								</dt>
+								<dd >
+									<div class="rank68">
+										<span class="stars stars4"></span> <span class="add-time fr">
+										<fm:formatDate var="t" value="${el.evaluateTime }" type="Date" pattern="yyyy-MM-dd HH:mm:ss"/>
+										${t} </span>
+									</div>
+									<table width="100%" border="0" cellspacing="1" cellpadding="0">
+										<tbody>
+											<tr>
+												<th width="64">心得：</th>
+												<td>${el.uPEName }</td>
+											</tr>
+										</tbody>
+									</table>
+								</dd>
+								</dl> 	
+
+								</c:forEach>
+								
 						</div>
-						<div class="my-comment-list" id="ECS_MYCOMMENTS"></div>
-						<script language="javascript">
+						</div>
+						<!-- <div class="my-comment-list" id="ECS_MYCOMMENTS"></div> -->
+						<!-- <script language="javascript">
 				function ShowMyComments(goods_id, type, page)
 				{
 					for (var i = 0; i <= 4 ; i ++)
@@ -1269,10 +1297,12 @@ reg_package();
 					}
 				}
 				document.getElementById('mct_0').click();
-</script>
+</script> -->
 					</div>
 					<div class="mc" id="os_advantage">
 						<div class="blank20">
+
+								
 						</div>
 						<div class="my-comment-pre">
 							<div class="tab-title">

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import cn.b2b2c.dao.product.ProductMapper;
 import cn.b2b2c.pojo.Product;
+import cn.b2b2c.pojo.UserProductEvaluate;
 import cn.b2b2c.tools.EmptyUtils;
 import cn.b2b2c.tools.ShoppingCart;
 import cn.b2b2c.tools.ShoppingCartItem;
@@ -151,5 +152,13 @@ public class ProductServiceImpl implements ProductService {
 	public int getcommodityCount(Integer uid) {
 		// TODO Auto-generated method stub
 		return productMapper.getcommodityCount(uid);
+	}
+
+
+
+	@Override
+	public List<UserProductEvaluate> getEvaluateAll(Integer pid) {
+		// TODO Auto-generated method stub
+		return productMapper.getEvaluateAll(pid);
 	}
 }

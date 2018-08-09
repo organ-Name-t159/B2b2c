@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.b2b2c.pojo.Product;
 import cn.b2b2c.pojo.User;
+import cn.b2b2c.pojo.UserProductEvaluate;
 import cn.b2b2c.service.product.ProductService;
 import cn.b2b2c.service.user.UserService;
 import cn.b2b2c.tools.EmptyUtils;
@@ -29,6 +30,10 @@ public class DetailsController {
 	public String ProductDeatil(HttpServletRequest request) throws Exception{
 		Integer id = Integer.parseInt(request.getParameter("id"));
         Product product = productService.getProduct(id);
+        List<UserProductEvaluate> evaluates=productService.getEvaluateAll(id);
+        
+        request.setAttribute("evNumber", evaluates.size());
+        request.setAttribute("evaluates", evaluates);
         request.setAttribute("product", product);
         return "ProductDeatil";
     }

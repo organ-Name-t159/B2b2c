@@ -57,8 +57,9 @@
 							<div class="item">
 								<label class="con_un">请输入邮箱验证码：</label> <input name="email_code"
 									id="email_code" type="text" value="" tabindex="2" placeholder="请输入邮箱验证码"
-									class="text text_te"> 
-									<input type="button" value="获取邮箱验证码" class="code" onclick="gainEmail()">									
+									class="text text_te">
+									 <!-- <a href="javascript:void(0)" onclick="gainEmail()">获取邮箱验证码</a> -->
+									<input type="button" value="获取邮箱验证码" class="code" onclick="gainEmail()">								
 							</div>
 							<!-- <div class="item">
 								<label class="con_un">请输入验证码：</label> <input type="text"
@@ -90,14 +91,13 @@
 var emailTo="";
 	function gainEmail() {
 		var email=$("input[name='email']").val();
-		var emailPattern=/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
-		if(emailPattern.test(email)){			
-			return true;
-		}else{
-			alert("你输出的邮箱格式不正确")
-			return false;
-		}
 		
+		var emailPattern=/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
+		if(!emailPattern.test(email)){	
+			alert("你输出的邮箱格式不正确")
+			return false;			
+		}
+		alert(email);
 		$.ajax({
 			url:contextPath+"/user/gainEmail.html",
 			method:"post",

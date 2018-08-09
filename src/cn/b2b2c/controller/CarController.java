@@ -83,7 +83,7 @@ public class CarController {
 	
 	
 	@RequestMapping(value="/jieKou.html")
-	public void jieKou(HttpServletRequest request,HttpServletResponse response)throws Exception {
+	public void jieKou(HttpServletRequest request,HttpServletResponse response,HttpSession session)throws Exception {
 		
 		
 		//获得初始化的AlipayClient
@@ -96,8 +96,10 @@ public class CarController {
 
         //商户订单号，商户网站订单系统中唯一订单号，必填
         String out_trade_no = request.getParameter("WIDout_trade_no");
+        session.setAttribute("outTradeNo", out_trade_no);
         //付款金额，必填
         String total_amount = request.getParameter("WIDtotal_amount");
+        session.setAttribute("totalAmount", total_amount);
         //订单名称，必填
         String subject = request.getParameter("WIDsubject");
         //商品描述，可空
@@ -125,14 +127,32 @@ public class CarController {
 		String number=(String)session.getAttribute("serialNumber");
 		String pId=(String)session.getAttribute("paymentWayId");
 		String integral=(String) session.getAttribute("monetAll");
+		
+		String otn=(String)session.getAttribute("outTradeNo");
+		System.out.println(otn);
+		
+		String ta=(String) session.getAttribute("totalAmount");
+		String tempNUmber="";
+		String tempMoney="";
+		if(number==null) {
+			tempNUmber=otn;
+		}else {
+			tempNUmber=number;
+		}
+		if(integral==null) {
+			tempMoney=ta;
+		}else {
+			tempMoney=integral;
+		}
+		Integer tempMoneyAll=(int) Float.parseFloat(tempMoney);
 		//System.out.println(number);
-		if(orderService.updateOrder(number)==1) {
+		if(orderService.updateOrder(tempNUmber)==1) {
 			//productService.updateNumber(stock, id);
 			UserIntegral uIntegral=userIntegralService.queryUserIntegral(user.getId());
 			if(uIntegral==null) {
-				userIntegralService.addUserIntegral(user.getId(), Integer.parseInt(integral));
+				userIntegralService.addUserIntegral(user.getId(), tempMoneyAll);
 			}else {
-				userIntegralService.updateUserIntegral(user.getId(), uIntegral.getIntegral()+Integer.parseInt(integral));
+				userIntegralService.updateUserIntegral(user.getId(), uIntegral.getIntegral()+tempMoneyAll);
 			}
 			
 			System.out.println("改变状态成功");
