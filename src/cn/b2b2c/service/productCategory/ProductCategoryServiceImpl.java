@@ -87,7 +87,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		}
 		productCategoryList=productCategoryMapper.queryProductCategorylist(params);	
 		
-		if(number==10) {
+		//if(number==10) {
 			//redis缓存开始
 			
 			String board="proList";
@@ -101,7 +101,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		    number++;
 		    
 			//redis缓存结束
-		}
+		//}
 		//System.out.println("size: " + productCategoryList.size());
 		return productCategoryList;
 	}
